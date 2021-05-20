@@ -1,0 +1,20 @@
+<div class="box">
+  <h2 class="title">New Task</h2>
+
+  <form action="/executeCode" method="POST">
+    {{ csrfField() }}
+
+    <div class="field has-addons">
+      <div class="control is-expanded">
+        <input class="input" type="text" name="title" value="{{ old('title', '') }}" placeholder="Task title">
+      </div>
+      <div class="control">
+        <button type="submit" class="button is-primary">
+            Add Task
+        </button>
+      </div>
+    </div>
+
+    {{ elIf('<p class="help is-danger">$self</p>', getErrorFor('title'), hasErrorFor('title')) }}
+  </form>
+</div>
