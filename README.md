@@ -1,9 +1,12 @@
-<<<<<<< f370e36e9f4cc92339a98d3d692dce817ab2d1a2
 # DaVis
 =======
-<<<<<<< f370e36e9f4cc92339a98d3d692dce817ab2d1a2
-# DaVis
-=======
+To install Adonisjs:
+Check https://docs.adonisjs.com/guides/installation
+
+How to run:
+cd to "DaVis" directory, then run the following command:
+adonis serve --dev
+
 # Adonis fullstack application
 
 This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
@@ -35,5 +38,3 @@ Run the following command to run startup migrations.
 ```js
 adonis migration:run
 ```
->>>>>>> Initial setup for DaVis
->>>>>>> Initial setup for DaVis
