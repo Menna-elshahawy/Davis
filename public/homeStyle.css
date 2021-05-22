@@ -1,0 +1,123 @@
+body{
+    background-color: #f1f3f3;
+}
+
+h1 {
+    font-family:cursive;
+    font-weight: bold;
+    color:rgb(71, 153, 235);
+    text-align: center;
+    font-size: 45px;
+    
+    margin-top: 30px;
+    margin-bottom: -5px;
+    letter-spacing: 2px;
+}
+
+h2{
+    display: block;
+    font-family:cursive; 
+    font-weight: lighter;
+    color:black;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 0px;
+    font-style: italic;
+}
+
+.container{
+    box-sizing: border-box;
+  width: 70%;
+    height: 60%;
+  margin-top:100px;
+    margin-left: 190px;
+    margin-right: 90px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px;
+  border: 10px solid rgb(71, 153, 235);
+   
+   
+}
+
+.stack{
+    width: 150;
+    height: 150;
+    display: inline-block;
+    position: fixed;
+    top: 230;
+    left: 230; 
+    background: white;
+}
+
+.st{
+    font-family: cursive;
+    font-size: 20;
+    position: fixed;
+    top: 360;
+    left: 275;
+    display: none;
+    color: #009973;
+    font-weight: bold;
+}
+
+.queue{
+    width: 150;
+    height: 150;
+    display: inline-block;
+    position: fixed;
+    top: 230;
+    left: 400; 
+}
+
+.q{
+    font-family: cursive;
+    font-size: 20;
+    position: fixed;
+    top: 330;
+    left: 440;
+    display: none;
+    color: #ff7733;
+    font-weight: bold;
+}
+
+.pqueue{
+     width: 150;
+    height: 150;
+    display: inline-block;
+    position: fixed;
+    top: 230;
+    left: 600; 
+}
+
+.pq{
+    font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    top: 330;
+    left: 615;
+    display: none;
+    color: #80bfff;
+    font-weight: bold;
+}
+
+.lList{
+    width: 150;
+    height: 150;
+    display: inline-block;
+    position: fixed;
+    top: 230;
+    left: 790; 
+}
+
+.l{
+       font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    top: 330;
+    left: 800;
+    display: inline-block;
+    color: #80bfff;
+    font-weight: bold;
+}
+

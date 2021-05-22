@@ -1,0 +1,582 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            <script src="lListScript.js"></script>
+            </head>
+            <link rel="stylesheet" href="lListStyle.css">
+                  
+            <body>
+                
+                 <title> Linked List </title>
+                
+                <h1>LINKED LIST</h1>
+        
+           
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button class="button" onclick="create()">Create</button>
+                        <button class="button" onclick="insert()">Insert</button>             
+                        <button class="button" onclick="remove()">Remove</button>
+                        <button class="button" onclick="search()" >Search</button>
+                    </div>
+                    
+                    <!--    Create       -->
+                    
+                    <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="8"> 
+                            <div class="popSz" id="popSz"> Enter the length of the linked list </div>
+                            <button class="go" onclick="createRnd()">Go</button> </div></div>
+                    
+                    <div class="createDef" id="createDef" > <button class="defBtn" onclick="showAr()">User Defined</button> 
+                        <div class="showDef" id="showDef"> <input class="arr" type="text" id="arr" size="5" onmouseover="popUp()" onmouseout="dis()" placeholder="1,2,3,4,5"> 
+                            <button class="go" onclick="createDef()">Go</button>  <div class="popUp" id="popUp"> Enter the elements separated by commas </div> </div> </div>
+
+                    <!--    Insert       -->
+                    
+                    <div class="insH" id="insH"> <button class="hBtn" onclick="showH()"> Insert at head</button>
+                         <div class="showH"  id="showH"> <input class="num2" type="number" id="inH" min="1" max="9"> 
+                            <button class="go2" onclick="insertHead()">Go</button> </div> </div>
+                    
+                    <div class="insT" id="insT"> <button class="tBtn" onclick="showT()"> Insert at tail</button>
+                         <div class="showT"  id="showT"> <input class="num2" type="number" id="inT" min="1" max="9"> 
+                            <button class="go2" onclick="insertTail()">Go</button> </div> </div>
+                    
+                    <div class="insI" id="insI"> <button class="iBtn" onclick="showI()"> Insert at index</button>
+                         <div class="showI"  id="showI"> <input class="num2" type="number" id="inI" min="1" max="9"> <input class="num2" type="number" id="indx" onmouseover="popIn()" onmouseout="disIn()" min="0" max="7" > <div class="popIn" id="popIn"> Enter the index of the element </div> <button class="go2" onclick="insertIndex()">Go</button> </div> </div>
+                       
+                    
+                    <!--    Remove       -->
+                    
+                      <div class="remH" id="remH"> <button class="hBtn" onclick="removeHead()"> Remove head</button></div>
+                    
+                    <div class="remT" id="remT"> <button class="tBtn" onclick="removeTail()"> Remove tail</button> </div>
+                    
+                    <div class="remI" id="remI"> <button class="iBtn" onclick="showRI()"> Remove at index</button>
+                         <div class="showRI"  id="showRI"> <input class="num2" type="number" id="Rindx" onmouseover="popRIn()" onmouseout="disRIn()" min="0" max="7" > <div class="popRIn" id="popRIn"> Enter the index of the element </div> <button class="go2" onclick="removeIndex()">Go</button> </div> </div>
+                            
+                    <!--    Search     -->
+                    
+                     <div class="sAr" id="sAr"> <input class="num" type="number" id="val" size="3" min="1" max="9"> <button class="go" onclick="searchV()">Go</button> </div>
+                    
+                </div>
+                    
+                    
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+              
+               
+                <div id="list">
+                    <span id="a1" class="a1">&#8594;</span> <span id="a2" class="a2">&#8594;</span> <span id="a3" class="a3">&#8594;</span> <span id="a4" class="a4">&#8594;</span><span id="a5" class="a5">&#8594;</span><span id="a6" class="a6">&#8594;</span><span id="a7" class="a7">&#8594;</span>
+
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div><div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div> <div id="l7" class="l7"> 3</div> <div id="l8" class="l8"> 3</div>
+               </div>
+
+ 
+            <script>
+            
+            var list=[];
+
+            function insert(){
+                
+                document.getElementById("createRnd").style.display='none';
+                document.getElementById("createDef").style.display='none';
+                document.getElementById("insH").style.display='inline-block';
+                document.getElementById("insT").style.display='inline-block';
+                document.getElementById("insI").style.display='inline-block';
+                document.getElementById("remH").style.display='none';
+                document.getElementById("remT").style.display='none';
+                document.getElementById("remI").style.display='none';  
+                document.getElementById("sAr").style.display='none';
+                document.getElementById("showH").style.display='none';
+                document.getElementById("showT").style.display='none';
+                document.getElementById("showI").style.display='none';   
+            }
+
+            function insertHead(){
+                document.getElementById("insH").style.display='none';
+                document.getElementById("insT").style.display='none';
+                document.getElementById("insI").style.display='none';
+                document.getElementById("showH").style.display='none';
+                
+                var v = document.getElementById("inH").value;
+                
+                if(v==""){
+                    document.getElementById("notify").innerHTML="You must enter a value";
+                }
+                
+                else{
+                    document.getElementById("notify").innerHTML="";
+                    
+                    if(list.length==0){
+                        list.push(v);
+                        document.getElementById("action").innerHTML="You inserted "+v+" at the head";
+                        display();
+                    }
+                    else if(list.length==8){
+                        document.getElementById("notify").innerHTML="Maximum length is 8";
+                    }
+                    else{
+                        if(exist(v)){
+                            document.getElementById("notify").innerHTML="No duplicate values allowed";
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML="";
+                            list.unshift(v);
+                            document.getElementById("action").innerHTML="You inserted "+v+" at the head";
+                            display();
+                        }
+                    }    
+                }
+                document.getElementById("inH").value="";
+            }
+
+            function insertTail(){
+                document.getElementById("insH").style.display='none';
+                document.getElementById("insT").style.display='none';
+                document.getElementById("insI").style.display='none';   
+                document.getElementById("showT").style.display='none';
+                
+                var v = document.getElementById("inT").value;
+                
+                if(v==""){
+                    document.getElementById("notify").innerHTML="You must enter a value";
+                }
+                
+                else{
+                document.getElementById("notify").innerHTML="";
+                    
+                    if(list.length==0){
+                        list.push(v);
+                        document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
+                        display();
+                    }
+                    
+                    else if(list.length==8){
+                        document.getElementById("notify").innerHTML="Maximum length is 8";
+                    }
+                    else{
+                        if(exist(v)){
+                            document.getElementById("notify").innerHTML="No duplicate values allowed";
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML="";
+                            list.push(v);
+                            document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
+                            display();
+                        }    
+                    }
+                    document.getElementById("inT").value="";  
+                }    
+            }
+
+            function insertIndex(){
+                document.getElementById("insH").style.display='none';
+                document.getElementById("insT").style.display='none';
+                document.getElementById("insI").style.display='none';  
+                
+                
+                var v=document.getElementById("inI").value;
+                var p=document.getElementById("indx").value;
+
+                
+                if(v=="" || p==""){
+                    document.getElementById("notify").innerHTML="You must enter a value and its index "
+                }
+                
+                else{
+                    
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    if(list.length==8){
+                        document.getElementById("notify").innerHTML= "Maximum size is 8";
+                    }
+                    
+                    else if(p>=list.length){
+                        var t=list.length-1;
+                        document.getElementById("notify").innerHTML= "Please enter a valid index, between 0 and "+t;
+                    }
+                    
+                    else{
+                        if(exist(v)){
+                            document.getElementById("notify").innerHTML="No duplicate values allowed";
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML="";
+                            for (i = list.length-1; i>=p ; i--) {
+                                list[i+1] = list[i];
+                            }
+
+                            list[p]=v;
+                            display();
+
+                            document.getElementById("action").innerHTML="You inserted "+v+" at index "+p;
+                        }
+                    }
+                }
+                
+                
+                    document.getElementById("inI").value='';
+                    document.getElementById("indx").value='';
+                        
+                
+            }
+
+            function remove(){
+                document.getElementById("createRnd").style.display='none';
+                document.getElementById("createDef").style.display='none';
+                document.getElementById("insH").style.display='none';
+                document.getElementById("insT").style.display='none';
+                document.getElementById("insI").style.display='none';
+                document.getElementById("remH").style.display='inline-block';
+                document.getElementById("remT").style.display='inline-block';
+                document.getElementById("remI").style.display='inline-block';
+                document.getElementById("showRI").style.display='none';   
+                document.getElementById("sAr").style.display='none';
+                
+            }
+
+            function removeHead(){
+
+                document.getElementById("showRI").style.display='none'; 
+                document.getElementById("remH").style.display='none';
+                document.getElementById("remT").style.display='none';
+                document.getElementById("remI").style.display='none';
+                document.getElementById("notify").innerHTML= "";
+                
+                if(list.length==0){
+                        document.getElementById("notify").innerHTML= "The list is empty!";
+                    }
+                else{
+                    document.getElementById("notify").innerHTML= "";
+                    var v=list.shift();
+                    display();
+
+                    document.getElementById("action").innerHTML="You removed the head "+ v;
+                }
+            }
+
+            function removeTail(){
+
+                document.getElementById("showRI").style.display='none';
+                document.getElementById("remH").style.display='none';
+                document.getElementById("remT").style.display='none';
+                document.getElementById("remI").style.display='none';
+                document.getElementById("notify").innerHTML= "";
+                
+                if(list.length==0){
+                        document.getElementById("notify").innerHTML= "The list is empty!";
+                    }
+                else{
+                    document.getElementById("notify").innerHTML= "";
+                    var v=list.pop();
+                    display();
+
+                    document.getElementById("action").innerHTML="You removed the tail "+ v;
+                }
+            }
+
+            function removeIndex(){
+                document.getElementById("showRI").style.display='none';
+                document.getElementById("remH").style.display='none';
+                document.getElementById("remT").style.display='none';
+                document.getElementById("remI").style.display='none';
+                document.getElementById("notify").innerHTML= "";
+                
+                var p=document.getElementById("Rindx").value;
+
+                
+                if(p==""){
+                    document.getElementById("notify").innerHTML="You must enter an index "
+                }
+                
+                else{
+                    
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    if(list.length==0){
+                        document.getElementById("notify").innerHTML= "The list is empty!";
+                    }
+                    
+                    else if(p>=list.length){
+                        var t=list.length-1;
+                        document.getElementById("notify").innerHTML= "Please enter a valid index, between 0 and "+t;
+                    }
+                    
+                    else{
+                        
+                        var t=list[p];
+                        list2=[];
+                        
+                        for(i=0;i<list.length;i++){
+                            if(i!=p){
+                                list2.push(list[i]);
+                            }
+                        }
+                        
+                        list=list2;
+                        display();
+
+                        document.getElementById("action").innerHTML="You removed "+t+" at index "+p;
+                    }
+                }
+                    
+                    document.getElementById("Rindx").value='';
+            }
+
+            function search(){
+                document.getElementById("createRnd").style.display='none';
+                document.getElementById("createDef").style.display='none';
+                document.getElementById("insH").style.display='none';
+                document.getElementById("insT").style.display='none';
+                document.getElementById("insI").style.display='none';
+                document.getElementById("remH").style.display='none';
+                document.getElementById("remT").style.display='none';
+                document.getElementById("remI").style.display='none';
+                document.getElementById("sAr").style.display='inline-block';
+                
+            }
+
+            function searchV(){
+                document.getElementById("sAr").style.display='none';
+                document.getElementById("notify").innerHTML= "";
+                
+                var v=document.getElementById("val").value;
+                
+                if(v==""){    
+                    document.getElementById("notify").innerHTML="You must enter a value ";
+                }
+                    
+                else{
+                    
+                    if(list.length==0){
+                        document.getElementById("notify").innerHTML= "The list is empty!";
+                    }
+                    
+                    else{
+                        document.getElementById("notify").innerHTML="";
+                        var f="f";
+                        var p="";
+
+                        for(i=0;i<list.length;i++){
+                            if(list[i]==v){
+                                f="t";
+                                p=i;
+                                break;
+                            }
+                        }
+                        if(f=="t"){
+                            document.getElementById("action").innerHTML="Found value "+v+" at index "+p;
+                        }
+                        else{
+                            document.getElementById("action").innerHTML="Value "+v+" is not found in the list";
+                        }
+                    }
+
+                }
+                document.getElementById("val").value='';
+                
+            }
+
+            function create(){
+                document.getElementById("createRnd").style.display='inline-block';
+                document.getElementById("createDef").style.display='inline-block';
+                document.getElementById("showRnd").style.display='none';
+                document.getElementById("showDef").style.display='none';
+                document.getElementById("action").innerHTML="";
+                document.getElementById("insH").style.display='none';
+                document.getElementById("insT").style.display='none';
+                document.getElementById("insI").style.display='none';
+                document.getElementById("remH").style.display='none';
+                document.getElementById("remT").style.display='none';
+                document.getElementById("remI").style.display='none';
+                document.getElementById("sAr").style.display='none';
+
+            }
+
+            function createRnd(){
+                document.getElementById("createRnd").style.display='none';
+                document.getElementById("createDef").style.display='none';
+                document.getElementById("showRnd").style.display='none';
+                document.getElementById("notify").innerHTML= "";
+                
+                var l=document.getElementById("size").value;
+
+                if(l>8){
+                    document.getElementById("notify").innerHTML= "Maximum size is 8";
+                    document.getElementById("size").value="";
+
+                }
+                else{
+                    document.getElementById("notify").innerHTML= "";
+                    document.getElementById("size").value="";
+                    
+                    list=[];
+                    for(i=0;i<l;i++){
+                        
+                        do{
+                            var x = Math.floor((Math.random() * 9) + 1);
+                        }while(exist(x));
+                        
+                        list[i]=x;    
+                    }
+
+                    this.display();
+                }
+                
+            
+            }
+
+            function createDef(){
+                document.getElementById("createRnd").style.display='none';
+                document.getElementById("createDef").style.display='none';
+                document.getElementById("showDef").style.display='none';
+                document.getElementById("notify").innerHTML= "";
+                
+                var ar=document.getElementById("arr").value;
+                document.getElementById("arr").value="";
+                
+                if(ar==""){
+                document.getElementById("arr").value="";   
+                }
+                
+                else{
+                    var list2=[];
+
+                    list2=ar.split(',');    
+
+                    if(list2.length>8){
+                        document.getElementById("notify").innerHTML= "Maximum size is 8";
+                        document.getElementById("arr").value="";
+
+                    }
+                    else{
+                        list=[];
+                        var f='f';
+                        
+                        for(i=0;i<list2.length;i++){
+                            if(exist(list2[i])){
+                                f='t';
+                                break;
+                            }
+                            else{
+                                list[i]=list2[i];
+                            }
+                        }
+                        
+                        if(f=='f'){
+                            this.display();
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "No duplicate values allowed";
+                            document.getElementById("arr").value="";
+                        }
+                } 
+                }
+            }
+
+            function display(){
+                
+            
+                for(i=0;i<list.length;i++){
+                    if(i>0){
+                        var t2='a'.concat(i);
+                        document.getElementById(t2).style.display='inline-block';
+                    }
+                        
+                        var t1='l'.concat(i+1);
+                        document.getElementById(t1).style.display='inline-block';
+                        document.getElementById(t1).innerHTML=list[i];    
+                    
+                }
+                
+                for(j=list.length;j<8;j++){
+                    var t1='l'.concat(j+1);
+                    document.getElementById(t1).style.display='none';
+                    
+                    if(j>0){
+                        var t2='a'.concat(j);
+                        document.getElementById(t2).style.display='none';
+                    }
+                }
+            }
+
+            function showSz(){
+                document.getElementById("showRnd").style.display='inline-block';
+                document.getElementById("showDef").style.display='none';
+            }
+
+            function showAr(){
+                    document.getElementById("showDef").style.display='inline-block';
+                    document.getElementById("showRnd").style.display='none';
+            }
+
+            function popUp(){
+                document.getElementById("popUp").style.display='inline-block';
+            }
+
+            function dis(){
+                document.getElementById("popUp").style.display='none';   
+            }
+
+            function popUpSz(){
+                document.getElementById("popSz").style.display='inline-block';
+            }
+
+            function disSz(){
+                document.getElementById("popSz").style.display='none';   
+            }
+
+            function showH(){
+                document.getElementById("showH").style.display='inline-block';
+                document.getElementById("showT").style.display='none';
+                document.getElementById("showI").style.display='none';   
+            }
+
+            function showT(){
+                document.getElementById("showH").style.display='none';
+                document.getElementById("showT").style.display='inline-block';
+                document.getElementById("showI").style.display='none';   
+            }
+
+            function showI(){
+                document.getElementById("showH").style.display='none';
+                document.getElementById("showT").style.display='none';
+                document.getElementById("showI").style.display='inline-block';   
+            }
+
+            function popIn(){
+                document.getElementById("popIn").style.display='inline-block';
+            }
+
+            function disIn(){
+                document.getElementById("popIn").style.display='none';   
+            }
+
+            function showRI(){
+                document.getElementById("showRI").style.display='inline-block';   
+            }
+
+            function popRIn(){
+                document.getElementById("popRIn").style.display='inline-block';
+            }
+
+            function disRIn(){
+                document.getElementById("popRIn").style.display='none';   
+            }
+
+            function exist(v){
+                for(i=0;i<list.length;i++){
+                    if(v==list[i]){
+                        return true;
+                    }
+                }
+                return false;
+            }
+                
+            </script>
+
+            </body>   
+        
+    </html>

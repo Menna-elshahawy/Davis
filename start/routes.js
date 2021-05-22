@@ -16,6 +16,10 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.on('/').render('execute')
+Route.on('/').render('home')
+Route.on('/stack').render('stack')
+Route.on('/queue').render('queue')
+Route.on('/pqueue').render('pqueue')
+Route.on('/lList').render('lList')
 
 Route.post('/executeCode', 'ExecuteCodeController.executeCode') // controller name and the method

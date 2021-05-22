@@ -1,0 +1,253 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            </head>
+            <link rel="stylesheet" href="stackStyle.css">
+                  
+            <body>
+                
+                <title> Stack </title>
+                
+                <h1> STACK</h1>
+        
+                
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button class="button" onclick="create()">Create</button>
+                        <button class="button" onclick="push()">Push</button>          
+                        
+                        <button class="button" onclick="pop()">Pop</button>
+                        <button class="button" onclick="peek()" >Peek</button>
+                    </div>
+                    
+                    <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="6"> 
+                              <div class="popSz" id="popSz"> Enter the length of the stack </div>
+                            <button class="go" onclick="createRnd()">Go</button> </div></div>
+                    
+                    <div class="createDef" id="createDef" > <button class="defBtn" onclick="showAr()">User Defined</button> 
+                        <div class="showDef" id="showDef"> <input class="arr" type="text" id="arr" size="5" onmouseover="popUp()" onmouseout="dis()" placeholder="1,2,3,4,5"> 
+                            <button class="go" onclick="createDef()">Go</button>  <div class="popUp" id="popUp"> Enter the elements separated by commas </div> </div> </div>
+                    
+                    <div class="pushAr" id="pushAr"> <input class="num" type="number" id="val" size="3" min="1"> <button class="go" onclick="go()">Go</button> </div>
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+               
+
+                      
+                 <script>
+                     
+                    
+                    var stack= [];
+                    var f =true;
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+                    ul.className="ul";
+                    
+                    function push(){
+                        
+                        document.getElementById("pushAr").style.display='inline-block';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("action").innerHTML="";
+                    }
+                    
+                    function go(){
+                        
+                        document.getElementById("pushAr").style.display='none';
+                        
+                        var v =document.getElementById("val").value;
+                        var list=document.getElementById("area");
+                        
+                        if(v ==""){
+                            document.getElementById("notify").innerHTML= "You must enter a value";
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            if(stack.length==6){
+                                document.getElementById("notify").innerHTML= "Maximum size is 6";
+                            }
+                            else{
+                                stack.push(v);
+                                document.getElementById("action").innerHTML="You pushed "+v;            
+                                this.display();
+                            }  
+
+                            
+                        }
+                        document.getElementById("val").value="";
+                    }
+
+                    function pop(){
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        
+                        var list=document.getElementById("area");
+                        var popV=stack.pop();
+                        document.getElementById("notify").innerHTML= "";
+                        
+                        list.appendChild(cont);
+                        cont.innerHTML="";
+                        cont.appendChild(ul);
+                        ul.innerHTML="";
+                        
+                        if(popV==undefined){
+                            document.getElementById("action").innerHTML="The stack is empty!";
+                        }
+                        else{
+                            document.getElementById("action").innerHTML="You popped "+popV;
+                        }
+                        
+                        for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }
+
+                    }
+                            
+                    function peek(){
+                        var list=document.getElementById("area");
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        
+                        document.getElementById("notify").innerHTML= "";
+                        var popV=stack[stack.length-1];
+                        
+                        list.appendChild(cont);
+                        cont.innerHTML="";
+                        cont.appendChild(ul);
+                        ul.innerHTML="";
+                        
+                            if(popV==undefined){
+                            document.getElementById("action").innerHTML="The stack is empty!";
+                        }
+                        else{
+                            document.getElementById("action").innerHTML="You peeked "+popV;
+                        }
+                        
+                        for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }  
+                    }
+
+                    function create(){
+                        document.getElementById("createRnd").style.display='inline-block';
+                        document.getElementById("createDef").style.display='inline-block';
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        document.getElementById("action").innerHTML="";
+                    }
+
+                    function showSz(){
+                        document.getElementById("showRnd").style.display='inline-block';
+                        document.getElementById("showDef").style.display='none';
+                    }
+
+                    function showAr(){
+                            document.getElementById("showDef").style.display='inline-block';
+                            document.getElementById("showRnd").style.display='none';
+                    }
+
+                    function createRnd(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        
+                        var l=document.getElementById("size").value;
+
+                        if(l>6){
+                            document.getElementById("notify").innerHTML= "Maximum size is 6";
+                            document.getElementById("size").value="";
+
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("size").value="";
+                            
+                            stack=[];
+                            for(i=0;i<l;i++){
+                            var x = Math.floor((Math.random() * 10) + 1);
+                            stack[i]=x;    
+                            }
+
+                            this.display();
+                        } 
+                    }
+
+                    function createDef(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        
+                        var ar=document.getElementById("arr").value;
+                        document.getElementById("arr").value="";
+                        
+                        if(ar==""){
+                        document.getElementById("arr").value="";   
+                        }
+                        
+                        else{
+                            stack=[];
+
+                            stack=ar.split(',');    
+
+                            if(stack.length>6){
+                                document.getElementById("notify").innerHTML= "Maximum size is 6";
+                                document.getElementById("arr").value="";
+
+                            }
+                            else{
+                                this.display();
+                                } 
+                            }
+                    }
+
+                    function display(){
+                        
+                        var list=document.getElementById("area");
+                            list.appendChild(cont);
+                            cont.innerHTML="";
+                            cont.appendChild(ul);
+                            ul.innerHTML="";
+                            for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }
+                    }
+
+                    function popUp(){
+                        document.getElementById("popUp").style.display='inline-block';
+                    }
+
+                    function dis(){
+                        document.getElementById("popUp").style.display='none';   
+                    }
+
+                    function popUpSz(){
+                        document.getElementById("popSz").style.display='inline-block';
+                    }
+
+                    function disSz(){
+                        document.getElementById("popSz").style.display='none';   
+                    }
+
+            
+                </script>
+
+            </body>   
+        
+    </html>
