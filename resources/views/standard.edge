@@ -1,26 +1,29 @@
 <DOCTYPE! html>
     <html>
         <head>
+        {{ style('standardStyle') }}
             </head>
-            <link rel="stylesheet" href="homeStyle.css">
             <body>
                 <h1> DAVIS </h1>
                 <h2> A tool for Data Structures and Algorithms Visualization </h2>
                 
+                <a HREF="homePage"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
                 <div class="container">
                     
-                    <a  HREF="stack" ><img src="home/s.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> </a> <p id="st" class="st" > Stack </p>     
+                    <a  HREF="/standard/stack" ><img src="home/s.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> </a> <p id="st" class="st" > Stack </p>     
                     <pre>        </pre>
                     
-                    <a HREF="queue"> <img src="home/q.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()"></a> <p id="q" class="q"> Queue </p>
+                    <a HREF="/standard/queue"> <img src="home/q.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()"></a> <p id="q" class="q"> Queue </p>
                     <pre>        </pre>
                     
-                    <a HREF="pQueue"> <img src="home/pq.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> </a> 
+                    <a HREF="/standard/pQueue"> <img src="home/pq.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> </a> 
                     <p id="pq" class="pq"> Priority Queue </p>
                     <pre>        </pre>
                     
 
-                    <a HREF="lList"> <p class="l" id="l"> Linked List </p> </a>
+                    <a HREF="/standard/lList"> <p class="l" id="l"> Linked List </p> </a>
                     
                     <pre>        </pre>
                     
@@ -68,7 +71,13 @@
                     }
 
                                         
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
 
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
             
             </script>
 

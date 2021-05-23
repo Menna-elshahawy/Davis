@@ -7,9 +7,9 @@ h1 {
     font-weight: bold;
     color:rgb(71, 153, 235);
     text-align: center;
-    font-size: 45px;
+    font-size: 50px;
     
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: -5px;
     letter-spacing: 2px;
 }
@@ -20,7 +20,7 @@ h2{
     font-weight: lighter;
     color:black;
     text-align: center;
-    font-size: 15px;
+    font-size: 18px;
     margin-top: 0px;
     font-style: italic;
 }
@@ -121,3 +121,22 @@ h2{
     font-weight: bold;
 }
 
+.back{
+    position: fixed;
+    top: 55;
+    left: 18;
+    font-size: 18;
+    font-family: cursive;
+    display: none;
+}
+
+.b {
+  content: "\2039";
+    font-size: 50;
+    position: fixed;
+    top: 2;
+    left: 20;
+    font-family: cursive;
+    color: black;
+/*    font-weight: bold;*/
+}
