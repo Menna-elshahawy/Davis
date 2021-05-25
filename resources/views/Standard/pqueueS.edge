@@ -1,7 +1,7 @@
 <DOCTYPE! html>
     <html>
         <head>
-        {{ style('pQueueStyle') }}
+        {{ style('Standard/pQueueStyleS') }}
             </head>
                  
             <body>
@@ -10,7 +10,12 @@
                 
                 <h1>PRIORITY QUEUE</h1>
         
-           
+           <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+             <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+
                 <div class="stackHome">
         
                     <div class="btn-group">
@@ -36,6 +41,15 @@
                     
                 <p class ="notify" id="notify"> </p>
                 <p class ="action" id="action"> </p>   <br> <br>
+
+                 <div class="abt" onclick="show()"> About </div>
+                    
+                    <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
 
                <script>
                
@@ -272,7 +286,38 @@
                 function disPr(){
                     document.getElementById("popPr").style.display='none';   
                 }
-                            
+
+                  function showBack(){
+                    document.getElementById("back").style.display='inline-block';
+                }
+
+                function disBack(){
+                    document.getElementById("back").style.display='none';
+                }
+
+                function showBackH(){
+                    document.getElementById("backH").style.display='inline-block';
+                }
+
+                function disBackH(){
+                    document.getElementById("backH").style.display='none';
+                }
+                                
+                function show() {
+                    document.getElementById("myModal").style.display = "block";
+                }
+
+                function closeM() {
+                document.getElementById("myModal").style.display = "none";
+                }
+
+                window.onclick = function(event) {
+                if (event.target == document.getElementById("myModal")) {
+                    document.getElementById("myModal").style.display = "none";
+                }
+                }
+
+
                </script>
 
  

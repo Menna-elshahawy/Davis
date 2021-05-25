@@ -1,29 +1,34 @@
 <DOCTYPE! html>
     <html>
         <head>
-        {{ style('queueStyle') }}
+        {{ style('Standard/stackStyleS') }}
             </head>
                   
             <body>
                 
-                 <title> Queue </title>
+                <title> Stack </title>
                 
-                <h1> QUEUE</h1>
+                <h1> STACK</h1>
         
-           
+                <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+                 <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+
                 <div class="stackHome">
         
                     <div class="btn-group">
                         <button class="button" onclick="create()">Create</button>
-                        <button class="button" onclick="enqueue()">Enqueue</button>          
+                        <button class="button" onclick="push()">Push</button>          
                         
-                        <button class="button" onclick="dequeue()">Dequeue</button>
+                        <button class="button" onclick="pop()">Pop</button>
                         <button class="button" onclick="peek()" >Peek</button>
                     </div>
                     
                     <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
-                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="8"> 
-                            <div class="popSz" id="popSz"> Enter the length of the queue </div>
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="6"> 
+                              <div class="popSz" id="popSz"> Enter the length of the stack </div>
                             <button class="go" onclick="createRnd()">Go</button> </div></div>
                     
                     <div class="createDef" id="createDef" > <button class="defBtn" onclick="showAr()">User Defined</button> 
@@ -39,23 +44,33 @@
                 <p class ="notify" id="notify"> </p>
                 <p class ="action" id="action"> </p>   <br> <br>
 
-                         
-            
+               
+                 <div class="abt" onclick="show()"> About </div>
+                    
+                    <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+                      
                  <script>
                      
-                    var queue= [];
+                    
+                    var stack= [];
                     var f =true;
                     var cont= document.createElement('div');
                     var ul = document.createElement('ul');
-
-                    function enqueue(){
+                    ul.className="ul";
+                    
+                    function push(){
                         
                         document.getElementById("pushAr").style.display='inline-block';
                         document.getElementById("createRnd").style.display='none';
                         document.getElementById("createDef").style.display='none';
                         document.getElementById("action").innerHTML="";
                     }
-
+                    
                     function go(){
                         
                         document.getElementById("pushAr").style.display='none';
@@ -68,12 +83,12 @@
                         }
                         else{
                             document.getElementById("notify").innerHTML= "";
-                            if(queue.length==8){
-                                document.getElementById("notify").innerHTML= "Maximum size is 8";
+                            if(stack.length==6){
+                                document.getElementById("notify").innerHTML= "Maximum size is 6";
                             }
                             else{
-                                queue.push(v);
-                                document.getElementById("action").innerHTML="You enqueued "+v;            
+                                stack.push(v);
+                                document.getElementById("action").innerHTML="You pushed "+v;            
                                 this.display();
                             }  
 
@@ -82,25 +97,32 @@
                         document.getElementById("val").value="";
                     }
 
-                    function dequeue(){
+                    function pop(){
                         document.getElementById("pushAr").style.display='none';
                         document.getElementById("createRnd").style.display='none';
                         document.getElementById("createDef").style.display='none';
                         
                         var list=document.getElementById("area");
+                        var popV=stack.pop();
                         document.getElementById("notify").innerHTML= "";
-
-                        var popV=queue.shift();
+                        
+                        list.appendChild(cont);
+                        cont.innerHTML="";
+                        cont.appendChild(ul);
+                        ul.innerHTML="";
                         
                         if(popV==undefined){
-                            document.getElementById("action").innerHTML="The queue is empty!";
+                            document.getElementById("action").innerHTML="The stack is empty!";
                         }
                         else{
-                                
-                            document.getElementById("action").innerHTML="You dequeued "+popV;
-                            
-                            this.display();
+                            document.getElementById("action").innerHTML="You popped "+popV;
                         }
+                        
+                        for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }
 
                     }
                             
@@ -111,15 +133,25 @@
                         document.getElementById("createDef").style.display='none';
                         
                         document.getElementById("notify").innerHTML= "";
-                        var popV=queue[0];
+                        var popV=stack[stack.length-1];
                         
-                        if(popV==undefined){
-                            document.getElementById("action").innerHTML="The queue is empty!";
+                        list.appendChild(cont);
+                        cont.innerHTML="";
+                        cont.appendChild(ul);
+                        ul.innerHTML="";
+                        
+                            if(popV==undefined){
+                            document.getElementById("action").innerHTML="The stack is empty!";
                         }
                         else{
                             document.getElementById("action").innerHTML="You peeked "+popV;
                         }
                         
+                        for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }  
                     }
 
                     function create(){
@@ -148,8 +180,8 @@
                         
                         var l=document.getElementById("size").value;
 
-                        if(l>8){
-                            document.getElementById("notify").innerHTML= "Maximum size is 8";
+                        if(l>6){
+                            document.getElementById("notify").innerHTML= "Maximum size is 6";
                             document.getElementById("size").value="";
 
                         }
@@ -157,14 +189,14 @@
                             document.getElementById("notify").innerHTML= "";
                             document.getElementById("size").value="";
                             
-                            queue=[];
+                            stack=[];
                             for(i=0;i<l;i++){
                             var x = Math.floor((Math.random() * 10) + 1);
-                            queue[i]=x;    
+                            stack[i]=x;    
                             }
 
                             this.display();
-                        }   
+                        } 
                     }
 
                     function createDef(){
@@ -180,11 +212,11 @@
                         }
                         
                         else{
-                            queue=[];
+                            stack=[];
 
-                            queue=ar.split(',');    
+                            stack=ar.split(',');    
 
-                            if(queue.length>6){
+                            if(stack.length>6){
                                 document.getElementById("notify").innerHTML= "Maximum size is 6";
                                 document.getElementById("arr").value="";
 
@@ -202,9 +234,9 @@
                             cont.innerHTML="";
                             cont.appendChild(ul);
                             ul.innerHTML="";
-                        for(i=0;i<queue.length;i++){
+                            for(i=stack.length-1;i>=0;i--){
                                 let li = document.createElement('li');
-                                li.innerHTML = queue[i];
+                                li.innerHTML = stack[i];
                                 ul.appendChild(li);   
                             }
                     }
@@ -225,8 +257,37 @@
                         document.getElementById("popSz").style.display='none';   
                     }
 
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
 
-            
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                    document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                    if (event.target == document.getElementById("myModal")) {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+                    }
+
                 </script>
 
             </body>   

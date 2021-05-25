@@ -1,0 +1,374 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('Standard/treeStyleS') }}
+            </head>
+                  
+            <body>
+                
+                <title> Tree </title>
+                
+                <h1> TREE </h1>
+        
+                <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+                <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button class="button" onclick="create()">Create</button>
+                        <button class="button" onclick="insert()">Insert</button>          
+                        
+                        <button class="button" onclick="remove()">Remove</button>
+                        <button class="button" onclick="search()" >Search</button>
+                    </div>
+                    
+                    <!--                    Create-->
+                    
+                    <div class="cRnd" id="cRnd"> <button class="rndBtn" onclick="createRnd()"> Random </button> </div>
+                    <div class="cEmp" id="cEmp"> <button class="empBtn" onclick="createEmp()"> Empty </button> </div>
+                 
+                    <!--                    Insert-->
+                    <div class="insert" id="insert"> <input class="num" type="number" id="InsV" size="3" min="1" max="50"> <button class="go" onclick="insGo()">Go</button> </div>
+                   
+                    
+                    <!--                    Remove-->
+                    <div class="remove" id="remove"> <input class="num" type="number" id="RemV" size="3" min="1"> <button class="go" onclick="remGo()">Go</button> </div>
+                    
+                    
+                        <!--                    Search-->
+                     <div class="fMin" id="fMin"> <button class="minBtn" onclick="findMin()"> Find Minimum </button> </div>
+                    
+                     <div class="fMax" id="fMax"> <button class="maxBtn" onclick="findMax()"> Find Maximum </button> </div>
+
+                     <div class="f" id="f"> <button class="findBtn" onclick="showF()"> Vertex </button> 
+                        <div class="showV"  id="showV"> <input class="num" type="number" id="vtx" size="3" min="1" max="9"> 
+                            <button class="go" onclick="findVtx()">Go</button>   </div></div>
+                    
+                    
+                    <div id="tree">
+                        
+
+
+                    <div id="t1" class="t1"> 3</div> <div id="t2" class="t2"> 3</div>  <div id="t3" class="t3"> 3</div><div id="t4" class="t4"> 3</div> <div id="t5" class="t5"> 3</div> <div id="t6" class="t6"> 3</div> <div id="t7" class="t7"> 3</div> <div id="t8" class="t8"> 3</div> <div id="t9" class="t9"> 3</div> <div id="t10" class="t10"> 3</div> <div id="t11" class="t11"> 3</div> <div id="t12" class="t12"> 3</div> <div id="t13" class="t13"> 3</div> <div id="t14" class="t14"> 3</div> <div id="t15" class="t15"> 3</div>
+                    </div>
+                    
+
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+               
+            <script>
+            var tree=[];
+
+            function create(){
+                document.getElementById("cRnd").style.display='inline-block';
+                document.getElementById("cEmp").style.display='inline-block';
+                document.getElementById("insert").style.display='none';
+                document.getElementById("remove").style.display='none';
+                document.getElementById("fMin").style.display='none';
+                document.getElementById("fMax").style.display='none';
+                document.getElementById("f").style.display='none';
+            }
+
+            function createRnd(){
+                document.getElementById("cRnd").style.display='none';
+                document.getElementById("cEmp").style.display='none';
+            }
+
+            function createEmp(){
+                document.getElementById("cRnd").style.display='none';
+                document.getElementById("cEmp").style.display='none';
+            }
+
+            function insert(){
+                document.getElementById("cRnd").style.display='none';
+                document.getElementById("cEmp").style.display='none';
+                document.getElementById("insert").style.display='inline-block';
+                document.getElementById("remove").style.display='none';
+                document.getElementById("fMin").style.display='none';
+                document.getElementById("fMax").style.display='none';
+                document.getElementById("f").style.display='none';
+
+            }
+
+            function insGo(){
+                document.getElementById("insert").style.display='none';
+                
+                var v=document.getElementById("InsV").value;
+                
+                if(v==""){
+                    document.getElementById("notify").innerHTML="You must enter a value";
+                }
+                else{
+                    document.getElementById("notify").innerHTML="";
+                    
+                    if(tree.length==0){
+                        tree[1]=v;
+                        display();
+                    }
+                    
+                    else if(tree.length>=16){
+                        document.getElementById("notify").innerHTML="Maximum height is 4";
+                    }
+                    
+                    else if(exist(v)){
+                        document.getElementById("notify").innerHTML="No duplicate values allowed";
+                        
+                    }
+                    
+                    else{
+                        document.getElementById("notify").innerHTML="";
+                        
+                        if(v>tree[1]){
+                            if(tree[3]!=undefined){
+                                if(v>tree[3]){
+                                    if(tree[7]!=undefined){
+                                        if(v>tree[7]){
+                                            if(tree[15]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[15]=v;
+                                            }
+                                        }
+                                        else{
+                                            if(tree[14]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[14]=v;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        tree[7]=v;
+                                    }
+                                }
+                                
+                                else if(v<tree[3]){
+                                    if(tree[6]!=undefined){
+                                        if(v>tree[6]){
+                                            if(tree[13]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[13]=v;
+                                            }
+                                        }
+                                        else{
+                                            if(tree[12]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[12]=v;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        tree[6]=v;
+                                    }
+                                }
+
+                            }
+                            else{
+                                tree[3]=v;
+                            }
+                        }
+                        
+                        else{
+                            if(tree[2]!=undefined){
+                                if(v>tree[2]){
+                                    if(tree[5]!=undefined){
+                                        if(v>tree[5]){
+                                            if(tree[11]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[11]=v;
+                                            }
+                                        }
+                                        else{
+                                            if(tree[10]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[10]=v;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        tree[5]=v;
+                                    }
+                                }
+                                
+                                else{
+                                    if(tree[4]!=undefined){
+                                        if(v>tree[4]){
+                                            if(tree[9]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[9]=v;
+                                            }
+                                        }
+                                        else{
+                                            if(tree[8]!=undefined){
+                                                document.getElementById("notify").innerHTML="Maximum height is 4";
+                                            }
+                                            else{
+                                                tree[8]=v;
+                                            }
+                                        }
+                                    }
+                                    else{
+                                        tree[4]=v;
+                                    }
+                                }
+                            }
+                            else{
+                                tree[2]=v;
+                            }
+                        }
+                                
+                        
+                        display();
+                    }
+                    
+                    document.getElementById("InsV").value="";
+                    
+                }
+            }
+
+            function remove(){
+                document.getElementById("cRnd").style.display='none';
+                document.getElementById("cEmp").style.display='none';
+                document.getElementById("insert").style.display='none';
+                document.getElementById("remove").style.display='inline-block';
+                document.getElementById("fMin").style.display='none';
+                document.getElementById("fMax").style.display='none';
+                document.getElementById("f").style.display='none';
+            }
+
+            function remGo(){
+                document.getElementById("remove").style.display='none';
+                
+                var v=document.getElementById("RemV").value;
+                
+                if(v==""){
+                    document.getElementById("notify").innerHTML="You must enter a value";
+                }
+                else{
+                    document.getElementById("notify").innerHTML="";
+                    
+                    if(tree.length==1){
+                        tree[1]=undefined;
+                        display();
+                    }
+                    
+                    else{
+                        if(v>tree[1]){
+                            
+                        }
+                        
+                        else{
+                            
+                        }
+                    }
+                    
+                    document.getElementById("RemV").value="";
+                    
+                }
+            }
+
+            function search(){
+                document.getElementById("cRnd").style.display='none';
+                document.getElementById("cEmp").style.display='none';
+                document.getElementById("insert").style.display='none';
+                document.getElementById("remove").style.display='none';
+                document.getElementById("fMin").style.display='inline-block';
+                document.getElementById("fMax").style.display='inline-block';
+                document.getElementById("f").style.display='inline-block';
+                document.getElementById("showV").style.display='none';
+            }
+
+            function findMin(){
+                document.getElementById("showV").style.display='none';
+                document.getElementById("fMin").style.display='none';
+                document.getElementById("fMax").style.display='none';
+                document.getElementById("f").style.display='none';
+            }
+
+            function findMax(){
+                document.getElementById("showV").style.display='none';
+                document.getElementById("fMin").style.display='none';
+                document.getElementById("fMax").style.display='none';
+                document.getElementById("f").style.display='none';
+            }
+
+            function findVtx(){
+                
+            }
+
+            function showF(){
+                document.getElementById("showV").style.display='inline-block';
+            }
+
+            function display(){
+                
+                console.log(tree);
+                
+                for(i=1;i<tree.length;i++){
+                    if(tree[i]!=undefined){
+                        var t='t'.concat(i);
+                        console.log(t);
+                        document.getElementById(t).style.display='inline-block'              
+                        document.getElementById(t).innerHTML=tree[i];
+                    }
+                    else{
+                        var t='t'.concat(i);
+                        document.getElementById(t).style.display='none'
+                    }
+                    
+                }
+                
+            }
+
+            function exist(v){
+                for(i=0;i<tree.length;i++){
+                    if(v==tree[i]){
+                        return true;
+                    }
+                }
+                return false;
+            }
+
+            function showBack(){
+                document.getElementById("back").style.display='inline-block';
+            }
+
+            function disBack(){
+                document.getElementById("back").style.display='none';
+            }
+                        
+            function showBackH(){
+                document.getElementById("backH").style.display='inline-block';
+            }
+
+            function disBackH(){
+                document.getElementById("backH").style.display='none';
+            }
+                     
+            </script>
+
+            </body>   
+        
+    </html>

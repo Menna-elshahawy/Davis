@@ -1,0 +1,115 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('UserDef/stackStyleU') }}
+            </head>
+                  
+            <body>
+                
+                <title> Stack </title>
+                
+                <h1> STACK</h1>
+        
+                
+                <div class="stackHome">
+                    
+                    <a HREF="homePage.html"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+                
+                    <a HREF="home.html"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                
+      
+                    <form action="/executeCode" method="POST" onsubmit="set()" > 
+                    {{ csrfField() }}
+                        <div class="tex"> Enter you code here </div>
+                        <textarea id="input" class="input" rows="50" cols="80">  hey  </textarea>
+                        <input type="submit" value="Run" class="run">
+                    
+                    </form>
+                    
+                                        
+                    <div class="abt" onclick="show()"> About </div>
+                    
+                    <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+                    
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+                        
+            
+                 <script>
+                     
+                    var stack=[1,2,3,4,5];
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+
+                    function display(){
+                        console.log(stack);
+                        
+                        var list=document.getElementById("area");
+                            list.appendChild(cont);
+                            cont.innerHTML="";
+                            cont.appendChild(ul);
+                            ul.innerHTML="";
+                            for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }
+                    }
+
+                    function set() {
+                        document.getElementById("input").innerHTML={{res}};
+                        stack={{res}};
+                        display();
+                    }
+
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                    document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                    if (event.target == document.getElementById("myModal")) {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+                    }
+
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+            
+                </script>
+
+            </body>   
+        
+    </html>

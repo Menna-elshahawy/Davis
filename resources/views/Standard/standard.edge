@@ -3,27 +3,30 @@
         <head>
         {{ style('standardStyle') }}
             </head>
-            <body>
+
+            <title> Standard </title>
+
+           <body>
                 <h1> DAVIS </h1>
                 <h2> A tool for Data Structures and Algorithms Visualization </h2>
                 
-                <a HREF="homePage"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <a HREF="/homePage"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
                 <div class="back" id="back"> Back </div>
 
                 <div class="container">
                     
-                    <a  HREF="/standard/stack" ><img src="home/s.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> </a> <p id="st" class="st" > Stack </p>     
+                    <a  HREF="/UserDefined/Stack" ><img src="s.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> </a> <p id="st" class="st" > Stack </p>     
                     <pre>        </pre>
                     
-                    <a HREF="/standard/queue"> <img src="home/q.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()"></a> <p id="q" class="q"> Queue </p>
+                    <a HREF="/Standard/Queue"> <img src="home/q.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()"></a> <p id="q" class="q"> Queue </p>
                     <pre>        </pre>
                     
-                    <a HREF="/standard/pQueue"> <img src="home/pq.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> </a> 
+                    <a HREF="/Standard/PrioirityQueue"> <img src="home/pq.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> </a> 
                     <p id="pq" class="pq"> Priority Queue </p>
                     <pre>        </pre>
                     
 
-                    <a HREF="/standard/lList"> <p class="l" id="l"> Linked List </p> </a>
+                    <a HREF="/Standard/LinkedList"> <p class="l" id="l"> Linked List </p> </a>
                     
                     <pre>        </pre>
                     
@@ -39,20 +42,30 @@
 
                 </div>            
             
+
+                <div class="abt" onclick="show()"> About </div>
+                    
+                    <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
             <script>
                      function popSt(){
                         document.getElementById("st").style.display='inline-block';
-                        document.getElementById("stack").src='home/s.gif';
+                        document.getElementById("stack").src='s.png';
                     }
 
                     function disSt(){
                             document.getElementById("st").style.display='none';
-                        document.getElementById("stack").src='home/s.png';
+                        document.getElementById("stack").src='s.png';
                     }
 
                     function popQ(){
                         document.getElementById("q").style.display='inline-block';
-                        document.getElementById("queue").src='home/q.gif';
+                        document.getElementById("queue").src='home/q.png';
                     }
 
                     function disQ(){
@@ -62,7 +75,7 @@
 
                     function popPQ(){
                         document.getElementById("pq").style.display='inline-block';
-                        document.getElementById("pqueue").src='home/pq.gif';
+                        document.getElementById("pqueue").src='home/pq.png';
                     }
 
                     function disPQ(){
@@ -78,6 +91,21 @@
                     function disBack(){
                         document.getElementById("back").style.display='none';
                     }
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                    document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                    if (event.target == document.getElementById("myModal")) {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+                    }
+
             
             </script>
 

@@ -21,12 +21,22 @@ const Route = use('Route')
 
 Route.on('/').render('homePage')
 Route.on('/homePage').render('homePage')
-Route.on('/standard').render('standard')
+
 Route.group(()=>{
-    Route.on('/stack').render('stack')
-    Route.on('/queue').render('queue')
-    Route.on('/pqueue').render('pqueue')
-    Route.on('/lList').render('lList')
-}).prefix('/standard')
-Route.post('/executeCode', 'ExecuteCodeController.executeCode') // controller name and the method
+    Route.on('/').render('Standard/standard')
+    Route.on('/Stack').render('Standard/stackS')
+    Route.on('/Queue').render('Standard/queueS')
+    Route.on('/PrioirityQueue').render('Standard/pqueueS')
+    Route.on('/LinkedList').render('Standard/lListS')
+    Route.on('/Tree').render('Standard/treeS')
+}).prefix('/Standard')
+
+Route.group(()=>{
+    Route.on('/').render('UserDef/userDef')
+    Route.on('/Stack').render('UserDef/stackU')
+
+}).prefix('/UserDefined')
+
+
+Route.post('/executeCode', 'ExecuteCodeController.executeCode3') // controller name and the method
 
