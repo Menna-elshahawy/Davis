@@ -5,11 +5,11 @@ body{
 h1 {
     font-family:cursive;
     font-weight: bold;
-    color:rgb(71, 153, 235);
+    color:#7ac7d1;
     text-align: center;
-    font-size: 50px;
+    font-size: 100px;
     
-    margin-top: 20px;
+    margin-top: 40px;
     margin-bottom: -5px;
     letter-spacing: 2px;
 }
@@ -18,9 +18,9 @@ h2{
     display: block;
     font-family:cursive; 
     font-weight: lighter;
-    color:black;
+    color:#303c6c;
     text-align: center;
-    font-size: 18px;
+    font-size: 25px;
     margin-top: 0px;
     font-style: italic;
 }
@@ -30,19 +30,21 @@ h2{
     font-family:cursive; 
     font-weight:normal;
     text-align: center;
-    margin-top: 120px;
-/*    position: fixed;*/
+   position: fixed;
+   top: 300;
+   left: 580;
     font-size: 30px;
+    color: #f4976c;
     
 }
 
 .a{
-    background-color: #a3ccf5; 
-  border: 4px solid #4799eb;
-  color: white;
-  padding: 15px 20px;
+    /* background-color: #a3ccf5;  */
+  border: 4px solid #303c6c;
+  color: #7ac7d1;
+  padding: 10px 15px;
   text-align: center;
-  font-size: 20px;
+  font-size: 40px;
   font-family: monospace;
     font-weight: bold;
   cursor: pointer;
@@ -51,55 +53,55 @@ h2{
   display: block;
   border-radius: 8px;
     position: fixed;
-    top: 350;
-    left: 420;
-    font-size: 30;
+    top: 400;
+    left: 400;
 
 }
 .a:hover{
-    background-color: #4799eb; 
+    background-color: #303c6c; 
 }
 
 .b{
-    background-color: #a3ccf5; 
-  border: 4px solid #4799eb;
-  color: white;
-  padding: 15px 20px;
+    /* background-color: #a3ccf5;  */
+    border: 4px solid #303c6c;
+    color: #7ac7d1;
+    padding: 10px 15px;
   text-align: center;
-  font-size: 20px;
+  font-size: 40px;
   font-family: monospace;
     font-weight: bold;
   cursor: pointer;
-  width: 250px;
+  width: 320px;
     height: 150px;
   display: block;
   border-radius: 8px;
     position: fixed;
-    top: 350;
-    left: 820;
- font-size: 30;
+    top: 400;
+    left: 800;
     
 }
 .b:hover{
-    background-color:#4799eb; 
+    background-color:#303c6c; 
 }
 
 .s{
     position: fixed;
-    top: 380;
+    top: 420;
     left: 80;
     font-size: 20;
     font-family: cursive;
     display: none;
+    color: #303c6c;
 }
 
 .u{
     position: fixed;
-    top: 380;
-    right: 100;
+    top: 420;
+    right: 80;
     font-size: 20;
     font-family: cursive;
     display: none;
+    color: #303c6c;
 }
 
 .abt{
@@ -109,6 +111,7 @@ h2{
     cursor: pointer;
     font-size: 20;
     font-family: cursive;
+    color: #303c6c;
 }
 .abt:hover{
     text-decoration-line: underline;
@@ -129,20 +132,21 @@ h2{
 }
 
 .modal-content {   
-    background-color: #fefefe;
+    background-color: #f1f3f3;
     margin: auto;
     padding: 20px;
-    border: 4px solid #888;
+    border: 4px solid #303c6c;
     width: 66%;
     font-size: 20;
     font-family: cursive;
     text-align: justify;
+    color: #f4976c;
 }
 
 
 .close {
   content: "\00D7";
-  color: #aaaaaa;
+  color: #7ac7d1;
   float: right;
   position: relative;
   font-size: 40px;
@@ -151,7 +155,7 @@ h2{
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #303c6c;
   text-decoration: none;
   cursor: pointer;
 }

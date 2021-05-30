@@ -51,11 +51,55 @@
                     <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
-                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br>
+                     DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students 
+                     better understand data structures and algorithms through visualization. It has two modes :<br>
+                      1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
                 </div>
 
-                 <script>
+                <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
+                    
+                    <div class="front" id="front">front</div>
+                    <div class="rear" id="rear">rear</div>
+                    <div class="f" id="f"> <span>&#8631;</span> </div>
+                    
+
+                   <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                          <div id="enq" class="enq">
+                               <div id="mp1" class="mp1" >  public void enqueue(int  x) { </div> 
+                               <div id="mp2" class="mp2" style="text-indent: 40px;"> rear++; </div> 
+                               <div id="mp3" class="mp3" style="text-indent: 40px;">  queue[rear] = x; </div> 
+                               <div id="mp4" class="mp4">  } </div>
+                          </div>
+
+                           <div class="deq" id="deq">
+                                <div id="pp1" class="pp1"> public int dequeue() { </div>
+                                <div id="pp2" class="pp2" style="text-indent: 40px;"> int result = queue[front]; </div>
+                                <div id="pp3" class="pp3" style="text-indent: 40px;"> front++;</div>
+                                <div id="pp4" class="pp4" style="text-indent: 40px;"> return result; </div>
+                                <div id="pp5" class="pp5"> } </div>
+
+                           </div>
+
+                           <div class="peek" id="peek">
+                                <div id="pe1" class="pe1"> public int peek() {  </div>
+                                <div id="pe2" class="pe2" style="text-indent: 40px;"> return queue[front]; </div>
+                                <div id="pe3" class="pe3"> }  </div>
+
+                           </div>
+                           
+                        </div>
+                       
+                    </div> 
+
+            <script>
                      
                     var queue= [];
                     var f =true;
@@ -86,9 +130,58 @@
                                 document.getElementById("notify").innerHTML= "Maximum size is 8";
                             }
                             else{
+                                
+                               
+                                document.getElementById("enq").style.display='inline';
+                                document.getElementById("method").style.display='inline';                                                                
+                                
+                                const node=document.getElementById("node");
+                                node.classList.add('anim');
+                                node.style.display='inline-block';
+                                node.style.animationName=whatMove();
+                                
                                 queue.push(v);
-                                document.getElementById("action").innerHTML="You enqueued "+v;            
-                                this.display();
+
+                                document.getElementById("node").innerHTML=v;
+                                
+                                setTimeout(function(){document.getElementById("mp1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("mp1").style.background='none';
+                                                    document.getElementById("mp2").style.background='#fbe8a6';
+                                                   
+                                                    if(queue.length==1){
+                                                        document.getElementById("rear").style.left=520;
+                                                    }
+                                                    else if(queue.length<=4){
+                                                        document.getElementById("rear").style.left=440+(60*queue.length);
+                                                    }
+                                                    else{
+                                                        document.getElementById("rear").style.left=440+(55*queue.length);
+                                                    }
+                                                    document.getElementById("rear").style.display='inline';
+                                                    },1800);
+                                
+                                setTimeout(function(){document.getElementById("mp3").style.background='#fbe8a6';
+                                                    document.getElementById("mp2").style.background='none';
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("mp4").style.background='#fbe8a6';
+                                                    document.getElementById("mp3").style.background='none';                                
+                                                    },4600);
+
+                                setTimeout(function(){node.classList.remove("anim");
+                                                    this.display();
+                                                    document.getElementById("mp4").style.background='none';
+                                                    document.getElementById("action").innerHTML="You enqueued "+v;
+                                                    },5000);
+                                        
+                                setTimeout(function(){node.style.display='none';
+                                                    },4900);
+                                
+                                setTimeout(function(){document.getElementById("enq").style.display='none';
+                                                    document.getElementById("method").style.display='none';},8000);
+                                                
                             }  
 
                             
@@ -111,9 +204,39 @@
                         }
                         else{
                                 
-                            document.getElementById("action").innerHTML="You dequeued "+popV;
+                            document.getElementById("deq").style.display='inline';
+                            document.getElementById("method").style.display='inline';
                             
-                            this.display();
+                            setTimeout(function(){document.getElementById("pp1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pp1").style.background='none';
+                                                    document.getElementById("pp2").style.background='#fbe8a6';
+                                                },1800);
+                                
+                            setTimeout(function(){document.getElementById("pp3").style.background='#fbe8a6';
+                                                    document.getElementById("pp2").style.background='none';
+                                                    document.getElementById("f").style.display='inline';
+                                                },2500);
+                                
+                            setTimeout(function(){document.getElementById("pp4").style.background='#fbe8a6';
+                                                    document.getElementById("pp3").style.background='none';
+                                                     document.getElementById("f").style.display='none';
+                                                },4000);
+                            
+                            setTimeout(function(){document.getElementById("pp5").style.background='#fbe8a6';
+                                                document.getElementById("pp4").style.background='none';
+                                                this.display(); 
+                                                document.getElementById("action").innerHTML="You dequeued "+popV;                                             
+                                                },4500);
+
+                            setTimeout(function(){
+                                                document.getElementById("pp5").style.background='none';
+                                                },4800);
+                                        
+                            setTimeout(function(){document.getElementById("deq").style.display='none';
+                                                document.getElementById("method").style.display='none';},8000);
+
                         }
 
                     }
@@ -131,7 +254,26 @@
                             document.getElementById("action").innerHTML="The queue is empty!";
                         }
                         else{
-                            document.getElementById("action").innerHTML="You peeked "+popV;
+                             document.getElementById("peek").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+                            
+                            setTimeout(function(){document.getElementById("pe1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pe1").style.background='none';
+                                                    document.getElementById("pe2").style.background='#fbe8a6';
+                                                },2000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='#fbe8a6';
+                                                    document.getElementById("pe2").style.background='none';
+                                                    document.getElementById("action").innerHTML="You peeked "+popV;
+                                                },3000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='none';
+                                                },3500);
+                                        
+                            setTimeout(function(){document.getElementById("peek").style.display='none';
+                                                document.getElementById("method").style.display='none';},7000);
                         }
                         
                     }
@@ -173,7 +315,7 @@
                             
                             queue=[];
                             for(i=0;i<l;i++){
-                            var x = Math.floor((Math.random() * 10) + 1);
+                            var x = Math.floor((Math.random() * 9) + 1);
                             queue[i]=x;    
                             }
 
@@ -221,6 +363,24 @@
                                 li.innerHTML = queue[i];
                                 ul.appendChild(li);   
                             }
+
+                         if(queue.length==0){
+                                document.getElementById("front").style.display='none';
+                                document.getElementById("rear").style.display='none';
+                            }
+                            else{
+                                document.getElementById("front").style.display='inline';
+                                if(queue.length==1){
+                                    document.getElementById("rear").style.left=520;
+                                }
+                                else if(queue.length<=4){
+                                    document.getElementById("rear").style.left=440+(60*queue.length);
+                                }
+                                else{
+                                    document.getElementById("rear").style.left=440+(55*queue.length);
+                                }
+                                document.getElementById("rear").style.display='inline';
+                            }   
                     }
 
                     function popUp(){
@@ -260,16 +420,60 @@
                     }
 
                     function closeM() {
-                    document.getElementById("myModal").style.display = "none";
+                        document.getElementById("myModal").style.display = "none";
                     }
 
                     window.onclick = function(event) {
-                    if (event.target == document.getElementById("myModal")) {
-                        document.getElementById("myModal").style.display = "none";
-                    }
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
                     }
 
-            
+                    function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
+
+                    function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+
+                    }
+
+                    function whatMove(){
+                        var l=queue.length;
+                        if(l==0){
+                            return "move0";
+                        }
+                        else if(l==1){
+                            return "move1";
+                        }
+                        else if(l==2){
+                            return "move2";
+                        }
+                        else if(l==3){
+                            return "move3";
+                        }
+                        else if(l==4){
+                            return "move4";
+                        }
+                        else if(l==5){
+                            return "move5";
+                        }
+                        else if(l==6){
+                            return "move6";
+                        }
+                        else if(l==7){
+                            return "move7";
+                        }
+                        else{
+                            return ;
+                        }
+                    }
+
                 </script>
 
             </body>   

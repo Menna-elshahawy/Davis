@@ -5,7 +5,7 @@ body{
 h1 {
     font-family:cursive;
     font-weight: bold;
-    color:rgb(71, 153, 235);
+    color:#7ac7d1;
     text-align: center;
     font-size: 50px;
     
@@ -18,7 +18,7 @@ h2{
     display: block;
     font-family:cursive; 
     font-weight: lighter;
-    color:black;
+    color:#303c6c;
     text-align: center;
     font-size: 18px;
     margin-top: 0px;
@@ -35,7 +35,7 @@ h2{
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
-  border: 10px solid rgb(71, 153, 235);
+  border: 10px solid #7ac7d1;
    
    
 }
@@ -128,6 +128,7 @@ h2{
     font-size: 18;
     font-family: cursive;
     display: none;
+    color: #f4976c;
 }
 
 .b {
@@ -137,7 +138,7 @@ h2{
     top: 0;
     left: 25;
     font-family: cursive;
-    color: black;
+    color: #303c6c;
     margin-top: -10;
 /*    font-weight: bold;*/
 }
@@ -150,6 +151,7 @@ h2{
     cursor: pointer;
     font-size: 20;
     font-family: cursive;
+    color: #303c6c;
 }
 .abt:hover{
     text-decoration-line: underline;
@@ -170,24 +172,21 @@ h2{
 }
 
 .modal-content {   
-    background-color: #fefefe;
+    background-color: #f1f3f3;
     margin: auto;
     padding: 20px;
-    border: 4px solid #888;
+    border: 4px solid #303c6c;
     width: 66%;
     font-size: 20;
     font-family: cursive;
     text-align: justify;
+    color: #f4976c;
 }
 
-.c{
-    text-align: center;
-
-}
 
 .close {
   content: "\00D7";
-  color: #aaaaaa;
+  color: #7ac7d1;
   float: right;
   position: relative;
   font-size: 40px;
@@ -196,8 +195,7 @@ h2{
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: #303c6c;
   text-decoration: none;
   cursor: pointer;
 }
-

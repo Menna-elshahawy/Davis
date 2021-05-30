@@ -50,10 +50,51 @@
                     <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
-                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
                 </div>
                       
+                    <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
+                    
+                    <div class="top" id="top">top</div>
+                    <div class="left" id="left"> <span>&#8592;</span> </div>
+                    <div class="downL" id="downL"> <span>&#8601;</span> </div>
+                    <div class="upL" id="upL"> <span>&#8598;</span> </div>
+          
+                   <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                          <div id="push" class="push">
+                               <div id="mp1" class="mp1">  public void push(int elem) { </div> 
+                               <div id="mp2" class="mp2" style="text-indent: 40px;">  top++; </div> 
+                               <div id="mp3" class="mp3" style="text-indent: 40px;">  theStack[top] = elem; </div> 
+                               <div id="mp4" class="mp4">  } </div> 
+                          </div>
+
+                           <div class="pop" id="pop">
+                                <div id="pp1" class="pp1"> public int pop() { </div>
+                                <div id="pp2" class="pp2" style="text-indent: 40px;"> int result = theStack[top]; </div>
+                                <div id="pp3" class="pp3" style="text-indent: 40px;"> top--;</div>
+                                <div id="pp4" class="pp4" style="text-indent: 40px;"> return result; </div>
+                                <div id="pp5" class="pp5"> } </div>
+
+                           </div>
+
+                           <div class="peek" id="peek">
+                                <div id="pe1" class="pe1"> public int peek() {  </div>
+                                <div id="pe2" class="pe2" style="text-indent: 40px;"> return theStack[top]; </div>
+                                <div id="pe3" class="pe3"> }  </div>
+
+                           </div>
+                           
+                        </div>
+                       
+                    </div> 
+
                  <script>
                      
                     
@@ -87,10 +128,49 @@
                                 document.getElementById("notify").innerHTML= "Maximum size is 6";
                             }
                             else{
-                                stack.push(v);
-                                document.getElementById("action").innerHTML="You pushed "+v;            
-                                this.display();
-                            }  
+                                document.getElementById("push").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                                
+                                stack.push(v);            
+                                
+                                
+                                const node=document.getElementById("node");
+                                node.classList.add('anim');
+                                node.style.display='inline-block';
+                                
+                                document.getElementById("node").innerHTML=v;
+                                
+                                setTimeout(function(){document.getElementById("mp1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("mp1").style.background='none';
+                                                    document.getElementById("mp2").style.background='#fbe8a6';
+                                                    },1800);
+                                
+                                setTimeout(function(){document.getElementById("mp3").style.background='#fbe8a6';
+                                                    document.getElementById("mp2").style.background='none';
+                                                    document.getElementById("upL").style.display='inline';
+                                                    document.getElementById("left").style.display='none'; 
+                                                    },2500);
+                                
+                                setTimeout(function(){document.getElementById("mp4").style.background='#fbe8a6';
+                                                    document.getElementById("mp3").style.background='none';                                
+                                                    },4500);
+
+                                setTimeout(function(){node.classList.remove("anim");
+                                                    this.display();
+                                                    document.getElementById("mp4").style.background='none';
+                                                    document.getElementById("upL").style.display='none';
+                                                    document.getElementById("left").style.display='inline';
+                                                    document.getElementById("action").innerHTML="You pushed "+v;
+                                                    },5000);
+                                        
+                                setTimeout(function(){node.style.display='none';
+                                                    },4900);
+                                
+                                setTimeout(function(){document.getElementById("push").style.display='none';
+                                                    document.getElementById("method").style.display='none';},8000);
+                                                }  
 
                             
                         }
@@ -102,29 +182,54 @@
                         document.getElementById("createRnd").style.display='none';
                         document.getElementById("createDef").style.display='none';
                         
-                        var list=document.getElementById("area");
                         var popV=stack.pop();
                         document.getElementById("notify").innerHTML= "";
-                        
-                        list.appendChild(cont);
-                        cont.innerHTML="";
-                        cont.appendChild(ul);
-                        ul.innerHTML="";
                         
                         if(popV==undefined){
                             document.getElementById("action").innerHTML="The stack is empty!";
                         }
-                        else{
-                            document.getElementById("action").innerHTML="You popped "+popV;
-                        }
-                        
-                        for(i=stack.length-1;i>=0;i--){
-                                let li = document.createElement('li');
-                                li.innerHTML = stack[i];
-                                ul.appendChild(li);   
-                            }
+                        else{        
+                            
+                            document.getElementById("pop").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+                            
+                            setTimeout(function(){document.getElementById("pp1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pp1").style.background='none';
+                                                    document.getElementById("pp2").style.background='#fbe8a6';
+                                                },1800);
+                                
+                            setTimeout(function(){document.getElementById("pp3").style.background='#fbe8a6';
+                                                    document.getElementById("pp2").style.background='none';
+                                                document.getElementById("downL").style.display='inline';
+                                                document.getElementById("left").style.display='none';
+                                                },2500);
+                                
+                            setTimeout(function(){document.getElementById("pp4").style.background='#fbe8a6';
+                                                    document.getElementById("pp3").style.background='none';
+                                                },4000);
+                            
+                            setTimeout(function(){document.getElementById("pp5").style.background='#fbe8a6';
+                                                document.getElementById("pp4").style.background='none';
+                                                                                              
+                                                },4500);
 
+                            setTimeout(function(){this.display();
+                                                document.getElementById("pp5").style.background='none';
+                                                document.getElementById("action").innerHTML="You popped "+popV;
+                                                document.getElementById("left").style.display='inline';
+                                                document.getElementById("downL").style.display='none';
+                                                },4800);
+                                        
+                            setTimeout(function(){document.getElementById("pop").style.display='none';
+                                                document.getElementById("method").style.display='none';},8000);
+
+                                
+                        }
+    
                     }
+        
                             
                     function peek(){
                         var list=document.getElementById("area");
@@ -135,23 +240,34 @@
                         document.getElementById("notify").innerHTML= "";
                         var popV=stack[stack.length-1];
                         
-                        list.appendChild(cont);
-                        cont.innerHTML="";
-                        cont.appendChild(ul);
-                        ul.innerHTML="";
+                
                         
                             if(popV==undefined){
                             document.getElementById("action").innerHTML="The stack is empty!";
                         }
                         else{
-                            document.getElementById("action").innerHTML="You peeked "+popV;
-                        }
-                        
-                        for(i=stack.length-1;i>=0;i--){
-                                let li = document.createElement('li');
-                                li.innerHTML = stack[i];
-                                ul.appendChild(li);   
-                            }  
+                            document.getElementById("peek").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+                            
+                            setTimeout(function(){document.getElementById("pe1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pe1").style.background='none';
+                                                    document.getElementById("pe2").style.background='#fbe8a6';
+                                                },2000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='#fbe8a6';
+                                                    document.getElementById("pe2").style.background='none';
+                                                    document.getElementById("action").innerHTML="You peeked "+popV;
+                                                },3000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='none';
+                                                },3500);
+                                        
+                            setTimeout(function(){document.getElementById("peek").style.display='none';
+                                                document.getElementById("method").style.display='none';},7000);
+                                            }
+                                            
                     }
 
                     function create(){
@@ -239,6 +355,15 @@
                                 li.innerHTML = stack[i];
                                 ul.appendChild(li);   
                             }
+
+                            if(stack.length==0){
+                                document.getElementById("top").style.display='none';
+                                document.getElementById("left").style.display='none';
+                            }
+                            else{
+                                document.getElementById("top").style.display='inline';
+                                document.getElementById("left").style.display='inline';
+                            }
                     }
 
                     function popUp(){
@@ -288,6 +413,19 @@
                     }
                     }
 
+                    function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
+
+                    function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+
+                    }
                 </script>
 
             </body>   

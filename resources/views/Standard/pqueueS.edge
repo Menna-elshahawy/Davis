@@ -47,14 +47,58 @@
                     <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
-                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
                 </div>
+
+                 <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
+                    
+                    <div class="front" id="front">front</div>
+                    <div class="rear" id="rear">rear</div>
+                    <div class="f" id="f"> <span>&#8631;</span> </div>
+                    
+
+                   <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                          <div id="enq" class="enq">
+                               <div id="mp1" class="mp1" >  public void enqueue(int item) { </div> 
+                               <div id="mp2" class="mp2" style="text-indent: 40px;"> for (i = PQueue.length() - 1;i >= 0 && item.compareTo(PQueue[i].priority) > 0;i--) </div> 
+                               <div id="mp3" class="mp3" style="text-indent: 80px;">  PQueue[i + 1] = PQueue[i]; </div> 
+                               <div id="mp4" class="mp4" style="text-indent: 40px;">  PQueue[i + 1] = item; </div>
+                               <div id="mp5" class="mp5">  } </div>
+                          </div>
+
+                           <div class="deq" id="deq">
+                                <div id="pp1" class="pp1" > public int dequeue() { </div>
+                                <div id="pp2" class="pp2" style="text-indent: 40px;"> int result = PQueue[front]; </div>
+                                <div id="pp3" class="pp3" style="text-indent: 40px;"> front++;</div>
+                                <div id="pp4" class="pp4" style="text-indent: 40px;"> return result; </div>
+                                <div id="pp5" class="pp5"> } </div>
+
+                           </div>
+
+                           <div class="peek" id="peek">
+                                <div id="pe1" class="pe1"> public int peek() {  </div>
+                                <div id="pe2" class="pe2" style="text-indent: 40px;"> return PQueue[front]; </div>
+                                <div id="pe3" class="pe3"> }  </div>
+
+                           </div>
+                           
+                        </div>
+                       
+                    </div>  
+
 
                <script>
                
                 var queue= [];
                 var priority= [];
+                var arrays=[];
                 var f =true;
                 var cont= document.createElement('div');
                 var ul = document.createElement('ul');
@@ -85,16 +129,31 @@
                             document.getElementById("notify").innerHTML= "Maximum size is 8";
                         }
                         else{
+
+                            document.getElementById("enq").style.display='inline';
+                                document.getElementById("method").style.display='inline';                                                                
+                                
+                                const node=document.getElementById("node");
+                                node.classList.add('anim');
+                                node.style.display='inline-block';
+                                node.innerHTML=v;
                             
                             if(queue.length==0 && priority.length==0){
                                 queue.push(v);
                                 priority.push(pr);
+                                node.style.animationName="move0";
+                                node.style.animationPlayState="running";
+                                node.style.animationDelay='3s';
+                                var loop=0;
                             }
                             else{
+                                var a=0;
                                 for (i = queue.length-1; i >=0 ; i--) {
                                     if (pr > priority[i]){
                                         queue[i+1] = queue[i];
                                         priority[i+1]=priority[i];
+                                        arrays[a]=queue;
+                                        a++;
                                     }
                                     else
                                         break;
@@ -102,11 +161,75 @@
                                 
                                 queue[i+1]=v;
                                 priority[i+1]=pr;
+                                node.style.animationName="move".concat(i+1);
+                                if(i==-1){
+                                    var loop=queue.length-1;
+                                }
+                                else{
+                                    var loop=(queue.length-(i+1)-1);
+                                }
+
+                                 node.style.animationDelay=(2*loop+3).toString().concat('s');
+                                 node.style.animationPlayState="running";
+                                
 
                             }            
                             
-                            document.getElementById("action").innerHTML="You enqueued "+v+" which has priority "+pr;            
-                            this.display();
+                           
+
+                            setTimeout(function(){document.getElementById("mp1").style.background='#fbe8a6';
+                                                    },1000);
+                                                     
+                                var c=1;
+                                var a=0;
+
+
+                            while(c<=loop){
+
+                                    setTimeout(function(){document.getElementById("mp3").style.background='none';
+                                             document.getElementById("mp2").style.background='#fbe8a6';                               },2000*c);
+
+                                    setTimeout(function(){document.getElementById("mp3").style.background='#fbe8a6';
+                                            document.getElementById("mp2").style.background='none';
+                                          //  displayThis(arrays[a]);
+                                            //    a++;
+                                    },2000*c+1000);    
+
+                                    
+                                    c++;
+                                    
+                                    
+                                }
+                            
+
+                                setTimeout(function(){document.getElementById("mp1").style.background='none';
+                                                    },2000);   
+
+                                setTimeout(function(){document.getElementById("mp2").style.background='#fbe8a6';
+                                                    document.getElementById("mp3").style.background='none';                                
+                                                    },2000*loop+2000);
+
+                                setTimeout(function(){document.getElementById("mp4").style.background='#fbe8a6';
+                                                    document.getElementById("mp2").style.background='none';                                
+                                                    },2000*loop+3000);
+
+                                setTimeout(function(){document.getElementById("mp5").style.background='#fbe8a6';
+                                                    document.getElementById("mp4").style.background='none';                                
+                                                    },2000*loop+6000);
+
+                                setTimeout(function(){this.display();
+                                                    document.getElementById("mp5").style.background='none';
+                                                    document.getElementById("action").innerHTML="You enqueued "+v+" which has priority "+pr;
+                                                    },2000*loop+6500);
+                                        
+                                setTimeout(function(){node.style.display='none';
+                                                    },2000*loop+6400);
+                                
+                                setTimeout(function(){document.getElementById("enq").style.display='none';
+                                                    document.getElementById("method").style.display='none';
+                                                    node.classList.remove("anim");},2000*loop+10000);
+                                                
+
                         }  
 
                         
@@ -114,6 +237,7 @@
                     document.getElementById("pr").value="";
                     document.getElementById("val").value="";
                 }
+
 
                 function dequeue(){
                     document.getElementById("pushAr").style.display='none';
@@ -130,9 +254,39 @@
                     }
                     else{
                             
-                        document.getElementById("action").innerHTML="You dequeued "+popV+" which has priority "+p;
-                        
-                        this.display();
+                        document.getElementById("deq").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+                            
+                            setTimeout(function(){document.getElementById("pp1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pp1").style.background='none';
+                                                    document.getElementById("pp2").style.background='#fbe8a6';
+                                                },1800);
+                                
+                            setTimeout(function(){document.getElementById("pp3").style.background='#fbe8a6';
+                                                    document.getElementById("pp2").style.background='none';
+                                                    document.getElementById("f").style.display='inline';
+                                                },2500);
+                                
+                            setTimeout(function(){document.getElementById("pp4").style.background='#fbe8a6';
+                                                    document.getElementById("pp3").style.background='none';
+                                                     document.getElementById("f").style.display='none';
+                                                },4000);
+                            
+                            setTimeout(function(){document.getElementById("pp5").style.background='#fbe8a6';
+                                                document.getElementById("pp4").style.background='none';
+                                                this.display(); 
+                                                document.getElementById("action").innerHTML="You dequeued "+popV+" which has priority "+p;                                             
+                                                },4500);
+
+                            setTimeout(function(){
+                                                document.getElementById("pp5").style.background='none';
+                                                },4800);
+                                        
+                            setTimeout(function(){document.getElementById("deq").style.display='none';
+                                                document.getElementById("method").style.display='none';},8000);
+
                     }
 
                 }
@@ -149,7 +303,26 @@
                         document.getElementById("action").innerHTML="The queue is empty!";
                     }
                     else{
-                        document.getElementById("action").innerHTML="You peeked "+popV;
+                        document.getElementById("peek").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+                            
+                            setTimeout(function(){document.getElementById("pe1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pe1").style.background='none';
+                                                    document.getElementById("pe2").style.background='#fbe8a6';
+                                                },2000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='#fbe8a6';
+                                                    document.getElementById("pe2").style.background='none';
+                                                    document.getElementById("action").innerHTML="You peeked "+popV;
+                                                },3000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='none';
+                                                },3500);
+                                        
+                            setTimeout(function(){document.getElementById("peek").style.display='none';
+                                                document.getElementById("method").style.display='none';},7000);
                     }
                     
                 }
@@ -261,6 +434,24 @@
                             s+=priority[i]+"     ";
                         }
                     contPr.innerHTML=s;
+
+                     if(queue.length==0){
+                                document.getElementById("front").style.display='none';
+                                document.getElementById("rear").style.display='none';
+                            }
+                            else{
+                                document.getElementById("front").style.display='inline';
+                                if(queue.length==1){
+                                    document.getElementById("rear").style.left=520;
+                                }
+                                else if(queue.length<=4){
+                                    document.getElementById("rear").style.left=440+(60*queue.length);
+                                }
+                                else{
+                                    document.getElementById("rear").style.left=440+(55*queue.length);
+                                }
+                                document.getElementById("rear").style.display='inline';
+                            }   
                 }
 
                 function popUp(){
@@ -308,16 +499,73 @@
                 }
 
                 function closeM() {
-                document.getElementById("myModal").style.display = "none";
+                   document.getElementById("myModal").style.display = "none";
                 }
 
                 window.onclick = function(event) {
-                if (event.target == document.getElementById("myModal")) {
-                    document.getElementById("myModal").style.display = "none";
-                }
+                    if (event.target == document.getElementById("myModal")) {
+                        document.getElementById("myModal").style.display = "none";
+                    }
                 }
 
+                function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
 
+                function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+
+                    }
+
+               function displayThis(array){
+                    
+                    var list=document.getElementById("area");
+                        list.appendChild(cont);
+                        cont.innerHTML="";
+                        cont.appendChild(ul);
+                        ul.innerHTML="";
+                    for(i=0;i<array.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = array[i];
+                            ul.appendChild(li);   
+                        }
+                    
+                    var prAr=document.getElementById("prAr");
+                    prAr.appendChild(contPr);
+                    contPr.innerHTM="";
+                    var s="";
+                    if(priority.length>0)
+                        s="Priorities:     ";
+
+                    for(i=0;i<priority.length;i++){
+                            s+=priority[i]+"     ";
+                        }
+                    contPr.innerHTML=s;
+
+                     if(array.length==0){
+                                document.getElementById("front").style.display='none';
+                                document.getElementById("rear").style.display='none';
+                            }
+                     else{
+                            document.getElementById("front").style.display='inline';
+                            if(queue.length==1){
+                                document.getElementById("rear").style.left=520;
+                            }
+                            else if(array.length<=4){
+                                document.getElementById("rear").style.left=440+(60*queue.length);
+                            }
+                            else{
+                                document.getElementById("rear").style.left=440+(55*queue.length);
+                            }
+                          document.getElementById("rear").style.display='inline';
+                            }   
+                }
+               
                </script>
 
  

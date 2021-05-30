@@ -34,6 +34,9 @@ Route.group(()=>{
 Route.group(()=>{
     Route.on('/').render('UserDef/userDef')
     Route.on('/Stack').render('UserDef/stackU')
+    Route.on('/Queue').render('UserDef/queueU')
+    Route.on('/PrioirityQueue').render('UserDef/pqueueU')
+    Route.on('/LinkedList').render('UserDef/lListU')
 
 }).prefix('/UserDefined')
 

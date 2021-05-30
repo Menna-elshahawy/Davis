@@ -10,20 +10,19 @@
                 
                 <h1> STACK</h1>
         
+                <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+                
+                    <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
                 
                 <div class="stackHome">
                     
-                    <a HREF="homePage.html"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
-                <div class="back" id="back"> Back </div>
-                
-                    <a HREF="home.html"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
-                <div class="backH" id="backH"> Back to home page </div>
-                
       
                     <form action="/executeCode" method="POST" onsubmit="set()" > 
                     {{ csrfField() }}
                         <div class="tex"> Enter you code here </div>
-                        <textarea id="input" class="input" rows="50" cols="80">  hey  </textarea>
+                        <textarea id="input" class="input" rows="50" cols="80">  </textarea>
                         <input type="submit" value="Run" class="run">
                     
                     </form>
@@ -50,7 +49,7 @@
             
                  <script>
                      
-                    var stack=[1,2,3,4,5];
+                    var stack=[];
                     var cont= document.createElement('div');
                     var ul = document.createElement('ul');
 
@@ -70,8 +69,7 @@
                     }
 
                     function set() {
-                        document.getElementById("input").innerHTML={{res}};
-                        stack={{res}};
+                        stack={{{res}}};
                         display();
                     }
 

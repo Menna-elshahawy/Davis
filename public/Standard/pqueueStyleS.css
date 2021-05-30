@@ -5,7 +5,7 @@ body{
 h1 {
     font-family:cursive;
     font-weight: bold;
-    color:rgb(71, 153, 235);
+    color:#303c6c;
     text-align: center;
     font-size: 45px;
     margin-top: 30px;
@@ -45,18 +45,20 @@ ul li {
     height: 120;
 */
   text-align: center;
-  border: 3px solid black;
+  border: 3px solid #f4976c;
   margin-top: -1px; 
-  background-color: #f6f6f6;
+  /* background-color: #f4976c; */
   padding: 12px;
   border-radius: 40%;
   word-wrap: break-word;
   font-family: cursive;  
      display: inline;
+     font-weight: bold;
+     color: #303c6c;
 }
 
 .notify{
-    color: red;
+    color: #f4976c;
     position: fixed;
     top: 370px;
     left: 85px;
@@ -70,6 +72,7 @@ ul li {
     left: 85px;
      font-size: 20;
     font-family: cursive;
+    color: #f4976c;
     
 }
 
@@ -103,8 +106,8 @@ ul li {
 }
 
 .btn-group .button {
-  background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+  background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
   padding: 15px 20px;
   text-align: center;
@@ -115,12 +118,12 @@ ul li {
   width: 120px;
   display: block;
   border-radius: 8px;
-  margin-top: -1px;
+  margin-top: 1px;
 
 }
 
 .btn-group .button:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .pushAr{
@@ -137,8 +140,8 @@ ul li {
 }
 
 .go{
-    background-color: #d9b3ff; 
-    border: 2px solid #a55abf;
+    background-color: #b4dfe5; 
+    border: 2px solid #303c6c;
     color: white;
     text-align: center;
     font-family: monospace;
@@ -146,10 +149,11 @@ ul li {
     font-size: 14px;
     width: 40px;
     border-radius: 4px;
+    cursor: pointer;
 }
 
 .go:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .createRnd {
@@ -171,8 +175,8 @@ ul li {
 }
 
 .rndBtn{
-    background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+    background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
 /*  padding: 15px 20px;*/
   text-align: center;
@@ -186,12 +190,12 @@ ul li {
 }
 
 .rndBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .defBtn{
-        background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+        background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
 /*  padding: 15px 20px;*/
   text-align: center;
@@ -204,7 +208,7 @@ ul li {
 }
 
 .defBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .showRnd{
@@ -228,6 +232,7 @@ ul li {
     left: 260px;
     top:203px;
     font-family: cursive;
+    color: #303c6c;
 }
 
 .popSz{
@@ -237,6 +242,7 @@ ul li {
     left: 220px;
     top:132px;
     font-family: cursive;
+    color: #303c6c;
 }
 
 .popPr{
@@ -246,6 +252,7 @@ ul li {
     left: 222px;
     top:201px;
     font-family: cursive;
+    color: #303c6c;
 }
 
 .num{
@@ -259,6 +266,7 @@ ul li {
     top: 300;
     font-family: cursive;
     font-size: 18;
+    color: #7ac7d1;
 }
 
 .contPr{
@@ -273,6 +281,7 @@ ul li {
   font-size: 18;
   font-family: cursive;
   display: none;
+  color: #f4976c;
 }
 
 .b {
@@ -282,7 +291,7 @@ content: "\2039";
   top: 0;
   left: 65;
   font-family: cursive;
-  color: black;
+  color: #303c6c;
   margin-top: -10;
 /*    font-weight: bold;*/
 }
@@ -294,6 +303,7 @@ content: "\2039";
   font-size: 18;
   font-family: cursive;
   display: none; 
+  color: #f4976c;
 }
 
 .bH{
@@ -303,7 +313,7 @@ content: "\2039";
   top: 0;
   left: 20;
   font-family: cursive;
-  color: black;
+  color: #303c6c;
   margin-top: -10;
 }
 
@@ -315,6 +325,7 @@ content: "\2039";
   cursor: pointer;
   font-size: 20;
   font-family: cursive;
+  color: #303c6c;
 }
 .abt:hover{
   text-decoration-line: underline;
@@ -335,24 +346,21 @@ background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 .modal-content {   
-  background-color: #fefefe;
+  background-color: #f1f3f3;
   margin: auto;
   padding: 20px;
-  border: 4px solid #888;
+  border: 4px solid #303c6c;
   width: 66%;
   font-size: 20;
   font-family: cursive;
   text-align: justify;
+  color: #f4976c;
 }
 
-.c{
-  text-align: center;
-
-}
 
 .close {
 content: "\00D7";
-color: #aaaaaa;
+color: #7ac7d1;
 float: right;
 position: relative;
 font-size: 40px;
@@ -361,12 +369,185 @@ font-size: 40px;
 
 .close:hover,
 .close:focus {
-color: #000;
+color: #303c6c;
 text-decoration: none;
 cursor: pointer;
 }
 
+.node{
+  font-size:35px; 
+  color: #303c6c ;
+  text-align: center;
+  border: 3px solid #f4976c;
+  margin-top: -1px; 
+  padding: 12px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+     font-weight: bold;
+     position: fixed;
+    top: 100;
+    left: 410;
 
+}
+
+@keyframes move0{
+    from {left: 410; top:100}
+    to {left: 515; top: 220}
+}
+
+@keyframes move1{
+  from {left: 410; top:100}
+  to {left: 565; top: 220}
+}
+
+@keyframes move2{
+  from {left: 410; top:100}
+  to {left: 615; top: 220}
+}
+
+@keyframes move3{
+  from {left: 410; top:100}
+  to {left: 665; top: 220}
+}
+
+@keyframes move4{
+  from {left: 410; top:100}
+  to {left: 715; top: 220}
+}
+
+@keyframes move5{
+  from {left: 410; top:100}
+  to {left: 765; top: 220}
+}
+
+@keyframes move6{
+  from {left: 410; top:100}
+  to {left: 815; top: 220}
+}
+
+@keyframes move7{
+  from {left: 410; top:100}
+  to {left: 865; top: 220}
+}
+
+.anim{
+  animation-name: move0;
+  animation-duration: 3800ms;
+  animation-play-state: paused;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 10s; */
+
+}
+
+.method{
+    position: fixed;
+    top: 150;
+    right: 30;
+   
+    font-size: 20;
+    font-family: cursive;
+    display: none;
+}
+
+.code{
+    border: 1px solid #303c6c;
+    width: 420;
+    height: 200;
+    /* background: #e6e6ff; */
+    border-radius: 10px;
+    color: #303c6c;
+}
+
+.view{
+    position: fixed;
+    top: 110;
+    right: 180;
+    /* background-color: #b3b3ff; */
+    border: 1 solid #303c6c;
+    
+    padding: 5px 5px;
+  text-align: center;
+  font-size: 12px;
+  font-family: monospace;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #f4976c;
+/*    color: white;*/
+}
+
+.view:hover{
+  background-color: #b4dfe5;
+}
+
+.hide{
+    position: fixed;
+    top: 110;
+    right: 180; 
+    /* background-color: #b3b3ff; */
+    border: 1 solid #303c6c;
+
+    padding: 5px 5px;
+  text-align: center;
+  font-size: 12px;
+  font-family: monospace;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #f4976c;
+}
+
+.hide:hover{
+  background-color: #b4dfe5;
+}
+
+.enq{
+    display: none;
+}
+
+.deq{
+    display: none;
+}
+
+.peek{
+    display: none;
+}
+
+.front{
+    position: fixed;
+    top: 240;
+    left: 440;
+    font-size: 25;
+    font-family: cursive;
+    color: #7ac7d1;
+    display: none;
+}
+
+.rear{
+  position: fixed;
+  top: 180;
+  left: 575;
+  font-size: 25;
+  font-family: cursive;
+  color: #7ac7d1;
+  display: none;
+}
+.f{
+    content: "\21B7";
+    font-size: 60;
+    position: fixed;
+    top: 100;
+    left: 640;
+    font-weight: lighter;
+    color: #fbe8a6;
+    font-family: cursive;
+    
+    transform: scale(3,2) rotate(-20deg);
+    width: 200;
+    display: none;
+}
 
 
 
