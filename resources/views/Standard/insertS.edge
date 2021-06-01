@@ -1,0 +1,315 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('Standard/insertS') }}
+            </head>
+                  
+            <body>
+                
+                <title> Insertion Sort </title>
+                
+                <h1> INSERTION SORT </h1>
+        
+                <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+                 <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+
+                <div class="abt" onclick="show()"> About </div>
+                    
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button class="button" onclick="create()">Create</button>
+                        <button class="button" onclick="sort()">Sort</button>                                
+                   </div>
+                    
+                    <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="10"> 
+                              <div class="popSz" id="popSz"> Enter the length of the array </div>
+                            <button class="go" onclick="createRnd()">Go</button> </div></div>
+                    
+                    <div class="createDef" id="createDef" > <button class="defBtn" onclick="showAr()">User Defined</button> 
+                        <div class="showDef" id="showDef"> <input class="arr" type="text" id="arr" size="5" onmouseover="popUp()" onmouseout="dis()" placeholder="1,2,3,4,5"> 
+                            <button class="go" onclick="createDef()">Go</button>  <div class="popUp" id="popUp"> Enter the elements separated by commas </div> </div> </div>
+
+                    <div class="sortGo" id="sortGo"> <button class="go" onclick="sortGo()">Go</button>  </div>       
+                    
+                </div>
+                
+                <p class ="notify" id="notify"> </p>
+
+                <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                          <div id="sort" class="sort">
+                               <div id="s1" class="s1">  void sort(int a[]) { </div> 
+                               <div id="s2" class="s2" style="text-indent: 40px;">  for (int i = 0; i < a.length - 1; i++ ){ </div> 
+                               <div id="s3" class="s3" style="text-indent: 80px;">  int minIndex = i;  </div> 
+                               <div id="s4" class="s4" style="text-indent: 80px;">  int min = a[minIndex];  </div> 
+                               <div id="s5" class="s5" style="text-indent: 80px;"> for ( int j = i + 1; j < a.length; j++ ){ </div> 
+                               <div id="s6" class="s6" style="text-indent: 120px;">  if ( a[j] < min ){ </div> 
+                               <div id="s7" class="s7" style="text-indent: 160px;">  minIndex = j; </div> 
+                               <div id="s8" class="s8" style="text-indent: 160px;">  min = a[minIndex]; </div> 
+                               <div id="s9" class="s9" style="text-indent: 120px;"> } </div>
+                               <div id="s10" class="s10" style="text-indent: 80px;"> } </div>
+                               <div id="s11" class="s11" style="text-indent: 80px;"> int T = a[minIndex]; </div>
+                               <div id="s12" class="s12" style="text-indent: 80px;"> a[minIndex] = a[i]; </div>
+                               <div id="s13" class="s13" style="text-indent: 80px;"> a[i] = T; </div>
+                               <div id="s14" class="s14" style="text-indent: 40px;"> } </div> 
+                               <div id="s15" class="s15">  } </div> 
+                          </div>
+
+                        </div>
+                       
+                </div> 
+
+                <div> 
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div>
+                    <div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div>
+                    <div id="l7" class="l7"> 3</div> <div id="l8" class="l8"> 3</div> <div id="l9" class="l9"> 3</div>
+                    <div id="l10" class="l10"> 3</div>
+                    
+                </div>
+
+
+                 <script>
+
+                    var list =[];
+                     
+                     function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                        }
+
+                        window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                        document.getElementById("myModal").style.display = "none";
+                        }
+                    }
+
+                    function create(){
+                        document.getElementById("createRnd").style.display='inline-block';
+                        document.getElementById("createDef").style.display='inline-block';
+                        document.getElementById("showRnd").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        document.getElementById("sortGo").style.display='none';
+
+                    }
+
+                    function showSz(){
+                        document.getElementById("showRnd").style.display='inline-block';
+                        document.getElementById("showDef").style.display='none';
+                    }
+
+                    function showAr(){
+                            document.getElementById("showDef").style.display='inline-block';
+                            document.getElementById("showRnd").style.display='none';
+                    }
+
+                    function createRnd(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        
+                        var l=document.getElementById("size").value;
+
+                        if(l>10){
+                            document.getElementById("notify").innerHTML= "Maximum length is 10";
+                            document.getElementById("size").value="";
+
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("size").value="";
+                            
+                            list=[];
+                            for(i=0;i<l;i++){
+                            
+                                do{
+                                    var x = Math.floor((Math.random() * 20) + 1);
+                                }while(exist(x));
+                                
+                                list[i]=x;    
+                            }
+                            this.display();
+                        } 
+                    }
+
+                    function createDef(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        
+                        var ar=document.getElementById("arr").value;
+                        document.getElementById("arr").value="";
+                        
+                        if(ar==""){
+                        document.getElementById("arr").value="";   
+                        }
+                        
+                        else{
+                            var list2=[];
+
+                            list2=ar.split(',');       
+
+                            if(list2.length>10){
+                                document.getElementById("notify").innerHTML= "Maximum length is 10";
+                                document.getElementById("arr").value="";
+
+                            }
+                            else{
+                                list=[];
+                                var f='f';
+                                
+                                for(i=0;i<list2.length;i++){
+                                    if(exist(list2[i])){
+                                        f='t';
+                                        break;
+                                    }
+                                    else{
+                                        list[i]=list2[i];
+                                    }
+                                }
+                                
+                                if(f=='f'){
+                                    this.display();
+                                }
+                                else{
+                                    document.getElementById("notify").innerHTML= "No duplicate values allowed";
+                                    document.getElementById("arr").value="";
+                                }
+                            } 
+                        }
+                    }
+
+                    function sort(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        document.getElementById("sortGo").style.display='inline';
+                    }
+
+                    function sortGo(){
+                        document.getElementById("sortGo").style.display='none';
+
+                        if(list.length==0){
+                            document.getElementById("notify").innerHTML="The list is empty!";
+                        }
+
+                        else{
+                             document.getElementById("notify").innerHTML="";
+
+                           //  document.getElementById("s1").style.background='#fbe8a6';
+
+                            for (var i = 1; i < list.length; i++) {                            
+                                var value = list[i];
+                                var j = void 0;
+
+                                for (j = i - 1; j >= 0 && list[j] > value; j--) {                                   
+                                        list[j + 1] = list[j];
+                                }
+                                list[j + 1] = value;
+                                                
+                            }
+
+                            display();
+            
+                        }
+
+                    }
+
+                    function popUp(){
+                        document.getElementById("popUp").style.display='inline-block';
+                    }
+
+                    function dis(){
+                        document.getElementById("popUp").style.display='none';   
+                    }
+
+                    function popUpSz(){
+                        document.getElementById("popSz").style.display='inline-block';
+                    }
+
+                    function disSz(){
+                        document.getElementById("popSz").style.display='none';   
+                    }
+
+                    function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
+
+                    function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+
+                    }
+
+                    function display(){
+                    
+                
+                        for(i=1;i<=list.length;i++){                           
+                            var t1='l'.concat(i);
+                            document.getElementById(t1).style.display='inline-block';
+                            document.getElementById(t1).innerHTML=list[i-1];    
+                            
+                        }
+
+                        
+                        for(j=list.length+1;j<=10;j++){
+                            var t1='l'.concat(j);
+                            document.getElementById(t1).style.display='none';
+                        }
+                    }
+
+                    function exist(v){
+                        for(i=0;i<list.length;i++){
+                            if(v==list[i]){
+                                return true;
+                            }
+                        }
+                        return false;
+                }
+
+                </script>
+
+            </body>   
+        
+    </html>

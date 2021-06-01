@@ -29,6 +29,10 @@ Route.group(()=>{
     Route.on('/PrioirityQueue').render('Standard/pqueueS')
     Route.on('/LinkedList').render('Standard/lListS')
     Route.on('/Tree').render('Standard/treeS')
+    Route.on('/SelectionSort').render('Standard/selectionS')
+    Route.on('/InsertionSort').render('Standard/insertS')
+    Route.on('/BubbleSort').render('Standard/bubbleS')
+    Route.on('/HashTable').render('Standard/hashTS')
 }).prefix('/Standard')
 
 Route.group(()=>{

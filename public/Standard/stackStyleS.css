@@ -211,12 +211,6 @@ ul li {
         display: none;
 }
 
-.labelSz{
-    font-family: monospace;
-    font-size: 15px;
-    font-weight: bold;
-}
-
 .popUp {
     display: none;
     font-size: 12px;
@@ -438,10 +432,6 @@ cursor: pointer;
   background-color: #b4dfe5;
 }
 
-.mp1{
-/*    background-color: yellow;*/
-    background-color: none;
-}
 
 .push{
     display: none;
@@ -492,6 +482,8 @@ cursor: pointer;
 }
 
 .upL{
+
+  
     content: "\2196";
     font-size: 75;
     position: fixed;

@@ -5,7 +5,7 @@ body{
 h1 {
     font-family:cursive;
     font-weight: bold;
-    color:rgb(71, 153, 235);
+    color:#303c6c;
     text-align: center;
     font-size: 45px;
     margin-top: 30px;
@@ -21,7 +21,7 @@ h1 {
 }
 
 .notify{
-    color: red;
+    color: #f4976c;
     position: fixed;
     top: 450px;
     left: 85px;
@@ -35,6 +35,7 @@ h1 {
     left: 85px;
      font-size: 20;
     font-family: cursive;
+    color: #f4976c;
     
 }
 
@@ -67,8 +68,8 @@ h1 {
 }
 
 .btn-group .button {
-  background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+  background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
   padding: 15px 20px;
   text-align: center;
@@ -80,12 +81,12 @@ h1 {
     height: 80;
   display: block;
   border-radius: 8px;
-  margin-top: -1px;
+  margin-top: 1px;
 
 }
 
 .btn-group .button:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .insert{
@@ -107,8 +108,8 @@ h1 {
 }
 
 .go{
-    background-color: #d9b3ff; 
-    border: 2px solid #a55abf;
+    background-color: #b4dfe5; 
+    border: 2px solid #303c6c;
     color: white;
     text-align: center;
     font-family: monospace;
@@ -120,7 +121,7 @@ h1 {
 }
 
 .go:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 
@@ -134,8 +135,8 @@ h1 {
 }
 
 .rndBtn{
-    background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+    background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
   text-align: center;
   font-size: 14px;
@@ -148,7 +149,7 @@ h1 {
 }
 
 .rndBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .cEmp {
@@ -161,8 +162,8 @@ h1 {
 }
 
 .empBtn{
-    background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+    background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
   text-align: center;
   font-size: 14px;
@@ -175,7 +176,7 @@ h1 {
 }
 
 .empBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 /*
@@ -190,8 +191,8 @@ h1 {
 */
 
 .minBtn{
-    background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+    background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
   text-align: center;
   font-size: 14px;
@@ -204,12 +205,12 @@ h1 {
 }
 
 .minBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .maxBtn{
-        background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+        background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
 /*  padding: 15px 20px;*/
   text-align: center;
@@ -222,7 +223,7 @@ h1 {
 }
 
 .maxBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 /*
@@ -236,8 +237,8 @@ h1 {
 */
 
 .findBtn{
-        background-color: #d9b3ff; 
-  border: 2px solid #a55abf;
+        background-color: #b4dfe5; 
+  border: 2px solid #303c6c;
   color: white;
 /*  padding: 15px 20px;*/
   text-align: center;
@@ -250,7 +251,7 @@ h1 {
 }
 
 .findBtn:hover {
-  background-color: #a55abf;
+  background-color: #7ac7d1;
 }
 
 .fMin{
@@ -259,7 +260,7 @@ h1 {
     display:none;
     position: fixed;
     left: 205px;
-    top:380px;
+    top:387px;
 }
 
 .fMax{
@@ -268,7 +269,7 @@ h1 {
     display: none;
     position: fixed;
     left: 205px;
-    top:405px;
+    top:412px;
 }
 
 .f{
@@ -277,7 +278,7 @@ h1 {
     display: none;
     position: fixed;
     left: 205px;
-    top:430px;
+    top:437px;
 }
 
 .showV{
@@ -295,6 +296,7 @@ h1 {
   font-size: 18;
   font-family: cursive;
   display: none;
+  color: #f4976c;
 }
 
 .b {
@@ -304,8 +306,9 @@ content: "\2039";
   top: 0;
   left: 65;
   font-family: cursive;
-  color: black;
+  color: #303c6c;
   margin-top: -10;
+
 /*    font-weight: bold;*/
 }
 
@@ -316,6 +319,7 @@ content: "\2039";
   font-size: 18;
   font-family: cursive;
   display: none; 
+  color: #f4976c;
 }
 
 .bH{
@@ -325,7 +329,7 @@ content: "\2039";
   top: 0;
   left: 20;
   font-family: cursive;
-  color: black;
+  color: #303c6c;
   margin-top: -10;
 }
 
@@ -333,9 +337,9 @@ content: "\2039";
 .t1{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
+  border: 3px solid #f4976c;
   margin-top: -1px; 
-  background-color: #f6f6f6;
+ color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -349,9 +353,9 @@ content: "\2039";
 .t2{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -365,9 +369,9 @@ content: "\2039";
 .t3{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -381,9 +385,9 @@ content: "\2039";
 .t4{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -397,9 +401,9 @@ content: "\2039";
 .t5{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -413,9 +417,9 @@ content: "\2039";
 .t6{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -429,9 +433,9 @@ content: "\2039";
 .t7{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -445,9 +449,9 @@ content: "\2039";
 .t8{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -461,9 +465,9 @@ content: "\2039";
 .t9{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -477,9 +481,9 @@ content: "\2039";
 .t10{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -493,9 +497,9 @@ content: "\2039";
 .t11{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -509,9 +513,9 @@ content: "\2039";
 .t12{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -525,9 +529,9 @@ content: "\2039";
 .t13{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -541,9 +545,9 @@ content: "\2039";
 .t14{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
@@ -557,9 +561,9 @@ content: "\2039";
 .t15{
     font-size: 25;
     text-align: center;
-  border: 3px solid black;
-  margin-top: -1px; 
-  background-color: #f6f6f6;
+    border: 3px solid #f4976c;
+    margin-top: -1px; 
+   color: #303c6c;
   padding: 8px;
   border-radius: 40%;
   word-wrap: break-word;
