@@ -304,16 +304,7 @@ h1 {
     color: #303c6c;
 }
 
-.a7 {
-    font-size: 42;
-  content: "\2192";
-  position: fixed;
-  top: 202;
-  left: 928; 
-    display: none;
-    font-weight: bold;
-    color: #303c6c;
-}
+
 
 .l1{
     font-size: 25;
@@ -712,7 +703,7 @@ cursor: pointer;
      display: none;
     position: fixed;
     top: 205;
-    left: 350;
+    left: 330;
 /*    animation-iteration-count: infinite;*/
 }
 
@@ -759,7 +750,7 @@ cursor: pointer;
 .code{
     border: 1px solid #303c6c;
     width: 350;
-    height: 200;
+    height: 380;
     /* background: #e6e6ff; */
     border-radius: 10px;
     color: #303c6c;
@@ -862,10 +853,10 @@ cursor: pointer;
 
 .upL{
   content: "\2196";
-  font-size:30;
+  font-size:45;
   position: fixed;
-  top: 265;
-  left: 390;
+  top: 246;
+  left: 376;
   font-weight: lighter;
   color: #fbe8a6;
   font-family: cursive;
@@ -876,9 +867,9 @@ cursor: pointer;
 
 .upR{
   content: "\2197";
-  font-size:30;
+  font-size:45;
   position: fixed;
-  top: 265;
+  top: 244;
   left: 920;
   font-weight: lighter;
   color: #fbe8a6;
@@ -887,12 +878,23 @@ cursor: pointer;
   display: none;
 }
 
-.right{
-    font-size: 24;
+.rightH{
+  font-size: 42;
   content: "\2192";
   position: fixed;
-  top: 215;
-  left: 388; 
+  top: 202;
+  left: 368; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+.rightT{
+  font-size: 42;
+  content: "\2192";
+  position: fixed;
+  top: 202;
+  left: 928; 
     display: none;
     font-weight: bold;
     color: #303c6c;
@@ -908,4 +910,14 @@ cursor: pointer;
 
 .remTM{
   display: none;
+}
+
+.current{
+  position: fixed;
+  top: 175;
+  left: 400;
+  font-size: 20;
+  font-family: cursive;
+  display: none;
+  color: #7ac7d1;
 }

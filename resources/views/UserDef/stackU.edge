@@ -19,7 +19,7 @@
                 <div class="stackHome">
                     
       
-                    <form action="/executeCode" method="POST" onsubmit="set()" > 
+                    <form action="/executeCode" method="POST" onsubmit="set()" onload="set()" > 
                     {{ csrfField() }}
                         <div class="tex"> Enter you code here </div>
                         <textarea id="input" class="input" rows="50" cols="80">  </textarea>
@@ -30,10 +30,10 @@
                                         
                     <div class="abt" onclick="show()"> About </div>
                     
-                    <div id="myModal" class="modal">
-                  <div class="modal-content">
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
-                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
                 </div>
                     
@@ -47,7 +47,7 @@
 
                         
             
-                 <script>
+                <script>
                      
                     var stack=[];
                     var cont= document.createElement('div');
@@ -55,21 +55,28 @@
 
                     function display(){
                         console.log(stack);
+
+                        if(stack==undefined){
+                            return;
+                        }
                         
-                        var list=document.getElementById("area");
-                            list.appendChild(cont);
-                            cont.innerHTML="";
-                            cont.appendChild(ul);
-                            ul.innerHTML="";
-                            for(i=stack.length-1;i>=0;i--){
-                                let li = document.createElement('li');
-                                li.innerHTML = stack[i];
-                                ul.appendChild(li);   
-                            }
+                        if(stack.length!=0){
+                            var list=document.getElementById("area");
+                                list.appendChild(cont);
+                                cont.innerHTML="";
+                                cont.appendChild(ul);
+                                ul.innerHTML="";
+                                for(i=stack.length-1;i>=0;i--){
+                                    let li = document.createElement('li');
+                                    li.innerHTML = stack[i];
+                                    ul.appendChild(li);   
+                                }
+                        }    
                     }
 
                     function set() {
-                        stack={{{res}}};
+                        {{{insertCode()}}}
+                        stack={{{res}}}                       
                         display();
                     }
 
@@ -79,13 +86,13 @@
                     }
 
                     function closeM() {
-                    document.getElementById("myModal").style.display = "none";
+                        document.getElementById("myModal").style.display = "none";
                     }
 
                     window.onclick = function(event) {
-                    if (event.target == document.getElementById("myModal")) {
-                        document.getElementById("myModal").style.display = "none";
-                    }
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
                     }
 
 
