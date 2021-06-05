@@ -314,44 +314,41 @@ cursor: pointer;
 
 
 .node{
-  font-size:25px; 
-  width: 45;
+  font-size: 25;
   text-align: center;
   border: 3px solid #f4976c;
-  margin-top: -1px; /* Prevent double borders */
-  /* background-color: #f6f6f6; */
-  padding: 8px;
+  color: #303c6c;
+  margin-top: -1px; 
+  /* padding: 8; */
+  width: 40;
+  height: 50;
+  align-items:center;
+  justify-content:center;
+  /* display: flex; */
   border-radius: 40%;
   word-wrap: break-word;
-  font-family: cursive; 
-  font-weight: bold;
-    display: none;
-    position: fixed;
+  font-family: cursive;  
+   display: none;
+  position: fixed;
     top: 200;
-    left: 410;
-    color: #303c6c;
-
+    left: 320;
+    transition-property: top, left;
+    transition-duration: 2s;
 /*    animation-iteration-count: infinite;*/
 }
 
-@keyframes move{
-    from {left: 410; top:200}
-    to {left: 650; top: 95}
-}
-
-.anim{
-    animation: move 3s ;
-    animation-play-state: running;
-    animation-timing-function: ease-in-out;
-        animation-delay: 2s;
+.start{
+  top:300;
+  left:500;
+  transition-delay: 6s;
 
 }
+
 
 .method{
     position: fixed;
     top: 150;
-    right: 80;
-   
+    right: 50;
     font-size: 20;
     font-family: cursive;
     display: none;
@@ -359,8 +356,8 @@ cursor: pointer;
 
 .code{
     border: 1px solid #303c6c;
-    width: 300;
-    height: 200;
+    width: 370;
+    height: 360;
     /* background: #e6e6ff; */
     border-radius: 10px;
     color: #303c6c;
@@ -369,7 +366,7 @@ cursor: pointer;
 .view{
     position: fixed;
     top: 110;
-    right: 170;
+    right: 180;
     /* background-color: #b3b3ff; */
     
     padding: 5px 5px;
@@ -390,7 +387,7 @@ cursor: pointer;
 .hide{
     position: fixed;
     top: 110;
-    right: 170; 
+    right: 180; 
     
     /* background-color: #b3b3ff; */
     
@@ -409,15 +406,15 @@ cursor: pointer;
   background-color: #b4dfe5;
 }
 
-.push{
+.insertM{
+  display: none;
+}
+
+.removeM{
     display: none;
 }
 
-.pop{
-    display: none;
-}
-
-.peek{
+.searchM{
     display: none;
 }
 
@@ -520,6 +517,18 @@ cursor: pointer;
     left: 425;
 }
 
+@keyframes l11{
+  from {left: 320; top:200}
+  to {left: 425; top: 300}
+}
+
+.animl11{
+  animation: l11 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l12{
     font-size: 25;
     text-align: center;
@@ -541,6 +550,18 @@ cursor: pointer;
     left: 425;
 }
 
+@keyframes l12{
+  from {left: 320; top:200}
+  to {left: 425; top: 380}
+}
+
+.animl12{
+  animation: l12 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l13{
   font-size: 25;
   text-align: center;
@@ -560,6 +581,18 @@ font-family: cursive;
   position: fixed;
   top: 460;
   left: 425;
+}
+
+@keyframes l13{
+  from {left: 320; top:200}
+  to {left: 425; top: 460}
+}
+
+.animl13{
+  animation: l13 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .d1{
@@ -645,6 +678,18 @@ font-family: cursive;
   left: 505;
 }
 
+@keyframes l21{
+  from {left: 320; top:200}
+  to {left: 505; top: 300}
+}
+
+.animl21{
+  animation: l21 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l22{
   font-size: 25;
   text-align: center;
@@ -664,6 +709,18 @@ font-family: cursive;
   position: fixed;
   top: 380;
   left: 505;
+}
+
+@keyframes l22{
+  from {left: 320; top:200}
+  to {left: 505; top: 380}
+}
+
+.animl22{
+  animation: l22 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .l23{
@@ -687,6 +744,17 @@ font-family: cursive;
   left: 505;
 }
 
+@keyframes l23{
+  from {left: 320; top:200}
+  to {left: 505; top: 460}
+}
+
+.animl23{
+  animation: l23 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
 
 .d2{
   content: "\2193";
@@ -771,6 +839,18 @@ font-family: cursive;
   left: 585;
 }
 
+@keyframes l31{
+  from {left: 320; top:200}
+  to {left: 585; top: 300}
+}
+
+.animl31{
+  animation: l31 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l32{
   font-size: 25;
   text-align: center;
@@ -792,6 +872,18 @@ font-family: cursive;
   left: 585;
 }
 
+@keyframes l32{
+  from {left: 320; top:200}
+  to {left: 585; top: 380}
+}
+
+.animl32{
+  animation: l32 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l33{
   font-size: 25;
   text-align: center;
@@ -811,6 +903,18 @@ font-family: cursive;
   position: fixed;
   top: 460;
   left: 585;
+}
+
+@keyframes l33{
+  from {left: 320; top:200}
+  to {left: 585; top: 460}
+}
+
+.animl33{
+  animation: l33 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .d3{
@@ -896,6 +1000,18 @@ font-family: cursive;
   left: 665;
 }
 
+@keyframes l41{
+  from {left: 320; top:200}
+  to {left: 665; top: 300}
+}
+
+.animl41{
+  animation: l41 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l42{
   font-size: 25;
   text-align: center;
@@ -917,6 +1033,18 @@ font-family: cursive;
   left: 665;
 }
 
+@keyframes l42{
+  from {left: 320; top:200}
+  to {left: 665; top: 380}
+}
+
+.animl42{
+  animation: l42 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l43{
   font-size: 25;
   text-align: center;
@@ -936,6 +1064,18 @@ font-family: cursive;
   position: fixed;
   top: 460;
   left: 665;
+}
+
+@keyframes l43{
+  from {left: 320; top:200}
+  to {left: 665; top: 460}
+}
+
+.animl43{
+  animation: l43 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .d4{
@@ -1022,6 +1162,18 @@ font-family: cursive;
   left: 745;
 }
 
+@keyframes l51{
+  from {left: 320; top:200}
+  to {left: 745; top: 300}
+}
+
+.animl51{
+  animation: l51 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l52{
   font-size: 25;
   text-align: center;
@@ -1043,6 +1195,18 @@ font-family: cursive;
   left: 745;
 }
 
+@keyframes l52{
+  from {left: 320; top:200}
+  to {left: 745; top: 380}
+}
+
+.animl52{
+  animation: l52 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l53{
   font-size: 25;
   text-align: center;
@@ -1062,6 +1226,18 @@ font-family: cursive;
   position: fixed;
   top: 460;
   left: 745;
+}
+
+@keyframes l53{
+  from {left: 320; top:200}
+  to {left: 745; top: 460}
+}
+
+.animl53{
+  animation: l53 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .d5{
@@ -1148,6 +1324,18 @@ font-family: cursive;
   left: 825;
 }
 
+@keyframes l61{
+  from {left: 320; top:200}
+  to {left: 825; top: 300}
+}
+
+.animl61{
+  animation: l61 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l62{
   font-size: 25;
   text-align: center;
@@ -1169,6 +1357,18 @@ font-family: cursive;
   left: 825;
 }
 
+@keyframes l62{
+  from {left: 320; top:200}
+  to {left: 825; top: 380}
+}
+
+.animl62{
+  animation: l62 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l63{
   font-size: 25;
   text-align: center;
@@ -1188,6 +1388,18 @@ font-family: cursive;
   position: fixed;
   top: 460;
   left: 825;
+}
+
+@keyframes l63{
+  from {left: 320; top:200}
+  to {left: 825; top: 460}
+}
+
+.animl63{
+  animation: l63 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .d6{
@@ -1273,6 +1485,18 @@ font-family: cursive;
   left: 905;
 }
 
+@keyframes l71{
+  from {left: 320; top:200}
+  to {left: 905; top: 300}
+}
+
+.animl71{
+  animation: l71 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l72{
   font-size: 25;
   text-align: center;
@@ -1294,6 +1518,18 @@ font-family: cursive;
   left: 905;
 }
 
+@keyframes l72{
+  from {left: 320; top:200}
+  to {left: 905; top: 380}
+}
+
+.animl72{
+  animation: l72 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
+}
+
 .l73{
   font-size: 25;
   text-align: center;
@@ -1313,6 +1549,18 @@ font-family: cursive;
   position: fixed;
   top: 460;
   left: 905;
+}
+
+@keyframes l73{
+  from {left: 320; top:200}
+  to {left: 905; top: 460}
+}
+
+.animl73{
+  animation: l73 2s ;
+  animation-play-state: running;
+  animation-timing-function: ease-in-out;
+  /* animation-delay: 2s; */
 }
 
 .d7{

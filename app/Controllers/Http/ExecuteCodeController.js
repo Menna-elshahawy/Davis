@@ -2,32 +2,23 @@
 /** @type {typeof import('@ioc:Adonis/Core/View')} */
 /** @type {typeof import('@adonisjs/ignitor')} */
 
-const { hooks } = require('@adonisjs/ignitor')
-
-var code="import java.util.Arrays; public class ArrayStack { private int[] theStack; private int maxSize; private int top; public ArrayStack(int s) { maxSize = s; theStack = new int[maxSize]; top = -1; } public void push(int elem) { top++; theStack[top] = elem; } public int pop() { int result = theStack[top]; top--; return result; } public int top() { return theStack[top]; } public boolean isFull() { return (top == (maxSize - 1)); } public boolean isEmpty() { return (top == -1); } public int size() { return (top + 1); } public void printStack() { System.out.print(Arrays.toString(theStack));} public static void main(String[]args){ ArrayStack s=new ArrayStack(4); s.push(2); s.push(5); s.push(3); s.push(7); s.printStack();}}"
-
-hooks.after.providersBooted(() => {
-	const View = use('View')
-  
-	View.global('insertCode', function () {
-		// console.log(new Date().getTime())
-		code="import java.util.Arrays; public class ArrayStack { private int[] theStack; private int maxSize; private int top; public ArrayStack(int s) { maxSize = s; theStack = new int[maxSize]; top = -1; } public void push(int elem) { top++; theStack[top] = elem; } public int pop() { int result = theStack[top]; top--; return result; } public int top() { return theStack[top]; } public boolean isFull() { return (top == (maxSize - 1)); } public boolean isEmpty() { return (top == -1); } public int size() { return (top + 1); } public void printStack() { System.out.print(Arrays.toString(theStack));} public static void main(String[]args){ ArrayStack s=new ArrayStack(4); s.push(2); s.push(5); s.push(3); s.push(7); s.printStack();}}"
-	})
-  })
 
 const View=use('View')
 const Axios = use('axios')
 
 Axios.defaults.headers.post['Content-Type'] = 'application/json';
-// View.global('res',[]);
-// View.global('code',"")
+
 class ExecuteCodeController {
 
 	
-	async executeCode1(){
+	async executeCode1({request}){
 		
+		var code=request.input('code');
+		var c=code.replace(/(\r\n|\n|\r)/gm, "");
+		console.log(c)
+
 	    await Axios.post('https://api.jdoodle.com/v1/execute',{
-	   		script: "print(7+3)",
+	   		script: c,
 	        language: "python3",
 	        versionIndex: "0",
 	        clientId: "95c3d6d990faf6b1d2daf7ad0195b799",
@@ -35,27 +26,32 @@ class ExecuteCodeController {
 	    })
             .then(response => {
         	    console.log(response.data.output);
-				// View.global('res',response.data.output);
-                return response;
+                // return response;
             });
 	}
 
-	async executeCode2(){
+	async executeCode2({request,view}){
+
+		var code=request.input('code');
+		var c=code.replace(/(\r\n|\n|\r)/gm, "");
 
 	    await Axios.post('https://api.jdoodle.com/v1/execute',{
-			script : code,
+			script : c,
 			language: "java",
 			versionIndex: "3",
 			clientId: "95c3d6d990faf6b1d2daf7ad0195b799",
 			clientSecret: "3407587a0e94f79246c4682be471fafcb445a37ba99b06882ceb23ef203015bb"
 		 })
             .then(response => {
-        	    console.log(response.data.output);
+				
+        	    // console.log(response.data.output);
 				View.global('res',response.data.output);
-                return response;
+                return view.render('homePage')
             });
 			
 	}
+
+
 
 }
 

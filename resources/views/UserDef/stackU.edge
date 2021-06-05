@@ -19,15 +19,14 @@
                 <div class="stackHome">
                     
       
-                    <form action="/executeCode" method="POST" onsubmit="set()" onload="set()" > 
+                    <form action="/executeCode" method="POST" onsubmit="set()" > 
                     {{ csrfField() }}
                         <div class="tex"> Enter you code here </div>
-                        <textarea id="input" class="input" rows="50" cols="80">  </textarea>
+                        <textarea name="code" class="input" rows="50" cols="80">  </textarea>
                         <input type="submit" value="Run" class="run">
                     
                     </form>
-                    
-                                        
+                 
                     <div class="abt" onclick="show()"> About </div>
                     
                 <div id="myModal" class="modal">
@@ -54,7 +53,7 @@
                     var ul = document.createElement('ul');
 
                     function display(){
-                        console.log(stack);
+                        //console.log(stack);
 
                         if(stack==undefined){
                             return;
@@ -75,7 +74,7 @@
                     }
 
                     function set() {
-                        {{{insertCode()}}}
+                        console.log({{res}});
                         stack={{{res}}}                       
                         display();
                     }
