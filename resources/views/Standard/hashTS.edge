@@ -98,29 +98,31 @@
                        <div class="code" id="code">
                            
                           <div id="insertM" class="insertM">
-                               <div id="in1" class="in1">  public void insert(int value) { </div> 
+                               <div id="in1" class="in1">  public String insert(int value) { </div> 
                                <div id="in2" class="in2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
                                <div id="in3" class="in3" style="text-indent: 40px;">  int[] list = hashTable[key]; </div> 
                                <div id="in4" class="in4" style="text-indent: 40px;">  for(int j=0; j < list.length() ;j++){  </div> 
                                <div id="in5" class="in5" style="text-indent: 80px;">  if(list[j]==null){ </div> 
                                <div id="in6" class="in6" style="text-indent: 120px;">  list[j]=value; </div> 
-                               <div id="in7" class="in7" style="text-indent: 120px;">  break; </div>
+                               <div id="in7" class="in7" style="text-indent: 120px;">  return "You inserted" + value; </div>
                                <div id="in8" class="in8" style="text-indent: 80px;">  } </div> 
-                               <div id="in9" class="in9" style="text-indent: 40px;"> }  </div>  
-                               <div id="in10" class="in10">  }</div> 
+                               <div id="in9" class="in9" style="text-indent: 40px;"> }  </div> 
+                               <div id="in10" class="in10" style="text-indent: 40px;"> return "Maximum height is 3";  </div>   
+                               <div id="in11" class="in11">  }</div> 
                           </div>
 
                            <div class="removeM" id="removeM">
-                               <div id="r1" class="r1">  public void remove(int value) { </div> 
+                               <div id="r1" class="r1">  public String remove(int value) { </div> 
                                <div id="r2" class="r2" style="text-indent: 40px;">  int key = value%hashTable.length; </div> 
                                <div id="r3" class="r3" style="text-indent: 40px;">  int[] list = hashTable[key]; </div> 
                                <div id="r4" class="r4" style="text-indent: 40px;">  for(int i=0; i < list.length() ;i++){  </div> 
                                <div id="r5" class="r5" style="text-indent: 80px;">  if(list[i]==value){ </div> 
                                <div id="r6" class="r6" style="text-indent: 120px;">  list[i]=null; </div> 
-                               <div id="r7" class="r7" style="text-indent: 120px;">  break; </div>
+                               <div id="r7" class="r7" style="text-indent: 120px;">  return "You removed "+ value; </div>
                                <div id="r8" class="r8" style="text-indent: 80px;">  } </div> 
-                               <div id="r9" class="r9" style="text-indent: 40px;"> }  </div>  
-                               <div id="r10" class="r10">  }</div> 
+                               <div id="r9" class="r9" style="text-indent: 40px;"> }  </div> 
+                               <div id="r10" class="r10" style="text-indent: 40px;"> return value+ " is not in the hash table";  </div>   
+                               <div id="r11" class="r11">  }</div> 
 
                            </div>
 
@@ -192,6 +194,7 @@
                             var pos=0;
                             var arr=0;
                             var n='';
+                            var max='0';
 
                             if(document.getElementById(n1).style.display=='none'){
                                 document.getElementById(n1).innerHTML=v;
@@ -231,7 +234,7 @@
                             }
 
                             else{
-                                document.getElementById("notify").innerHTML= "Maximum height is 3";
+                                max='1';
                             }
                         
                             
@@ -263,7 +266,7 @@
                                                     document.getElementById("in3").style.background='none';                                
                                                     },4000);
 
-                                if(pos==1){
+                             if(pos==1){
                                     setTimeout(function(){
                                                     document.getElementById("in4").style.background='none';
                                                     document.getElementById("in5").style.background='#fbe8a6';
@@ -280,6 +283,7 @@
                                                     document.getElementById("in6").style.background='none';
                                                     document.getElementById("in7").style.background='#fbe8a6';
                                                     document.getElementById(n).style.display='flex';
+                                                    document.getElementById("action").innerHTML="You inserted "+v;
                                                     },8000);
 
                                     setTimeout(function(){
@@ -288,15 +292,14 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in7").style.background='none';
-                                                    document.getElementById("in10").style.background='#fbe8a6';                                                    
+                                                    document.getElementById("in11").style.background='#fbe8a6';                                                    
                                                     },9000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("in10").style.background='none';
+                                                    document.getElementById("in11").style.background='none';
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';
                                                     node.classList.remove(an);
-                                                    document.getElementById("action").innerHTML="You inserted "+v;
                                                     },9500);
 
                                     setTimeout(function(){
@@ -311,6 +314,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("in4").style.background='none';
                                                     document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';
                                                     },5000);
 
                                     setTimeout(function(){
@@ -320,7 +324,8 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in4").style.background='none';
-                                                    document.getElementById("in5").style.background='#fbe8a6';                                                   
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';                                                   
                                                     },7000);
 
                                     setTimeout(function(){
@@ -334,6 +339,7 @@
                                                     document.getElementById("in6").style.background='none';
                                                     document.getElementById("in7").style.background='#fbe8a6';
                                                     document.getElementById(n).style.display='flex';
+                                                    document.getElementById("action").innerHTML="You inserted "+v;
                                                     },10000);
 
                                     setTimeout(function(){
@@ -342,15 +348,15 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in7").style.background='none';
-                                                    document.getElementById("in10").style.background='#fbe8a6';
+                                                    document.getElementById("in11").style.background='#fbe8a6';
                                                     },11000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("in10").style.background='none';
+                                                    document.getElementById("in11").style.background='none';
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';
                                                     node.classList.remove(an);
-                                                    document.getElementById("action").innerHTML="You inserted "+v;
+                                                    
                                                     },11500);
 
                                     setTimeout(function(){
@@ -364,6 +370,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("in4").style.background='none';
                                                     document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';
                                                     },5000);
 
                                     setTimeout(function(){
@@ -373,7 +380,9 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in4").style.background='none';
-                                                    document.getElementById("in5").style.background='#fbe8a6';                                                   
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    document.getElementById(n2).style.background='#fbe8a6';                                                   
                                                     },7000);
 
                                      setTimeout(function(){
@@ -383,7 +392,8 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in4").style.background='none';
-                                                    document.getElementById("in5").style.background='#fbe8a6';                                                   
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';                                                   
                                                     },9000);                
 
                                     setTimeout(function(){
@@ -397,6 +407,7 @@
                                                     document.getElementById("in6").style.background='none';
                                                     document.getElementById("in7").style.background='#fbe8a6';
                                                     document.getElementById(n).style.display='flex';
+                                                     document.getElementById("action").innerHTML="You inserted "+v;
                                                     },12000);
 
                                     setTimeout(function(){
@@ -405,15 +416,15 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in7").style.background='none';
-                                                    document.getElementById("in10").style.background='#fbe8a6';
+                                                    document.getElementById("in11").style.background='#fbe8a6';
                                                     },13000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("in10").style.background='none';
+                                                    document.getElementById("in11").style.background='none';
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';
                                                     node.classList.remove(an);
-                                                    document.getElementById("action").innerHTML="You inserted "+v;
+                                                   
                                                     },13500);
 
                                     setTimeout(function(){
@@ -423,6 +434,96 @@
                                 }
                                 
                              } 
+
+                            else if(max=='1'){
+
+                                 document.getElementById("insertM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                              
+
+                                setTimeout(function(){document.getElementById("in1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("in1").style.background='none';
+                                                    document.getElementById("in2").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='#fbe8a6';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("in3").style.background='#fbe8a6';
+                                                    document.getElementById("in2").style.background='none';   
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("in4").style.background='#fbe8a6';
+                                                    document.getElementById("in3").style.background='none';                                
+                                                    },4000);
+
+                                setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    document.getElementById(n2).style.background='#fbe8a6';                                                   
+                                                    },7000);
+
+                                     setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none'; 
+                                                    document.getElementById(n3).style.background='#fbe8a6';                                                  
+                                                    },9000);                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';  
+                                                     document.getElementById(n3).style.background='none';                                                 
+                                                    },10000);
+
+                                   
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in9").style.background='#fbe8a6';
+                                                    },11000);
+
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("in9").style.background='none';
+                                                    document.getElementById("in10").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="Maximum height is 3";
+                                                    },12000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='#fbe8a6';
+                                                    document.getElementById("in10").style.background='none';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                   
+                                                    },12500);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='none';
+                                                    },13000);
+                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("insertM").style.display='none';
+                                                    document.getElementById("method").style.display='none';
+                                                    },14500);  
+                             }
                         
                         
                         } 
@@ -464,6 +565,7 @@
                             var a3=a2.concat(r+1);
 
                             pos='';
+                            p='';
 
                             if(document.getElementById(n1).style.display!='none'){
                                 if(document.getElementById(n1).innerHTML==v){
@@ -502,51 +604,51 @@
                                             pos='32';   
                                         }
                                         else{
-                                            document.getElementById("action").innerHTML=v +" is not in the hash table";                                           
+                                            p='3';                                           
                                         }
 
                                     }
                                     else{
-                                        document.getElementById("action").innerHTML=v +" is not in the hash table";  
+                                        p='2';  
                                         }
 
-                                }
+                                } 
                                 else{
-                                    document.getElementById("action").innerHTML=v +" is not in the hash table";  
+                                    p='1';  
                                  }                               
                             }
 
                             else{
-                                document.getElementById("action").innerHTML=v +" is not in the hash table";  
+                                p='0';  
                             }
+
+                                                            
+                            document.getElementById("removeM").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+                              
+                                
+                            setTimeout(function(){document.getElementById("r1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("r1").style.background='none';
+                                                document.getElementById("r2").style.background='#fbe8a6';
+                                                var t='i'.concat(r+1);
+                                                document.getElementById(t).style.background='#fbe8a6';
+                                                },2000);
+                                
+                            setTimeout(function(){document.getElementById("r3").style.background='#fbe8a6';
+                                                document.getElementById("r2").style.background='none';   
+                                                },3000);
+                                
+                            setTimeout(function(){document.getElementById("r4").style.background='#fbe8a6';
+                                                document.getElementById("r3").style.background='none';                                
+                                                },4000);
+
 
                             if(pos!=''){
 
-                                
-                                document.getElementById("removeM").style.display='inline';
-                                document.getElementById("method").style.display='inline';
-                              
-                                
-                                setTimeout(function(){document.getElementById("r1").style.background='#fbe8a6';
-                                                    },1000);
-                                
-                                setTimeout(function(){document.getElementById("r1").style.background='none';
-                                                    document.getElementById("r2").style.background='#fbe8a6';
-                                                    var t='i'.concat(r+1);
-                                                    document.getElementById(t).style.background='#fbe8a6';
-                                                    },2000);
-                                
-                                setTimeout(function(){document.getElementById("r3").style.background='#fbe8a6';
-                                                    document.getElementById("r2").style.background='none';   
-                                                    },3000);
-                                
-                                setTimeout(function(){document.getElementById("r4").style.background='#fbe8a6';
-                                                    document.getElementById("r3").style.background='none';                                
-                                                    },4000);
-
                                 var p1=pos[0];
                                 var p2=pos[1];
-
                                 if(p1=='1'){
                                     setTimeout(function(){
                                                     document.getElementById("r4").style.background='none';
@@ -564,6 +666,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("r6").style.background='none';
                                                     document.getElementById("r7").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed "+v; 
                                                     if(p2=='0'){
                                                         document.getElementById(n1).style.display='none'; 
                                                         document.getElementById(a1).style.display='none';
@@ -585,17 +688,16 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("r7").style.background='none';
-                                                    document.getElementById("r10").style.background='#fbe8a6';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';                                                                                                          
                                                     },8000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("r10").style.background='none';                                                                                                         
+                                                    document.getElementById("r11").style.background='none';                                                                                                         
                                                     },8500);                
 
                                     setTimeout(function(){
-                                                    document.getElementById("action").innerHTML="You removed "+v; 
                                                     document.getElementById("removeM").style.display='none';
                                                     document.getElementById("method").style.display='none';
                                                     },10000);             
@@ -630,6 +732,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("r6").style.background='none';
                                                     document.getElementById("r7").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed "+v;
                                                     if(p2=='2'){
                                                         document.getElementById(n2).innerHTML=document.getElementById(n3).innerHTML;
                                                         document.getElementById(n3).style.display='none';
@@ -643,17 +746,16 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("r7").style.background='none';
-                                                    document.getElementById("r10").style.background='#fbe8a6';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';                                                                                                          
                                                     },10000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("r10").style.background='none';                                                                                                         
+                                                    document.getElementById("r11").style.background='none';                                                                                                         
                                                     },10500);                
 
-                                    setTimeout(function(){
-                                                    document.getElementById("action").innerHTML="You removed "+v; 
+                                    setTimeout(function(){                                                    
                                                     document.getElementById("removeM").style.display='none';
                                                     document.getElementById("method").style.display='none';
                                                     },11000);                                                 
@@ -701,28 +803,226 @@
                                     setTimeout(function(){
                                                     document.getElementById("r6").style.background='none';
                                                     document.getElementById("r7").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed "+v;
                                                     document.getElementById(n3).style.display='none';
                                                     document.getElementById(a3).style.display='none';                                                    
                                                     },11000);
 
                                     setTimeout(function(){
                                                     document.getElementById("r7").style.background='none';
-                                                    document.getElementById("r10").style.background='#fbe8a6';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';                                                                                                          
                                                     },12000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("r10").style.background='none';                                                                                                         
+                                                    document.getElementById("r11").style.background='none';                                                                                                         
                                                     },12500);                
 
-                                    setTimeout(function(){
-                                                    document.getElementById("action").innerHTML="You removed "+v; 
+                                    setTimeout(function(){                                                   
                                                     document.getElementById("removeM").style.display='none';
                                                     document.getElementById("method").style.display='none';
                                                     },14000);             
                                 }
 
+
+
+                            }
+
+                            else{
+
+                                if(p=='0'){
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },6500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    },7000); 
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("removeM").style.display='none';
+                                                    document.getElementById("method").style.display='none';
+                                                    },8500);    
+                                }
+
+                                else if(p=='1'){
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    },6000);
+                                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },8500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    },9000); 
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("removeM").style.display='none';
+                                                    document.getElementById("method").style.display='none';
+                                                    },10500); 
+                                }
+
+                                else if(p=='2'){
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';
+                                                    },8000); 
+                                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },9000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },10000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },10500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    },11000); 
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("removeM").style.display='none';
+                                                    document.getElementById("method").style.display='none';
+                                                    },12500); 
+                                }
+
+                                else{
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';   
+                                                    },9000);                 
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='none';
+                                                    },10000);                
+
+                                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },11000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },12000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },12500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    },13000); 
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("removeM").style.display='none';
+                                                    document.getElementById("method").style.display='none';
+                                                    },14500); 
+                                
+
+                                }
 
 
                             }
@@ -1204,7 +1504,6 @@
 
                         } 
                     }
-
 
                     function display(){
                         
