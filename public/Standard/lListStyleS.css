@@ -921,3 +921,114 @@ cursor: pointer;
   display: none;
   color: #7ac7d1;
 }
+
+.info{
+  position: fixed;
+  bottom: 5 ;
+  left: 40;
+  border: 1px solid #303c6c;
+  border-radius: 8px;
+  font-size: 16;
+  font-family: cursive;
+  /* color: #7ac7d1; */
+  color: #303c6c;
+  height: 115;
+  width: 700;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 3px #303c6c; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #b4dfe5; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: 	#7ac7d1	; 
+}
+
+@keyframes slideS {
+    from{left: -750;}
+    to{left: 40;}
+}
+
+@keyframes slideH {
+  from{left: 40;}
+  to{left: -750;}
+}
+
+.infoAnimS{
+  animation: slideS 500ms ;
+  animation-fill-mode:forwards;
+  animation-timing-function: ease-in-out;
+}
+
+.infoAnimH{
+  animation: slideH 500ms ;
+  animation-fill-mode:forwards;
+  animation-timing-function: ease-in-out;
+
+}
+
+.infoAr{
+  content: "\203A";
+  font-size: 60;
+  font-family: cursive;
+  color: #f4976c;
+  /* border: 1px solid #303c6c; */
+  border-radius: 50%;
+    position: fixed;
+  bottom: 106;
+  left: 10;
+  cursor: pointer;
+  display: none;
+}
+
+.arrH{
+  content: "\203A";
+  font-size: 60;
+  font-family: cursive;
+  color: #f4976c;
+  /* border: 1px solid #303c6c; */
+  border-radius: 50%;
+    position: fixed;
+  bottom: 106;
+  left: 10;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.dot{
+  position: fixed;
+  bottom: 228;
+  left: 2;
+  /* color: #f1f3f3; */
+  border: 2px solid #303c6c;
+  height: 30px;
+  width: 30px;
+  /* background-color: #bbb; */
+  border-radius: 50%;
+  display: none;
+  cursor: pointer;
+}
+
+.know{
+  position: fixed;
+  bottom: 130;
+  left: 40;
+  font-size: 18;
+  font-family: cursive;
+  color: #7ac7d1;
+}

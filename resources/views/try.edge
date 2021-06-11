@@ -9,30 +9,12 @@
     <p id="p">The input type="text" defines a one-line text input field:</p>
 
     <div> input: </div>
-
-    <form action="/executeCode" method="POST" onsubmit="change()"> 
-    {{ csrfField() }}
-    <input type="text" id="in">
-   <input type="submit" value="Submit">
-
-    <div> output: </div>
     
-
-    <output id="o"> <textarea id="out" name="out" rows="4" cols="50">  </textarea>  </output>
-
-    
-    </form>
-
+<p> value is  {{res}} </p>
    
     
     <script>
 
-    var c=document.getElementById("in").value;
-
-    function change(){      
-        document.getElementById("out").innerHTML={{{res}}};
-
-    }
 
 
     </script>

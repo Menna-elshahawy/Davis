@@ -18,6 +18,28 @@
                 <div class="backH" id="backH"> Back to home page </div>
                 
 
+            <div class="info" id="info"> <span style="color:#f4976c";> What is a stack </span> <br>
+                    A Stack is an abstract data type that serves as a collection of elements and follows a particular order
+                    in which the operations are performed that is last in first out (LIFO). <br> Considered as a linear data structure,
+                    or more abstractly a sequential collection, the push and pop operations occur only at one end of the structure, 
+                    referred to as the top of the stack <br> <br> 
+                    
+                    <span style="color:#f4976c";> Methods: </span> <br>
+                    Mainly the following three basic operations are performed in the stack: <br>
+                    -Push: Adds an item in the stack. <br>
+                    -Pop: Removes an item from the stack. The items are popped in the reversed order in which they are pushed. <br>
+                    -Peek: Returns top element of stack.<br><br>
+                    
+                    <span style="color:#f4976c";> Applications: </span><br> 
+                    -Redo-undo features at many places like editors, photoshop <br>
+                    -Infix to Postfix /Prefix conversion <br>
+                    -Bracket matching algorithm <br><br>
+            </div>
+
+            <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+            <span class="arrH" id="arrH">&#8249;</span>  </div>
+            <div class="know" id="know"> Know more about stacks </div>    
+
 
                 <div class="stackHome">
         
@@ -94,11 +116,11 @@
             <div class= "nodeT" id="nodeT"> 3 </div>
 
             <div class="upH" id="upH"> <span>&#8593;</span> </div>
-            <div class="upT" id="upT"> <span>&#8593;</span> </div>
-            <div class="upR" id="upR"> <span>&#8599;</span> </div>
-            <div class="upL" id="upL"> <span>&#8598;</span> </div>
-            <div class="rightH" id="rightH"> <span>&#8594;</span> </div>
-            <div class="rightT" id="rightT"> <span>&#8594;</span> </div>        
+                <div class="upT" id="upT"> <span>&#8593;</span> </div>
+                <div class="upR" id="upR"> <span>&#8599;</span> </div>
+                <div class="upL" id="upL"> <span>&#8598;</span> </div>
+                <div class="rightH" id="rightH"> <span>&#8594;</span> </div>
+                <div class="rightT" id="rightT"> <span>&#8594;</span> </div>        
 
             <div class="current" id="current"> current </div>
             <div class="head" id="head">head</div>
@@ -160,6 +182,7 @@
             <script>
             
                 var list=[];
+                var count=1;
 
                 function insert(){
                     
@@ -961,6 +984,23 @@
 
                     }
 
+                function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                    }
+                    
             </script>
 
             </body>   

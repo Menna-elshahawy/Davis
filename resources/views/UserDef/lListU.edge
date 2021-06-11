@@ -1,0 +1,177 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('UserDef/lListStyleU') }}
+            </head>
+                  
+            <body>
+                
+                <title> Linked List </title>
+                
+                <h1> LINKED LIST</h1>
+        
+                <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+                
+                    <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                <div class="read" id="read" onclick="showR()">Read me first</div>
+
+                <div class="stackHome">
+                    
+      
+                    <form action="/executeCode" method="POST" onsubmit="set()" > 
+                        {{ csrfField() }}
+                        <div class="tex"> Enter you code here </div>
+                        <textarea name="code" class="input" rows="50" cols="80">  </textarea>
+                        <input type="submit" value="Run" class="run">
+                    </form>
+
+                    <div class="abt" onclick="show()"> About </div>
+                    
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+                    
+                <div id="myModalR" class="modal">
+                    <div class="modal-content">
+                    <span class="close" id="closeR" onclick="closeR()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> will write</p>
+                  </div>
+                 </div>
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <div id="list">
+                    <span id="a1" class="a1">&#8594;</span> <span id="a2" class="a2">&#8594;</span> <span id="a3" class="a3">&#8594;</span> <span id="a4" class="a4">&#8594;</span><span id="a5" class="a5">&#8594;</span><span id="a6" class="a6">&#8594;</span>
+
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div><div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div> <div id="l7" class="l7"> 3</div>
+               </div>    
+
+                <div class="upH" id="upH"> <span>&#8593;</span> </div>
+                <div class="upT" id="upT"> <span>&#8593;</span> </div>
+                <div class="head" id="head">head</div>
+                <div class="tail" id="tail">tail</div>
+
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+                        
+            
+                <script>
+
+                //    document.getElementById("read").classList.add('anim'); 
+                    var list=[];
+                   
+                    
+                    function display(){
+                       for(i=0;i<list.length;i++){
+                            if(i>0){
+                                var t2='a'.concat(i);
+                                document.getElementById(t2).style.display='inline-block';
+                            }
+                                
+                                var t1='l'.concat(i+1);
+                                document.getElementById(t1).style.display='inline-block';
+                                document.getElementById(t1).innerHTML=list[i];    
+                            
+                        }
+
+                        for(j=list.length;j<7;j++){
+                            var t1='l'.concat(j+1);
+                            document.getElementById(t1).style.display='none';
+                            
+                            if(j>0){
+                                var t2='a'.concat(j);
+                                document.getElementById(t2).style.display='none';
+                            }
+                        }
+
+                        if(list.length==0){
+                            document.getElementById("head").style.display='none';
+                            document.getElementById("upH").style.display='none';
+                            document.getElementById("tail").style.display='none';
+                            document.getElementById("upT").style.display='none';
+                        }
+                        else if(list.length==1){
+                            document.getElementById("head").style.display='inline';
+                            document.getElementById("upH").style.display='inline';
+                            document.getElementById("tail").style.display='inline';
+                            document.getElementById("tail").style.top='330';
+                            document.getElementById("tail").style.left='410';
+                            document.getElementById("upT").style.display='none';
+                        }
+                        else{
+                            document.getElementById("head").style.display='inline';
+                            document.getElementById("upH").style.display='inline';
+                            document.getElementById("tail").style.display='inline';
+                            document.getElementById("upT").style.display='inline';
+                            document.getElementById("tail").style.top='300';
+                            document.getElementById("tail").style.left=505+(80*(list.length-1));
+                            document.getElementById("upT").style.left=505+(80*(list.length-1));
+                        }
+                                   
+                    }
+
+                    function set(){                       
+                        console.log({{res}});
+                        list={{{res}}}                       
+                        display();
+                        alert("The form was submitted");
+                    }
+
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalR")) {
+                            document.getElementById("myModalR").style.display = "none";
+                        }
+                    }
+
+                    function showR() {
+                        document.getElementById("myModalR").style.display = "block";
+                        document.getElementById("read").classList.remove('anim');
+                    }
+
+                     function closeR() {
+                        document.getElementById("myModalR").style.display = "none";
+                    }
+
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+            
+                </script>
+
+            </body>   
+        
+    </html>

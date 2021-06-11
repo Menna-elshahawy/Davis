@@ -17,7 +17,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-// Route.on('/').render('try')
+// Route.on('/try').render('try')
 
 Route.on('/').render('homePage')
 Route.on('/homePage').render('homePage')
@@ -47,3 +47,10 @@ Route.group(()=>{
 
 Route.post('/executeCode', 'ExecuteCodeController.executeCode2') // controller name and the method
 
+// Route.get('/UserDefined/Stack','ExecuteCodeController.executeCode2')
+
+Route.get('/try', async ({view})=>{
+    let r="sara"
+    return view.render('try', {res:r})
+}
+)
