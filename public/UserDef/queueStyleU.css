@@ -70,11 +70,11 @@ ul{
 
 .input{
   height: 530;
-  width: 450;
+  width: 600;
   resize: none;
   position: fixed;
   top: 150;
-  left: 30;
+  left: 420;
   font-size: 15; 
   background-color: #f1f3f3;
   border: 1px solid #303c6c;   
@@ -82,30 +82,30 @@ ul{
   color: #303c6c;
 }
 
-.tex{
+.tex{ 
   position: fixed;
-  top: 105;
-  left: 40;
+  top: 110;
+  left: 420;
   font-size: 20;
   font-family: cursive;
-  color: #303c6c;
+  color: #f4976c;
 }
 
 .run{
   position: fixed;
-  top: 105;
-  left: 410;
+  top: 110;
+  left: 950;
   background-color: #b4dfe5; 
 border: 2px solid #303c6c;
 color: white;
 /*  padding: 15px 20px;*/
 text-align: center;
-font-size: 20px;
+font-size: 22px;
 font-family: monospace;
   font-weight: bold;
 cursor: pointer;
 width: 60px;
-  height: 30;
+  height: 30px;
 border-radius: 6px;
 }
 .run:hover {
@@ -283,4 +283,18 @@ cursor: pointer;
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: 	#7ac7d1	; 
+}
+
+.arr{
+  content: "\21B4";
+    font-size: 45;
+    position: fixed;
+    top: 95px;
+    left: 620px;
+    font-family: cursive;
+    color: #303c6c;
+}
+
+.data{
+  display: none;
 }

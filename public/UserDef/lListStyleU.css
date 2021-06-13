@@ -22,45 +22,45 @@ h1 {
      width: 60px;
 
 }
-
 .input{
-    height: 530;
-    width: 450;
-    resize: none;
-    position: fixed;
-    top: 150;
-    left: 30;
-    font-size: 15; 
-    background-color: #f1f3f3;
-    border: 1px solid #303c6c;   
-    border-radius: 10px;
-    color: #303c6c;
+  height: 530;
+  width: 600;
+  resize: none;
+  position: fixed;
+  top: 150;
+  left: 420;
+  font-size: 15; 
+  background-color: #f1f3f3;
+  border: 1px solid #303c6c;   
+  border-radius: 10px;
+  color: #303c6c;
 }
 
-.tex{
-    position: fixed;
-    top: 105;
-    left: 40;
-    font-size: 20;
-    font-family: cursive;
-    color: #303c6c;
+.tex{ 
+  position: fixed;
+  top: 110;
+  left: 420;
+  font-size: 20;
+  font-family: cursive;
+  color: #f4976c;
 }
 
 .run{
-    position: fixed;
-    top: 105;
-    left: 410;
-    background-color: #b4dfe5; 
-  border: 2px solid #303c6c;
-  color: white;
-  text-align: center;
-  font-size: 20px;
-  font-family: monospace;
-    font-weight: bold;
-  cursor: pointer;
-  width: 60px;
-    height: 30;
-  border-radius: 6px;
+  position: fixed;
+  top: 110;
+  left: 950;
+  background-color: #b4dfe5; 
+border: 2px solid #303c6c;
+color: white;
+/*  padding: 15px 20px;*/
+text-align: center;
+font-size: 22px;
+font-family: monospace;
+  font-weight: bold;
+cursor: pointer;
+width: 60px;
+  height: 30px;
+border-radius: 6px;
 }
 
 .run:hover {
@@ -435,5 +435,19 @@ h1 {
   color: #fbe8a6;
   font-family: cursive;
   /* transform: rotate(-20deg); */
+  display: none;
+}
+
+.arr{
+  content: "\21B4";
+    font-size: 45;
+    position: fixed;
+    top: 95px;
+    left: 620px;
+    font-family: cursive;
+    color: #303c6c;
+}
+
+.data{
   display: none;
 }

@@ -16,15 +16,134 @@
                     <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
                 <div class="read" id="read" onclick="showR()">Read me first</div>
+                <span class="arr">&#8628;</span>
 
                 <div class="stackHome">
                     
       
-                    <form action="/executeCode" method="POST" onsubmit="set()" > 
+                    <form action="/executeCode" method="POST"> 
                         {{ csrfField() }}
-                        <div class="tex"> Enter you code here </div>
-                        <textarea name="code" class="input" rows="50" cols="80">  </textarea>
+                        <div class="tex"> Enter your code here </div>
+                        <textarea name="code" class="input" rows="50" cols="80">class Link {
+	
+	public Object data;
+	public Link next;
+
+	public Link(Object o) {
+		this.data = o;
+		this.next = null;
+	}
+
+
+
+	public String toString() {
+		return data.toString();
+	}
+
+}
+
+
+
+public class LinkList {
+
+	private Link head;
+
+	public LinkList() {
+		head = null;
+	}
+
+	public void insertFirst(Object o) {
+		Link newLink = new Link(o);
+		newLink.next = head;
+		head = newLink;
+	}
+
+	public Object removeFirst() {
+		Object res = head.data;
+		head = head.next;
+		return res; 
+        }
+
+	public Object getFirst() {
+		return head.data;
+	}
+
+	
+	public void insertLast(Object o) {
+		Link newLink = new Link(o);
+
+		if (head == null) {
+			head = newLink;
+			return;
+			}
+		
+		Link current = head;
+		while (current.next != null)
+			current = current.next;
+		current.next = newLink;
+	}
+
+
+
+	public Object removeLast() {
+		if (head.next == null) {
+			Object res = head.data;
+			head = null;
+			return res;
+			}
+	
+		Link current = head;
+		while (current.next.next != null)
+			current = current.next;
+		
+		Object res = current.next.data;
+		current.next = null;
+		return res;
+
+	}
+
+        public Object getLast() {
+		Link current = head;
+		while (current.next != null)
+			current = current.next;
+		
+		return current.data;
+	}
+
+	
+		
+	public boolean isEmpty() {
+		return head == null;
+	}
+
+	
+		
+	public String toString() {
+		if (head == null)
+			return "[ ]";
+	
+		String res = "[ " + head.data;
+		Link current = head.next;
+		while (current != null) {
+			res += ", " + current.data;
+			current = current.next;
+			}
+	
+		res += " ]";
+		return res;
+	}
+
+	public static void main(String[]args){
+	    LinkList l =new LinkList();
+	    l.insertFirst(4);
+	    l.insertFirst(5);
+	    System.out.println(l.toString());
+	}
+}
+
+</textarea>
                         <input type="submit" value="Run" class="run">
+                        <textarea class="data" name="data">LinkedList</textarea>
                     </form>
 
                     <div class="abt" onclick="show()"> About </div>

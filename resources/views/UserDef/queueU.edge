@@ -16,15 +16,93 @@
                     <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
                 <div class="read" id="read" onclick="showR()">Read me first</div>
+                <span class="arr">&#8628;</span>
 
                 <div class="stackHome">
                     
       
-                    <form action="/executeCode" method="POST" onsubmit="set()" > 
+                    <form action="/executeCode" method="POST"> 
                         {{ csrfField() }}
-                        <div class="tex"> Enter you code here </div>
-                        <textarea name="code" class="input" rows="50" cols="80">  </textarea>
+                        <div class="tex"> Enter your code here </div>
+                        <textarea name="code" class="input" rows="50" cols="80">import java.util.Arrays;
+
+public class Queue {
+	private int maxsize;
+	private int front;
+	private int rear;
+	private int nItems;
+	private int [] elements;
+
+	public Queue(int maxSize) 
+	{
+		this.maxsize = maxSize;
+		front = 0;
+		rear = -1;
+		nItems = 0;
+		elements = new int[maxsize];
+	}
+
+	public void enqueue(int  x)
+	{
+		if(rear == maxsize - 1)
+			rear = -1;
+
+		elements[++rear] = x;
+		nItems++;
+	}
+
+	public int dequeue()
+	{
+		int result = elements[front];
+		front++;
+
+		if(front == maxsize)
+			front = 0;
+
+		nItems--;
+		return result;
+	}
+
+	public int peek()
+	{
+		return elements[front];
+	}
+
+	public boolean isEmpty()
+	{
+		return (nItems == 0);
+	}
+
+	public boolean isFull()
+	{
+		return (nItems == maxsize);
+	}
+
+	public int size()
+	{
+		return nItems;
+	}
+
+	public void printQueue() {
+		System.out.println(Arrays.toString(elements)); 
+	}
+
+
+	public static void main(String[] args){
+	    Queue q=new Queue(4);
+	    q.enqueue(2);
+	    q.enqueue(6);
+	    q.enqueue(5);
+	    q.enqueue(1);
+	    q.printQueue();
+	}
+
+
+}
+
+ </textarea>
                         <input type="submit" value="Run" class="run">
+                         <textarea class="data" name="data">queue</textarea>
                     </form>
 
                     <div class="front" id="front">front</div>

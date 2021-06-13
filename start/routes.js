@@ -17,7 +17,7 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-// Route.on('/try').render('try')
+
 
 Route.on('/').render('homePage')
 Route.on('/homePage').render('homePage')
@@ -41,7 +41,9 @@ Route.group(()=>{
     Route.on('/Queue').render('UserDef/queueU')
     Route.on('/PrioirityQueue').render('UserDef/pqueueU')
     Route.on('/LinkedList').render('UserDef/lListU')
-
+    Route.on('/stackRes').render('UserDef/stackRes')
+    Route.on('/queueRes').render('UserDef/queueRes')
+    Route.on('/listRes').render('UserDef/listRes')
 }).prefix('/UserDefined')
 
 

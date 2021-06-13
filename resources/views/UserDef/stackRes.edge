@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/stackRes') }}
+</head>
+
+
+<body>
+
+    <title> Stack </title>
+                
+    <h1> STACK </h1>
+
+    <a HREF="/UserDefined/Stack"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>
+
+    <p class= "area" id="area"> </p>
+
+
+    <script>
+                    var stack=[];
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+
+                    function display(){
+                        //console.log(stack);
+
+                        if(stack==undefined){
+                            return;
+                        }
+                        
+                        if(stack.length!=0){
+                            var list=document.getElementById("area");
+                                list.appendChild(cont);
+                                cont.innerHTML="";
+                                cont.appendChild(ul);
+                                ul.innerHTML="";
+                                for(i=stack.length-1;i>=0;i--){
+                                    let li = document.createElement('li');
+                                    li.innerHTML = stack[i];
+                                    ul.appendChild(li);   
+                                }
+                        }    
+                    }
+
+                    stack={{res}}
+                    display();
+    
+    </script>
+
+
+</body>
+
+</html>

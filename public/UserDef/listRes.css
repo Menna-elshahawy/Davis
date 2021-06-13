@@ -1,0 +1,264 @@
+body{
+    background-color: #f1f3f3;
+}
+
+h1 {
+    font-family:cursive;
+    font-weight: bold;
+    color:#303c6c;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    height: 30px;
+/*
+    position: fixed;
+    top:10px;
+    right: 600;
+*/
+
+}
+
+
+.backR{
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  font-size: 18px;
+  font-family: cursive;
+  /* display: none; */
+  color: #f4976c;
+}
+
+.bR{
+content: "\2039";
+  font-size: 50px;
+  position: fixed;
+  top: 5px;
+  left: 30px;
+  font-family: cursive;
+  color: #303c6c;
+  margin-top: -10;
+/*    font-weight: bold;*/
+}
+
+.a1 {
+    font-size: 42px;
+  content: "\2192";
+  position: fixed;
+  top: 202px;
+  left: 538px; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+.a2 {
+    font-size: 42px;
+  content: "\2192";
+  position: fixed;
+  top: 202px;
+  left: 618px; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+.a3 {
+    font-size: 42px;
+  content: "\2192";
+  position: fixed;
+  top: 202px;
+  left: 698px; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+.a4 {
+    font-size: 42px;
+  content: "\2192";
+  position: fixed;
+  top: 202px;
+  left: 778px; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+.a5 {
+    font-size: 42px;
+  content: "\2192";
+  position: fixed;
+  top: 202px;
+  left: 858px; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+.a6 {
+    font-size: 42px;
+  content: "\2192";
+  position: fixed;
+  top: 202px;
+  left: 938px; 
+    display: none;
+    font-weight: bold;
+    color: #303c6c;
+}
+
+
+
+.l1{
+    font-size: 25px;
+    text-align: center;
+  border: 3px solid #f4976c;
+  color: #303c6c;
+  margin-top: -1px; 
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 500px;
+}
+
+.l2{
+    font-size: 25px;
+    text-align: center;
+    border: 3px solid #f4976c;
+    color: #303c6c;
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 580px;
+}
+
+.l3{
+    font-size: 25px;
+    text-align: center;
+    border: 3px solid #f4976c;
+    color: #303c6c;
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 660px;
+}
+
+.l4{
+    font-size: 25px;
+    text-align: center;
+    border: 3px solid #f4976c;
+    color: #303c6c;
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 740px;
+}
+
+.l5{
+    font-size: 25px;
+    text-align: center;
+    border: 3px solid #f4976c;
+    color: #303c6c;
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 820px;
+}
+
+.l6{
+    font-size: 25px;
+    text-align: center;
+    border: 3px solid #f4976c;
+    color: #303c6c;
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 900px;
+}
+
+.l7{
+    font-size: 25px;
+    text-align: center;
+    border: 3px solid #f4976c;
+    color: #303c6c;
+  padding: 8px;
+  border-radius: 40%;
+  word-wrap: break-word;
+  font-family: cursive;  
+     display: none;
+    position: fixed;
+    top: 205px;
+    left: 980px;
+}
+
+.head{
+  position: fixed;
+  top: 300px;
+  left: 490px;
+  font-size: 25px;
+  font-family: cursive;
+  display: none;
+  color: #7ac7d1;
+}
+
+.tail{
+  position: fixed;
+  top: 300px;
+  left: 890px;
+  font-size: 25px;
+  font-family: cursive;
+  display: none;
+  color: #7ac7d1;
+}
+
+.upH{
+  content: "\2191";
+  font-size: 50px;
+  position: fixed;
+  top: 245px;
+  left: 505px;
+  font-weight: lighter;
+  color: #fbe8a6;
+  font-family: cursive;
+  /* transform: rotate(-20deg); */
+  display: none;
+}
+
+.upT{
+  content: "\2191";
+  font-size: 50px;
+  position: fixed;
+  top: 245px;
+  left: 895px;
+  font-weight: lighter;
+  color: #fbe8a6;
+  font-family: cursive;
+  /* transform: rotate(-20deg); */
+  display: none;
+}

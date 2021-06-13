@@ -1,0 +1,93 @@
+body{
+    background-color: #f1f3f3;
+    overflow-y: scroll;
+}
+
+h1 {
+    font-family:cursive;
+    font-weight: bold;
+    color:#303c6c;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    height: 30px;
+/*
+    position: fixed;
+    top:10px;
+    right: 600;
+*/
+
+}
+
+ul{
+    box-sizing: content-box;
+ /*    box-sizing: border-box;*/
+     list-style-type:none;
+ /*    display: flex;    WILL USE IT IN QUEUE*/
+ /*  justify-content: center;*/
+ /*  align-items: center;*/
+     
+     padding: 4px;
+ /*    margin-top: 5%;*/
+     position: fixed;
+ /*    margin-left: 30%;*/
+ /*    margin-right: 50%;*/
+ /*    display: block;*/
+ /*  vertical-align: middle;*/
+ /*    width: 60px;*/
+ }
+ 
+ ul li {
+     font-size:35px; 
+ /*
+     width: 80;
+     height: 120;
+ */
+   text-align: center;
+   border: 3px solid #f4976c;
+   margin-top: -1px; 
+   /* background-color: #f4976c; */
+   padding: 12px;
+   border-radius: 40%;
+   word-wrap: break-word;
+   font-family: cursive;  
+      display: inline;
+      font-weight: bold;
+      color: #303c6c;
+ }
+.area{
+    position: fixed;
+    display: inline-block;
+    top: 150px;
+    left: 520px;
+/*    margin-left: 25%;*/
+     width: 60px;
+/*    margin-top: 5%;*/
+/*     margin-top: 10px;*/
+/*    height: 300px;*/
+}
+
+.backR{
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  font-size: 18px;
+  font-family: cursive;
+  /* display: none; */
+  color: #f4976c;
+}
+
+.bR{
+content: "\2039";
+  font-size: 50px;
+  position: fixed;
+  top: 5px;
+  left: 30px;
+  font-family: cursive;
+  color: #303c6c;
+  margin-top: -10;
+/*    font-weight: bold;*/
+}
+
