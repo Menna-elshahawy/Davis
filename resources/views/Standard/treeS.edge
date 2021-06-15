@@ -53,7 +53,7 @@
                         
 
 
-                    <div id="t1" class="t1"> 3</div> <div id="t2" class="t2"> 3</div>  <div id="t3" class="t3"> 3</div><div id="t4" class="t4"> 3</div> <div id="t5" class="t5"> 3</div> <div id="t6" class="t6"> 3</div> <div id="t7" class="t7"> 3</div> <div id="t8" class="t8"> 3</div> <div id="t9" class="t9"> 3</div> <div id="t10" class="t10"> 3</div> <div id="t11" class="t11"> 3</div> <div id="t12" class="t12"> 3</div> <div id="t13" class="t13"> 3</div> <div id="t14" class="t14"> 3</div> <div id="t15" class="t15"> 3</div>
+                <div id="t1" class="t1"> 3</div> <div id="t2" class="t2"> 3</div>  <div id="t3" class="t3"> 3</div><div id="t4" class="t4"> 3</div> <div id="t5" class="t5"> 3</div> <div id="t6" class="t6"> 3</div> <div id="t7" class="t7"> 3</div> <div id="t8" class="t8"> 3</div> <div id="t9" class="t9"> 3</div> <div id="t10" class="t10"> 3</div> <div id="t11" class="t11"> 3</div> <div id="t12" class="t12"> 3</div> <div id="t13" class="t13"> 3</div> <div id="t14" class="t14"> 3</div> <div id="t15" class="t15"> 3</div>
                     </div>
                     
 
@@ -68,7 +68,9 @@
                
             <script>
             var tree=[];
-      
+             tree=[undefined,'40','20','60','10','30','50','70','5','15','25','35','45','55','65','75']
+            display()
+
             function create(){
                 document.getElementById("cRnd").style.display='inline-block';
                 document.getElementById("cEmp").style.display='inline-block';
@@ -97,44 +99,46 @@
                 document.getElementById("fMin").style.display='none';
                 document.getElementById("fMax").style.display='none';
                 document.getElementById("f").style.display='none';
-
             }
-
+ 
             function insGo(){
                 document.getElementById("insert").style.display='none';
-                
+                document.getElementById("action").innerHTML="";
                 var v=document.getElementById("InsV").value;
-                
+                document.getElementById("InsV").value="";
                 if(v==""){
                     document.getElementById("notify").innerHTML="You must enter a value";
                 }
                 else{
                     document.getElementById("notify").innerHTML="";
                     
-                    if(tree.length==0){
+                    if(tree.length==0 || tree[1]==undefined){
                         tree[1]=v;
                         display();
+                        document.getElementById("action").innerHTML="You inserted "+ v;
                     }
                     
-                    else if(tree.length>=16){
+                    else if(tree.length>=17){
                         document.getElementById("notify").innerHTML="Maximum height is 4";
+                        return;
                     }
                     
                     else if(exist(v)){
                         document.getElementById("notify").innerHTML="No duplicate values allowed";
-                        
+                        return;
                     }
                     
                     else{
                         document.getElementById("notify").innerHTML="";
                         
-                        if(v>tree[1]){
+                        if(parseInt(v)>parseInt(tree[1])){
                             if(tree[3]!=undefined){
-                                if(v>tree[3]){
+                                if(parseInt(v)>parseInt(tree[3])){
                                     if(tree[7]!=undefined){
-                                        if(v>tree[7]){
+                                        if(parseInt(v)>parseInt(tree[7])){
                                             if(tree[15]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return
                                             }
                                             else{
                                                 tree[15]=v;
@@ -143,6 +147,7 @@
                                         else{
                                             if(tree[14]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return
                                             }
                                             else{
                                                 tree[14]=v;
@@ -154,11 +159,12 @@
                                     }
                                 }
                                 
-                                else if(v<tree[3]){
+                                else if(parseInt(v)<parseInt(tree[3])){
                                     if(tree[6]!=undefined){
-                                        if(v>tree[6]){
+                                        if(parseInt(v)>parseInt(tree[6])){
                                             if(tree[13]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return
                                             }
                                             else{
                                                 tree[13]=v;
@@ -167,6 +173,7 @@
                                         else{
                                             if(tree[12]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return;
                                             }
                                             else{
                                                 tree[12]=v;
@@ -186,11 +193,12 @@
                         
                         else{
                             if(tree[2]!=undefined){
-                                if(v>tree[2]){
+                                if(parseInt(v)>parseInt(tree[2])){
                                     if(tree[5]!=undefined){
-                                        if(v>tree[5]){
+                                        if(parseInt(v)>parseInt(tree[5])){
                                             if(tree[11]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return;
                                             }
                                             else{
                                                 tree[11]=v;
@@ -199,6 +207,7 @@
                                         else{
                                             if(tree[10]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return
                                             }
                                             else{
                                                 tree[10]=v;
@@ -212,9 +221,10 @@
                                 
                                 else{
                                     if(tree[4]!=undefined){
-                                        if(v>tree[4]){
+                                        if(parseInt(v)>parseInt(tree[4])){
                                             if(tree[9]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return
                                             }
                                             else{
                                                 tree[9]=v;
@@ -223,6 +233,7 @@
                                         else{
                                             if(tree[8]!=undefined){
                                                 document.getElementById("notify").innerHTML="Maximum height is 4";
+                                                return
                                             }
                                             else{
                                                 tree[8]=v;
@@ -239,12 +250,10 @@
                             }
                         }
                                 
-                        
                         display();
+                        document.getElementById("action").innerHTML="You inserted "+ v;
                     }
-                    
-                    document.getElementById("InsV").value="";
-                    
+                    document.getElementById("InsV").value="";                   
                 }
             }
 
@@ -260,7 +269,7 @@
 
             function remGo(){
                 document.getElementById("remove").style.display='none';
-                
+                document.getElementById("action").innerHTML="";
                 var v=document.getElementById("RemV").value;
                 
                 if(v==""){
@@ -269,19 +278,213 @@
                 else{
                     document.getElementById("notify").innerHTML="";
                     
-                    if(tree.length==1){
-                        tree[1]=undefined;
-                        display();
+                    if(tree[1]==undefined){
+                        document.getElementById("notify").innerHTML="The tree is empty!";
                     }
-                    
+
+                    else if(!tree.includes(v)){
+                        document.getElementById("notify").innerHTML=v + " is not in the tree";
+                    }
+
                     else{
-                        if(v>tree[1]){
-                            
+                        var index=getIndex(v);
+
+                        if(parseInt(index)>=8 && parseInt(index)<=15){
+                            tree[index]=undefined;
                         }
                         
-                        else{
-                            
+                        else if(parseInt(index)==4){
+                            if(tree[8]==undefined && tree[9]==undefined){
+                                tree[4]=undefined;
+                            }
+                            else if(tree[9]!=undefined){
+                                tree[4]=tree[9];
+                                tree[9]=undefined;
+                            }
+                            else if(tree[8]!=undefined){
+                                tree[4]=tree[8];
+                                tree[8]=undefined;
+                            }
                         }
+
+                        else if(parseInt(index)==5){
+                            if(tree[10]==undefined && tree[11]==undefined){
+                                tree[5]=undefined;
+                            }
+                            else if(tree[11]!=undefined){
+                                tree[5]=tree[11];
+                                tree[11]=undefined;
+                            }
+                            else if(tree[10]!=undefined){
+                                tree[5]=tree[10];
+                                tree[10]=undefined;
+                            }
+                        }
+
+                        else if(parseInt(index)==6){
+                            if(tree[12]==undefined && tree[13]==undefined){
+                                tree[6]=undefined;
+                            }
+                            else if(tree[13]!=undefined){
+                                tree[6]=tree[13];
+                                tree[13]=undefined;
+                            }
+                            else if(tree[12]!=undefined){
+                                tree[6]=tree[12];
+                                tree[12]=undefined;
+                            }
+                        }
+
+                        else if(parseInt(index)==7){
+                            if(tree[14]==undefined && tree[15]==undefined){
+                                tree[7]=undefined;
+                            }
+                            else if(tree[15]!=undefined){
+                                tree[7]=tree[15];
+                                tree[15]=undefined;
+                            }
+                            else if(tree[14]!=undefined){
+                                tree[7]=tree[14];
+                                tree[14]=undefined;
+                            }
+                        }
+
+                        else if(parseInt(index)==2){
+                            if(tree[4]==undefined && tree[5]==undefined){
+                                tree[2]=undefined;
+                            }
+                            else if(tree[5]!=undefined){
+                                if(tree[10]==undefined && tree[11]==undefined){
+                                    tree[2]=tree[5];
+                                    tree[5]=undefined;
+                                }
+                                else if(tree[10]!=undefined){
+                                    tree[2]=tree[10];
+                                    tree[10]=undefined;
+                                }
+                                else if(tree[11]!=undefined){
+                                    tree[2]=tree[5];
+                                    tree[5]=tree[11];
+                                    tree[11]=undefined;
+                                }
+                                
+                            }
+                            else if(tree[4]!=undefined){
+                                tree[2]=tree[4];
+
+                                if(tree[8]==undefined && tree[9]==undefined){
+                                    tree[4]=undefined;
+                                }
+                                else if(tree[9]!=undefined){
+                                    tree[5]=tree[9];
+                                    tree[9]=undefined;
+                                }
+                                if(tree[8]!=undefined){
+                                    tree[4]=tree[8];
+                                    tree[8]=undefined;
+                                }
+                            }
+                        }
+
+                        else if(parseInt(index)==3){
+                            if(tree[6]==undefined && tree[7]==undefined){
+                                tree[3]=undefined;
+                            }
+                            else if(tree[7]!=undefined){
+                                if(tree[14]==undefined && tree[15]==undefined){
+                                    tree[3]=tree[7];
+                                    tree[7]=undefined;
+                                }
+                                else if(tree[14]!=undefined){
+                                    tree[3]=tree[14];
+                                    tree[14]=undefined;
+                                }
+                                else if(tree[15]!=undefined){
+                                    tree[3]=tree[7];
+                                    tree[7]=tree[15];
+                                    tree[15]=undefined;
+                                }                                
+                            }
+                            else if(tree[6]!=undefined){
+                                tree[3]=tree[6];
+                                if(tree[12]==undefined && tree[13]==undefined){
+                                    tree[6]=undefined;
+                                }
+                                else if(tree[13]!=undefined){
+                                    tree[7]=tree[13];
+                                    tree[13]=undefined;
+                                }
+                                if(tree[12]!=undefined){
+                                    tree[6]=tree[12];
+                                    tree[12]=undefined;
+                                }
+                            }
+                        }
+
+                        else if(parseInt(index)==1){
+                            if(tree[2]==undefined && tree[3]==undefined){
+                                tree[1]=undefined;
+                            }
+                            else if(tree[3]!=undefined){
+                                if(tree[6]==undefined && tree[7]==undefined){
+                                    tree[1]=tree[3];
+                                    tree[3]=undefined;
+                                }
+                                else if(tree[6]!=undefined){
+                                    if(tree[12]==undefined && tree[13]==undefined){
+                                        tree[1]=tree[6];
+                                        tree[6]=undefined;
+                                    }
+                                    else if(tree[12]!=undefined){
+                                        tree[1]=tree[12];
+                                        tree[12]=undefined;
+                                    }
+                                    else if(tree[13]!=undefined){
+                                        tree[1]=tree[6];
+                                        tree[6]=tree[13];
+                                        tree[13]=undefined;
+                                    }
+                                    
+                                }
+                                else if(tree[7]!=undefined){
+                                    tree[1]=tree[3];
+                                    tree[3]=tree[7];
+                                    tree[6]=tree[14];
+                                    tree[7]=tree[15];
+
+                                    tree[14]=undefined;
+                                    tree[15]=undefined;
+                                }
+                            }
+                            else if(tree[2]!=undefined){
+                                tree[1]=tree[2];
+                                if(tree[4]==undefined && tree[5]==undefined){
+                                    tree[2]=undefined;
+                                }
+                                else if(tree[5]!=undefined){
+                                    tree[3]=tree[5];
+                                    tree[7]=tree[11];
+                                    tree[6]=tree[10];
+
+                                    tree[5]=undefined;
+                                    tree[10]=undefined;
+                                    tree[11]=undefined;
+                                    
+                                }
+                                if(tree[4]!=undefined){
+                                    tree[2]=tree[4];
+                                    tree[5]=tree[9];
+                                    tree[4]=tree[8];
+
+                                    tree[8]=undefined;
+                                    tree[9]=undefined;
+                                }
+                            }                        
+                        }   
+
+                        display();
+                        document.getElementById("action").innerHTML="You removed "+ v;
+
                     }
                     
                     document.getElementById("RemV").value="";
@@ -305,6 +508,7 @@
                 document.getElementById("fMin").style.display='none';
                 document.getElementById("fMax").style.display='none';
                 document.getElementById("f").style.display='none';
+                
             }
 
             function findMax(){
@@ -315,7 +519,32 @@
             }
 
             function findVtx(){
-                
+                document.getElementById("showV").style.display='none';
+                document.getElementById("fMin").style.display='none';
+                document.getElementById("fMax").style.display='none';
+                document.getElementById("f").style.display='none';
+                var v=document.getElementById("vtx").value;
+
+                 if(v==""){
+                    document.getElementById("notify").innerHTML="You must enter a value";
+                }
+                else{
+                    document.getElementById("notify").innerHTML="";
+                    
+                    if(tree[1]==undefined){
+                        document.getElementById("notify").innerHTML="The tree is empty!";
+                    }
+
+                    else if(!tree.includes(v)){
+                        document.getElementById("notify").innerHTML=v + " is not found in the tree";
+                    }
+                    else{
+                        document.getElementById("notify").innerHTML=v + " is found in the tree";
+                    }
+
+                }  
+
+                document.getElementById("vtx").value=""  
             }
 
             function showF(){
@@ -329,7 +558,7 @@
                 for(i=1;i<tree.length;i++){
                     if(tree[i]!=undefined){
                         var t='t'.concat(i);
-                        console.log(t);
+                    //    console.log(t);
                         document.getElementById(t).style.display='inline-block'              
                         document.getElementById(t).innerHTML=tree[i];
                     }
@@ -366,7 +595,15 @@
             function disBackH(){
                 document.getElementById("backH").style.display='none';
             }
+
+            function getIndex(v){
+                for(var i=0;i<tree.length;i++){
+                    if(tree[i]!=undefined && tree[i]==v)
+                        return i;
+                }
+            }
                      
+
             </script>
 
             </body>   
