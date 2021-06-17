@@ -349,12 +349,10 @@ font-family: cursive;
 border: 3px solid #f4976c;
 color: #303c6c;
 margin-top: -1px; 
-/* padding: 8; */
 width: 40;
 height: 50;
 align-items:center;
 justify-content:center;
-/* display: flex; */
 border-radius: 40%;
 word-wrap: break-word;
 font-family: cursive;  
