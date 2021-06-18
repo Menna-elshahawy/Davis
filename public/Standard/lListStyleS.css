@@ -1010,19 +1010,6 @@ cursor: pointer;
   /* display: none; */
 }
 
-.dot{
-  position: fixed;
-  bottom: 228;
-  left: 2;
-  /* color: #f1f3f3; */
-  border: 2px solid #303c6c;
-  height: 30px;
-  width: 30px;
-  /* background-color: #bbb; */
-  border-radius: 50%;
-  display: none;
-  cursor: pointer;
-}
 
 .know{
   position: fixed;

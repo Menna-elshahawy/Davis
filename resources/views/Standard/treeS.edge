@@ -16,6 +16,31 @@
                 <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
                 
+                <div class="info" id="info"> <span style="color:#f4976c";> What is a binary search tree </span> <br>
+                    Binary Search Tree is a node-based binary tree data structure which has the following properties:
+                     <br> -The left subtree of a node contains only nodes with keys lesser than the node’s key.<br>
+                     -The right subtree of a node contains only nodes with keys greater than the node’s key.<br>
+                     - The left and right subtree each must also be a binary search tree.
+                     <br> <br> 
+                    
+                    <span style="color:#f4976c";> Methods: </span> <br>
+                    Mainly the following three basic operations are performed in the binary search tree: <br>
+                    -Insert: Adds an item to the binary search tree based in its value  <br>
+                    -Remove: Removes an item from the binary search tree and reorders the rest 
+                    of the items to maintain the binary search tree properties. <br>
+                    -Search: Searches for an item in the binary search tree and returns it.<br><br>
+                    
+                    <span style="color:#f4976c";> Applications: </span><br> 
+                    -Sorting <br>
+                    -Compilers <br>
+                    -Decision Trees <br><br>
+            </div>
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know"> Know more about Binary Search Trees  </div>    
+
+
                 <div class="stackHome">
         
                     <div class="btn-group">
@@ -99,18 +124,33 @@
                           </div>
 
                            <div class="remM" id="remM">
-                                <div id="pp1" class="pp1"> public int pop() { </div>
-                                <div id="pp2" class="pp2" style="text-indent: 40px;"> int result = theStack[top]; </div>
-                                <div id="pp3" class="pp3" style="text-indent: 40px;"> top--;</div>
-                                <div id="pp4" class="pp4" style="text-indent: 40px;"> return result; </div>
-                                <div id="pp5" class="pp5"> } </div>
+                                <div id="r1"> public void remove(int v) { </div>
+                                <div id="r2" style="text-indent: 40px;"> Node current = root; </div>
+                                <div id="r3" style="text-indent: 40px;"> while(current!=v && current!=null){</div>
+                                <div id="r4" style="text-indent: 80px;"> if (v.compareTo(current) < 0) </div>
+                                <div id="r5" style="text-indent: 120px;"> current = current.left; </div>
+                                <div id="r6" style="text-indent: 80px;"> else </div>
+                                <div id="r7" style="text-indent: 120px;"> current = current.right; </div>
+                                <div id="r8" style="text-indent: 40px;"> } </div>
+                                <div id="r9" style="text-indent: 40px;"> if(current==v) </div>
+                                <div id="r10" style="text-indent: 80px;"> current=null;  </div>
+                                <div id="r11" > } </div>
 
                            </div>
 
                            <div class="fVM" id="fVM">
-                                <div id="fv1" class="fv1"> public int findValue(v) {  </div>
-                                <div id="fv2" class="fv2" style="text-indent: 40px;"> return theStack[top]; </div>
-                                <div id="fv3" class="fv3"> }  </div>
+                                <div id="fv1" class="fv1"> public String findValue(int v) {  </div>
+                                <div id="fv2" class="fv2" style="text-indent: 40px;"> Node current = root; </div>
+                                <div id="fv3" class="fv3" style="text-indent: 40px;">  while(current!=v && current!=null){ </div>
+                                <div id="fv4" class="fv4" style="text-indent: 80px;"> if (v.compareTo(current) < 0) </div>
+                                <div id="fv5" class="fv5" style="text-indent: 120px;"> current = current.left; </div>
+                                <div id="fv6" class="fv6" style="text-indent: 80px;"> else </div>
+                                <div id="fv7" class="fv7" style="text-indent: 120px;"> current = current.right; </div>
+                                <div id="fv8" class="fv8" style="text-indent: 40px;"> } </div>
+                                <div id="fv9" class="fv9" style="text-indent: 40px;"> if(current==v) </div>
+                                <div id="fv10" class="fv10" style="text-indent: 80px;"> return "found"; </div>
+                                <div id="fv11" class="fv11" style="text-indent: 40px;"> return "not found"; </div>
+                                <div id="fv12" class="fv12"> }  </div>
 
                            </div>
                            
@@ -148,6 +188,7 @@
             var tree=[];
          //   tree=[undefined,'40','20','60','10','30','50','70','5','15','25','35','45','55','65','75']
          //   display()
+            var count=1;
 
             function create(){
                 document.getElementById("cRnd").style.display='inline-block';
@@ -1831,6 +1872,8 @@
 
                     else{
                         var index=getIndex(v);
+                        var i=getIndex(v);
+                        var rep='';
 
                         if(parseInt(index)>=8 && parseInt(index)<=15){
                             tree[index]=undefined;
@@ -1843,10 +1886,12 @@
                             else if(tree[9]!=undefined){
                                 tree[4]=tree[9];
                                 tree[9]=undefined;
+                                rep='t9';
                             }
                             else if(tree[8]!=undefined){
                                 tree[4]=tree[8];
                                 tree[8]=undefined;
+                                rep='t8'
                             }
                         }
 
@@ -1857,10 +1902,12 @@
                             else if(tree[11]!=undefined){
                                 tree[5]=tree[11];
                                 tree[11]=undefined;
+                                rep='t11'
                             }
                             else if(tree[10]!=undefined){
                                 tree[5]=tree[10];
                                 tree[10]=undefined;
+                                rep='t10'
                             }
                         }
 
@@ -1871,10 +1918,12 @@
                             else if(tree[13]!=undefined){
                                 tree[6]=tree[13];
                                 tree[13]=undefined;
+                                rep='t13'
                             }
                             else if(tree[12]!=undefined){
                                 tree[6]=tree[12];
                                 tree[12]=undefined;
+                                rep='t12'
                             }
                         }
 
@@ -1885,10 +1934,12 @@
                             else if(tree[15]!=undefined){
                                 tree[7]=tree[15];
                                 tree[15]=undefined;
+                                rep='t15'
                             }
                             else if(tree[14]!=undefined){
                                 tree[7]=tree[14];
                                 tree[14]=undefined;
+                                rep='t14'
                             }
                         }
 
@@ -1900,25 +1951,27 @@
                                 if(tree[10]==undefined && tree[11]==undefined){
                                     tree[2]=tree[5];
                                     tree[5]=undefined;
+                                    rep='t5'
                                 }
                                 else if(tree[10]!=undefined){
                                     tree[2]=tree[10];
                                     tree[10]=undefined;
+                                    rep='t10'
                                 }
                                 else if(tree[11]!=undefined){
                                     tree[2]=tree[5];
                                     tree[5]=tree[11];
                                     tree[11]=undefined;
+                                    rep='t15'
                                 }
                                 
                             }
                             else if(tree[4]!=undefined){
                                 tree[2]=tree[4];
-
-                                if(tree[8]==undefined && tree[9]==undefined){
-                                    tree[4]=undefined;
-                                }
-                                else if(tree[9]!=undefined){
+                                rep='t4'
+                                tree[4]=undefined;
+                                
+                                if(tree[9]!=undefined){
                                     tree[5]=tree[9];
                                     tree[9]=undefined;
                                 }
@@ -1937,23 +1990,26 @@
                                 if(tree[14]==undefined && tree[15]==undefined){
                                     tree[3]=tree[7];
                                     tree[7]=undefined;
+                                    rep='t7'
                                 }
                                 else if(tree[14]!=undefined){
                                     tree[3]=tree[14];
                                     tree[14]=undefined;
+                                    rep='t14'
                                 }
                                 else if(tree[15]!=undefined){
                                     tree[3]=tree[7];
                                     tree[7]=tree[15];
                                     tree[15]=undefined;
+                                    rep='t7'
                                 }                                
                             }
                             else if(tree[6]!=undefined){
                                 tree[3]=tree[6];
-                                if(tree[12]==undefined && tree[13]==undefined){
-                                    tree[6]=undefined;
-                                }
-                                else if(tree[13]!=undefined){
+                                rep='t6'
+                                tree[6]=undefined;
+
+                                if(tree[13]!=undefined){
                                     tree[7]=tree[13];
                                     tree[13]=undefined;
                                 }
@@ -1972,20 +2028,24 @@
                                 if(tree[6]==undefined && tree[7]==undefined){
                                     tree[1]=tree[3];
                                     tree[3]=undefined;
+                                    rep='t3'
                                 }
                                 else if(tree[6]!=undefined){
                                     if(tree[12]==undefined && tree[13]==undefined){
                                         tree[1]=tree[6];
                                         tree[6]=undefined;
+                                        rep='t6'
                                     }
                                     else if(tree[12]!=undefined){
                                         tree[1]=tree[12];
                                         tree[12]=undefined;
+                                        rep='t12'
                                     }
                                     else if(tree[13]!=undefined){
                                         tree[1]=tree[6];
                                         tree[6]=tree[13];
                                         tree[13]=undefined;
+                                        rep='t6'
                                     }
                                     
                                 }
@@ -1997,10 +2057,12 @@
 
                                     tree[14]=undefined;
                                     tree[15]=undefined;
+                                    rep='t3'
                                 }
                             }
                             else if(tree[2]!=undefined){
                                 tree[1]=tree[2];
+                                rep='t2'
                                 if(tree[4]==undefined && tree[5]==undefined){
                                     tree[2]=undefined;
                                 }
@@ -2025,8 +2087,765 @@
                             }                        
                         }   
 
-                        display();
-                        document.getElementById("action").innerHTML="You removed "+ v;
+                        console.log(rep)
+                        document.getElementById("method").style.display="inline";
+                        document.getElementById("remM").style.display='inline';
+                        document.getElementById("r1").style.background='#fbe8a6';
+
+                        setTimeout(function(){
+                            document.getElementById("r1").style.background='none';
+                            document.getElementById("r2").style.background='#fbe8a6';
+                            document.getElementById("t1").style.background='#fbe8a6';
+                        },1000)
+
+                        setTimeout(function(){
+                            document.getElementById("r2").style.background='none';
+                            document.getElementById("r3").style.background='#fbe8a6';
+                        },2000)
+
+                        if(i==1){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='#fbe8a6';
+                                }
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("t1").style.background='none';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='none';
+                                }
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v
+                            },5000)
+
+                            setTimeout(function(){
+                                 document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },6500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },8000)
+                        }
+
+                        if(i==2 || i==3){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            if(i==2){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t1").style.background='none';
+                                    document.getElementById("t2").style.background='#fbe8a6';
+                                },4000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t1").style.background='none';
+                                    document.getElementById("t3").style.background='#fbe8a6';
+                                },4000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='#fbe8a6';
+                                }
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("t2").style.background='none';
+                                document.getElementById("t3").style.background='none';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='none';
+                                }
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },9000)
+
+                            setTimeout(function(){
+                                 document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },10500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },12000)
+                        }
+
+                        if(i==4 || i==5){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r5").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t2").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },7000)
+
+
+                            if(i==4){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t2").style.background='none';
+                                    document.getElementById("t4").style.background='#fbe8a6';
+                                },8000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t2").style.background='none';
+                                    document.getElementById("t5").style.background='#fbe8a6';
+                                },8000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },11000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='#fbe8a6';
+                                }
+                            },12000)
+
+                            setTimeout(function(){
+                                document.getElementById("t4").style.background='none';
+                                document.getElementById("t5").style.background='none';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='none';
+                                }
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },14500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },16000)
+                        }
+
+                        if(i==6 || i==7){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r7").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t3").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },7000)
+
+
+                            if(i==6){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t3").style.background='none';
+                                    document.getElementById("t6").style.background='#fbe8a6';
+                                },8000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t3").style.background='none';
+                                    document.getElementById("t7").style.background='#fbe8a6';
+                                },8000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },11000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='#fbe8a6';
+                                }
+                            },12000)
+
+                            setTimeout(function(){
+                                document.getElementById("t6").style.background='none';
+                                document.getElementById("t7").style.background='none';
+                                if(rep!=''){
+                                    document.getElementById(rep).style.background='none';
+                                }
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },14500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },16000)
+                        }
+
+                        if(i==8 || i==9){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r5").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t2").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r5").style.background='#fbe8a6';
+                                document.getElementById("t2").style.background='none';
+                                document.getElementById("t4").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==8){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t4").style.background='none';
+                                    document.getElementById("t8").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t4").style.background='none';
+                                    document.getElementById("t9").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                            },16000)
+
+                            setTimeout(function(){
+                                document.getElementById("t8").style.background='none';
+                                document.getElementById("t9").style.background='none';
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },18000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },18500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },20000)
+                        }
+
+                        if(i==10 || i==11){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r5").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t2").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r7").style.background='#fbe8a6';
+                                document.getElementById("t2").style.background='none';
+                                document.getElementById("t5").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==10){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t5").style.background='none';
+                                    document.getElementById("t10").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t5").style.background='none';
+                                    document.getElementById("t11").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                            },16000)
+
+                            setTimeout(function(){
+                                document.getElementById("t10").style.background='none';
+                                document.getElementById("t11").style.background='none';
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },18000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },18500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },20000)
+                        }
+
+                        if(i==12 || i==13){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r7").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t3").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r5").style.background='#fbe8a6';
+                                document.getElementById("t3").style.background='none';
+                                document.getElementById("t6").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==12){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t6").style.background='none';
+                                    document.getElementById("t12").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t6").style.background='none';
+                                    document.getElementById("t13").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                            },16000)
+
+                            setTimeout(function(){
+                                document.getElementById("t12").style.background='none';
+                                document.getElementById("t13").style.background='none';
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },18000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },18500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },20000)
+                        }
+
+                        if(i==14 || i==15){
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r7").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t3").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("r4").style.background='none';
+                                document.getElementById("r7").style.background='#fbe8a6';
+                                document.getElementById("t3").style.background='none';
+                                document.getElementById("t7").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==14){
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r5").style.background='#fbe8a6';
+                                    document.getElementById("t7").style.background='none';
+                                    document.getElementById("t14").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("r4").style.background='none';
+                                    document.getElementById("r7").style.background='#fbe8a6';
+                                    document.getElementById("t7").style.background='none';
+                                    document.getElementById("t15").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("r5").style.background='none';
+                                document.getElementById("r7").style.background='none';
+                                document.getElementById("r8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("r8").style.background='none';
+                                document.getElementById("r3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("r3").style.background='none';
+                                document.getElementById("r9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("r9").style.background='none';
+                                document.getElementById("r10").style.background='#fbe8a6';
+                            },16000)
+
+                            setTimeout(function(){
+                                document.getElementById("t14").style.background='none';
+                                document.getElementById("t15").style.background='none';
+                                display()
+                                document.getElementById("action").innerHTML="You removed "+ v;
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("r10").style.background='none';
+                                document.getElementById("r11").style.background='#fbe8a6';
+                            },18000)
+
+                            setTimeout(function(){
+                                document.getElementById("r11").style.background='none';
+                            },18500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("remM").style.display='none';
+                            },20000)
+                        }
 
                     }
                     
@@ -2137,8 +2956,7 @@
                         document.getElementById("fMnM").style.display='none';
                     },6000+(j*2000))
 
-                }
-                
+                }                
             }
 
             function findMax(){
@@ -2258,7 +3076,709 @@
                         document.getElementById("action").innerHTML=v + " is not found in the tree";
                     }
                     else{
-                        document.getElementById("action").innerHTML=v + " is found in the tree";
+                        var i =getIndex(v);
+                        document.getElementById("method").style.display="inline";
+                        document.getElementById("fVM").style.display='inline';
+                        document.getElementById("fv1").style.background='#fbe8a6';
+
+                        setTimeout(function(){
+                            document.getElementById("fv1").style.background='none';
+                            document.getElementById("fv2").style.background='#fbe8a6';
+                            document.getElementById("t1").style.background='#fbe8a6';
+                        },1000)
+
+                        setTimeout(function(){
+                            document.getElementById("fv2").style.background='none';
+                            document.getElementById("fv3").style.background='#fbe8a6';
+                        },2000)
+
+                        if(i==1){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t1").style.background='none';
+                            },4000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },5500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },7000)
+                        }
+
+                        if(i==2 || i==3){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            if(i==2){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t1").style.background='none';
+                                    document.getElementById("t2").style.background='#fbe8a6';
+                                },4000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t1").style.background='none';
+                                    document.getElementById("t3").style.background='#fbe8a6';
+                                },4000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t2").style.background='none';
+                                document.getElementById("t3").style.background='none';
+                            },8000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },9500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },11000)
+                        }
+
+                        if(i==4 || i==5){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv5").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t2").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },7000)
+
+
+                            if(i==4){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t2").style.background='none';
+                                    document.getElementById("t4").style.background='#fbe8a6';
+                                },8000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t2").style.background='none';
+                                    document.getElementById("t5").style.background='#fbe8a6';
+                                },8000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },11000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t4").style.background='none';
+                                document.getElementById("t5").style.background='none';
+                            },12000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },13500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },15000)
+                        }
+
+                        if(i==6 || i==7){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv7").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t3").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },7000)
+
+
+                            if(i==6){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t3").style.background='none';
+                                    document.getElementById("t6").style.background='#fbe8a6';
+                                },8000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t3").style.background='none';
+                                    document.getElementById("t7").style.background='#fbe8a6';
+                                },8000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },11000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t6").style.background='none';
+                                document.getElementById("t7").style.background='none';
+                            },12000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },13500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },15000)
+                        }
+
+                        if(i==8 || i==9){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv5").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t2").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv5").style.background='#fbe8a6';
+                                document.getElementById("t2").style.background='none';
+                                document.getElementById("t4").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==8){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t4").style.background='none';
+                                    document.getElementById("t8").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t4").style.background='none';
+                                    document.getElementById("t9").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t8").style.background='none';
+                                document.getElementById("t9").style.background='none';
+                            },16000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },17500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },19000)
+                        }
+
+                        if(i==10 || i==11){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv5").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t2").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv7").style.background='#fbe8a6';
+                                document.getElementById("t2").style.background='none';
+                                document.getElementById("t5").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==10){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t5").style.background='none';
+                                    document.getElementById("t10").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t5").style.background='none';
+                                    document.getElementById("t11").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t10").style.background='none';
+                                document.getElementById("t11").style.background='none';
+                            },16000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },17500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },19000)
+                        }
+
+                        if(i==12 || i==13){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv7").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t3").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv5").style.background='#fbe8a6';
+                                document.getElementById("t3").style.background='none';
+                                document.getElementById("t6").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==12){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t6").style.background='none';
+                                    document.getElementById("t12").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t6").style.background='none';
+                                    document.getElementById("t13").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t12").style.background='none';
+                                document.getElementById("t13").style.background='none';
+                            },16000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },17500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },19000)
+                        }
+
+                        if(i==14 || i==15){
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },3000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv7").style.background='#fbe8a6';
+                                document.getElementById("t1").style.background='none';
+                                document.getElementById("t3").style.background='#fbe8a6';
+                            },4000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },5000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },6000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },7000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv4").style.background='none';
+                                document.getElementById("fv7").style.background='#fbe8a6';
+                                document.getElementById("t3").style.background='none';
+                                document.getElementById("t7").style.background='#fbe8a6';
+                            },8000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },9000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },10000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv4").style.background='#fbe8a6';
+                            },11000)
+
+
+                            if(i==14){
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv5").style.background='#fbe8a6';
+                                    document.getElementById("t7").style.background='none';
+                                    document.getElementById("t14").style.background='#fbe8a6';
+                                },12000)
+                            }
+                            else{
+                                setTimeout(function(){
+                                    document.getElementById("fv4").style.background='none';
+                                    document.getElementById("fv7").style.background='#fbe8a6';
+                                    document.getElementById("t7").style.background='none';
+                                    document.getElementById("t15").style.background='#fbe8a6';
+                                },12000)
+                            }
+
+                            setTimeout(function(){
+                                document.getElementById("fv5").style.background='none';
+                                document.getElementById("fv7").style.background='none';
+                                document.getElementById("fv8").style.background='#fbe8a6';
+                            },13000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv8").style.background='none';
+                                document.getElementById("fv3").style.background='#fbe8a6';
+                            },14000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv3").style.background='none';
+                                document.getElementById("fv9").style.background='#fbe8a6';
+                            },15000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv9").style.background='none';
+                                document.getElementById("fv10").style.background='#fbe8a6';
+                                document.getElementById("action").innerHTML=v + " is found in the tree";
+                                document.getElementById("t14").style.background='none';
+                                document.getElementById("t15").style.background='none';
+                            },16000)
+
+                            setTimeout(function(){
+                                 document.getElementById("fv10").style.background='none';
+                                document.getElementById("fv12").style.background='#fbe8a6';
+                            },17000)
+
+                            setTimeout(function(){
+                                document.getElementById("fv12").style.background='none';
+                            },17500)
+
+                            setTimeout(function(){
+                                document.getElementById("method").style.display="none";
+                                document.getElementById("fVM").style.display='none';
+                            },19000)
+                        }
                     }
 
                 }  
@@ -2307,6 +3827,14 @@
                     else{
                         var t='t'.concat(i);
                         document.getElementById(t).style.display='none'
+
+                        if(i>=1 && i<=7){
+                        var al='al'.concat(i);
+                        var ar='ar'.concat(i);
+
+                        document.getElementById(al).style.display='none';
+                        document.getElementById(ar).style.display='none';
+                        }
                     }
                     
                 }
@@ -2394,6 +3922,24 @@
                 document.getElementById("hide").style.display='none';
                 document.getElementById("view").style.display='inline';
             }
+
+            function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                }
+
             </script>
 
             </body>   

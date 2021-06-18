@@ -16,27 +16,30 @@
              <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
 
-            <div class="info" id="info"> <span style="color:#f4976c";> What is a stack </span> <br>
-                    A Stack is an abstract data type that serves as a collection of elements and follows a particular order
-                    in which the operations are performed that is last in first out (LIFO). <br> Considered as a linear data structure,
-                    or more abstractly a sequential collection, the push and pop operations occur only at one end of the structure, 
-                    referred to as the top of the stack <br> <br> 
-                    
-                    <span style="color:#f4976c";> Methods: </span> <br>
-                    Mainly the following three basic operations are performed in the stack: <br>
-                    -Push: Adds an item in the stack. <br>
-                    -Pop: Removes an item from the stack. The items are popped in the reversed order in which they are pushed. <br>
-                    -Peek: Returns top element of stack.<br><br>
-                    
-                    <span style="color:#f4976c";> Applications: </span><br> 
-                    -Redo-undo features at many places like editors, photoshop <br>
-                    -Infix to Postfix /Prefix conversion <br>
-                    -Bracket matching algorithm <br><br>
-               </div>
+            <div class="info" id="info"> <span style="color:#f4976c";> What is a priority queue </span> <br>
+                A Priority Queue is an abstract data type that serves as a collection of elements and follows a particular order 
+                in which the operations are performed that is first in first out (FIFO).
+                 <br> It is an extension of queue with following properties: <br>
+                 -Every item has a priority associated with it.<br>
+                 -An element with high priority is dequeued before an element with low priority.<br>
+                 -If two elements have the same priority, they are served according to their order in the queue.
+                 <br> <br> 
+                 
+                <span style="color:#f4976c";> Methods: </span> <br>
+                Mainly the following three basic operations are performed in the priority queue: <br>
+                -Enqueue: Adds an item to the priority queue based on its priority.  <br>
+                -Dequeue: Removes an item from the priority queue. The item with the highest priority is popped first. <br>
+                -Peek: Returns the front item with the highest priority from the priority queue. <br><br>
+                
+                <span style="color:#f4976c";> Applications: </span><br> 
+                -Prim’s algorithm <br>
+                -Interrupt handling in operating systems <br><br>
+
+                </div>
 
             <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
             <span class="arrH" id="arrH">&#8249;</span>  </div>
-            <div class="know" id="know"> Know more about stacks </div>    
+            <div class="know" id="know"> Know more about Priority Queues </div>    
 
                 <div class="stackHome">
         
