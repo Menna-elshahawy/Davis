@@ -143,6 +143,39 @@ h2{
 /*    font-weight: bold;*/
 }
 
+.ss{
+    font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    top: 440;
+    left: 300;
+    display: inline-block;
+    color: #80bfff;
+    font-weight: bold;
+}
+
+.is{
+    font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    top: 440;
+    left: 480;
+    display: inline-block;
+    color: #80bfff;
+    font-weight: bold;
+}
+
+.bs{
+    font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    top: 440;
+    left: 660;
+    display: inline-block;
+    color: #80bfff;
+    font-weight: bold;
+}
+
 
 .abt{
     position: fixed;

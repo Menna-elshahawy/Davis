@@ -719,11 +719,15 @@ cursor: pointer;
 }
 
 .nodeH{
-  font-size: 25;
+    font-size: 25;
     text-align: center;
-    border: 3px solid #f4976c;
-    color: #303c6c;
-  padding: 8px;
+  border: 3px solid #f4976c;
+  color: #303c6c;
+  margin-top: -1px; 
+  width: 35;
+  height: 45;
+  align-items:center;
+  justify-content:center;
   border-radius: 40%;
   word-wrap: break-word;
   font-family: cursive;  
@@ -735,11 +739,15 @@ cursor: pointer;
 }
 
 .nodeT{
-  font-size: 25;
+    font-size: 25;
     text-align: center;
-    border: 3px solid #f4976c;
-    color: #303c6c;
-  padding: 8px;
+  border: 3px solid #f4976c;
+  color: #303c6c;
+  margin-top: -1px; 
+  width: 35;
+  height: 45;
+  align-items:center;
+  justify-content:center;
   border-radius: 40%;
   word-wrap: break-word;
   font-family: cursive;  
@@ -776,7 +784,7 @@ cursor: pointer;
 
 .code{
     border: 1px solid #303c6c;
-    width: 350;
+    width: 360;
     height: 380;
     /* background: #e6e6ff; */
     border-radius: 10px;
@@ -846,11 +854,9 @@ cursor: pointer;
   color: #7ac7d1;
 }
 
-
 .insHM{
     display: none;
 }
-
 
 .upH{
   content: "\2191";
@@ -889,7 +895,6 @@ cursor: pointer;
   font-family: cursive;
   transform:rotate(-5deg) scale(2);
   display: none;
-
 }
 
 .upR{
@@ -940,7 +945,7 @@ cursor: pointer;
 }
 
 .srchM{
-  display: none;
+    display: none;
 }
 
 .current{

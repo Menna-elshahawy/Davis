@@ -28,6 +28,7 @@ Route.group(()=>{
     Route.on('/Queue').render('Standard/queueS')
     Route.on('/PrioirityQueue').render('Standard/pqueueS')
     Route.on('/LinkedList').render('Standard/lListS')
+    Route.on('/DoublyLinkedList').render('Standard/dlList')
     Route.on('/Tree').render('Standard/treeS')
     Route.on('/SelectionSort').render('Standard/selectionS')
     Route.on('/InsertionSort').render('Standard/insertS')
@@ -41,18 +42,17 @@ Route.group(()=>{
     Route.on('/Queue').render('UserDef/queueU')
     Route.on('/PrioirityQueue').render('UserDef/pqueueU')
     Route.on('/LinkedList').render('UserDef/lListU')
+    Route.on('/SelectionSort').render('UserDef/selectionU')
+    Route.on('/InsertionSort').render('UserDef/insertionU')
+    Route.on('/BubbleSort').render('UserDef/bubbleU')
     Route.on('/stackRes').render('UserDef/stackRes')
     Route.on('/queueRes').render('UserDef/queueRes')
     Route.on('/listRes').render('UserDef/listRes')
+    Route.on('/selectRes').render('UserDef/selectRes')
+    Route.on('/insertRes').render('UserDef/insertRes')
+    Route.on('/bubbleRes').render('UserDef/bubbleRes')
 }).prefix('/UserDefined')
 
 
 Route.post('/executeCode', 'ExecuteCodeController.executeCode2') // controller name and the method
 
-// Route.get('/UserDefined/Stack','ExecuteCodeController.executeCode2')
-
-Route.get('/try', async ({view})=>{
-    let r="sara"
-    return view.render('try', {res:r})
-}
-)

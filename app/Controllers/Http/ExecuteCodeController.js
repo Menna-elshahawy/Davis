@@ -32,7 +32,7 @@ class ExecuteCodeController {
             });
 	}
 
-	async executeCode2({request,view,response}){
+	async executeCode2({request,response}){
 		
 		var data=request.input('data');
 		var code=request.input('code');
@@ -52,11 +52,12 @@ class ExecuteCodeController {
 				var timestamp = currentDate.getTime() / 1000 ;
 				var result=Response.data.output;
 				
-        	    console.log("time:"+ timestamp + " in controller: "+ result);
+        	    // console.log("time:"+ timestamp + " in controller: "+ result);
+				console.log("Result: "+result)
 				View.global('res',result);
 				currentDate = new Date();
 				timestamp = currentDate.getTime() / 1000 ;
-				console.log("time:"+ timestamp );
+				// console.log("time:"+ timestamp );
 				console.log("data: "+ data);
 
 				if(data.localeCompare('stack')==0){
@@ -69,6 +70,18 @@ class ExecuteCodeController {
 
 				else if(data.localeCompare('LinkedList')==0){
 					return response.redirect('/UserDefined/listRes');
+				}
+
+				else if(data.localeCompare('selection')==0){
+					return response.redirect('/UserDefined/selectRes');
+				}
+
+				else if(data.localeCompare('insertion')==0){
+					return response.redirect('/UserDefined/insertRes');
+				}
+
+				else if(data.localeCompare('bubble')==0){
+					return response.redirect('/UserDefined/bubbleRes');
 				}
 
             }, (err) =>{

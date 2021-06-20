@@ -1,16 +1,16 @@
 <DOCTYPE! html>
     <html>
         <head>
-            {{ style('Standard/lListStyleS') }}
+            {{ style('Standard/dlListStyle') }}
             </head>
                   
             <body>
                 
-                 <title> Linked List </title>
+                 <title> Doubly Linked List </title>
                 
-                <h1>LINKED LIST</h1>
+                <h1>DOUBLY LINKED LIST</h1>
         
-           <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+            <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
                 <div class="back" id="back"> Back </div>
 
             
@@ -42,7 +42,7 @@
             <div class="know" id="know"> Know more about Linked Lists </div>    
 
 
-                <div class="stackHome">
+            <div class="stackHome">
         
                     <div class="btn-group">
                         <button class="button" onclick="create()">Create</button>
@@ -89,24 +89,30 @@
                     
                      <div class="sAr" id="sAr"> <input class="num" type="number" id="val" size="3" min="1" max="9"> <button class="go" onclick="searchV()">Go</button> </div>
                     
-                </div>
+            </div>
                     
-                    
-                    
-                <p class ="notify" id="notify"> </p>
-                <p class ="action" id="action"> </p>   <br> <br>
+            <p class ="notify" id="notify"> </p>
+            <p class ="action" id="action"> </p>   <br> <br>
               
                
-                <div id="list">
-                    <span id="a1" class="a1">&#8594;</span> <span id="a2" class="a2">&#8594;</span> <span id="a3" class="a3">&#8594;</span> <span id="a4" class="a4">&#8594;</span><span id="a5" class="a5">&#8594;</span><span id="a6" class="a6">&#8594;</span>
+            <div id="list">
+                    <span id="a1" class="a1">&#8594;</span> <span id="a2" class="a2">&#8594;</span> 
+                    <span id="a3" class="a3">&#8594;</span> <span id="a4" class="a4">&#8594;</span>
+                    <span id="a5" class="a5">&#8594;</span><span id="a6" class="a6">&#8594;</span>
 
-                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div><div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div> <div id="l7" class="l7"> 3</div>
+                    <span id="aa1" class="a1">&#8592;</span> <span id="aa2" class="a2">&#8592;</span> 
+                    <span id="aa3" class="a3">&#8592;</span> <span id="aa4" class="a4">&#8592;</span>
+                    <span id="aa5" class="a5">&#8592;</span><span id="aa6" class="a6">&#8592;</span>
+
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div>
+                    <div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div> 
+                    <div id="l7" class="l7"> 3</div>
                </div>
 
              <div class="abt" onclick="show()"> About </div>
                     
                     <div id="myModal" class="modal">
-                  <div class="modal-content">
+                    <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
                     <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
@@ -121,7 +127,9 @@
                 <div class="upR" id="upR"> <span>&#8599;</span> </div>
                 <div class="upL" id="upL"> <span>&#8598;</span> </div>
                 <div class="rightH" id="rightH"> <span>&#8594;</span> </div>
-                <div class="rightT" id="rightT"> <span>&#8594;</span> </div>        
+                <div  id="rightH2" class="rightH"> <span>&#8592;</span> </div>
+                <div class="rightT" id="rightT"> <span>&#8594;</span> </div>
+                <div  id="rightT2" class="rightT"> <span>&#8592;</span> </div>        
 
             <div class="current" id="current"> current </div>
             <div class="head" id="head">head</div>
@@ -137,42 +145,54 @@
                           <div id="insHM" class="insHM">
                                <div id="ih1" class="ih1">  public void insertFirst(Object o) { </div> 
                                <div id="ih2" class="ih2" style="text-indent: 40px;">  Link newLink = new Link(o); </div> 
-                               <div id="ih3" class="ih3" style="text-indent: 40px;">  newLink.next = head; </div> 
-                               <div id="ih4" class="ih4" style="text-indent: 40px;">  head = newLink; </div>
-                               <div id="ih5" class="ih5">  }</div> 
+                               <div id="ih3" class="ih3" style="text-indent: 40px;">  if( isEmpty() ) </div> 
+                               <div id="ih4" class="ih4" style="text-indent: 80px;">  tail = newLink; </div> 
+                               <div id="ih5" class="ih5" style="text-indent: 40px;">  else {</div> 
+                               <div id="ih6" class="ih6" style="text-indent: 80px;">  head.previous = newLink; </div> 
+                               <div id="ih7" class="ih7" style="text-indent: 80px;">  newLink.next = head; </div> 
+                               <div id="ih8" class="ih8" style="text-indent: 40px;">  } </div> 
+                               <div id="ih9" class="ih9" style="text-indent: 40px;">  head = newLink; </div>
+                               <div id="ih10" class="ih10">  }</div> 
                           </div>
 
                           <div id="insTM" class="insTM">
                                <div id="it1" class="it1">  public void insertLast(Object o) { </div> 
                                <div id="it2" class="it2" style="text-indent: 40px;">  Link newLink = new Link(o); </div> 
-                               <div id="it3" class="it3" style="text-indent: 40px;">  tail.next=newLink; </div> 
-                               <div id="it4" class="it4" style="text-indent: 40px;">  tail=newLink </div>
-                               <div id="it5" class="it5">  }</div> 
+                               <div id="it3" class="it3" style="text-indent: 40px;">  if( isEmpty() )  </div> 
+                               <div id="it4" class="it4" style="text-indent: 80px;">  head = newLink;  </div>
+                               <div id="it5" class="it5" style="text-indent: 40px;">  else{ </div>
+                               <div id="it6" class="it6" style="text-indent: 80px;">  tail.next = newLink; </div>
+                               <div id="it7" class="it7" style="text-indent: 80px;">  newLink.previous = tail;  </div>
+                               <div id="it8" class="it8" style="text-indent: 40px;">  } </div>
+                               <div id="it9" class="it9" style="text-indent: 40px;">  tail = newLink; </div>
+                               <div id="it10" class="it10">  }</div> 
                           </div>
 
 
                            <div id="remHM" class="remHM">
-                               <div id="rh1" class="rh1">  public Object removeFirst() { </div> 
-                               <div id="rh2" class="rh2" style="text-indent: 40px;">  Object res = head.data; </div> 
-                               <div id="rh3" class="rh3" style="text-indent: 40px;">  head = head.next; </div> 
-                               <div id="rh4" class="rh4" style="text-indent: 40px;">  return res; </div>
-                               <div id="rh5" class="rh5">  }</div> 
+                               <div id="rh1" class="rh1">  public Object removeFirst(Object o) { </div> 
+                               <div id="rh2" class="rh2" style="text-indent: 40px;">  Object temp = head.data; </div> 
+                               <div id="rh3" class="rh3" style="text-indent: 40px;">  if(head.next == null) </div> 
+                               <div id="rh4" class="rh4" style="text-indent: 80px;">  tail = null; </div> 
+                               <div id="rh5" class="rh5" style="text-indent: 40px;">  else {</div> 
+                               <div id="rh6" class="rh6" style="text-indent: 80px;">  head.next.previous = null;  </div> 
+                               <div id="rh7" class="rh7" style="text-indent: 80px;">  head = head.next; </div> 
+                               <div id="rh8" class="rh8" style="text-indent: 40px;">  } </div> 
+                               <div id="rh9" class="rh9" style="text-indent: 40px;">  return temp; </div>
+                               <div id="rh10" class="rh10">  }</div> 
                           </div>
 
                            <div id="remTM" class="remTM">
-                               <div id="rt1" class="rt1">  public void removeLast() { </div> 
-                               <div id="rt2" class="rt2" style="text-indent: 40px;">  if (head.next == null) { </div> 
-                               <div id="rt3" class="rt3" style="text-indent: 80px;">  Object res = head.data; </div> 
-                               <div id="rt4" class="rt4" style="text-indent: 80px;">  head = null; </div>
-                               <div id="rt5" class="rt5" style="text-indent: 80px;">  return res; </div>
-                               <div id="rt6" class="rt6" style="text-indent: 40px;">  } </div>
-                               <div id="rt7" class="rt7" style="text-indent: 40px;">  Link current = head; </div>
-                               <div id="rt8" class="rt8" style="text-indent: 40px;">  while (current.next.next != null) </div>
-                               <div id="rt9" class="rt9" style="text-indent: 80px;">  current = current.next; </div>
-                               <div id="rt10" class="rt10" style="text-indent: 40px;">  Object res = current.next.data; </div>
-                               <div id="rt11" class="rt11" style="text-indent: 40px;">  current.next = null; </div>
-                               <div id="rt12" class="rt12" style="text-indent: 40px;">  return res; </div>
-                               <div id="rt13" class="rt13">  }</div> 
+                               <div id="rt1" class="rt1">  public Object removeLast(Object o) { </div> 
+                               <div id="rt2" class="rt2" style="text-indent: 40px;">  Object temp = tail.data; </div> 
+                               <div id="rt3" class="rt3" style="text-indent: 40px;">  if(head.next == null) </div> 
+                               <div id="rt4" class="rt4" style="text-indent: 80px;">  head = null; </div> 
+                               <div id="rt5" class="rt5" style="text-indent: 40px;">  else {</div> 
+                               <div id="rt6" class="rt6" style="text-indent: 80px;">  tail.previous.next = null;  </div> 
+                               <div id="rt7" class="rt7" style="text-indent: 80px;">  tail = tail.previous; </div> 
+                               <div id="rt8" class="rt8" style="text-indent: 40px;">  } </div> 
+                               <div id="rt9" class="r9" style="text-indent: 40px;">  return temp; </div>
+                               <div id="rt10" class="rt10">  }</div> 
                           </div>
 
                           <div id="srchM" class="srchM">
@@ -193,8 +213,10 @@
                 
 
             <script>
-            
+
                 var list=[];
+               // list=[3,6,5,1,7,2,8];
+              //  display()
                 var count=1;
 
                 function insert(){
@@ -226,16 +248,12 @@
                     }
                     
                     else if(list.length==7){
-                            document.getElementById("notify").innerHTML="Maximum length is 7";                        
-                            document.getElementById("notify").innerHTML="";
-                        
-                        
+                            document.getElementById("notify").innerHTML="Maximum length is 7";                                                
                     }
                     else if(exist(v)){
                                 document.getElementById("notify").innerHTML="No duplicate values allowed";
                             }
                     else{
-
 
                                 document.getElementById("insHM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
@@ -253,38 +271,79 @@
                                 
                                 setTimeout(function(){document.getElementById("ih1").style.background='none';
                                                     document.getElementById("ih2").style.background='#fbe8a6';
-                                                    nodeH.style.display='inline-block';
+                                                    nodeH.style.display='flex';
                                                     },2000);
                                 
                                 setTimeout(function(){document.getElementById("ih3").style.background='#fbe8a6';
                                                     document.getElementById("ih2").style.background='none';
-                                                    if(list.length>1){
-                                                        document.getElementById("rightH").style.display='inline';
-                                                    }
                                                     },3000);
+
+                                if(list.length==1){
+                                    setTimeout(function(){document.getElementById("ih4").style.background='#fbe8a6';
+                                            document.getElementById("ih3").style.background='none';
+                                            document.getElementById("upH").style.display='none';                                                                            
+                                        },4000);
+
+                                    setTimeout(function(){document.getElementById("ih9").style.background='#fbe8a6';
+                                            document.getElementById("ih4").style.background='none';
+                                            nodeH.style.display='none';
+                                            display();                                                                            
+                                        },5000); 
+
+                                    setTimeout(function(){document.getElementById("ih9").style.background='none';
+                                            document.getElementById("ih10").style.background='#fbe8a6';
+                                        },6000);
+
+                                    setTimeout(function(){document.getElementById("ih10").style.background='none';
+                                            document.getElementById("action").innerHTML="You inserted "+v+" at the head";
+                                        },6500);
                                 
-                                setTimeout(function(){document.getElementById("ih4").style.background='#fbe8a6';
-                                                    document.getElementById("ih3").style.background='none';
-                                                    document.getElementById("upH").style.display='none';
-                                                    document.getElementById("upL").style.display='inline';
-                                                                                    
-                                                    },4000);
+                                    setTimeout(function(){document.getElementById("insHM").style.display='none';
+                                            document.getElementById("method").style.display='none';
+                                        },8000);       
+                                }   
 
-                                setTimeout(function(){document.getElementById("ih4").style.background='none';
-                                                    document.getElementById("ih5").style.background='#fbe8a6';
-                                                    },5000);
+                                else{ 
+                                    setTimeout(function(){document.getElementById("ih6").style.background='#fbe8a6';
+                                            document.getElementById("ih3").style.background='none';
+                                            document.getElementById("rightH2").style.display='inline';                                                
+                                    },4000);
 
-                                setTimeout(function(){nodeH.style.display='none';
-                                                    document.getElementById("rightH").style.display='none';
-                                                    document.getElementById("upH").style.display='inline';
-                                                    document.getElementById("upL").style.display='none'; 
-                                                    this.display();
-                                                    document.getElementById("ih5").style.background='none';
-                                                    document.getElementById("action").innerHTML="You inserted "+v+" at the head";
-                                                    },5500);
-                             
-                                setTimeout(function(){document.getElementById("insHM").style.display='none';
-                                                    document.getElementById("method").style.display='none';},8000);
+                                    setTimeout(function(){document.getElementById("ih7").style.background='#fbe8a6';
+                                            document.getElementById("ih6").style.background='none';
+                                            document.getElementById("rightH").style.display='inline';  
+                                    },5000);
+
+                                    setTimeout(function(){document.getElementById("ih7").style.background='none';
+                                            document.getElementById("ih8").style.background='#fbe8a6';
+                                    },6000);
+
+                                    setTimeout(function(){document.getElementById("ih8").style.background='none';
+                                            document.getElementById("ih9").style.background='#fbe8a6';
+                                            document.getElementById("upL").style.display='inline';
+                                            
+                                    },7000);
+
+                                    setTimeout(function(){document.getElementById("ih9").style.background='none';
+                                            document.getElementById("ih10").style.background='#fbe8a6';
+                                            document.getElementById("upH").style.display='inline';
+                                            document.getElementById("upL").style.display='none';
+                                            nodeH.style.display='none';
+                                            document.getElementById("rightH").style.display='none'; 
+                                            document.getElementById("rightH2").style.display='none';  
+                                            this.display();                                        
+                                    },8000);
+
+                                    setTimeout(function(){document.getElementById("ih10").style.background='none';
+                                            document.getElementById("action").innerHTML="You inserted "+v+" at the head";
+                                            
+                                    },8500);
+                                
+                                    setTimeout(function(){document.getElementById("insHM").style.display='none';
+                                                        document.getElementById("method").style.display='none';},10000);
+
+                                }                 
+                                
                     }  
                      document.getElementById("inH").value="";
                     
@@ -305,13 +364,7 @@
                     else{
                     document.getElementById("notify").innerHTML="";
                         
-                        if(list.length==0){
-                            list.push(v);
-                            document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
-                            display();
-                        }
-                        
-                        else if(list.length==7){
+                        if(list.length==7){
                             document.getElementById("notify").innerHTML="Maximum length is 7";
                         }
                         else{
@@ -328,51 +381,88 @@
                                                                
                                 document.getElementById("nodeT").innerHTML=v;
                                 document.getElementById("rightT").style.left=448+(list.length-1)*80;
+                                document.getElementById("rightT2").style.left=448+(list.length-1)*80;
                                 document.getElementById("upR").style.left=450+(list.length-1)*80;
                                 var t='l'.concat(list.length);
                                 nodeT.style.left=410+(list.length)*80;
+                                list.push(v)
                                 
-                                list.push(v);   
-
                                 setTimeout(function(){document.getElementById("it1").style.background='#fbe8a6';
                                                     },1000);
                                 
                                 setTimeout(function(){document.getElementById("it1").style.background='none';
                                                     document.getElementById("it2").style.background='#fbe8a6';
-                                                    nodeT.style.display='inline-block';
+                                                    nodeT.style.display='flex';
                                                     },2000);
                                 
                                 setTimeout(function(){document.getElementById("it3").style.background='#fbe8a6';
                                                     document.getElementById("it2").style.background='none';
-                                                    if(list.length>1){
-                                                        document.getElementById("rightT").style.display='inline';
-                                                    }
                                                     },3000);
+
+                                if(list.length==1){
+                                    setTimeout(function(){document.getElementById("it4").style.background='#fbe8a6';
+                                            document.getElementById("it3").style.background='none';
+                                        },4000);
+
+                                    setTimeout(function(){document.getElementById("it9").style.background='#fbe8a6';
+                                            document.getElementById("it4").style.background='none';
+                                            nodeT.style.display='none';
+                                            display();                                                                            
+                                        },5000); 
+
+                                    setTimeout(function(){document.getElementById("it9").style.background='none';
+                                            document.getElementById("it10").style.background='#fbe8a6';
+                                        },6000);
+
+                                    setTimeout(function(){document.getElementById("it10").style.background='none';
+                                            document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
+                                        },6500);
                                 
-                                setTimeout(function(){document.getElementById("it4").style.background='#fbe8a6';
-                                                    document.getElementById("it3").style.background='none';
-                                                    document.getElementById("upT").style.display='none';
-                                                    document.getElementById("upR").style.display='inline';
-                                                                                    
-                                                    },4000);
+                                    setTimeout(function(){document.getElementById("insTM").style.display='none';
+                                            document.getElementById("method").style.display='none';
+                                        },8000);       
+                                }   
 
-                                setTimeout(function(){document.getElementById("it4").style.background='none';
-                                                    document.getElementById("it5").style.background='#fbe8a6';
-                                                    },5000);
+                                else{ 
+                                    setTimeout(function(){document.getElementById("it6").style.background='#fbe8a6';
+                                            document.getElementById("it3").style.background='none';
+                                            document.getElementById("rightT").style.display='inline';                                                
+                                    },4000);
 
-                                setTimeout(function(){nodeT.style.display='none';
-                                                    document.getElementById("rightT").style.display='none';
-                                                    document.getElementById("upT").style.display='inline';
-                                                    document.getElementById("upR").style.display='none'; 
-                                                    this.display();
-                                                    document.getElementById("it5").style.background='none';
-                                                    document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
-                                                    },5500);
-                             
-                                setTimeout(function(){document.getElementById("insTM").style.display='none';
-                                                    document.getElementById("method").style.display='none';},8000);
+                                    setTimeout(function(){document.getElementById("it7").style.background='#fbe8a6';
+                                            document.getElementById("it6").style.background='none';
+                                            document.getElementById("rightT2").style.display='inline';  
+                                    },5000);
 
+                                    setTimeout(function(){document.getElementById("it7").style.background='none';
+                                            document.getElementById("it8").style.background='#fbe8a6';
+                                    },6000);
 
+                                    setTimeout(function(){document.getElementById("it8").style.background='none';
+                                            document.getElementById("it9").style.background='#fbe8a6';
+                                            document.getElementById("upR").style.display='inline';
+                                            
+                                    },7000);
+
+                                    setTimeout(function(){document.getElementById("it9").style.background='none';
+                                            document.getElementById("it10").style.background='#fbe8a6';
+                                            document.getElementById("upT").style.display='inline';
+                                            document.getElementById("upR").style.display='none';
+                                            nodeH.style.display='none';
+                                            document.getElementById("rightT").style.display='none'; 
+                                            document.getElementById("rightT2").style.display='none';  
+                                            this.display();                                        
+                                    },8000);
+
+                                    setTimeout(function(){document.getElementById("it10").style.background='none';
+                                            document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
+                                            
+                                    },8500);
+                                
+                                    setTimeout(function(){document.getElementById("insTM").style.display='none';
+                                                        document.getElementById("method").style.display='none';},10000);
+
+                                }    
 
                                 document.getElementById("notify").innerHTML="";
 
@@ -474,29 +564,66 @@
                                 
                                 setTimeout(function(){document.getElementById("rh3").style.background='#fbe8a6';
                                                     document.getElementById("rh2").style.background='none';
-                                                    document.getElementById("upR").style.display='inline';
-                                                    document.getElementById("upH").style.display='none';
-                                                    
                                                     },3000);
+
+                                if(list.length==0){
+                                    setTimeout(function(){document.getElementById("rh4").style.background='#fbe8a6';
+                                            document.getElementById("rh3").style.background='none';
+                                            display(); 
+                                        },4000);
+
+                                    setTimeout(function(){document.getElementById("rh9").style.background='#fbe8a6';
+                                            document.getElementById("rh4").style.background='none';                                                                                                                      
+                                        },5000); 
+
+                                    setTimeout(function(){document.getElementById("rh9").style.background='none';
+                                            document.getElementById("rh10").style.background='#fbe8a6';
+                                            document.getElementById("action").innerHTML="You removed the head "+v;
+                                        },6000);
+
+                                    setTimeout(function(){document.getElementById("rh10").style.background='none';
+                                            
+                                        },6500);
                                 
-                                setTimeout(function(){document.getElementById("rh4").style.background='#fbe8a6';
-                                                    document.getElementById("rh3").style.background='none';
-                                                                                                                                       
-                                                    },4000);
+                                    setTimeout(function(){document.getElementById("remHM").style.display='none';
+                                            document.getElementById("method").style.display='none';
+                                        },8000);       
+                                }   
 
-                                setTimeout(function(){document.getElementById("rh4").style.background='none';
-                                                    document.getElementById("rh5").style.background='#fbe8a6';
-                                                    document.getElementById("action").innerHTML="You removed the head "+ v; 
-                                                   },5000);
+                                else{ 
+                                    setTimeout(function(){document.getElementById("rh6").style.background='#fbe8a6';
+                                            document.getElementById("rh3").style.background='none';
+                                            document.getElementById("aa1").style.display='none';                                                
+                                    },4000);
 
-                                setTimeout(function(){document.getElementById("upR").style.display='none';
-                                                    this.display();
-                                                    document.getElementById("rh5").style.background='none';
-                                                    },5500);
-                             
-                                setTimeout(function(){document.getElementById("remHM").style.display='none';
-                                                    document.getElementById("method").style.display='none';},8000);
+                                    setTimeout(function(){document.getElementById("rh7").style.background='#fbe8a6';
+                                            document.getElementById("rh6").style.background='none';
+                                            document.getElementById("upR").style.display='inline';  
+                                    },5000);
 
+                                    setTimeout(function(){document.getElementById("rh7").style.background='none';
+                                            document.getElementById("rh8").style.background='#fbe8a6';
+                                    },6000);
+
+                                    setTimeout(function(){document.getElementById("rh8").style.background='none';
+                                            document.getElementById("rh9").style.background='#fbe8a6';
+                                            document.getElementById("upR").style.display='none';  
+                                            document.getElementById("action").innerHTML="You removed the head "+v;
+                                            display()
+                                    },7000);
+
+                                    setTimeout(function(){document.getElementById("rh9").style.background='none';
+                                            document.getElementById("rh10").style.background='#fbe8a6';
+                                                                               
+                                    },8000);
+
+                                    setTimeout(function(){document.getElementById("rh10").style.background='none';              
+                                    },8500);
+                                
+                                    setTimeout(function(){document.getElementById("remHM").style.display='none';
+                                                        document.getElementById("method").style.display='none';},10000);
+
+                                }        
 
 
                         document.getElementById("notify").innerHTML= "";
@@ -520,109 +647,80 @@
                                 document.getElementById("remTM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 document.getElementById("current").style.left=397;
-                                                                                                
-                                setTimeout(function(){document.getElementById("rt1").style.background='#fbe8a6';
+                                var v=list.pop();
+                                var l=list.length
+                                document.getElementById("upL").style.left=450+(list.length-1)*80;
+
+                               setTimeout(function(){document.getElementById("rt1").style.background='#fbe8a6';
                                                     },1000);
                                 
                                 setTimeout(function(){document.getElementById("rt1").style.background='none';
                                                     document.getElementById("rt2").style.background='#fbe8a6';
                                                     },2000);
-
-                                if(list.length==1){
-                                     setTimeout(function(){document.getElementById("rt2").style.background='none';
-                                                    document.getElementById("rt3").style.background='#fbe8a6';
+                                
+                                setTimeout(function(){document.getElementById("rt3").style.background='#fbe8a6';
+                                                    document.getElementById("rt2").style.background='none';
                                                     },3000);
 
-                                    setTimeout(function(){document.getElementById("rt3").style.background='none';
-                                                    document.getElementById("rt4").style.background='#fbe8a6';
-                                                    },4000);
-                                     
-                                    setTimeout(function(){document.getElementById("rt4").style.background='none';
-                                                    document.getElementById("rt5").style.background='#fbe8a6';
-                                                    var v=list.pop();
-                                                    document.getElementById("action").innerHTML="You removed the tail "+ v;
-                                                    display();
-                                                    },5000);
+                                if(list.length==0){
+                                    setTimeout(function(){document.getElementById("rt4").style.background='#fbe8a6';
+                                            document.getElementById("rt3").style.background='none';
+                                            display(); 
+                                        },4000);
 
-                                    setTimeout(function(){document.getElementById("rt5").style.background='none';
-                                                    document.getElementById("rt6").style.background='#fbe8a6';
-                                                    },6000);
+                                    setTimeout(function(){document.getElementById("rt9").style.background='#fbe8a6';
+                                            document.getElementById("rt4").style.background='none';                                                                                                                      
+                                        },5000); 
 
-                                    setTimeout(function(){document.getElementById("rt6").style.background='none';
-                                                    },6500);
-
-                                    setTimeout(function(){document.getElementById("remTM").style.display='none';
-                                                    document.getElementById("method").style.display='none';},8000);                
-                                                    
-                                }
-
-                                else{
-
-                                    setTimeout(function(){document.getElementById("rt7").style.background='#fbe8a6';
-                                                        document.getElementById("rt2").style.background='none';
-                                                        document.getElementById("l1").style.background='#fbe8a6';
-                                                        document.getElementById("current").style.display='inline';                                                                                 
-                            
-                                                        },3000);
-                                    
-                                    setTimeout(function(){document.getElementById("rt8").style.background='#fbe8a6';
-                                                        document.getElementById("rt7").style.background='none';
-                                                        },4000);
-
-                                    var c=1;
-                                    if(list.length>=3){
-                                        
-                                        while(c<list.length-1){
-                                            (function(c){
-                                                setTimeout(function(){document.getElementById("rt9").style.background='#fbe8a6';
-                                                            document.getElementById("rt8").style.background='none';
-                                                            var t='l'.concat(c);
-                                                            document.getElementById(t).style.background='none';
-                                                            var t2='l'.concat(c+1);
-                                                            document.getElementById(t2).style.background='#fbe8a6';
-                                                            document.getElementById("current").style.left=397+80*c;
-                                                            document.getElementById("current").style.display='inline';                            
-                                                            },2000*c+3000);
-                                        
-                                            setTimeout(function(){document.getElementById("rt8").style.background='#fbe8a6';
-                                                            document.getElementById("rt9").style.background='none';                           
-                                                            },2000*c+4000);
-                                            })(c);
-                                            
-
-                                            c++;
-                                        }  
-                                    }                
-
-                                    setTimeout(function(){document.getElementById("rt8").style.background='none';
-                                                        document.getElementById("rt10").style.background='#fbe8a6';                                                        
-                                                    },2000*(c-1)+5000);
+                                    setTimeout(function(){document.getElementById("rt9").style.background='none';
+                                            document.getElementById("rt10").style.background='#fbe8a6';
+                                            document.getElementById("action").innerHTML="You removed the tail "+v;
+                                        },6000);
 
                                     setTimeout(function(){document.getElementById("rt10").style.background='none';
-                                                        document.getElementById("rt11").style.background='#fbe8a6';
-                                                        },2000*(c-1)+6000);
-
-                                    setTimeout(function(){document.getElementById("rt11").style.background='none';
-                                                        document.getElementById("rt12").style.background='#fbe8a6';
-                                                        var v=list.pop();
-                                                        this.display();
-                                                         document.getElementById("action").innerHTML="You removed the tail "+ v;
-                                                        },2000*(c-1)+6800);
-
-                                    setTimeout(function(){document.getElementById("rt12").style.background='none';
-                                                        document.getElementById("rt13").style.background='#fbe8a6';
-                                                        },2000*(c-1)+7500);                    
-
-                                    setTimeout(function(){document.getElementById("rt13").style.background='none';
-                                                        document.getElementById("current").style.display='none';
-                                                        var t='l'.concat(c);
-                                                        document.getElementById(t).style.background='none'; 
-                                                        },2000*(c-1)+8000); 
-
+                                            
+                                        },6500);
+                                
                                     setTimeout(function(){document.getElementById("remTM").style.display='none';
-                                                        document.getElementById("method").style.display='none';},2000*(c-1)+11000);
+                                            document.getElementById("method").style.display='none';
+                                        },8000);       
+                                }   
 
-                                }                    
+                                else{ 
+                                    setTimeout(function(){document.getElementById("rt6").style.background='#fbe8a6';
+                                            document.getElementById("rt3").style.background='none';
+                                            var t='a'.concat(l);
+                                            document.getElementById(t).style.display='none';                                                
+                                    },4000);
+
+                                    setTimeout(function(){document.getElementById("rt7").style.background='#fbe8a6';
+                                            document.getElementById("rt6").style.background='none';
+                                            document.getElementById("upL").style.display='inline';  
+                                    },5000);
+
+                                    setTimeout(function(){document.getElementById("rt7").style.background='none';
+                                            document.getElementById("rt8").style.background='#fbe8a6';
+                                    },6000);
+
+                                    setTimeout(function(){document.getElementById("rt8").style.background='none';
+                                            document.getElementById("rt9").style.background='#fbe8a6';
+                                            document.getElementById("upL").style.display='none';  
+                                            document.getElementById("action").innerHTML="You removed the tail "+v;
+                                            display()
+                                    },7000);
+
+                                    setTimeout(function(){document.getElementById("rt9").style.background='none';
+                                            document.getElementById("rt10").style.background='#fbe8a6';
+                                                                               
+                                    },8000);
+
+                                    setTimeout(function(){document.getElementById("rt10").style.background='none';              
+                                    },8500);
+                                
+                                    setTimeout(function(){document.getElementById("remTM").style.display='none';
+                                                        document.getElementById("method").style.display='none';},10000);
+
+                                }                       
                                 
                                
                         document.getElementById("notify").innerHTML= "";
@@ -974,6 +1072,8 @@
                         if(i>0){
                             var t2='a'.concat(i);
                             document.getElementById(t2).style.display='inline-block';
+                            t2='aa'.concat(i)
+                            document.getElementById(t2).style.display='inline-block';
                         }
                             
                             var t1='l'.concat(i+1);
@@ -982,12 +1082,14 @@
                         
                     }
 
-                      for(j=list.length;j<7;j++){
+                    for(j=list.length;j<7;j++){
                         var t1='l'.concat(j+1);
                         document.getElementById(t1).style.display='none';
                         
                         if(j>0){
                             var t2='a'.concat(j);
+                            document.getElementById(t2).style.display='none';
+                            t2='aa'.concat(j)
                             document.getElementById(t2).style.display='none';
                         }
                     }

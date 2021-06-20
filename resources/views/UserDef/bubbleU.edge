@@ -1,0 +1,187 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('UserDef/bubbleStyleU') }}
+            </head>
+                  
+            <body>
+                
+                <title> Bubble Sort </title>
+                
+                <h1> BUBBLE SORT</h1>
+        
+                <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>                
+                    <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                <div class="read" id="read" onclick="showR()">Read me first</div>
+                <span class="arr">&#8628;</span>
+
+                <div class="stackHome">
+                    
+      
+                    <form action="/executeCode" method="POST"> 
+                        {{ csrfField() }}
+                        <div class="tex"> Enter your code here </div>
+                        <textarea name="code" class="input" rows="50" cols="80" autocomplete="on"> import java.util.Arrays;
+
+public class BubbleSort {
+        
+        public static void bubbleSort(int a[]){
+            int n=a.length;
+            for (int i=0; i<n-1; i++) {
+                for (int j=0; j<n-1-i; j++)
+                    if (a[j+1] < a[j]) { 
+                        int tmp = a[j]; 
+                        a[j] = a[j+1];
+                        a[j+1] = tmp;
+                }
+            }
+
+            System.out.println(Arrays.toString(a)); 
+        }
+    
+    
+        public static void main(String args[]) {
+            int []a={7,1,8,3,5,2,4};
+            bubbleSort(a);
+          
+        }
+}
+
+ </textarea>
+                        <input type="submit" value="Run" class="run">
+                        <textarea class="data" name="data">bubble</textarea>
+                    </form>
+
+
+                    <div class="abt" onclick="show()"> About </div>
+                    
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                 </div>
+
+                <div id="myModalR" class="modal">
+                    <div class="modal-content">
+                    <span class="close" id="closeR" onclick="closeR()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> will write</p>
+                  </div>
+                 </div>
+                    
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+                <div> 
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div>
+                    <div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div>
+                    <div id="l7" class="l7"> 3</div> <div id="l8" class="l8"> 3</div> <div id="l9" class="l9"> 3</div>
+                    <div id="l10" class="l10"> 3</div>
+                    
+                </div>        
+
+
+                <script>
+
+                //    document.getElementById("read").classList.add('anim');
+                    var list=[];
+
+                    function display(){
+                    
+                
+                        for(i=1;i<=list.length;i++){                           
+                            var t1='l'.concat(i);
+                            document.getElementById(t1).style.display='flex';
+                            document.getElementById(t1).innerHTML=list[i-1];    
+                            
+                        }
+
+                        
+                        for(j=list.length+1;j<=10;j++){
+                            var t1='l'.concat(j);
+                            document.getElementById(t1).style.display='none';
+                        }
+                    }
+
+
+                    function set(){  
+                        var currentDate = new Date();
+                        var timestamp = currentDate.getTime() / 1000 ;
+                        console.log("out: "+timestamp);
+
+                        setTimeout(function(){
+                            stack={{{res}}}
+                            console.log({{{res}}});   
+                                                 
+                            currentDate = new Date();
+                            timestamp = currentDate.getTime() / 1000 ;
+                            console.log("in: "+timestamp + " Result: " +stack);
+                            var output={{out}}
+                            console.log(output); 
+                            display();
+                        },3000);  
+
+                        setTimeout(function(){
+                            currentDate = new Date();
+                            timestamp = currentDate.getTime() / 1000 ;
+                            console.log("2 seconds passed Time: "+ timestamp);
+                        },2000);
+
+                    }
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalR")) {
+                            document.getElementById("myModalR").style.display = "none";
+                        }
+                    }
+
+                    function showR() {
+                        document.getElementById("myModalR").style.display = "block";
+                        document.getElementById("read").classList.remove('anim');
+                    }
+
+                     function closeR() {
+                        document.getElementById("myModalR").style.display = "none";
+                    }
+
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+
+                </script>
+
+            </body>   
+        
+    </html>
