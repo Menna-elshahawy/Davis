@@ -15,22 +15,25 @@
 
                 <div class="container">
                     
-                    <a  HREF="/Standard/Stack" ><img src="s.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> </a> <p id="st" class="st" > Stack </p>     
+                    <a  HREF="/Standard/Stack" ><img src="s2.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> 
+                    <p id="st" class="st" > Stack </p></a>      
                     <pre>        </pre>
                     
-                    <a HREF="/Standard/Queue"> <p id="q" class="q"> Queue </p></a> 
+                    <a HREF="/Standard/Queue"><img src="q2.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()"> 
+                     <p id="q" class="q"> Queue </p></a>
                     <pre>        </pre>
                     
-                    <a HREF="/Standard/PrioirityQueue"> <p id="pq" class="pq"> Priority Queue </p> </a> 
-                    
+                    <a HREF="/Standard/PrioirityQueue"><img src="pq2.png" alt="priority queue" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()">  
+                    <p id="pq" class="pq"> Priority Queue </p></a>
                     <pre>        </pre>
                     
 
-                    <a HREF="/Standard/LinkedList"> <p class="l" id="l"> Linked List </p> </a>
-                    
+                    <a HREF="/Standard/LinkedList"> <img src="l5.png" alt="linked list" id="lList" class="lList" onmouseover="popL()" onmouseout="disL()"> 
+                    <p class="l" id="l"> Linked List </p></a>
                     <pre>        </pre>
 
-                    <a HREF="/Standard/Tree"> <p class="t" id="t"> Tree </p> </a>
+                    <a HREF="/Standard/Tree"><img src="t10.png" alt="tree" id="tree" class="tree" onmouseover="popT()" onmouseout="disT()"> 
+                     <p class="t" id="t"> Binary Search Tree </p> </a>
                     <pre>        </pre>
                     
                      <a HREF="/Standard/SelectionSort"> <p class="ss" id="ss"> Selection Sort </p> </a>
@@ -63,33 +66,43 @@
 
             <script>
                      function popSt(){
-                        document.getElementById("st").style.display='inline-block';
-                        document.getElementById("stack").src='s.png';
+                        document.getElementById("stack").src='s2.gif';
                     }
 
                     function disSt(){
-                            document.getElementById("st").style.display='none';
-                        document.getElementById("stack").src='s.png';
+                        document.getElementById("stack").src='s2.png';
                     }
 
                     function popQ(){
-                        document.getElementById("q").style.display='inline-block';
-                        document.getElementById("queue").src='home/q.png';
+                        document.getElementById("queue").src='q2.gif';
                     }
 
                     function disQ(){
-                            document.getElementById("q").style.display='none';
-                            document.getElementById("queue").src='home/q.png';
+                            document.getElementById("queue").src='q2.png';
                     }
 
                     function popPQ(){
-                        document.getElementById("pq").style.display='inline-block';
-                        document.getElementById("pqueue").src='home/pq.png';
+                        document.getElementById("pqueue").src='pq2.gif';
                     }
 
                     function disPQ(){
-                            document.getElementById("pq").style.display='none';
-                            document.getElementById("pqueue").src='home/pq.png';
+                            document.getElementById("pqueue").src='pq2.png';
+                    }
+
+                    function popL(){
+                        document.getElementById("lList").src='l2.gif';
+                    }
+
+                    function disL(){
+                            document.getElementById("lList").src='l5.png';
+                    }
+
+                    function popT(){
+                        document.getElementById("tree").src='t.gif';
+                    }
+
+                    function disT(){
+                            document.getElementById("tree").src='t10.png';
                     }
 
                                         

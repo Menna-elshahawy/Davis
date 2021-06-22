@@ -27,26 +27,27 @@ h2{
 
 .container{
     box-sizing: border-box;
-  width: 70%;
-    height: 60%;
-  margin-top:100px;
-    margin-left: 213px;
+  width: 80%;
+    height: 70%;
+  margin-top:80px;
+    margin-left: 150px;
     margin-right: 90px;
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
   border: 10px solid #7ac7d1;
+  border-radius: 20px;
    
    
 }
 
 .stack{
-    width: 150;
-    height: 150;
+    width: 190;
+    height: 180;
     display: inline-block;
     position: fixed;
-    top: 230;
-    left: 230; 
+    top: 200;
+    left: 180; 
     background: white;
 }
 
@@ -54,72 +55,149 @@ h2{
     font-family: cursive;
     font-size: 20;
     position: fixed;
+    left: 250;
+    /* display: none; */
     top: 360;
-    left: 275;
-    display: none;
-    color: #009973;
+    color: #303c6c;
     font-weight: bold;
 }
 
 .queue{
-    width: 150;
-    height: 150;
+    width: 180;
+    height: 180;
     display: inline-block;
     position: fixed;
-    top: 230;
-    left: 400; 
+    top: 210;
+    left: 410; 
 }
 
 .q{
     font-family: cursive;
     font-size: 20;
     position: fixed;
-    top: 330;
     left: 440;
-    display: inline-block;
-    color: #ff7733;
+    /* display: none; */
+    top: 360;
+    color: #303c6c;
     font-weight: bold;
 }
 
 .pqueue{
-     width: 150;
-    height: 150;
+     width: 180;
+    height: 180;
     display: inline-block;
     position: fixed;
-    top: 230;
-    left: 600; 
+    top: 210;
+    left: 640; 
 }
 
 .pq{
     font-family: cursive;
     font-size: 18;
     position: fixed;
-    top: 330;
-    left: 615;
-    display: inline-block;
-    color: #80bfff;
+    left: 650;
+    /* display: none; */
+    top: 360;
+    color: #303c6c;
     font-weight: bold;
 }
 
 .lList{
-    width: 150;
-    height: 150;
+    width: 180;
+    height: 180;
     display: inline-block;
     position: fixed;
-    top: 230;
-    left: 790; 
+    top: 210;
+    left: 870; 
 }
 
 .l{
        font-family: cursive;
     font-size: 18;
     position: fixed;
-    top: 330;
-    left: 800;
-    display: inline-block;
-    color: #80bfff;
+    left: 890;
+   /* display: none; */
+   top: 360;
+   color: #303c6c;
     font-weight: bold;
 }
+
+.tree{
+    width: 180;
+    height: 180;
+    display: inline-block;
+    position: fixed;
+    top: 210;
+    left: 1070; 
+}
+
+.t{
+    font-family: cursive;
+ font-size: 18;
+ position: fixed;
+ top: 360;
+ left: 1080;
+ display: inline-block;
+ color: #303c6c;
+ font-weight: bold;
+}
+
+.ss{
+    font-family: cursive;
+ font-size: 18;
+ position: fixed;
+ left: 230;
+ top: 580;
+ display: inline-block;
+ color: #303c6c;
+ font-weight: bold;
+}
+
+.is{
+    font-family: cursive;
+ font-size: 18;
+ position: fixed;
+ left: 450;
+ top: 580;
+ display: inline-block;
+ color: #303c6c;
+ font-weight: bold;
+}
+
+.bs{
+    font-family: cursive;
+ font-size: 18;
+ position: fixed;
+ left: 670;
+ top: 580;
+ display: inline-block;
+ color: #303c6c;
+ font-weight: bold;
+}
+
+.hs{
+    font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    left: 880;
+    top: 580;
+    display: inline-block;
+    color: #303c6c;
+    font-weight: bold;
+}
+
+.dl{
+    font-family: cursive;
+    font-size: 18;
+    position: fixed;
+    left: 1080;
+    top: 580;
+ display: inline-block;
+ color: #303c6c;
+    font-weight: bold;
+}
+
+
 
 .back{
     position: fixed;
@@ -176,6 +254,7 @@ h2{
     margin: auto;
     padding: 20px;
     border: 4px solid #303c6c;
+    border-radius: 10px;
     width: 66%;
     font-size: 20;
     font-family: cursive;
@@ -198,69 +277,4 @@ h2{
   color: #303c6c;
   text-decoration: none;
   cursor: pointer;
-}
-.t{
-    font-family: cursive;
- font-size: 18;
- position: fixed;
- top: 330;
- left: 1000;
- display: inline-block;
- color: #80bfff;
- font-weight: bold;
-}
-
-.ss{
-    font-family: cursive;
- font-size: 18;
- position: fixed;
- top: 450;
- left: 270;
- display: inline-block;
- color: #80bfff;
- font-weight: bold;
-}
-
-.is{
-    font-family: cursive;
- font-size: 18;
- position: fixed;
- top: 450;
- left: 450;
- display: inline-block;
- color: #80bfff;
- font-weight: bold;
-}
-
-.bs{
-    font-family: cursive;
- font-size: 18;
- position: fixed;
- top: 450;
- left: 620;
- display: inline-block;
- color: #80bfff;
- font-weight: bold;
-}
-
-.hs{
-    font-family: cursive;
-    font-size: 18;
-    position: fixed;
-    top: 450;
-    left: 780;
-    display: inline-block;
-    color: #80bfff;
-    font-weight: bold;
-}
-
-.dl{
-    font-family: cursive;
-    font-size: 18;
-    position: fixed;
-    top: 450;
-    left: 930;
-    display: inline-block;
-    color: #80bfff;
-    font-weight: bold;
 }
