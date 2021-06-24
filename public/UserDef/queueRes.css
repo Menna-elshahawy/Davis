@@ -91,3 +91,25 @@ content: "\2039";
 /*    font-weight: bold;*/
 }
 
+.action{
+    position: fixed;
+    top: 200px;
+    /* right: 40px; */
+    left: 200px;
+     font-size: 30px;
+     font-weight: bold;
+    font-family: cursive;
+    color: #7ac7d1;
+  }
+  
+  .a{
+    position: fixed;
+    top: 200px;
+    /* right: 150px; */
+    left: 90px;
+     font-size: 30px;
+     font-weight: bold;
+    font-family: cursive;
+    color: #7ac7d1;
+  }
+  

@@ -127,44 +127,22 @@ h2{
     height: 180;
     display: inline-block;
     position: fixed;
-    top: 210;
-    left: 1070; 
+    top: 430;
+    left: 390; 
 }
 
 .t{
     font-family: cursive;
  font-size: 18;
  position: fixed;
- top: 360;
- left: 1080;
+ top: 580;
+ left: 400;
  display: inline-block;
  color: #303c6c;
  font-weight: bold;
 }
 
 .ss{
-    font-family: cursive;
- font-size: 18;
- position: fixed;
- left: 230;
- top: 580;
- display: inline-block;
- color: #303c6c;
- font-weight: bold;
-}
-
-.is{
-    font-family: cursive;
- font-size: 18;
- position: fixed;
- left: 450;
- top: 580;
- display: inline-block;
- color: #303c6c;
- font-weight: bold;
-}
-
-.bs{
     font-family: cursive;
  font-size: 18;
  position: fixed;
@@ -175,23 +153,55 @@ h2{
  font-weight: bold;
 }
 
+.is{
+    font-family: cursive;
+ font-size: 18;
+ position: fixed;
+ left: 880;
+ top: 580;
+ display: inline-block;
+ color: #303c6c;
+ font-weight: bold;
+}
+
+.bs{
+    font-family: cursive;
+ font-size: 18;
+ position: fixed;
+ left: 1100;
+ top: 580;
+ display: inline-block;
+ color: #303c6c;
+ font-weight: bold;
+}
+
 .hs{
     font-family: cursive;
     font-size: 18;
     position: fixed;
-    left: 880;
+    left: 230;
     top: 580;
     display: inline-block;
     color: #303c6c;
     font-weight: bold;
 }
 
+.dList{
+    width: 180;
+    height: 180;
+    display: inline-block;
+    position: fixed;
+    top: 210;
+    left: 1080; 
+}
+
+
 .dl{
     font-family: cursive;
     font-size: 18;
     position: fixed;
     left: 1080;
-    top: 580;
+    top: 360;
  display: inline-block;
  color: #303c6c;
     font-weight: bold;

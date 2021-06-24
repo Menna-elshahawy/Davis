@@ -1,17 +1,18 @@
 <DOCTYPE! html>
     <html>
         <head>
-        {{ style('UserDef/stackStyleU') }}
+        {{ style('UserDef/queueStyleU') }}
             </head>
                   
             <body>
                 
-                <title> Stack </title>
+                <title> Priority Queue </title>
                 
-                <h1> STACK</h1>
+                <h1> PRIORITY QUEUE</h1>
         
                 <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
-                <div class="back" id="back"> Back </div>                
+                <div class="back" id="back"> Back </div>
+                
                     <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
                 <div class="read" id="read" onclick="showR()">Read me first</div>
@@ -23,87 +24,95 @@
                     <form action="/executeCode" method="POST"> 
                         {{ csrfField() }}
                         <div class="tex"> Enter your code here </div>
-                        <textarea name="code" class="input" rows="50" cols="80" autocomplete="on"> import java.util.Arrays;
+                        <textarea name="code" class="input" rows="50" cols="80">import java.util.Arrays;
 
 
-public class ArrayStack {
-	private int[] theStack;
-	private int maxSize;
-	private int top;
+public class PriorityQueue {
+ 
+   private Comparable[] elements;
+   private int nItems;
+   private int maxSize;
 
-	public ArrayStack(int s) {
-		maxSize = s;
-		theStack = new int[maxSize];
-		top = -1;
+   public PriorityQueue(int size){
+      maxSize = size;
+      elements = new Comparable[maxSize];
+      nItems=0;
+   }
+    
+   public void insert(Comparable item) {
+      
+      int i;
+      for (i = nItems-1;i >= 0 && item.compareTo(elements[i]) > 0;i--)
+         elements[i + 1] = elements[i];
+
+      elements[i + 1] = item;
+      nItems++;
+   }
+    
+   public Comparable remove() {
+       nItems--;
+      Comparable c=elements[nItems];
+      elements[nItems]=null;
+      return c;
+   }
+    
+   public boolean isEmpty() {
+      return (nItems == 0);
+   }
+    
+   public boolean isFull() {
+      return (nItems == maxSize);
+   }
+  
+   public Comparable peekMin() {
+      return elements[nItems-1];
+   }
+     
+   public int size() {
+      return nItems;
+   }
+   public String printQueue() {
+	    return (Arrays.toString(elements)); 
 	}
-
-	public void push(int elem) {
-		top++;
-		theStack[top] = elem;
-	}
-	
-	public int pop() {
-		int result = theStack[top];
-		theStack[top]=0;
-		top--;
-		return result;
-	}
-
-	public int top() {
-		return theStack[top];
-	}
-
-	public boolean isFull() {
-		return (top == (maxSize - 1));
-	}
-
-	public boolean isEmpty() {
-		return (top == -1);
-	}
-
-	public int size() {
-		return (top + 1);
-	}
-
-	public String printStack() {
-    	return (Arrays.toString(theStack)); 
-	}
-	
 	static void print(String []a) {
 	    System.out.println(Arrays.toString(a)); 
 	}
-	
+
+ 
 	public static void main(String[] args){
-	    ArrayStack s=new ArrayStack(5);
-	    String[] a=new String[8];
-	    a[0]=s.printStack();
-	    s.push(2);
-	    a[1]=s.printStack();
-	    s.push(6);
-	    a[2]=s.printStack();
-	    s.push(5);
-	    a[3]=s.printStack();
-	    s.push(9);
-	    a[4]=s.printStack();
-	    s.pop();
-            a[5]=s.printStack();
-	    s.push(3);
-            a[6]=s.printStack();
-            s.push(4);
-            a[7]=s.printStack();
+	    PriorityQueue q=new PriorityQueue(6);
+	    String[] a=new String[11];
+	    a[0]=q.printQueue();
+	    q.insert(2);
+	    a[1]=q.printQueue();
+	    q.insert(6);
+	    a[2]=q.printQueue();
+	    q.remove();
+	    a[3]=q.printQueue();
+            q.insert(3);
+	    a[4]=q.printQueue();
+	    q.insert(8);
+	    a[5]=q.printQueue();   
+	    q.insert(5);
+	    a[6]=q.printQueue();
+	    q.insert(2);
+	    a[7]=q.printQueue();
+	    q.remove();
+	    a[8]=q.printQueue();
 	    print(a);
-	    s.printStack();
 	}
+
 
 }
 
  
-
  </textarea>
                         <input type="submit" value="Run" class="run">
-                        <textarea class="data" name="data">stack</textarea>
+                         <textarea class="data" name="data">priorityqueue</textarea>
                     </form>
 
+                    <div class="front" id="front">front</div>
+                    <div class="rear" id="rear">rear</div>
 
                     <div class="abt" onclick="show()"> About </div>
                     
@@ -112,15 +121,14 @@ public class ArrayStack {
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
                     <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
-                 </div>
-
+                </div>
+                    
                 <div id="myModalR" class="modal">
                     <div class="modal-content">
                     <span class="close" id="closeR" onclick="closeR()">&#215;</span>
                     <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> will write</p>
                   </div>
                  </div>
-                    
                     
                      <p class= "area" id="area"> </p>
                     
@@ -133,56 +141,55 @@ public class ArrayStack {
             
                 <script>
 
-                //    document.getElementById("read").classList.add('anim');
-                    var stack=[];
+                //    document.getElementById("read").classList.add('anim'); 
+                    var queue=[];
                     var cont= document.createElement('div');
                     var ul = document.createElement('ul');
 
                     function display(){
-                        //console.log(stack);
 
-                        if(stack==undefined){
+                        if(queue==undefined){
                             return;
                         }
-                        
-                        if(stack.length!=0){
+
                             var list=document.getElementById("area");
-                                list.appendChild(cont);
-                                cont.innerHTML="";
-                                cont.appendChild(ul);
-                                ul.innerHTML="";
-                                for(i=stack.length-1;i>=0;i--){
-                                    let li = document.createElement('li');
-                                    li.innerHTML = stack[i];
-                                    ul.appendChild(li);   
+                            list.appendChild(cont);
+                            cont.innerHTML="";
+                            cont.appendChild(ul);
+                            ul.innerHTML="";
+                        for(i=0;i<queue.length;i++){
+                                let li = document.createElement('li');
+                                li.innerHTML = queue[i];
+                                ul.appendChild(li);   
+                            }
+
+                         if(queue.length==0){
+                               // document.getElementById("front").style.display='none';
+                               // document.getElementById("rear").style.display='none';
+                            }
+                            else{
+                                //document.getElementById("front").style.display='inline';
+                                if(queue.length==1){
+                                //    document.getElementById("rear").style.left=520;
                                 }
-                        }    
+                                else if(queue.length<=4){
+                                  //  document.getElementById("rear").style.left=440+(60*queue.length);
+                                }
+                                else{
+                                 //   document.getElementById("rear").style.left=440+(55*queue.length);
+                                }
+                               // document.getElementById("rear").style.display='inline';
+                            }   
+                    
                     }
 
-                    function set(){  
-                        var currentDate = new Date();
-                        var timestamp = currentDate.getTime() / 1000 ;
-                        console.log("out: "+timestamp);
-
-                        setTimeout(function(){
-                            stack={{{res}}}
-                            console.log({{{res}}});   
-                                                 
-                            currentDate = new Date();
-                            timestamp = currentDate.getTime() / 1000 ;
-                            console.log("in: "+timestamp + " Result: " +stack);
-                            var output={{out}}
-                            console.log(output); 
-                            display();
-                        },3000);  
-
-                        setTimeout(function(){
-                            currentDate = new Date();
-                            timestamp = currentDate.getTime() / 1000 ;
-                            console.log("2 seconds passed Time: "+ timestamp);
-                        },2000);
-
+                    function set(){                       
+                        console.log({{res}});
+                        queue={{{res}}}                       
+                        display();
+                        alert("The form was submitted");
                     }
+
 
                     function show() {
                         document.getElementById("myModal").style.display = "block";
@@ -226,15 +233,6 @@ public class ArrayStack {
                     function disBackH(){
                         document.getElementById("backH").style.display='none';
                     }
-
-
-               //     setTimeout(
-                //    function print(){
-                        
-                //        stack={{res}}
-                //        display();
-                //        console.log(stack);
-                //    },8000);
 
             
                 </script>

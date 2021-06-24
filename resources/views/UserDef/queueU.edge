@@ -54,8 +54,8 @@ public class Queue {
 	public int dequeue()
 	{
 		int result = elements[front];
-		front++;
-
+        elements[front]=0;
+        front++;
 		if(front == maxsize)
 			front = 0;
 
@@ -83,23 +83,43 @@ public class Queue {
 		return nItems;
 	}
 
-	public void printQueue() {
-		System.out.println(Arrays.toString(elements)); 
+	public String printQueue() {
+		return (Arrays.toString(elements)); 
+	}
+	
+	static void print(String []a) {
+	    System.out.println(Arrays.toString(a)); 
 	}
 
 
 	public static void main(String[] args){
-	    Queue q=new Queue(4);
+	    Queue q=new Queue(6);
+	    String[] a=new String[9];
+	    a[0]=q.printQueue();
 	    q.enqueue(2);
+	    a[1]=q.printQueue();
 	    q.enqueue(6);
+	    a[2]=q.printQueue();
 	    q.enqueue(5);
+	    a[3]=q.printQueue();
 	    q.enqueue(1);
-	    q.printQueue();
+	    a[4]=q.printQueue();
+	    q.dequeue();
+	    a[5]=q.printQueue();
+	    q.enqueue(4);
+	    a[6]=q.printQueue();
+	    q.enqueue(8);
+	    a[7]=q.printQueue();
+	    q.dequeue();
+	    a[8]=q.printQueue();
+	    
+	    print(a);
 	}
 
 
 }
 
+ 
  </textarea>
                         <input type="submit" value="Run" class="run">
                          <textarea class="data" name="data">queue</textarea>
