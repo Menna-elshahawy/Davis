@@ -175,11 +175,20 @@ h2{
  font-weight: bold;
 }
 
-.hs{
+.hash{
+    width: 180;
+    height: 180;
+    display: inline-block;
+    position: fixed;
+    top: 430;
+    left: 190; 
+}
+
+.h{
     font-family: cursive;
     font-size: 18;
     position: fixed;
-    left: 230;
+    left: 225;
     top: 580;
     display: inline-block;
     color: #303c6c;

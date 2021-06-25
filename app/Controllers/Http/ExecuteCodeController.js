@@ -81,6 +81,10 @@ class ExecuteCodeController {
 					return response.redirect('/UserDefined/listRes');
 				}
 
+				else if(data.localeCompare('DLinkedList')==0){
+					return response.redirect('/UserDefined/DlistRes');
+				}
+
 				else if(data.localeCompare('selection')==0){
 					return response.redirect('/UserDefined/selectRes');
 				}

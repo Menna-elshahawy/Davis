@@ -70,15 +70,25 @@
 
                
                  <div class="abt" onclick="show()"> About </div>
+                 <div class="hst" onclick="showH()"> History </div>
+                 
                     
-                    <div id="myModal" class="modal">
+                <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
                     <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
                   </div>
                 </div>
+
+                <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
+                  </div>
+                 </div>
                       
-                    <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
+                <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
                     
                     <div class="top" id="top">top</div>
                     <div class="left" id="left"> <span>&#8592;</span> </div>
@@ -119,14 +129,17 @@
                        
                     </div> 
 
-                 <script>
+                <script>
                      
                     
                     var stack= [];
                     var f =true;
                     var cont= document.createElement('div');
                     var ul = document.createElement('ul');
-                    ul.className="ul";
+                    var contH= document.createElement('div');
+                    var histList = document.createElement('ol');
+                    var History=[];
+                    ul.className="sul";
                     var count=1;
                     
                     function push(){
@@ -158,6 +171,7 @@
                                 
                                 stack.push(v);            
                                 
+                                History.push("Push: "+ v)
                                 
                                 const node=document.getElementById("node");
                                 node.classList.add('anim');
@@ -215,6 +229,7 @@
                         }
                         else{        
                             
+                            History.push("Pop: "+ popV)
                             document.getElementById("pop").style.display='inline';
                             document.getElementById("method").style.display='inline';
                             
@@ -271,6 +286,7 @@
                             document.getElementById("action").innerHTML="The stack is empty!";
                         }
                         else{
+                            History.push("Peek: "+ popV)
                             document.getElementById("peek").style.display='inline';
                             document.getElementById("method").style.display='inline';
                             
@@ -336,6 +352,7 @@
                             stack[i]=x;    
                             }
 
+                            History.push("Create random stack: "+ stack)
                             this.display();
                         } 
                     }
@@ -363,6 +380,7 @@
 
                             }
                             else{
+                                History.push("Create user-defined stack: "+ stack)
                                 this.display();
                                 } 
                             }
@@ -466,6 +484,38 @@
                             
                         }
                         count++;
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
+                    }
+
+                    function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                    }
+
+                     function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                    }
+                    
+                    function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
                     }
 
 

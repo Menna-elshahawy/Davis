@@ -1,7 +1,7 @@
 <DOCTYPE! html>
     <html>
         <head>
-        {{ style('userDefStyle') }}
+        {{ style('standardStyle') }}
             </head>
 
             <title> User Defined </title>
@@ -15,18 +15,26 @@
 
                 <div class="container">
                     
-                    <a  HREF="/UserDefined/Stack" ><img src="s.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()"> </a> <p id="st" class="st" > Stack </p>     
+                    <a  HREF="/UserDefined/Stack" ><img src="Standard/s2.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()">
+                    <p id="st" class="st" > Stack </p></a>      
                     <pre>        </pre>
                     
-                    <a HREF="/UserDefined/Queue"> <img src="q.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()"></a> <p id="q" class="q"> Queue </p>
+                    <a HREF="/UserDefined/Queue"> <img src="Standard/q2.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()">
+                    <p id="q" class="q"> Queue </p></a> 
                     <pre>        </pre>
                     
-                    <a HREF="/UserDefined/PriorityQueue"> <img src="pq.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> </a> 
-                    <p id="pq" class="pq"> Priority Queue </p>
+                    <a HREF="/UserDefined/PriorityQueue"> <img src="Standard/pq2.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> 
+                    <p id="pq" class="pq"> Priority Queue </p></a> 
                     <pre>        </pre>
                     
 
-                    <a HREF="/UserDefined/LinkedList"> <p class="l" id="l"> Linked List </p> </a>
+                    <a HREF="/UserDefined/LinkedList"> <img src="Standard/l5.png" alt="linked list" id="lList" class="lList" onmouseover="popL()" onmouseout="disL()"> 
+                    <p class="l" id="l"> Linked List </p></a>
+                    <pre>        </pre>
+
+                    <a HREF="/UserDefined/DoublyLinkedList"><img src="Standard/dl6.png" alt="doubly linked list" id="dList" class="dList" onmouseover="popDL()" onmouseout="disDL()"> 
+                     <p class="dl" id="dl"> Doubly Linked List </p> </a>
+                    <pre>        </pre>
 
                     <a HREF="/UserDefined/SelectionSort"> <p class="ss" id="ss"> Selection Sort </p> </a>
 
@@ -61,33 +69,43 @@
 
             <script>
                      function popSt(){
-                        document.getElementById("st").style.display='inline-block';
-                        document.getElementById("stack").src='s.png';
+                        document.getElementById("stack").src='Standard/s2.gif';
                     }
 
                     function disSt(){
-                            document.getElementById("st").style.display='none';
-                        document.getElementById("stack").src='s.png';
+                        document.getElementById("stack").src='Standard/s2.png';
                     }
 
                     function popQ(){
-                        document.getElementById("q").style.display='inline-block';
-                        document.getElementById("queue").src='q.png';
+                        document.getElementById("queue").src='Standard/q2.gif';
                     }
 
                     function disQ(){
-                            document.getElementById("q").style.display='none';
-                            document.getElementById("queue").src='q.png';
+                            document.getElementById("queue").src='Standard/q2.png';
                     }
 
                     function popPQ(){
-                        document.getElementById("pq").style.display='inline-block';
-                        document.getElementById("pqueue").src='pq.png';
+                        document.getElementById("pqueue").src='Standard/pq2.gif';
                     }
 
                     function disPQ(){
-                            document.getElementById("pq").style.display='none';
-                            document.getElementById("pqueue").src='pq.png';
+                            document.getElementById("pqueue").src='Standard/pq2.png';
+                    }
+
+                    function popL(){
+                        document.getElementById("lList").src='Standard/l2.gif';
+                    }
+
+                    function disL(){
+                            document.getElementById("lList").src='Standard/l5.png';
+                    }
+
+                    function popDL(){
+                        document.getElementById("dList").src='Standard/dl.gif';
+                    }
+
+                    function disDL(){
+                            document.getElementById("dList").src='Standard/dl6.png';
                     }
 
                                         

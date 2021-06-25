@@ -49,7 +49,8 @@
                      <a HREF="/Standard/BubbleSort"> <p class="bs" id="bs"> Bubble Sort </p> </a>
                     <pre>        </pre>
 
-                     <a HREF="/Standard/HashTable"> <p class="hs" id="hs"> Hash Table </p> </a>
+                     <a HREF="/Standard/HashTable"> <img src="h1.png" alt="hash table" id="hash" class="hash" onmouseover="popH()" onmouseout="disH()">
+                     <p class="h" id="h"> Hash Table </p> </a>
                     <pre>        </pre>
 
                     
@@ -114,6 +115,14 @@
 
                     function disDL(){
                             document.getElementById("dList").src='dl6.png';
+                    }
+
+                    function popH(){
+                        document.getElementById("hash").src='h.gif';
+                    }
+
+                    function disH(){
+                            document.getElementById("hash").src='h1.png';
                     }
 
                                         

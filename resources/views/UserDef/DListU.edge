@@ -6,9 +6,9 @@
                   
             <body>
                 
-                <title> Linked List </title>
+                <title> Doubly Linked List </title>
                 
-                <h1> LINKED LIST</h1>
+                <h1> DOUBLY LINKED LIST</h1>
         
                 <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
                 <div class="back" id="back"> Back </div>
@@ -26,106 +26,88 @@
                         <div class="tex"> Enter your code here </div>
                         <textarea name="code" class="input" rows="50" cols="80">import java.util.Arrays;
 
-class Link {
-	
+class Link{
 	public Object data;
 	public Link next;
-
-	public Link(Object o) {
-		this.data = o;
-		this.next = null;
-	}
-
-
-
+	public Link previous;
+	
+	public Link(Object o)   
+    {
+    	data = o;
+    } 
+	
 	public String toString() {
 		return data.toString();
 	}
-
 }
 
-
-
-public class LinkList {
-
-	private Link head;
-
-	public LinkList() {
-		head = null;
-	}
-
-	public void insertFirst(Object o) {
-		Link newLink = new Link(o);
-		newLink.next = head;
-		head = newLink;
-	}
-
-	public Object removeFirst() {
-		Object res = head.data;
-		head = head.next;
-		return res; 
-        }
-
-	public Object getFirst() {
-		return head.data;
-	}
-
+public class DoublyLinkedList{
+	private Link first; 
+	private Link last; 
 	
-	public void insertLast(Object o) {
-		Link newLink = new Link(o);
-
-		if (head == null) {
-			head = newLink;
-			return;
-			}
-		
-		Link current = head;
-		while (current.next != null)
-			current = current.next;
-		current.next = newLink;
+	public DoublyLinkedList()
+	{
+		first = null;
+		last = null;
 	}
-
-
-
-	public Object removeLast() {
-		if (head.next == null) {
-			Object res = head.data;
-			head = null;
-			return res;
-			}
+	public boolean isEmpty()
+	{
+		return (first == null);
+	}
 	
-		Link current = head;
-		while (current.next.next != null)
-			current = current.next;
-		
-		Object res = current.next.data;
-		current.next = null;
-		return res;
-
+	public void insertFirst(Object d)
+	{
+		Link newLink = new Link(d);
+		if( isEmpty() ) { 
+			last = newLink;
+		} else {
+			first.previous = newLink;
+		}
+		newLink.next = first;
+		first = newLink; 
 	}
-
-        public Object getLast() {
-		Link current = head;
-		while (current.next != null)
-			current = current.next;
-		
-		return current.data;
-	}
-
 	
-		
-	public boolean isEmpty() {
-		return head == null;
+	public void insertLast(Object d)
+	{
+		Link newLink = new Link(d);
+		if( isEmpty() ) 
+			first = newLink; 
+		else
+		{
+			last.next = newLink;
+			newLink.previous = last; 
+		}
+		last = newLink;
+	}
+	
+	public Object removeFirst() 
+	{ 
+		Object temp = first.data;
+		if(first.next == null)
+			last = null; 
+		else
+			first.next.previous = null; 
+		first = first.next;
+		return temp;
+	}
+	
+	public Object removeLast()
+	{ 
+		Object temp = last.data;
+		if(first.next == null)
+			first = null;
+		else
+			last.previous.next = null; 
+		last = last.previous; 
+		return temp;
 	}
 
-	
-		
 	public String toString() {
-		if (head == null)
+		if (first == null)
 			return "[ ]";
 	
-		String res = "[ " + head.data;
-		Link current = head.next;
+		String res = "[ " + first.data;
+		Link current = first.next;
 		while (current != null) {
 			res += ", " + current.data;
 			current = current.next;
@@ -138,43 +120,36 @@ public class LinkList {
 	static void print(String []a) {
 	    System.out.println(Arrays.toString(a)); 
 	}
-
-	public static void main(String[]args){
-	    LinkList l =new LinkList();
-	    String[] a=new String[12];
-	    a[0]=l.toString();
-	    l.insertFirst(4);
-	    a[1]=l.toString();
-	    l.insertFirst(5);
-	    a[2]=l.toString();
-	    l.insertFirst(6);
-	    a[3]=l.toString();
-	    l.insertLast(7);
-	    a[4]=l.toString();
-	    l.removeFirst();
-	    a[5]=l.toString();
-	     l.removeLast();
-	    a[6]=l.toString();
-	    l.insertLast(6);
-	    a[7]=l.toString();
-	    l.insertFirst(1);
-	    a[8]=l.toString();
-	    l.insertFirst(10);
-	    a[9]=l.toString();
-	    l.insertLast(13);
-	    a[10]=l.toString();
-	    l.insertLast(8);
-	    a[11]=l.toString();
-	    print(a);
-	}
+	
+        public static void main(String args[]) {
+            DoublyLinkedList l =new DoublyLinkedList();
+            String[] a=new String[12];
+            a[0]=l.toString();
+            l.insertFirst(4);
+            a[1]=l.toString();
+            l.insertLast(5);
+            a[2]=l.toString();
+            l.insertFirst(6);
+            a[3]=l.toString();
+            l.insertFirst(1);
+            a[4]=l.toString();
+            l.insertLast(2);
+            a[5]=l.toString();
+            l.removeFirst();
+            a[6]=l.toString();
+            l.insertFirst(8);
+            a[7]=l.toString();
+            l.removeLast();
+            a[8]=l.toString();
+            l.insertFirst(10);
+            a[9]=l.toString();
+            print(a);
+    }
 }
-
-
-
 
 </textarea>
                         <input type="submit" value="Run" class="run">
-                        <textarea class="data" name="data">LinkedList</textarea>
+                        <textarea class="data" name="data">DLinkedList</textarea>
                     </form>
 
                     <div class="abt" onclick="show()"> About </div>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/DlistRes') }}
+</head>
+
+
+<body>
+
+    <title> Doubly Linked List </title>
+                
+    <h1> DOUBLY LINKED LIST </h1>
+
+    <a HREF="/UserDefined/DoublyLinkedList"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>
+
+
+     <div id="list">
+                    <span id="a1" class="a1">&#8594;</span> <span id="a2" class="a2">&#8594;</span> 
+                    <span id="a3" class="a3">&#8594;</span> <span id="a4" class="a4">&#8594;</span>
+                    <span id="a5" class="a5">&#8594;</span><span id="a6" class="a6">&#8594;</span>
+
+                    <span id="aa1" class="a1">&#8592;</span> <span id="aa2" class="a2">&#8592;</span> 
+                    <span id="aa3" class="a3">&#8592;</span> <span id="aa4" class="a4">&#8592;</span>
+                    <span id="aa5" class="a5">&#8592;</span><span id="aa6" class="a6">&#8592;</span>
+
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div>
+                    <div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div> 
+                    <div id="l7" class="l7"> 3</div>
+    </div>  
+    <div class="upH" id="upH"> <span>&#8593;</span> </div>
+    <div class="upT" id="upT"> <span>&#8593;</span> </div>
+    <div class="head" id="head">head</div>
+    <div class="tail" id="tail">tail</div>
+    <div class="action" id="action">  </div>
+    <div class="notify" id="notify"> </div>
+    <div class="a" id="a"> Action: </div>
+
+
+    <script>
+                    var list=[];
+                    var arr=[];
+                    var actions=[];
+                    var flag="true"
+                    
+                    function display(){
+                        console.log(list.length)
+                        if(list.length<=7){
+                            flag="true"
+                            if(list.length==0){
+                                document.getElementById("head").style.display='none';
+                                document.getElementById("upH").style.display='none';
+                                document.getElementById("tail").style.display='none';
+                                document.getElementById("upT").style.display='none';
+                            }
+                            else if(list.length==1){
+                                document.getElementById("head").style.display='inline';
+                                document.getElementById("upH").style.display='inline';
+                                document.getElementById("tail").style.display='inline';
+                                document.getElementById("tail").style.top='330px';
+                                document.getElementById("tail").style.left='490px';
+                                document.getElementById("upT").style.display='none';
+                            }
+                            else{
+                                document.getElementById("head").style.display='inline';
+                                document.getElementById("upH").style.display='inline';
+                                document.getElementById("tail").style.display='inline';
+                                document.getElementById("upT").style.display='inline';
+                                document.getElementById("tail").style.top='300px';
+                                document.getElementById("tail").style.left=490+(80*(list.length-1))+'px';
+                                document.getElementById("upT").style.left=498+(80*(list.length-1))+'px';
+                            }
+
+                            for(i=0;i<list.length;i++){
+                                if(i>0){
+                                    var t2='a'.concat(i);
+                                    document.getElementById(t2).style.display='inline-block';
+                                    t2='aa'.concat(i)
+                                    document.getElementById(t2).style.display='inline-block';
+                                }
+                                    
+                                    var t1='l'.concat(i+1);
+                                    document.getElementById(t1).style.display='flex';
+                                    document.getElementById(t1).innerHTML=list[i];    
+                                
+                            }
+
+                            for(j=list.length;j<7;j++){
+                                var t1='l'.concat(j+1);
+                                document.getElementById(t1).style.display='none';
+                                
+                                if(j>0){
+                                    var t2='a'.concat(j);
+                                    document.getElementById(t2).style.display='none';
+                                    t2='aa'.concat(j)
+                                    document.getElementById(t2).style.display='none';
+                                }
+                            }
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML="Maximum length is 7"
+                            flag="false"
+                        }
+                                       
+                    }
+
+                    function animate(){
+                        setTimeout(function(){
+                                    list=arr[0];
+                                    document.getElementById("action").innerHTML="Create Doubly Linked List"
+
+                                },1000);
+                        l=1
+                        while(l<arr.length){
+                            (function(l){
+
+                                setTimeout(function(){
+                                    if(arr[l]!=null){
+                                        list=arr[l];
+                                        display()
+                                        if(flag=="true")
+                                            document.getElementById("action").innerHTML=actions[l-1]
+                                    }
+
+                                },1000+(1500*l));
+
+                            })(l);
+
+                            l++
+
+                        }
+                        
+                    }
+
+                    function setActions(){
+                        for(var i=0;i<arr.length-1;i++){
+                            var a=arr[i];
+                            var b=arr[i+1];
+
+                            if(a!=null && b!=null){
+                                if(a.length<b.length){
+                                    var v=difference(b,a)[0]
+                                    var f=findIndex(b,v)
+                                    if(f==0){                                                                   
+                                        actions.push("insert first ".concat(v))
+                                    }
+                                    else{
+                                         actions.push("insert last ".concat(v))
+                                    }
+                                }
+                                else{
+                                    var v=difference(a,b)[0] 
+                                    var f=findIndex(a,v)
+                                    if(f==0){                                                                   
+                                        actions.push("remove first ".concat(v))
+                                    }
+                                    else{
+                                         actions.push("remove last ".concat(v))
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    function difference(a, b) {
+                        return [...b.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) - 1),
+                                a.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) + 1), new Map() ) 
+                        )].reduce( (acc, [v, count]) => acc.concat(Array(Math.abs(count)).fill(v)), [] );
+                    }
+
+                    function findIndex(a,v){
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]==v)
+                                return i;
+                        }
+                    }
+
+
+                    arr={{res}}
+                    console.log(arr)
+                    setActions()
+                    animate()
+    
+    </script>
+
+
+</body>
+
+</html>
