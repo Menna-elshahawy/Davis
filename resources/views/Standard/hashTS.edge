@@ -85,12 +85,21 @@
                  <div id="l61" class="l61"> 9</div> <div id="l62" class="l62"> 22</div> <div id="l63" class="l63"> 3</div>
                  <div id="l71" class="l71"> 35</div> <div id="l72" class="l72"> 86</div> <div id="l73" class="l73"> 3</div>
 
-                 <div class="abt" onclick="show()"> About </div>
+                <div class="abt" onclick="show()"> About </div>
                     
-                    <div id="myModal" class="modal">
+                <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
                     <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+                <div class="hst" onclick="showH()"> History </div>
+                <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
                   </div>
                 </div>
                 
@@ -178,6 +187,9 @@
                     var ul = document.createElement('ul');
                     ul.className="ul";
                     var count=1;
+                    var contH= document.createElement('div');
+                    var histList = document.createElement('ol');
+                    var History=[];
                     
                     function push(){
                         
@@ -265,8 +277,13 @@
                             
                             if(n!=''){
 
+                                History.push("Insert: "+v+" at array index: "+r)
+
                                 var an='anim'.concat(n);
 
+                                document.getElementById("insertM").style.display='none';
+                                document.getElementById("searchM").style.display='none';
+                                document.getElementById("removeM").style.display='none';
                                 document.getElementById("insertM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                               
@@ -326,11 +343,7 @@
                                                     document.getElementById(t).style.background='none';
                                                     node.classList.remove(an);
                                                     },9500);
-
-                                    setTimeout(function(){
-                                                    document.getElementById("insertM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },11000);                                                
+                                            
 
                                 }
 
@@ -384,10 +397,7 @@
                                                     
                                                     },11500);
 
-                                    setTimeout(function(){
-                                                    document.getElementById("insertM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },13000);  
+
                                 }
 
                                 else{
@@ -452,16 +462,15 @@
                                                    
                                                     },13500);
 
-                                    setTimeout(function(){
-                                                    document.getElementById("insertM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },15000);  
+ 
                                 }
                                 
                              } 
 
                             else if(max=='1'){
-
+                                document.getElementById("insertM").style.display='none';
+                                document.getElementById("searchM").style.display='none';
+                                document.getElementById("removeM").style.display='none';
                                  document.getElementById("insertM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                               
@@ -544,10 +553,6 @@
                                                     },13000);
                 
 
-                                    setTimeout(function(){
-                                                    document.getElementById("insertM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },14500);  
                              }
                         
                         
@@ -647,7 +652,9 @@
                                 p='0';  
                             }
 
-                                                            
+                            document.getElementById("insertM").style.display='none';
+                            document.getElementById("searchM").style.display='none';
+                            document.getElementById("removeM").style.display='none';                                       
                             document.getElementById("removeM").style.display='inline';
                             document.getElementById("method").style.display='inline';
                               
@@ -671,6 +678,8 @@
 
 
                             if(pos!=''){
+
+                                History.push("Remove: "+v+" from array index: "+r)
 
                                 var p1=pos[0];
                                 var p2=pos[1];
@@ -722,12 +731,7 @@
                                                     document.getElementById("r11").style.background='none';                                                                                                         
                                                     },8500);                
 
-                                    setTimeout(function(){
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },10000);             
                                 }
-
                                 else if(p1=='2'){
                                     setTimeout(function(){
                                                     document.getElementById("r4").style.background='none';
@@ -779,11 +783,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';                                                                                                         
                                                     },10500);                
-
-                                    setTimeout(function(){                                                    
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },11000);                                                 
+                                                
                                 }
 
                                 else{
@@ -843,14 +843,8 @@
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';                                                                                                         
                                                     },12500);                
-
-                                    setTimeout(function(){                                                   
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },14000);             
+            
                                 }
-
-
 
                             }
 
@@ -878,11 +872,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';
                                                     },7000); 
-                                    
-                                    setTimeout(function(){
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },8500);    
+                                     
                                 }
 
                                 else if(p=='1'){
@@ -920,11 +910,7 @@
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';
                                                     },9000); 
-                                    
-                                    setTimeout(function(){
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },10500); 
+
                                 }
 
                                 else if(p=='2'){
@@ -974,10 +960,6 @@
                                                     document.getElementById("r11").style.background='none';
                                                     },11000); 
                                     
-                                    setTimeout(function(){
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },12500); 
                                 }
 
                                 else{
@@ -1041,10 +1023,7 @@
                                                     document.getElementById("r11").style.background='none';
                                                     },13000); 
                                     
-                                    setTimeout(function(){
-                                                    document.getElementById("removeM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    },14500); 
+
                                 
 
                                 }
@@ -1127,8 +1106,10 @@
                             }
 
 
-                            
-                                
+                            History.push("Search: "+v)
+                            document.getElementById("insertM").style.display='none';
+                            document.getElementById("searchM").style.display='none';
+                            document.getElementById("removeM").style.display='none';        
                             document.getElementById("searchM").style.display='inline';
                             document.getElementById("method").style.display='inline';
                               
@@ -1178,8 +1159,6 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';  
-                                                    document.getElementById("searchM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
                                                     },9000);             
                                 }
 
@@ -1221,8 +1200,7 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';  
-                                                    document.getElementById("searchM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
+
                                                     },11000);             
                                 }
 
@@ -1277,8 +1255,6 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none'; 
-                                                    document.getElementById("searchM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
                                                     },13000);             
                                 }
                             }
@@ -1320,8 +1296,6 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none'; 
-                                                    document.getElementById("searchM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
                                                     },12000);    
                                 }
 
@@ -1373,8 +1347,6 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none'; 
-                                                    document.getElementById("searchM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
                                                     },13000);             
                                 }
 
@@ -1438,8 +1410,6 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none'; 
-                                                    document.getElementById("searchM").style.display='none';
-                                                    document.getElementById("method").style.display='none';
                                                     },14000);             
                                 }
                             }
@@ -1483,7 +1453,8 @@
                             length=l;
                             document.getElementById("notify").innerHTML= "";
                             document.getElementById("size").value="";
-                            
+                            History.push("Create random hash table of size: "+l)
+
                             for(i=1;i<=l;i++){
                                 var n='l'.concat(i);
                                 var t='i'.concat(i);
@@ -1590,6 +1561,32 @@
                         if (event.target == document.getElementById("myModal")) {
                             document.getElementById("myModal").style.display = "none";
                         }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
+                    }
+
+                    function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                    }
+
+                     function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                    }
+                    
+                    function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
                     }
 
                     function view(){

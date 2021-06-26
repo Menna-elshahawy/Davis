@@ -91,7 +91,24 @@
                     <span class="al3" id="al3">&#8739;</span> <span class="al4" id="al4">&#8739;</span> <span class="al5" id="al5">&#8739;</span>
                     <span class="al6" id="al6">&#8739;</span> <span class="al7" id="al7">&#8739;</span>
                 </div>
-                    
+
+                <div class="abt" onclick="show()"> About </div>  
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+                 <div class="hst" onclick="showH()"> History </div>
+                <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
+                  </div>
+                </div>
+
                 <div class="method" id="method"> 
                        
                        <button id="view" class="view" onclick="view()"> View Code Tracer </button>
@@ -184,11 +201,13 @@
                 <p class ="action" id="action"> </p>   <br> <br>
                 <div class="cur" id="cur"> current </div>
                
-            <script>
+        <script>
             var tree=[];
-         //   tree=[undefined,'40','20','60','10','30','50','70','5','15','25','35','45','55','65','75']
-         //   display()
+         
             var count=1;
+            var contH= document.createElement('div');
+                    var histList = document.createElement('ol');
+                    var History=[];
 
             function create(){
                 document.getElementById("cRnd").style.display='inline-block';
@@ -222,6 +241,7 @@
                     }while(!f)
                 }
 
+                History.push("Create random binary search tree")
                 display()
             }
 
@@ -230,6 +250,7 @@
                 document.getElementById("cEmp").style.display='none';
 
                 tree=[];
+                History.push("Create empty binary search tree")
                 display();
             }
 
@@ -464,6 +485,12 @@
                             }
                         }
 
+                        History.push("Insert: "+v)
+                        document.getElementById("insM").style.display='none'
+                        document.getElementById("remM").style.display='none'
+                        document.getElementById("fVM").style.display='none'
+                        document.getElementById("fMnM").style.display='none'
+                        document.getElementById("fMxM").style.display='none'
                         document.getElementById("cur").style.top=125;
                         document.getElementById("cur").style.left=697;
                         document.getElementById("method").style.display='inline'
@@ -663,10 +690,6 @@
                                 document.getElementById("in21").style.background='none';
                             },25000)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },26500)
                         }
 
                         if(i==12 || i==13){
@@ -858,10 +881,6 @@
                                 document.getElementById("in21").style.background='none';
                             },24000)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },25500)
                         }
 
                         if(i==10 || i==11){
@@ -1053,10 +1072,6 @@
                                 document.getElementById("in21").style.background='none';
                             },24000)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },25500)
                         }
 
                         if(i==8 || i==9){
@@ -1243,10 +1258,6 @@
                                 document.getElementById("in21").style.background='none';
                             },23000)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },24500)
                         }
 
                         if(i==4 || i==5){
@@ -1402,10 +1413,6 @@
                                 document.getElementById("in21").style.background='none';
                             },18000)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },19500)
                         }
 
                         if(i==6 || i==7){
@@ -1566,10 +1573,6 @@
                                 document.getElementById("in21").style.background='none';
                             },19000)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },20500)
                         }
 
                         if(i==2 || i==3){
@@ -1693,11 +1696,6 @@
                             setTimeout(function(){
                                 document.getElementById("in21").style.background='none';
                             },13000)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display='none'
-                                document.getElementById("insM").style.display='none'
-                            },14500)
                         }
                         
                     }
@@ -2087,7 +2085,13 @@
                             }                        
                         }   
 
+                        History.push("Remove:"+v)
                         console.log(rep)
+                        document.getElementById("insM").style.display='none'
+                        document.getElementById("remM").style.display='none'
+                        document.getElementById("fVM").style.display='none'
+                        document.getElementById("fMnM").style.display='none'
+                        document.getElementById("fMxM").style.display='none'
                         document.getElementById("method").style.display="inline";
                         document.getElementById("remM").style.display='inline';
                         document.getElementById("r1").style.background='#fbe8a6';
@@ -2134,11 +2138,6 @@
                             setTimeout(function(){
                                 document.getElementById("r11").style.background='none';
                             },6500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },8000)
                         }
 
                         if(i==2 || i==3){
@@ -2207,10 +2206,6 @@
                                 document.getElementById("r11").style.background='none';
                             },10500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },12000)
                         }
 
                         if(i==4 || i==5){
@@ -2302,10 +2297,6 @@
                                 document.getElementById("r11").style.background='none';
                             },14500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },16000)
                         }
 
                         if(i==6 || i==7){
@@ -2396,11 +2387,6 @@
                             setTimeout(function(){
                                 document.getElementById("r11").style.background='none';
                             },14500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },16000)
                         }
 
                         if(i==8 || i==9){
@@ -2507,11 +2493,6 @@
                             setTimeout(function(){
                                 document.getElementById("r11").style.background='none';
                             },18500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },20000)
                         }
 
                         if(i==10 || i==11){
@@ -2618,11 +2599,6 @@
                             setTimeout(function(){
                                 document.getElementById("r11").style.background='none';
                             },18500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },20000)
                         }
 
                         if(i==12 || i==13){
@@ -2730,10 +2706,6 @@
                                 document.getElementById("r11").style.background='none';
                             },18500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },20000)
                         }
 
                         if(i==14 || i==15){
@@ -2841,10 +2813,6 @@
                                 document.getElementById("r11").style.background='none';
                             },18500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("remM").style.display='none';
-                            },20000)
                         }
 
                     }
@@ -2894,8 +2862,13 @@
 
                     var j=h;
 
+                    History.push("Find Minimum: "+v)
                     document.getElementById("notify").innerHTML="";
-
+                    document.getElementById("insM").style.display='none'
+                    document.getElementById("remM").style.display='none'
+                    document.getElementById("fVM").style.display='none'
+                    document.getElementById("fMnM").style.display='none'
+                    document.getElementById("fMxM").style.display='none'
                     document.getElementById("method").style.display="inline";
                     document.getElementById("fMnM").style.display='inline';
                     document.getElementById("fm1").style.background='#fbe8a6';
@@ -2951,11 +2924,6 @@
                         document.getElementById("fm6").style.background='none';
                     },4500+(j*2000))
 
-                    setTimeout(function(){
-                        document.getElementById("method").style.display="none";
-                        document.getElementById("fMnM").style.display='none';
-                    },6000+(j*2000))
-
                 }                
             }
 
@@ -2990,8 +2958,13 @@
                     
                     var j=h;
 
+                    History.push("Find Maximum: "+v)
                     document.getElementById("notify").innerHTML="";
-
+                    document.getElementById("insM").style.display='none'
+                    document.getElementById("remM").style.display='none'
+                    document.getElementById("fVM").style.display='none'
+                    document.getElementById("fMnM").style.display='none'
+                    document.getElementById("fMxM").style.display='none'
                     document.getElementById("method").style.display="inline";
                     document.getElementById("fMxM").style.display='inline';
                     document.getElementById("fx1").style.background='#fbe8a6';
@@ -3047,11 +3020,6 @@
                         document.getElementById("fx6").style.background='none';
                     },4500+(j*2000))
 
-                    setTimeout(function(){
-                        document.getElementById("method").style.display="none";
-                        document.getElementById("fMxM").style.display='none';
-                    },6000+(j*2000))
-
                 }
             }
 
@@ -3077,6 +3045,12 @@
                     }
                     else{
                         var i =getIndex(v);
+                        History.push("Find value: "+v)
+                        document.getElementById("insM").style.display='none'
+                        document.getElementById("remM").style.display='none'
+                        document.getElementById("fVM").style.display='none'
+                        document.getElementById("fMnM").style.display='none'
+                        document.getElementById("fMxM").style.display='none'
                         document.getElementById("method").style.display="inline";
                         document.getElementById("fVM").style.display='inline';
                         document.getElementById("fv1").style.background='#fbe8a6';
@@ -3114,10 +3088,6 @@
                                 document.getElementById("fv12").style.background='none';
                             },5500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },7000)
                         }
 
                         if(i==2 || i==3){
@@ -3175,11 +3145,6 @@
                             setTimeout(function(){
                                 document.getElementById("fv12").style.background='none';
                             },9500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },11000)
                         }
 
                         if(i==4 || i==5){
@@ -3260,11 +3225,6 @@
                             setTimeout(function(){
                                 document.getElementById("fv12").style.background='none';
                             },13500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },15000)
                         }
 
                         if(i==6 || i==7){
@@ -3346,10 +3306,6 @@
                                 document.getElementById("fv12").style.background='none';
                             },13500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },15000)
                         }
 
                         if(i==8 || i==9){
@@ -3453,10 +3409,6 @@
                                 document.getElementById("fv12").style.background='none';
                             },17500)
 
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },19000)
                         }
 
                         if(i==10 || i==11){
@@ -3559,11 +3511,6 @@
                             setTimeout(function(){
                                 document.getElementById("fv12").style.background='none';
                             },17500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },19000)
                         }
 
                         if(i==12 || i==13){
@@ -3666,11 +3613,6 @@
                             setTimeout(function(){
                                 document.getElementById("fv12").style.background='none';
                             },17500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },19000)
                         }
 
                         if(i==14 || i==15){
@@ -3773,11 +3715,6 @@
                             setTimeout(function(){
                                 document.getElementById("fv12").style.background='none';
                             },17500)
-
-                            setTimeout(function(){
-                                document.getElementById("method").style.display="none";
-                                document.getElementById("fVM").style.display='none';
-                            },19000)
                         }
                     }
 
@@ -3938,7 +3875,47 @@
                             
                         }
                         count++;
-                }
+            }
+
+             function show() {
+                        document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
+                    }
+
+            function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                    }
+
+                     function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+            }
+                    
+            function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
+            }
 
             </script>
 

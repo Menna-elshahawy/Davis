@@ -65,11 +65,11 @@
 
                     <!--    Insert       -->
                     
-                    <div class="insH" id="insH"> <button class="hBtn" onclick="showH()"> Insert at head</button>
+                    <div class="insH" id="insH"> <button class="hBtn" onclick="showHd()"> Insert first</button>
                          <div class="showH"  id="showH"> <input class="num2" type="number" id="inH" min="1" max="9"> 
                             <button class="go2" onclick="insertHead()">Go</button> </div> </div>
                     
-                    <div class="insT" id="insT"> <button class="tBtn" onclick="showT()"> Insert at tail</button>
+                    <div class="insT" id="insT"> <button class="tBtn" onclick="showT()"> Insert last</button>
                          <div class="showT"  id="showT"> <input class="num2" type="number" id="inT" min="1" max="9"> 
                             <button class="go2" onclick="insertTail()">Go</button> </div> </div>
                     
@@ -79,9 +79,9 @@
                     
                     <!--    Remove       -->
                     
-                      <div class="remH" id="remH"> <button class="hBtn" onclick="removeHead()"> Remove head</button></div>
+                      <div class="remH" id="remH"> <button class="hBtn" onclick="removeHead()"> Remove first</button></div>
                     
-                    <div class="remT" id="remT"> <button class="tBtn" onclick="removeTail()"> Remove tail</button> </div>
+                    <div class="remT" id="remT"> <button class="tBtn" onclick="removeTail()"> Remove last</button> </div>
                     
                     <div class="remI" id="remI"> <button class="iBtn" onclick="showRI()"> Remove at index</button>
                          <div class="showRI"  id="showRI"> <input class="num2" type="number" id="Rindx" onmouseover="popRIn()" onmouseout="disRIn()" min="0" max="7" > <div class="popRIn" id="popRIn"> Enter the index of the element </div> <button class="go2" onclick="removeIndex()">Go</button> </div> </div>
@@ -112,10 +112,19 @@
 
              <div class="abt" onclick="show()"> About </div>
                     
-                    <div id="myModal" class="modal">
+            <div id="myModal" class="modal">
                     <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
-                    <p> <span style="color: #4799eb; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+            </div>
+
+            <div class="hst" onclick="showH()"> History </div>
+            <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
                   </div>
                 </div>
 
@@ -219,6 +228,9 @@
                // list=[3,6,5,1,7,2,8];
               //  display()
                 var count=1;
+                var contH= document.createElement('div');
+                var histList = document.createElement('ol');
+                var History=[];
 
                 function insert(){
                     
@@ -256,6 +268,12 @@
                             }
                     else{
 
+                        History.push("Insert head: "+v)
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
                                 document.getElementById("insHM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 document.getElementById("upL").style.left=376;
@@ -299,9 +317,7 @@
                                             document.getElementById("action").innerHTML="You inserted "+v+" at the head";
                                         },6500);
                                 
-                                    setTimeout(function(){document.getElementById("insHM").style.display='none';
-                                            document.getElementById("method").style.display='none';
-                                        },8000);       
+ 
                                 }   
 
                                 else{ 
@@ -322,7 +338,7 @@
                                     setTimeout(function(){document.getElementById("ih8").style.background='none';
                                             document.getElementById("ih9").style.background='#fbe8a6';
                                             document.getElementById("upL").style.display='inline';
-                                            
+                                            document.getElementById("upH").style.display='none';
                                     },7000);
 
                                     setTimeout(function(){document.getElementById("ih9").style.background='none';
@@ -340,8 +356,6 @@
                                             
                                     },8500);
                                 
-                                    setTimeout(function(){document.getElementById("insHM").style.display='none';
-                                                        document.getElementById("method").style.display='none';},10000);
 
                                 }                 
                                 
@@ -374,7 +388,12 @@
                             }
                             else{
 
-
+                                History.push("Insert tail: "+v)
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
                                 document.getElementById("insTM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 
@@ -418,10 +437,7 @@
                                     setTimeout(function(){document.getElementById("it10").style.background='none';
                                             document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
                                         },6500);
-                                
-                                    setTimeout(function(){document.getElementById("insTM").style.display='none';
-                                            document.getElementById("method").style.display='none';
-                                        },8000);       
+      
                                 }   
 
                                 else{ 
@@ -442,14 +458,14 @@
                                     setTimeout(function(){document.getElementById("it8").style.background='none';
                                             document.getElementById("it9").style.background='#fbe8a6';
                                             document.getElementById("upR").style.display='inline';
-                                            
+                                            document.getElementById("upT").style.display='none';
                                     },7000);
 
                                     setTimeout(function(){document.getElementById("it9").style.background='none';
                                             document.getElementById("it10").style.background='#fbe8a6';
                                             document.getElementById("upT").style.display='inline';
                                             document.getElementById("upR").style.display='none';
-                                            nodeH.style.display='none';
+                                            nodeT.style.display='none';
                                             document.getElementById("rightT").style.display='none'; 
                                             document.getElementById("rightT2").style.display='none';  
                                             this.display();                                        
@@ -460,9 +476,6 @@
                                             
                                     },8500);
                                 
-                                    setTimeout(function(){document.getElementById("insTM").style.display='none';
-                                                        document.getElementById("method").style.display='none';},10000);
-
                                 }    
 
                                 document.getElementById("notify").innerHTML="";
@@ -551,11 +564,16 @@
                         }
                     else{
 
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
                                 document.getElementById("remHM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 document.getElementById("upR").style.left=450;
                                  var v=list.shift();
-                                                                                                
+                                History.push("Remove head: "+v)                                                                   
                                 setTimeout(function(){document.getElementById("rh1").style.background='#fbe8a6';
                                                     },1000);
                                 
@@ -585,10 +603,7 @@
                                     setTimeout(function(){document.getElementById("rh10").style.background='none';
                                             
                                         },6500);
-                                
-                                    setTimeout(function(){document.getElementById("remHM").style.display='none';
-                                            document.getElementById("method").style.display='none';
-                                        },8000);       
+  
                                 }   
 
                                 else{ 
@@ -599,7 +614,8 @@
 
                                     setTimeout(function(){document.getElementById("rh7").style.background='#fbe8a6';
                                             document.getElementById("rh6").style.background='none';
-                                            document.getElementById("upR").style.display='inline';  
+                                            document.getElementById("upR").style.display='inline';
+                                            document.getElementById("upH").style.display='none';    
                                     },5000);
 
                                     setTimeout(function(){document.getElementById("rh7").style.background='none';
@@ -621,8 +637,6 @@
                                     setTimeout(function(){document.getElementById("rh10").style.background='none';              
                                     },8500);
                                 
-                                    setTimeout(function(){document.getElementById("remHM").style.display='none';
-                                                        document.getElementById("method").style.display='none';},10000);
 
                                 }        
 
@@ -644,12 +658,18 @@
                             document.getElementById("notify").innerHTML= "The list is empty!";
                         }
                     else{
-                        
+
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
                                 document.getElementById("remTM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 document.getElementById("current").style.left=397;
                                 var v=list.pop();
                                 var l=list.length
+                                History.push("Remove tail: "+v)
                                 document.getElementById("upL").style.left=450+(list.length-1)*80;
 
                                setTimeout(function(){document.getElementById("rt1").style.background='#fbe8a6';
@@ -682,9 +702,7 @@
                                             
                                         },6500);
                                 
-                                    setTimeout(function(){document.getElementById("remTM").style.display='none';
-                                            document.getElementById("method").style.display='none';
-                                        },8000);       
+     
                                 }   
 
                                 else{ 
@@ -696,7 +714,8 @@
 
                                     setTimeout(function(){document.getElementById("rt7").style.background='#fbe8a6';
                                             document.getElementById("rt6").style.background='none';
-                                            document.getElementById("upL").style.display='inline';  
+                                            document.getElementById("upL").style.display='inline'; 
+                                            document.getElementById("upT").style.display='none';   
                                     },5000);
 
                                     setTimeout(function(){document.getElementById("rt7").style.background='none';
@@ -706,6 +725,7 @@
                                     setTimeout(function(){document.getElementById("rt8").style.background='none';
                                             document.getElementById("rt9").style.background='#fbe8a6';
                                             document.getElementById("upL").style.display='none';  
+                                            document.getElementById("upT").style.display='inline';  
                                             document.getElementById("action").innerHTML="You removed the tail "+v;
                                             display()
                                     },7000);
@@ -718,9 +738,6 @@
                                     setTimeout(function(){document.getElementById("rt10").style.background='none';              
                                     },8500);
                                 
-                                    setTimeout(function(){document.getElementById("remTM").style.display='none';
-                                                        document.getElementById("method").style.display='none';},10000);
-
                                 }                       
                                 
                                
@@ -819,9 +836,14 @@
                             }
                             if(f=="t"){
                                 var c=1;
-
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
                                 document.getElementById("srchM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
+                                History.push("Search: "+v)
 
                                 setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
                                                     },1000);
@@ -877,11 +899,7 @@
 
                                 setTimeout(function(){document.getElementById("s9").style.background='none';                            
                                     },4000*(c)+2500);
-                                
-                                setTimeout(function(){document.getElementById("srchM").style.display='none';
-                                        document.getElementById("method").style.display='none';
-                                    },4000*(c)+4000);       
-                                  
+              
                                 
                             }
                             else{
@@ -1011,7 +1029,7 @@
                             
                             list[i]=x;    
                         }
-
+                        History.push("Create random doubly linked list: "+list)
                         this.display();
                     }
                     
@@ -1056,6 +1074,7 @@
                             }
                             
                             if(f=='f'){
+                                History.push("Create user-defined linked list: "+list)
                                 this.display();
                             }
                             else{
@@ -1148,7 +1167,7 @@
                     document.getElementById("popSz").style.display='none';   
                 }
 
-                function showH(){
+                function showHd(){
                     document.getElementById("showH").style.display='inline-block';
                     document.getElementById("showT").style.display='none';
                     document.getElementById("showI").style.display='none';   
@@ -1220,12 +1239,38 @@
                     }
 
                 window.onclick = function(event) {
-                    if (event.target == document.getElementById("myModal")) {
+                        if (event.target == document.getElementById("myModal")) {
                             document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
                         }
                     }
 
-                 function view(){
+                function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                }
+
+                function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                }
+                    
+                function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
+                }
+
+                function view(){
                         document.getElementById("method").style.display='inline';
                         document.getElementById("view").style.display='none';
                         document.getElementById("code").style.display='block';

@@ -69,10 +69,19 @@
 
                  <div class="abt" onclick="show()"> About </div>
                     
-                    <div id="myModal" class="modal">
+                <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
                     <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+                <div class="hst" onclick="showH()"> History </div>
+                <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
                   </div>
                 </div>
 
@@ -130,6 +139,9 @@
                 var contPr =document.createElement('div');
                 contPr.className="contPr";
                 var count=1;
+                var contH= document.createElement('div');
+                    var histList = document.createElement('ol');
+                    var History=[];
 
                 function enqueue(){
                     
@@ -156,6 +168,9 @@
                         }
                         else{
 
+                            document.getElementById("enq").style.display='none';
+                               document.getElementById("deq").style.display='none';
+                               document.getElementById("peek").style.display='none';
                             document.getElementById("enq").style.display='inline';
                                 document.getElementById("method").style.display='inline';                                                                
                                 
@@ -202,6 +217,7 @@
                             }            
                             
                            
+                           History.push("Enqueue: "+v+" with priority: "+pr)
 
                             setTimeout(function(){document.getElementById("mp1").style.background='#fbe8a6';
                                                     },1000);
@@ -249,12 +265,9 @@
                                                     },2000*loop+6500);
                                         
                                 setTimeout(function(){node.style.display='none';
+                                                    node.classList.remove("anim");
                                                     },2000*loop+6400);
                                 
-                                setTimeout(function(){document.getElementById("enq").style.display='none';
-                                                    document.getElementById("method").style.display='none';
-                                                    node.classList.remove("anim");},2000*loop+10000);
-                                                
 
                         }  
 
@@ -279,7 +292,11 @@
                         document.getElementById("action").innerHTML="The queue is empty!";
                     }
                     else{
-                            
+
+                        History.push("Dequeue: "+popV+" with priority: "+p)
+                        document.getElementById("enq").style.display='none';
+                               document.getElementById("deq").style.display='none';
+                               document.getElementById("peek").style.display='none';
                         document.getElementById("deq").style.display='inline';
                             document.getElementById("method").style.display='inline';
                             
@@ -310,9 +327,6 @@
                                                 document.getElementById("pp5").style.background='none';
                                                 },4800);
                                         
-                            setTimeout(function(){document.getElementById("deq").style.display='none';
-                                                document.getElementById("method").style.display='none';},8000);
-
                     }
 
                 }
@@ -329,6 +343,10 @@
                         document.getElementById("action").innerHTML="The queue is empty!";
                     }
                     else{
+                        History.push("Peek: "+popV)
+                        document.getElementById("enq").style.display='none';
+                               document.getElementById("deq").style.display='none';
+                               document.getElementById("peek").style.display='none';
                         document.getElementById("peek").style.display='inline';
                             document.getElementById("method").style.display='inline';
                             
@@ -347,8 +365,6 @@
                             setTimeout(function(){document.getElementById("pe3").style.background='none';
                                                 },3500);
                                         
-                            setTimeout(function(){document.getElementById("peek").style.display='none';
-                                                document.getElementById("method").style.display='none';},7000);
                     }
                     
                 }
@@ -404,6 +420,8 @@
                         priority[i]=p;    
                         }
 
+                        History.push("Create random priority queue "+queue +"</br>" + 
+                        "with priorities: "+priority +" respectively")
                         this.display();
                     }
                     
@@ -529,10 +547,36 @@
                 }
 
                 window.onclick = function(event) {
-                    if (event.target == document.getElementById("myModal")) {
-                        document.getElementById("myModal").style.display = "none";
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
                     }
-                }
+
+                    function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                    }
+
+                     function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                    }
+                    
+                    function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
+                    }
 
                 function view(){
                         document.getElementById("method").style.display='inline';

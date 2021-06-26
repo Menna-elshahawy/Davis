@@ -385,22 +385,18 @@ cursor: pointer;
 
 .htex{
   color: #7ac7d1;
-  position:fixed;
-  top: 115px;
-  left: 655px;
+  text-align: center;
   font-size: 30px;
   font-weight: bold;
 }
 
 .history{
-  position: fixed;
-  top: 150px;
-  left: 520px;
-  /* text-align: center; */
   align-items: center;
+  top: 50px;
   
 }
 
+/*  */
 
 .node{
   font-size:25px; 

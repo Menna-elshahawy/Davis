@@ -70,9 +70,7 @@
 
                
                  <div class="abt" onclick="show()"> About </div>
-                 <div class="hst" onclick="showH()"> History </div>
-                 
-                    
+                                 
                 <div id="myModal" class="modal">
                   <div class="modal-content">
                     <span class="close" id="close" onclick="closeM()">&#215;</span>
@@ -80,13 +78,14 @@
                   </div>
                 </div>
 
+                 <div class="hst" onclick="showH()"> History </div>
                 <div id="myModalH" class="modal">
                     <div class="modal-contentH">
                     <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
                     <div class="htex"> History </div>
                     <div id="history" class="history"></div>
                   </div>
-                 </div>
+                </div>
                       
                 <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
                     
@@ -95,7 +94,7 @@
                     <div class="downL" id="downL"> <span>&#8601;</span> </div>
                     <div class="upL" id="upL"> <span>&#8598;</span> </div>
           
-                   <div class="method" id="method"> 
+                <div class="method" id="method"> 
                        
                        <button id="view" class="view" onclick="view()"> View Code Tracer </button>
                        <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
@@ -166,6 +165,9 @@
                                 document.getElementById("notify").innerHTML= "Maximum size is 6";
                             }
                             else{
+                                document.getElementById("peek").style.display='none';
+                                document.getElementById("pop").style.display='none';
+                                document.getElementById("push").style.display='none';
                                 document.getElementById("push").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 
@@ -206,11 +208,8 @@
                                         
                                 setTimeout(function(){node.style.display='none';
                                                     },4900);
-                                
-                                setTimeout(function(){document.getElementById("push").style.display='none';
-                                                    document.getElementById("method").style.display='none';},8000);
-                                                }  
 
+                            }
                             
                         }
                         document.getElementById("val").value="";
@@ -230,6 +229,9 @@
                         else{        
                             
                             History.push("Pop: "+ popV)
+                            document.getElementById("peek").style.display='none';
+                                document.getElementById("pop").style.display='none';
+                                document.getElementById("push").style.display='none';
                             document.getElementById("pop").style.display='inline';
                             document.getElementById("method").style.display='inline';
                             
@@ -258,14 +260,10 @@
                             setTimeout(function(){this.display();
                                                 document.getElementById("pp5").style.background='none';
                                                 document.getElementById("action").innerHTML="You popped "+popV;
-                                                document.getElementById("left").style.display='inline';
                                                 document.getElementById("downL").style.display='none';
                                                 },4800);
                                         
-                            setTimeout(function(){document.getElementById("pop").style.display='none';
-                                                document.getElementById("method").style.display='none';},8000);
-
-                                
+                            
                         }
     
                     }
@@ -282,11 +280,14 @@
                         
                 
                         
-                            if(popV==undefined){
+                        if(popV==undefined){
                             document.getElementById("action").innerHTML="The stack is empty!";
                         }
                         else{
                             History.push("Peek: "+ popV)
+                            document.getElementById("peek").style.display='none';
+                                document.getElementById("pop").style.display='none';
+                                document.getElementById("push").style.display='none';
                             document.getElementById("peek").style.display='inline';
                             document.getElementById("method").style.display='inline';
                             
@@ -305,9 +306,7 @@
                             setTimeout(function(){document.getElementById("pe3").style.background='none';
                                                 },3500);
                                         
-                            setTimeout(function(){document.getElementById("peek").style.display='none';
-                                                document.getElementById("method").style.display='none';},7000);
-                                            }
+                        }
                                             
                     }
 
@@ -448,12 +447,6 @@
 
                     function closeM() {
                         document.getElementById("myModal").style.display = "none";
-                    }
-
-                    window.onclick = function(event) {
-                        if (event.target == document.getElementById("myModal")) {
-                            document.getElementById("myModal").style.display = "none";
-                        }
                     }
 
                     function view(){
