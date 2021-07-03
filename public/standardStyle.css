@@ -30,8 +30,8 @@ h2{
   width: 80%;
     height: 70%;
   margin-top:80px;
-    margin-left: 150px;
-    margin-right: 90px;
+    margin-left: 145px;
+    margin-right: 100px;
   display: flex;
   flex-wrap: wrap;
   padding: 15px;
@@ -142,6 +142,15 @@ h2{
  font-weight: bold;
 }
 
+.select{
+    width: 180;
+    height: 180;
+    display: inline-block;
+    position: fixed;
+    top: 430;
+    left: 640; 
+}
+
 .ss{
     font-family: cursive;
  font-size: 18;
@@ -151,6 +160,15 @@ h2{
  display: inline-block;
  color: #303c6c;
  font-weight: bold;
+}
+
+.insert{
+    width: 180;
+    height: 180;
+    display: inline-block;
+    position: fixed;
+    top: 430;
+    left: 850;
 }
 
 .is{
@@ -164,11 +182,20 @@ h2{
  font-weight: bold;
 }
 
+.bubble{
+    width: 180;
+    height: 180;
+    display: inline-block;
+    position: fixed;
+    top: 430;
+    left: 1070;
+}
+
 .bs{
     font-family: cursive;
  font-size: 18;
  position: fixed;
- left: 1100;
+ left: 1110;
  top: 580;
  display: inline-block;
  color: #303c6c;

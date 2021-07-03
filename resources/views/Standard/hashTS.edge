@@ -94,7 +94,7 @@
                   </div>
                 </div>
 
-                <div class="hst" onclick="showH()"> History </div>
+                <div class="hst" onclick="showH()">Actions History </div>
                 <div id="myModalH" class="modal">
                     <div class="modal-contentH">
                     <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
@@ -118,11 +118,6 @@
                       
                 <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
                 
-                    <div class="top" id="top">top</div>
-                    <div class="left" id="left"> <span>&#8592;</span> </div>
-                    <div class="downL" id="downL"> <span>&#8601;</span> </div>
-                    <div class="upL" id="upL"> <span>&#8598;</span> </div>
-          
                    <div class="method" id="method"> 
                        
                        <button id="view" class="view" onclick="view()"> View Code Tracer </button>
@@ -133,8 +128,8 @@
                         <div id="insertM" class="insertM">
                                <div id="in1" class="in1">  public String insert(int value) { </div> 
                                <div id="in2" class="in2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
-                               <div id="in3" class="in3" style="text-indent: 40px;">  int[] list = hashTable[key]; </div> 
-                               <div id="in4" class="in4" style="text-indent: 40px;">  for(int j=0; j < list.length() ;j++){  </div> 
+                               <div id="in3" class="in3" style="text-indent: 40px;">  int[] list = hashTable[i]; </div> 
+                               <div id="in4" class="in4" style="text-indent: 40px;">  for(int j=0; j < list.length ;j++){  </div> 
                                <div id="in5" class="in5" style="text-indent: 80px;">  if(list[j]==null){ </div> 
                                <div id="in6" class="in6" style="text-indent: 120px;">  list[j]=value; </div> 
                                <div id="in7" class="in7" style="text-indent: 120px;">  return "You inserted" + value; </div>
@@ -146,11 +141,11 @@
 
                         <div class="removeM" id="removeM">
                                <div id="r1" class="r1">  public String remove(int value) { </div> 
-                               <div id="r2" class="r2" style="text-indent: 40px;">  int key = value%hashTable.length; </div> 
-                               <div id="r3" class="r3" style="text-indent: 40px;">  int[] list = hashTable[key]; </div> 
-                               <div id="r4" class="r4" style="text-indent: 40px;">  for(int i=0; i < list.length() ;i++){  </div> 
-                               <div id="r5" class="r5" style="text-indent: 80px;">  if(list[i]==value){ </div> 
-                               <div id="r6" class="r6" style="text-indent: 120px;">  list[i]=null; </div> 
+                               <div id="r2" class="r2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
+                               <div id="r3" class="r3" style="text-indent: 40px;">  int[] list = hashTable[i]; </div> 
+                               <div id="r4" class="r4" style="text-indent: 40px;">  for(int j=0; j < list.length ;j++){  </div> 
+                               <div id="r5" class="r5" style="text-indent: 80px;">  if(list[j]==value){ </div> 
+                               <div id="r6" class="r6" style="text-indent: 120px;">  list[j]=null; </div> 
                                <div id="r7" class="r7" style="text-indent: 120px;">  return "You removed "+ value; </div>
                                <div id="r8" class="r8" style="text-indent: 80px;">  } </div> 
                                <div id="r9" class="r9" style="text-indent: 40px;"> }  </div> 
@@ -161,10 +156,10 @@
 
                         <div class="searchM" id="searchM">
                                <div id="s1" class="s1">  public String search(int value) { </div> 
-                               <div id="s2" class="s2" style="text-indent: 40px;">  int key = value%hashTable.length; </div> 
-                               <div id="s3" class="s3" style="text-indent: 40px;">  int[] list = hashTable[key]; </div> 
-                               <div id="s4" class="s4" style="text-indent: 40px;">  for(int i=0; i < list.length() ;i++){  </div> 
-                               <div id="s5" class="s5" style="text-indent: 80px;">  if(list[i]==value){ </div> 
+                               <div id="s2" class="s2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
+                               <div id="s3" class="s3" style="text-indent: 40px;">  int[] list = hashTable[i]; </div> 
+                               <div id="s4" class="s4" style="text-indent: 40px;">  for(int j=0; j < list.length ;j++){  </div> 
+                               <div id="s5" class="s5" style="text-indent: 80px;">  if(list[j]==value){ </div> 
                                <div id="s6" class="s6" style="text-indent: 120px;">  return value + " is found in the hash table"; </div> 
                                <div id="s7" class="s7" style="text-indent: 80px;"> } </div>
                                <div id="s8" class="s8" style="text-indent: 40px;">  } </div> 
@@ -1503,25 +1498,7 @@
 
                     function display(){
                         
-                        var list=document.getElementById("area");
-                            list.appendChild(cont);
-                            cont.innerHTML="";
-                            cont.appendChild(ul);
-                            ul.innerHTML="";
-                            for(i=stack.length-1;i>=0;i--){
-                                let li = document.createElement('li');
-                                li.innerHTML = stack[i];
-                                ul.appendChild(li);   
-                            }
-
-                            if(stack.length==0){
-                                document.getElementById("top").style.display='none';
-                                document.getElementById("left").style.display='none';
-                            }
-                            else{
-                                document.getElementById("top").style.display='inline';
-                                document.getElementById("left").style.display='inline';
-                            }
+                        
                     }
 
                     function popUpSz(){

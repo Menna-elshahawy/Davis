@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/hashRes') }}
+</head>
+
+
+<body>
+
+    <title> Hash Table </title>
+                
+    <h1> HASH TABLE </h1>
+
+    <a HREF="/UserDefined/HashTable"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>  
+
+    <div class="i1" id="i1"> i:0 </div> <div class="i2" id="i2"> i:1 </div> <div class="i3" id="i3"> i:2 </div>
+        <div class="i4" id="i4"> i:3 </div> <div class="i5" id="i5"> i:4 </div> <div class="i6" id="i6"> i:5 </div>
+        <div class="i7" id="i7"> i:6 </div> 
+
+    <div id="l1" class="l1"> H</div> <div id="l2" class="l2"> H</div>  <div id="l3" class="l3"> H</div>
+        <div id="l4" class="l4"> H</div> <div id="l5" class="l5"> H</div> <div id="l6" class="l6"> H</div>
+        <div id="l7" class="l7"> H</div>
+
+    <div id="l11" class="l11"> 3</div> <div id="l12" class="l12"> 98</div> <div id="l13" class="l13"> 3</div>
+        <div id="l21" class="l21"> 3</div> <div id="l22" class="l22"> 4</div> <div id="l23" class="l23"> 3</div>
+        <div id="l31" class="l31"> 5</div> <div id="l32" class="l32"> 4</div> <div id="l33" class="l33"> 3</div> 
+        <div id="l41" class="l41"> 3</div> <div id="l42" class="l42"> 8</div> <div id="l43" class="l43"> 3</div>
+        <div id="l51" class="l51"> 7</div> <div id="l52" class="l52"> 1</div> <div id="l53" class="l53"> 3</div>
+        <div id="l61" class="l61"> 9</div> <div id="l62" class="l62"> 22</div> <div id="l63" class="l63"> 3</div>
+        <div id="l71" class="l71"> 35</div> <div id="l72" class="l72"> 86</div> <div id="l73" class="l73"> 3</div>
+
+    <div class="d1" id="d1"> <span>&#8595;</span> </div> <div class="d2" id="d2"> <span>&#8595;</span> </div>
+        <div class="d3" id="d3"> <span>&#8595;</span> </div> <div class="d4" id="d4"> <span>&#8595;</span> </div>
+        <div class="d5" id="d5"> <span>&#8595;</span> </div> <div class="d6" id="d6"> <span>&#8595;</span> </div>
+        <div class="d7" id="d7"> <span>&#8595;</span> </div>
+
+    <div class="d11" id="d11"> <span>&#8739;</span> </div> <div class="d111" id="d111"> <span>&#8739;</span> </div>
+        <div class="d22" id="d22"> <span>&#8739;</span> </div> <div class="d222" id="d222"> <span>&#8739;</span> </div>
+        <div class="d33" id="d33"> <span>&#8739;</span> </div> <div class="d333" id="d333"> <span>&#8739;</span> </div>
+        <div class="d44" id="d44"> <span>&#8739;</span> </div> <div class="d444" id="d444"> <span>&#8739;</span> </div>
+        <div class="d55" id="d55"> <span>&#8739;</span> </div> <div class="d555" id="d555"> <span>&#8739;</span> </div>
+        <div class="d66" id="d66"> <span>&#8739;</span> </div> <div class="d666" id="d666"> <span>&#8739;</span> </div>
+        <div class="d77" id="d77"> <span>&#8739;</span> </div> <div class="d777" id="d777"> <span>&#8739;</span> </div>
+                     
+
+    <div class="action" id="action">  </div>
+    <div class="notify" id="notify"> </div>
+    <div class="a" id="a"> Action: </div>
+
+    <script>
+                     var list=[];
+                     var arr=[];
+                    var actions=[];
+                    var flag="true"
+                    
+                    function display(){
+                        for (var i=0;i<list.length;i++){
+                            var l=list[i]
+                            if(countZ(l)<3){
+                                var n='l'.concat(i+1);
+                                var d='d'.concat(i+1);
+                                
+                                var t=1;
+                                for(var j=0;j<3;j++){
+                                    if(l[j]!=0){
+                                        var x=n.concat(t);
+                                        t++;
+                                        document.getElementById(x).innerHTML=l[j]
+                                        document.getElementById(x).style.display='flex';
+                                        document.getElementById(d).style.display='inline';
+                                        d=d.concat(i+1);
+                                    }
+                                }
+                                if(countNZ(l)==1){
+                                    var x=n.concat(2);
+                                    var d2='d'.concat(i+1).concat(i+1);
+                                    document.getElementById(x).style.display='none';
+                                    document.getElementById(d2).style.display='none';
+                                    x=n.concat(3);
+                                    d2=d2.concat(i+1)
+                                    document.getElementById(x).style.display='none';
+                                    document.getElementById(d2).style.display='none';
+                                }
+                                else if(countNZ(l)==2){
+                                    var d2='d'.concat(i+1).concat(i+1);
+                                    x=n.concat(3);
+                                    d2=d2.concat(i+1)
+                                    document.getElementById(x).style.display='none';
+                                    document.getElementById(d2).style.display='none';
+
+                                }
+
+                            }
+                            else{
+                                var n='l'.concat(i+1);
+                                var d='d'.concat(i+1);
+                                var t=1;
+                                for(var j=0;j<3;j++){
+                                    var x=n.concat(t);
+                                    t++;
+                                    document.getElementById(x).style.display='none';
+                                    document.getElementById(d).style.display='none';
+                                    d=d.concat(i+1);
+                                    
+                                }
+                            }
+                        }
+                    }
+
+                    function animate(){
+                        list=arr[0];
+                        var length=list.length
+                        console.log(length)
+                        
+
+                        if(length>=4 && length<=7){
+                            document.getElementById("notify").innerHTML=""
+                            document.getElementById("action").innerHTML="Create hash table"
+                            create();
+                            var l=1
+                            while(l<arr.length){
+                                (function(l){
+
+                                    setTimeout(function(){
+                                        if(arr[l]!=null){
+                                            list=arr[l];
+                                            display()
+                                            document.getElementById("action").innerHTML=actions[l-1]
+                                        }
+
+                                    },1000+(1500*l));
+
+                                })(l);
+
+                                l++
+
+                            }
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML="Please create a hash table with length: 4 to 7"
+                        }
+                        
+                    }
+
+                    function setActions(){
+                        for(var i=0;i<arr.length-1;i++){
+                            var a=arr[i];
+                            var b=arr[i+1];
+
+                            if(a!=null && b!=null){
+                                var c=expand(a)
+                                var d=expand(b)
+                                if(countZ(c)>countZ(d)){
+                                    var tmp=difference(c,d)
+                                    var v=notZ(tmp)
+                                    actions.push("insert ".concat(v))
+                                }
+                                else{
+                                    var tmp=difference(c,d)
+                                    var v=notZ(tmp)
+                                    actions.push("remove ".concat(v))
+                                }
+                            }
+                        }
+                    }
+
+                    function difference(a, b) {
+                        return [...b.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) - 1),
+                                a.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) + 1), new Map() ) 
+                        )].reduce( (acc, [v, count]) => acc.concat(Array(Math.abs(count)).fill(v)), [] );
+                    }
+
+                    function getdiff(a,b){
+                        var c=expand(a)
+                        var d=expand(b)
+
+                        return difference(c,d)
+
+                    }
+
+                    function notZ(a){
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]!=0)
+                                return a[i]
+                        }
+                        return " not found"
+                    }
+
+                    function expand(a){
+                        var c=[]
+                        for(var i=0;i<a.length;i++){
+                            l =a[i]
+                            if(l!=null){
+                                for(var j=0;j<l.length;j++){
+                                    c.push(l[j])
+                                }
+                            }
+                        }
+                        return c
+                    }
+
+                    function create(){
+                        list=arr[0];
+                        var l=list.length
+                            for(i=1;i<=l;i++){
+                                    var n='l'.concat(i);
+                                    var t='i'.concat(i);
+                                    document.getElementById(n).style.display='inline';
+                                    document.getElementById(t).style.display='inline';
+
+                                    var x=n.concat('1');
+                                    var y=n.concat('2');
+                                    var z=n.concat('3');
+                                    var a='d'.concat(i);
+                                    var b=a.concat(i);
+                                    var c=b.concat(i);
+
+                                    document.getElementById(x).style.display='none';
+                                    document.getElementById(y).style.display='none';
+                                    document.getElementById(z).style.display='none';
+                                    document.getElementById(a).style.display='none';
+                                    document.getElementById(b).style.display='none';
+                                    document.getElementById(c).style.display='none';
+                            }
+
+                            for(j=parseInt(l)+1;j<=7;j++){
+                                    var n='l'.concat(j);
+                                    var t='i'.concat(j);
+                                    document.getElementById(n).style.display='none';
+                                    document.getElementById(t).style.display='none';
+
+                                    var x=n.concat('1');
+                                    var y=n.concat('2');
+                                    var z=n.concat('3');
+                                    var a='d'.concat(j);
+                                    var b=a.concat(j);
+                                    var c=b.concat(j);
+
+                                document.getElementById(x).style.display='none';
+                                    document.getElementById(y).style.display='none';
+                                    document.getElementById(z).style.display='none';
+                                    document.getElementById(a).style.display='none';
+                                    document.getElementById(b).style.display='none';
+                                    document.getElementById(c).style.display='none';
+                            }
+                        
+                    }
+
+                    function countZ(a){
+                        var z=0;
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]==0){
+                                z++;
+                            }
+                        }
+                        return z;
+                    }
+
+                    function countNZ(a){
+                        var z=0;
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]!=0){
+                                z++;
+                            }
+                        }
+                        return z;
+                    }
+
+
+                    arr={{res}}
+                    console.log(arr)
+                    setActions()
+                    animate()
+    
+    </script>
+
+
+</body>
+
+</html>

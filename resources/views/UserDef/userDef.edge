@@ -36,23 +36,30 @@
                      <p class="dl" id="dl"> Doubly Linked List </p> </a>
                     <pre>        </pre>
 
-                    <a HREF="/UserDefined/SelectionSort"> <p class="ss" id="ss"> Selection Sort </p> </a>
+                    <a HREF="/UserDefined/HashTable"> <img src="Standard/h1.png" alt="hash table" id="hash" class="hash" onmouseover="popH()" onmouseout="disH()">
+                     <p class="h" id="h"> Hash Table </p> </a>
+                    <pre>        </pre>
 
-                    <a HREF="/UserDefined/InsertionSort"> <p class="is" id="is"> Insertion Sort </p> </a>
+                    <a HREF="/UserDefined/Tree"><img src="Standard/t10.png" alt="tree" id="tree" class="tree" onmouseover="popT()" onmouseout="disT()"> 
+                     <p class="t" id="t"> Binary Search Tree </p> </a>
+                    <pre>        </pre>
 
-                    <a HREF="/UserDefined/BubbleSort"> <p class="bs" id="bs"> Bubble Sort </p> </a>
+                    <a HREF="/Standard/SelectionSort"> <img src="Standard/ss1.png" alt="selection sort" id="select" class="select" onmouseover="popSS()" onmouseout="disSS()">
+                     <p class="ss" id="ss"> Selection Sort </p> </a>
+                    <pre>        </pre>
 
-                    
+                    <a HREF="/UserDefined/InsertionSort"> <img src="Standard/is1.png" alt="insertion sort" id="insert" class="insert" onmouseover="popIS()" onmouseout="disIS()">
+                     <p class="is" id="is"> Insertion Sort </p> </a>
+                    <pre>        </pre>
+
+                     <a HREF="/UserDefined/BubbleSort"> <img src="Standard/bs1.png" alt="bubble sort" id="bubble" class="bubble" onmouseover="popBS()" onmouseout="disBS()">
+                     <p class="bs" id="bs"> Bubble Sort </p> </a>
+                    <pre>        </pre>
+
+                     
                     <pre>        </pre>
                     
-<!--
-                    <div class = "queue" > <a HREF="queue.html"> Trees </a> </div>
-                    <pre>        </pre>
-                    
-                    <div class = "queue" > <a HREF="queue.html">  Hash Table </a> </div>
-                    <pre>        </pre>
-                                
--->
+
         
 
                 </div>            
@@ -106,6 +113,46 @@
 
                     function disDL(){
                             document.getElementById("dList").src='Standard/dl6.png';
+                    }
+
+                    function popH(){
+                        document.getElementById("hash").src='Standard/h.gif';
+                    }
+
+                    function disH(){
+                            document.getElementById("hash").src='Standard/h1.png';
+                    }
+
+                    function popT(){
+                        document.getElementById("tree").src='Standard/t.gif';
+                    }
+
+                    function disT(){
+                            document.getElementById("tree").src='Standard/t10.png';
+                    }
+
+                    function popSS(){
+                        document.getElementById("select").src='Standard/ss.gif';
+                    }
+
+                    function disSS(){
+                            document.getElementById("select").src='Standard/ss1.png';
+                    }
+
+                    function popIS(){
+                        document.getElementById("insert").src='Standard/is.gif';
+                    }
+
+                    function disIS(){
+                            document.getElementById("insert").src='Standard/is1.png';
+                    }
+
+                    function popBS(){
+                        document.getElementById("bubble").src='Standard/bs.gif';
+                    }
+
+                    function disBS(){
+                            document.getElementById("bubble").src='Standard/bs1.png';
                     }
 
                                         

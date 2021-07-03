@@ -40,13 +40,16 @@
                      <p class="dl" id="dl"> Doubly Linked List </p> </a>
                     <pre>        </pre>
                     
-                     <a HREF="/Standard/SelectionSort"> <p class="ss" id="ss"> Selection Sort </p> </a>
+                     <a HREF="/Standard/SelectionSort"> <img src="ss1.png" alt="selection sort" id="select" class="select" onmouseover="popSS()" onmouseout="disSS()">
+                     <p class="ss" id="ss"> Selection Sort </p> </a>
                     <pre>        </pre>
 
-                     <a HREF="/Standard/InsertionSort"> <p class="is" id="is"> Insertion Sort </p> </a>
+                     <a HREF="/Standard/InsertionSort"> <img src="is1.png" alt="insertion sort" id="insert" class="insert" onmouseover="popIS()" onmouseout="disIS()">
+                     <p class="is" id="is"> Insertion Sort </p> </a>
                     <pre>        </pre>
 
-                     <a HREF="/Standard/BubbleSort"> <p class="bs" id="bs"> Bubble Sort </p> </a>
+                     <a HREF="/Standard/BubbleSort"> <img src="bs1.png" alt="bubble sort" id="bubble" class="bubble" onmouseover="popBS()" onmouseout="disBS()">
+                     <p class="bs" id="bs"> Bubble Sort </p> </a>
                     <pre>        </pre>
 
                      <a HREF="/Standard/HashTable"> <img src="h1.png" alt="hash table" id="hash" class="hash" onmouseover="popH()" onmouseout="disH()">
@@ -123,6 +126,30 @@
 
                     function disH(){
                             document.getElementById("hash").src='h1.png';
+                    }
+
+                    function popSS(){
+                        document.getElementById("select").src='ss.gif';
+                    }
+
+                    function disSS(){
+                            document.getElementById("select").src='ss1.png';
+                    }
+
+                    function popIS(){
+                        document.getElementById("insert").src='is.gif';
+                    }
+
+                    function disIS(){
+                            document.getElementById("insert").src='is1.png';
+                    }
+
+                    function popBS(){
+                        document.getElementById("bubble").src='bs.gif';
+                    }
+
+                    function disBS(){
+                            document.getElementById("bubble").src='bs1.png';
                     }
 
                                         
