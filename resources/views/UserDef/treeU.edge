@@ -6,9 +6,9 @@
                   
             <body>
                 
-                <title> Stack </title>
+                <title> Tree </title>
                 
-                <h1> STACK</h1>
+                <h1> TREE </h1>
         
                 <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
                 <div class="back" id="back"> Back </div>                
@@ -25,83 +25,295 @@
                         <div class="tex"> Enter your code here </div>
                         <textarea name="code" class="input" rows="50" cols="80" autocomplete="on"> import java.util.Arrays;
 
+class Node{
 
-public class ArrayStack {
-	private int[] theStack;
-	private int maxSize;
-	private int top;
+	public Comparable data;
+	public Node left,right;
 
-	public ArrayStack(int s) {
-		maxSize = s;
-		theStack = new int[maxSize];
-		top = -1;
+	public Node (Comparable data){
+		this(data, null, null);
 	}
 
-	public void push(int elem) {
-		top++;
-		theStack[top] = elem;
-	}
-	
-	public int pop() {
-		int result = theStack[top];
-		theStack[top]=0;
-		top--;
-		return result;
+	public Node(Comparable data, Node left, Node right){
+
+		this.data = data;
+		this.left = left;
+		this.right = right;
+	}		
+}
+public class BTree {
+	private Node root;
+	Comparable [] tree;  
+
+	public BTree() {
+		root = null;
+		tree=new Comparable[16];
 	}
 
-	public int top() {
-		return theStack[top];
+	public void add(Comparable key) {
+		Node current = root, parent = null;
+		while (current != null) {
+			if (key.compareTo(current.data) < 0) {
+				parent = current;
+				current = current.left;
+			}
+
+			else{
+				parent = current;
+				current = current.right;
+			}
+		}
+
+		if (parent == null)
+			root = new Node(key);
+
+		else {
+			if (key.compareTo(parent.data) < 0)
+				parent.left = new Node(key);
+
+			else
+				parent.right = new Node(key);
+		}
 	}
 
-	public boolean isFull() {
-		return (top == (maxSize - 1));
-	}
+	public boolean delete(Comparable key) {
+        if (root == null)
+               return false;
+        Node current = root;
+        Node parent = root;
+        boolean right = true;
 
-	public boolean isEmpty() {
-		return (top == -1);
-	}
+        while (key.compareTo(current.data) != 0) {  
+               if (key.compareTo(current.data) < 0) {         
+                     right = false;
+                     parent = current;
+                     current = current.left;
+               } else {
+                     right = true;
+                     parent = current;
+                     current = current.right;
+               }
+               if (current == null)
+                     return false;
+        }
 
-	public int size() {
-		return (top + 1);
-	}
+        Node substitute = null;
+        if (current.left == null && current.right == null)
+               substitute = null;
 
-	public String printStack() {
-    	return (Arrays.toString(theStack)); 
+        else if (current.left == null)
+               substitute = current.right;
+        else if (current.right == null)
+               substitute = current.left;
+        else 
+        {
+               Node successor = current.right;
+               Node successorParent = current;
+               while (successor.left != null) {
+                     successorParent = successor;
+                     successor = successor.left;
+               }
+               substitute = successor;
+               if (successorParent == current) {
+                     if (successor.right == null)
+                            successorParent.right = null;
+                     else
+                            successorParent.right = successor.right;
+               } else {
+                     if (successor.right == null)
+                            successorParent.left = null;
+                     else
+                            successorParent.left = successor.right;
+               }
+               successor.right = current.right;
+               successor.left = current.left;
+               substitute = successor;
+        } 
+        if (current == root) 
+               root = substitute;
+        else if (right)
+               parent.right = substitute;
+        else
+               parent.left = substitute;
+        current=null; 
+        return true;
+
+ }
+
+
+	public String display(){
+	    Node current=root;
+	    Node parent=root;
+
+	    if(current!=null){
+	        tree[1]=current.data;
+	    }
+	    
+	    if(current != null){
+    	    if(current.left!=null){
+    	       tree[2]=current.left.data;
+    	    }
+    	    else{
+    	        tree[2]=null;
+    	    }
+    	    if(current.right!=null){
+    	       tree[3]=current.right.data;
+    	    }
+    	    else{
+    	        tree[3]=null;
+    	    }
+    	    
+    	    current=parent.left;
+    	    if(current!=null){
+        	    if(current.left!=null){
+        	       tree[4]=current.left.data;
+        	    }
+        	    else{
+    	            tree[4]=null;
+    	        }
+        	    if(current.right!=null){
+        	       tree[5]=current.right.data;
+        	    }
+        	    else{
+    	            tree[5]=null;
+    	        }
+    	    
+    	    
+        	    Node parentL=current;
+        	    
+        	    current=parentL.left;
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[8]=current.left.data;
+            	    }
+            	    else{
+        	            tree[8]=null;
+        	        }
+            	    if(current.right!=null){
+            	       tree[9]=current.right.data;
+            	    }
+            	    else{
+        	            tree[9]=null;
+        	        }
+        	    }
+        	    
+        	    current=parentL.right;
+        	    
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[10]=current.left.data;
+            	    }
+            	    else{
+            	        tree[10]=null;
+            	    }
+            	    if(current.right!=null){
+            	       tree[11]=current.right.data;
+            	    }
+            	    else{
+            	        tree[11]=null;
+            	    }
+        	    }
+    	    }
+	    
+    	    current=parent.right;
+    	    if(current!=null){
+        	    if(current.left!=null){
+        	       tree[6]=current.left.data;
+        	    }
+        	    else{
+        	        tree[6]=null;
+        	    }
+        	    if(current.right!=null){
+        	       tree[7]=current.right.data;
+        	    }
+        	    else{
+        	        tree[7]=null;
+        	    }
+        	    Node parentR=current;
+        	    
+        	    
+        	    
+        	    current=parentR.left;
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[12]=current.left.data;
+            	    }
+            	    else{
+            	        tree[12]=null;
+            	    }
+            	    if(current.right!=null){
+            	       tree[13]=current.right.data;
+            	    }
+            	    else{
+            	        tree[13]=null;
+            	    }
+        	    }
+        	    
+        	    current=parentR.right;
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[14]=current.left.data;
+            	    }
+            	    else{
+            	        tree[14]=null;
+            	    }
+            	    if(current.right!=null){
+            	       tree[15]=current.right.data;
+            	    }
+            	    else{
+            	        tree[15]=null;
+            	    }
+        	    }
+    	    }
+	    }
+	    else{
+	        tree[1]=null;
+	    }
+	    
+	    return (Arrays.toString(tree));
 	}
 	
 	static void print(String []a) {
 	    System.out.println(Arrays.toString(a)); 
 	}
 	
-	public static void main(String[] args){
-	    ArrayStack s=new ArrayStack(5);
-	    String[] a=new String[8];
-	    a[0]=s.printStack();
-	    s.push(2);
-	    a[1]=s.printStack();
-	    s.push(6);
-	    a[2]=s.printStack();
-	    s.push(5);
-	    a[3]=s.printStack();
-	    s.push(9);
-	    a[4]=s.printStack();
-	    s.pop();
-            a[5]=s.printStack();
-	    s.push(3);
-            a[6]=s.printStack();
-            s.push(4);
-            a[7]=s.printStack();
+	public static void main(String[]args){
+	    BTree t=new BTree();
+	    String[] a=new String[14];
+	    a[0]=t.display();
+	    t.add(14);
+	    a[1]=t.display();
+	    t.add(15);
+	    a[2]=t.display();
+	    t.add(5);
+	    a[3]=t.display();
+	    t.delete(15);
+	    a[4]=t.display();
+	    t.add(10);
+	    a[5]=t.display();
+	    t.add(20);
+	    a[6]=t.display();
+	    t.add(25);
+	    a[7]=t.display();
+	    t.add(18);
+	    a[8]=t.display();
+	    t.add(12);
+	    a[9]=t.display();
+	    t.add(9);
+	    a[10]=t.display();
+	    t.delete(5);
+	    a[11]=t.display();
+	    t.add(4);
+	    a[12]=t.display();
+
 	    print(a);
-	    s.printStack();
 	}
 
 }
 
- 
-
- </textarea>
+</textarea>
                         <input type="submit" value="Run" class="run">
-                        <textarea class="data" name="data">stack</textarea>
+                        <textarea class="data" name="data">tree</textarea>
                     </form>
 
 
@@ -159,30 +371,6 @@ public class ArrayStack {
                         }    
                     }
 
-                    function set(){  
-                        var currentDate = new Date();
-                        var timestamp = currentDate.getTime() / 1000 ;
-                        console.log("out: "+timestamp);
-
-                        setTimeout(function(){
-                            stack={{{res}}}
-                            console.log({{{res}}});   
-                                                 
-                            currentDate = new Date();
-                            timestamp = currentDate.getTime() / 1000 ;
-                            console.log("in: "+timestamp + " Result: " +stack);
-                            var output={{out}}
-                            console.log(output); 
-                            display();
-                        },3000);  
-
-                        setTimeout(function(){
-                            currentDate = new Date();
-                            timestamp = currentDate.getTime() / 1000 ;
-                            console.log("2 seconds passed Time: "+ timestamp);
-                        },2000);
-
-                    }
 
                     function show() {
                         document.getElementById("myModal").style.display = "block";

@@ -89,6 +89,10 @@ class ExecuteCodeController {
 					return response.redirect('/UserDefined/hashRes');
 				}
 
+				else if(data.localeCompare('tree')==0){
+					return response.redirect('/UserDefined/treeRes');
+				}
+
 				else if(data.localeCompare('selection')==0){
 					return response.redirect('/UserDefined/selectRes');
 				}
