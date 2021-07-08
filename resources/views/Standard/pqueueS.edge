@@ -44,11 +44,11 @@
                 <div class="stackHome">
         
                     <div class="btn-group">
-                        <button class="button" onclick="create()">Create</button>
-                        <button class="button" onclick="enqueue()">Enqueue</button>          
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="enqueueBtn" class="button" onclick="enqueue()">Enqueue</button>          
                         
-                        <button class="button" onclick="dequeue()">Dequeue</button>
-                        <button class="button" onclick="peek()" >Peek</button>
+                        <button id="dequeueBtn" class="button" onclick="dequeue()">Dequeue</button>
+                        <button id="peekBtn" class="button" onclick="peek()" >Peek</button>
                     </div>
                     
                     <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
@@ -67,7 +67,7 @@
                 <p class ="notify" id="notify"> </p>
                 <p class ="action" id="action"> </p>   <br> <br>
 
-                 <div class="abt" onclick="show()"> About </div>
+                  <div class="abt" onclick="show()"> About </div>
                     
                 <div id="myModal" class="modal">
                   <div class="modal-content">
@@ -219,6 +219,15 @@
                            
                            History.push("Enqueue: "+v+" with priority: "+pr)
 
+                           document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("dequeueBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("enqueueBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("dequeueBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("enqueueBtn").style.cursor= 'not-allowed';
+
                             setTimeout(function(){document.getElementById("mp1").style.background='#fbe8a6';
                                                     },1000);
                                                      
@@ -266,6 +275,14 @@
                                         
                                 setTimeout(function(){node.style.display='none';
                                                     node.classList.remove("anim");
+                                                    document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("dequeueBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("enqueueBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("dequeueBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("enqueueBtn").style.cursor= 'pointer';
                                                     },2000*loop+6400);
                                 
 
@@ -292,6 +309,15 @@
                         document.getElementById("action").innerHTML="The queue is empty!";
                     }
                     else{
+
+                        document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("dequeueBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("enqueueBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("dequeueBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("enqueueBtn").style.cursor= 'not-allowed';
 
                         History.push("Dequeue: "+popV+" with priority: "+p)
                         document.getElementById("enq").style.display='none';
@@ -325,6 +351,14 @@
 
                             setTimeout(function(){
                                                 document.getElementById("pp5").style.background='none';
+                                                document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("dequeueBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("enqueueBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("dequeueBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("enqueueBtn").style.cursor= 'pointer';
                                                 },4800);
                                         
                     }
@@ -343,6 +377,16 @@
                         document.getElementById("action").innerHTML="The queue is empty!";
                     }
                     else{
+
+                        document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("dequeueBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("enqueueBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("dequeueBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("enqueueBtn").style.cursor= 'not-allowed';
+
                         History.push("Peek: "+popV)
                         document.getElementById("enq").style.display='none';
                                document.getElementById("deq").style.display='none';
@@ -363,6 +407,14 @@
                                                 },3000);
                                 
                             setTimeout(function(){document.getElementById("pe3").style.background='none';
+                                                    document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("dequeueBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("enqueueBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("dequeueBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("enqueueBtn").style.cursor= 'pointer';
                                                 },3500);
                                         
                     }

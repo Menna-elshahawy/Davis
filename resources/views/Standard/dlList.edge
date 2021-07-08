@@ -46,10 +46,10 @@
             <div class="stackHome">
         
                     <div class="btn-group">
-                        <button class="button" onclick="create()">Create</button>
-                        <button class="button" onclick="insert()">Insert</button>             
-                        <button class="button" onclick="remove()">Remove</button>
-                        <button class="button" onclick="search()" >Search</button>
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="insertBtn" class="button" onclick="insert()">Insert</button>             
+                        <button id="removeBtn" class="button" onclick="remove()">Remove</button>
+                        <button id="searchBtn" class="button" onclick="search()" >Search</button>
                     </div>
                     
                     <!--    Create       -->
@@ -284,6 +284,15 @@
                                 
                                 
                                 document.getElementById("nodeH").innerHTML=v;
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
                                 
                                 setTimeout(function(){document.getElementById("ih1").style.background='#fbe8a6';
                                                     },1000);
@@ -315,6 +324,14 @@
 
                                     setTimeout(function(){document.getElementById("ih10").style.background='none';
                                             document.getElementById("action").innerHTML="You inserted "+v+" at the head";
+                                            document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                         },6500);
                                 
  
@@ -353,7 +370,13 @@
 
                                     setTimeout(function(){document.getElementById("ih10").style.background='none';
                                             document.getElementById("action").innerHTML="You inserted "+v+" at the head";
-                                            
+                                            document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                     },8500);
                                 
 
@@ -406,6 +429,15 @@
                                 var t='l'.concat(list.length);
                                 nodeT.style.left=410+(list.length)*80;
                                 list.push(v)
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
                                 
                                 setTimeout(function(){document.getElementById("it1").style.background='#fbe8a6';
                                                     },1000);
@@ -473,7 +505,14 @@
 
                                     setTimeout(function(){document.getElementById("it10").style.background='none';
                                             document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
-                                            
+                                            document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                     },8500);
                                 
                                 }    
@@ -573,7 +612,17 @@
                                 document.getElementById("method").style.display='inline';
                                 document.getElementById("upR").style.left=450;
                                  var v=list.shift();
-                                History.push("Remove head: "+v)                                                                   
+                                History.push("Remove head: "+v)           
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+
                                 setTimeout(function(){document.getElementById("rh1").style.background='#fbe8a6';
                                                     },1000);
                                 
@@ -634,7 +683,15 @@
                                                                                
                                     },8000);
 
-                                    setTimeout(function(){document.getElementById("rh10").style.background='none';              
+                                    setTimeout(function(){document.getElementById("rh10").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';               
                                     },8500);
                                 
 
@@ -671,6 +728,15 @@
                                 var l=list.length
                                 History.push("Remove tail: "+v)
                                 document.getElementById("upL").style.left=450+(list.length-1)*80;
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
 
                                setTimeout(function(){document.getElementById("rt1").style.background='#fbe8a6';
                                                     },1000);
@@ -735,7 +801,15 @@
                                                                                
                                     },8000);
 
-                                    setTimeout(function(){document.getElementById("rt10").style.background='none';              
+                                    setTimeout(function(){document.getElementById("rt10").style.background='none';      
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';         
                                     },8500);
                                 
                                 }                       
@@ -834,6 +908,16 @@
                                     break;
                                 }
                             }
+
+                            document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+
                             if(f=="t"){
                                 var c=1;
                                 document.getElementById("insHM").style.display='none';
@@ -845,6 +929,7 @@
                                 document.getElementById("method").style.display='inline';
                                 History.push("Search: "+v)
 
+                                
                                 setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
                                                     },1000);
                                 
@@ -897,7 +982,15 @@
                                         document.getElementById("s9").style.background='#fbe8a6';
                                     },4000*(c)+2000);
 
-                                setTimeout(function(){document.getElementById("s9").style.background='none';                            
+                                setTimeout(function(){document.getElementById("s9").style.background='none'; 
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                           
                                     },4000*(c)+2500);
               
                                 
@@ -977,6 +1070,14 @@
                                 
                                 setTimeout(function(){document.getElementById("srchM").style.display='none';
                                         document.getElementById("method").style.display='none';
+                                        document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                     },4000*(c)+7000);       
                                   
                             }

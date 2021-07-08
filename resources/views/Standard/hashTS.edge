@@ -43,11 +43,11 @@
                 <div class="stackHome">
         
                     <div class="btn-group">
-                        <button class="button" onclick="create()">Create</button>
-                        <button class="button" onclick="push()">Insert</button>          
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="insertBtn" class="button" onclick="push()">Insert</button>          
                         
-                        <button class="button" onclick="remove()">Remove</button>
-                        <button class="button" onclick="search()" >Search</button>
+                        <button id="removeBtn" class="button" onclick="remove()">Remove</button>
+                        <button id="searchBtn" class="button" onclick="search()" >Search</button>
                     </div>
                     
                     <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Empty</button> 
@@ -285,6 +285,15 @@
                                 const node=document.getElementById("node");
                                 node.style.display='flex';    
                                 document.getElementById("node").innerHTML=v;
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
                                 
                                 setTimeout(function(){document.getElementById("in1").style.background='#fbe8a6';
                                                     },1000);
@@ -337,6 +346,15 @@
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';
                                                     node.classList.remove(an);
+
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },9500);
                                             
 
@@ -545,6 +563,14 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("in11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },13000);
                 
 
@@ -652,6 +678,15 @@
                             document.getElementById("removeM").style.display='none';                                       
                             document.getElementById("removeM").style.display='inline';
                             document.getElementById("method").style.display='inline';
+
+                            document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
                               
                                 
                             setTimeout(function(){document.getElementById("r1").style.background='#fbe8a6';
@@ -723,7 +758,15 @@
                                                     },8000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("r11").style.background='none';                                                                                                         
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                                                                                                         
                                                     },8500);                
 
                                 }
@@ -776,7 +819,15 @@
                                                     },10000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("r11").style.background='none';                                                                                                         
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                                                                                                         
                                                     },10500);                
                                                 
                                 }
@@ -836,7 +887,15 @@
                                                     },12000);
 
                                     setTimeout(function(){
-                                                    document.getElementById("r11").style.background='none';                                                                                                         
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                                                                                                         
                                                     },12500);                
             
                                 }
@@ -866,6 +925,14 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },7000); 
                                      
                                 }
@@ -904,6 +971,14 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },9000); 
 
                                 }
@@ -953,6 +1028,14 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },11000); 
                                     
                                 }
@@ -1016,6 +1099,14 @@
 
                                     setTimeout(function(){
                                                     document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },13000); 
                                     
 
@@ -1107,7 +1198,15 @@
                             document.getElementById("removeM").style.display='none';        
                             document.getElementById("searchM").style.display='inline';
                             document.getElementById("method").style.display='inline';
-                              
+
+                            document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';  
                                 
                             setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
                                                 },1000);
@@ -1153,7 +1252,15 @@
 
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
-                                                    document.getElementById(t).style.background='none';  
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';  
                                                     },9000);             
                                 }
 
@@ -1195,7 +1302,14 @@
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
                                                     document.getElementById(t).style.background='none';  
-
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
                                                     },11000);             
                                 }
 
@@ -1249,7 +1363,15 @@
 
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
-                                                    document.getElementById(t).style.background='none'; 
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                                     },13000);             
                                 }
                             }
@@ -1290,7 +1412,15 @@
 
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
-                                                    document.getElementById(t).style.background='none'; 
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                                     },12000);    
                                 }
 
@@ -1341,7 +1471,15 @@
 
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
-                                                    document.getElementById(t).style.background='none'; 
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                                     },13000);             
                                 }
 
@@ -1404,7 +1542,15 @@
 
                                     setTimeout(function(){
                                                     var t='i'.concat(r+1);
-                                                    document.getElementById(t).style.background='none'; 
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
                                                     },14000);             
                                 }
                             }

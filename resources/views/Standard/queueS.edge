@@ -46,11 +46,11 @@
                 <div class="stackHome">
         
                     <div class="btn-group">
-                        <button class="button" onclick="create()">Create</button>
-                        <button class="button" onclick="enqueue()">Enqueue</button>          
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="enqueueBtn" class="button" onclick="enqueue()">Enqueue</button>          
                         
-                        <button class="button" onclick="dequeue()">Dequeue</button>
-                        <button class="button" onclick="peek()" >Peek</button>
+                        <button id="dequeueBtn" class="button" onclick="dequeue()">Dequeue</button>
+                        <button id="peekBtn" class="button" onclick="peek()" >Peek</button>
                     </div>
                     
                     <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
@@ -174,7 +174,16 @@
                                document.getElementById("deq").style.display='none';
                                document.getElementById("peek").style.display='none';
                                 document.getElementById("enq").style.display='inline';
-                                document.getElementById("method").style.display='inline';                                                                
+                                document.getElementById("method").style.display='inline';       
+
+                                document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("dequeueBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("enqueueBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("dequeueBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("enqueueBtn").style.cursor= 'not-allowed';                                                         
                                 
                                 const node=document.getElementById("node");
                                 node.classList.add('anim');
@@ -216,6 +225,15 @@
                                                     this.display();
                                                     document.getElementById("mp4").style.background='none';
                                                     document.getElementById("action").innerHTML="You enqueued "+v;
+
+                                                    document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("dequeueBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("enqueueBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("dequeueBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("enqueueBtn").style.cursor= 'pointer';
                                                     },5000);
                                         
                                 setTimeout(function(){node.style.display='none';
@@ -249,6 +267,15 @@
                                document.getElementById("peek").style.display='none';
                             document.getElementById("deq").style.display='inline';
                             document.getElementById("method").style.display='inline';
+
+                            document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("dequeueBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("enqueueBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("dequeueBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("enqueueBtn").style.cursor= 'not-allowed';          
                             
                             setTimeout(function(){document.getElementById("pp1").style.background='#fbe8a6';
                                                 },1000);
@@ -275,6 +302,15 @@
 
                             setTimeout(function(){
                                                 document.getElementById("pp5").style.background='none';
+
+                                                document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("dequeueBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("enqueueBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("dequeueBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("enqueueBtn").style.cursor= 'pointer';
                                                 },4800);
                                         
 
@@ -302,6 +338,15 @@
                                document.getElementById("peek").style.display='none';
                              document.getElementById("peek").style.display='inline';
                             document.getElementById("method").style.display='inline';
+
+                            document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("dequeueBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("enqueueBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("dequeueBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("enqueueBtn").style.cursor= 'not-allowed';          
                             
                             setTimeout(function(){document.getElementById("pe1").style.background='#fbe8a6';
                                                 },1000);
@@ -316,6 +361,14 @@
                                                 },3000);
                                 
                             setTimeout(function(){document.getElementById("pe3").style.background='none';
+                                                    document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("dequeueBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("enqueueBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("dequeueBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("enqueueBtn").style.cursor= 'pointer';
                                                 },3500);
 
                         }

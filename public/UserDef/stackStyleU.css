@@ -20,37 +20,6 @@ h1 {
 
 }
 
-ul{
-  box-sizing: content-box;
-/*    box-sizing: border-box;*/
-  list-style-type:none;
-/*    display: flex;    WILL USE IT IN QUEUE*/
-/*  justify-content: center;*/
-/*  align-items: center;*/
-  
-  padding: 4px;
-  margin-top: 5%;
-  margin-left: 30%;
-/*    margin-right: 50%;*/
-  display: block;
-  width: 60px;
-}
-
-ul li {
-  font-size:25px; 
-  width: 45;
-text-align: center;
-border: 3px solid #f4976c;
-margin-top: -1px; /* Prevent double borders */
-/* background-color: #f6f6f6; */
-padding: 8px;
-border-radius: 40%;
-word-wrap: break-word;
-font-family: cursive;
-color: #303c6c;    
-font-weight: bold;
-}
-
 .area{             
     position: fixed;
     display: inline-block;
@@ -69,7 +38,7 @@ font-weight: bold;
     resize: none;
     position: fixed;
     top: 150;
-    left: 420;
+    left: 500;
     font-size: 15; 
     background-color: #f1f3f3;
     border: 1px solid #303c6c;   
@@ -80,7 +49,7 @@ font-weight: bold;
 .tex{ 
     position: fixed;
     top: 110;
-    left: 420;
+    left: 500;
     font-size: 20;
     font-family: cursive;
     color: #f4976c;
@@ -89,7 +58,7 @@ font-weight: bold;
 .run{
     position: fixed;
     top: 110;
-    left: 950;
+    left: 1030;
     background-color: #b4dfe5; 
   border: 2px solid #303c6c;
   color: white;
@@ -207,38 +176,6 @@ font-size: 40px;
   cursor: pointer;
 }
 
-.read{
-  position: fixed;
-  top:15;
-  left: 150;
-  /* bottom: 10;
-  right: 100; */
-  color: #f4976c;
-  font-size: 15;
-  font-family: cursive;
-  border: 1px solid #303c6c;
-  padding: 3px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-@keyframes r {
-    0%{transform: rotate(0deg);}
-    33%{transform: rotate(6deg);}
-    66%{transform: rotate(-6deg);}
-    100%{transform: rotate(0deg);}
-}
-
-@keyframes r2 {
-    0%{left: 150;}
-    33%{left: 155;}
-    66%{left: 145;}
-    100%{left: 150;}
-}
-
-.anim{
-  animation: r 2s infinite;
-}
 
 ::-webkit-scrollbar {
   width: 12px;
@@ -266,11 +203,93 @@ font-size: 40px;
     font-size: 45;
     position: fixed;
     top: 95px;
-    left: 620px;
+    left: 700px;
     font-family: cursive;
     color: #303c6c;
 }
 
 .data{
   display: none;
+}
+
+
+/* Code Istructions */
+@keyframes slideS {
+  from{left: -450;}
+  to{left: 20;}
+}
+
+@keyframes slideH {
+from{left: 20;}
+to{left: -450;}
+}
+
+.infoAnimS{
+animation: slideS 400ms ;
+animation-fill-mode:forwards;
+animation-timing-function: ease-in-out;
+}
+
+.infoAnimH{
+animation: slideH 400ms ;
+animation-fill-mode:forwards;
+animation-timing-function: ease-in-out;
+
+}
+
+.infoAr{
+  content: "\203A";
+  font-size: 60;
+  font-family: cursive;
+  color: #f4976c;
+  /* border: 1px solid #303c6c; */
+  border-radius: 50%;
+    position: fixed;
+  top: 80;
+  left: 10;
+  cursor: pointer;
+  display: none;
+}
+
+.arrH{
+  content: "\203A";
+  font-size: 60;
+  font-family: cursive;
+  color: #f4976c;
+  /* border: 1px solid #303c6c; */
+  border-radius: 50%;
+    position: fixed;
+    top: 80;
+  left: 10;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.know{
+  position: fixed;
+  top: 115;
+  left: 40;
+  font-size: 18;
+  font-family: cursive;
+  color: #7ac7d1;
+}
+
+.info{
+  position: fixed;
+  /* bottom: 5 ; */
+  top: 150;
+  left: 20;
+  border: 1px solid #303c6c;
+  border-radius: 8px;
+  font-size: 16;
+  font-family: cursive;
+  /* color: #7ac7d1; */
+  color: #303c6c;
+  height: 500;
+  width: 400;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  line-height: 150%;
+  text-align: center;
 }

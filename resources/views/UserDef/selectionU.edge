@@ -14,7 +14,6 @@
                 <div class="back" id="back"> Back </div>                
                     <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
-                <div class="read" id="read" onclick="showR()">Read me first</div>
                 <span class="arr">&#8628;</span>
 
                 <div class="stackHome">
@@ -67,12 +66,6 @@ public class SelectionSort {
                   </div>
                  </div>
 
-                <div id="myModalR" class="modal">
-                    <div class="modal-content">
-                    <span class="close" id="closeR" onclick="closeR()">&#215;</span>
-                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> will write</p>
-                  </div>
-                 </div>
                     
                     
                      <p class= "area" id="area"> </p>
@@ -151,20 +144,8 @@ public class SelectionSort {
                         if (event.target == document.getElementById("myModal")) {
                             document.getElementById("myModal").style.display = "none";
                         }
-                        if (event.target == document.getElementById("myModalR")) {
-                            document.getElementById("myModalR").style.display = "none";
-                        }
-                    }
 
-                    function showR() {
-                        document.getElementById("myModalR").style.display = "block";
-                        document.getElementById("read").classList.remove('anim');
                     }
-
-                     function closeR() {
-                        document.getElementById("myModalR").style.display = "none";
-                    }
-
 
                     function showBack(){
                         document.getElementById("back").style.display='inline-block';

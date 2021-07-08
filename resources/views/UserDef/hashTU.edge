@@ -15,8 +15,27 @@
                 
                     <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
                 <div class="backH" id="backH"> Back to home page </div>
-                <div class="read" id="read" onclick="showR()">Read me first</div>
                 <span class="arr">&#8628;</span>
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know">Instructions before you write your code: </div>
+                <div class="info" id="info"> 
+                    -You should write the code in java language<br>
+                    -You will write the whole code starting from creating the public class and the object variables 
+                    and methods to the main method. You can easily copy your working java code and paste it here<br>
+                    -You cannot add comments to the code, to avoid errors<br>
+                    -In the main method, you will create a list of Strings as so: String[] a= new String[length]; 
+                    where length should be greater than or equal the number of method calls you intend to invoke on the 
+                    object<br>
+                    -After creating the object for the first time, and after each method call on the object (insert/ delete) you will insert 
+                    the displayed object to the list a. Consequently the display method of the data structure should return the displayed 
+                    object instead of printing it, this returned string will be inserted to the list of strings a. Example: stack.push(5); a[1]=stack.display();<br>
+
+                    -After you finish all the method calls, you will print the list a with this command line: System.out.println(Arrays.toString(a)); 
+                    And don't forget to add this import line at the very beginning of the code to avoid errors, import java.util.Arrays;<br><br>
+
+                </div>
 
                 <div class="stackHome">
                     
@@ -143,12 +162,6 @@ public class HashTable {
                   </div>
                 </div>
                     
-                <div id="myModalR" class="modal">
-                    <div class="modal-content">
-                    <span class="close" id="closeR" onclick="closeR()">&#215;</span>
-                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> will write</p>
-                  </div>
-                 </div>
                     
                      <p class= "area" id="area"> </p>
                     
@@ -164,6 +177,7 @@ public class HashTable {
 
                 //    document.getElementById("read").classList.add('anim'); 
                     var list=[];
+                    var count=1;
                    
                     
                     function display(){
@@ -235,18 +249,6 @@ public class HashTable {
                         if (event.target == document.getElementById("myModal")) {
                             document.getElementById("myModal").style.display = "none";
                         }
-                        if (event.target == document.getElementById("myModalR")) {
-                            document.getElementById("myModalR").style.display = "none";
-                        }
-                    }
-
-                    function showR() {
-                        document.getElementById("myModalR").style.display = "block";
-                        document.getElementById("read").classList.remove('anim');
-                    }
-
-                     function closeR() {
-                        document.getElementById("myModalR").style.display = "none";
                     }
 
 
@@ -264,6 +266,23 @@ public class HashTable {
 
                     function disBackH(){
                         document.getElementById("backH").style.display='none';
+                    }
+
+                    function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
                     }
 
             
