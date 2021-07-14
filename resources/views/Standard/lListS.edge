@@ -72,9 +72,7 @@
                          <div class="showT"  id="showT"> <input class="num2" type="number" id="inT" min="1" max="9"> 
                             <button class="go2" onclick="insertTail()">Go</button> </div> </div>
                     
-                    <div class="insI" id="insI"> <button class="iBtn" onclick="showI()"> Insert at index</button>
-                         <div class="showI"  id="showI"> <input class="num2" type="number" id="inI" min="1" max="9"> <input class="num2" type="number" id="indx" onmouseover="popIn()" onmouseout="disIn()" min="0" max="7" > <div class="popIn" id="popIn"> Enter the index of the element </div> <button class="go2" onclick="insertIndex()">Go</button> </div> </div>
-                       
+
                     
                     <!--    Remove       -->
                     
@@ -82,9 +80,7 @@
                     
                     <div class="remT" id="remT"> <button class="tBtn" onclick="removeTail()"> Remove last</button> </div>
                     
-                    <div class="remI" id="remI"> <button class="iBtn" onclick="showRI()"> Remove at index</button>
-                         <div class="showRI"  id="showRI"> <input class="num2" type="number" id="Rindx" onmouseover="popRIn()" onmouseout="disRIn()" min="0" max="7" > <div class="popRIn" id="popRIn"> Enter the index of the element </div> <button class="go2" onclick="removeIndex()">Go</button> </div> </div>
-                            
+        
                     <!--    Search     -->
                     
                      <div class="sAr" id="sAr"> <input class="num" type="number" id="val" size="3" min="1" max="9"> <button class="go" onclick="searchV()">Go</button> </div>
@@ -215,20 +211,16 @@
                     document.getElementById("createDef").style.display='none';
                     document.getElementById("insH").style.display='inline-block';
                     document.getElementById("insT").style.display='inline-block';
-                    document.getElementById("insI").style.display='inline-block';
                     document.getElementById("remH").style.display='none';
                     document.getElementById("remT").style.display='none';
-                    document.getElementById("remI").style.display='none';  
                     document.getElementById("sAr").style.display='none';
                     document.getElementById("showH").style.display='none';
                     document.getElementById("showT").style.display='none';
-                    document.getElementById("showI").style.display='none';   
                 }
 
                 function insertHead(){
                     document.getElementById("insH").style.display='none';
                     document.getElementById("insT").style.display='none';
-                    document.getElementById("insI").style.display='none';
                     document.getElementById("showH").style.display='none';
                     
                     var v = document.getElementById("inH").value;
@@ -329,7 +321,6 @@
                 function insertTail(){
                     document.getElementById("insH").style.display='none';
                     document.getElementById("insT").style.display='none';
-                    document.getElementById("insI").style.display='none';   
                     document.getElementById("showT").style.display='none';
                     
                     var v = document.getElementById("inT").value;
@@ -493,21 +484,16 @@
                     document.getElementById("createDef").style.display='none';
                     document.getElementById("insH").style.display='none';
                     document.getElementById("insT").style.display='none';
-                    document.getElementById("insI").style.display='none';
                     document.getElementById("remH").style.display='inline-block';
                     document.getElementById("remT").style.display='inline-block';
-                    document.getElementById("remI").style.display='inline-block';
-                    document.getElementById("showRI").style.display='none';   
                     document.getElementById("sAr").style.display='none';
                     
                 }
 
                 function removeHead(){
 
-                    document.getElementById("showRI").style.display='none'; 
                     document.getElementById("remH").style.display='none';
                     document.getElementById("remT").style.display='none';
-                    document.getElementById("remI").style.display='none';
                     document.getElementById("notify").innerHTML= "";
                     
                     if(list.length==0){
@@ -581,10 +567,8 @@
 
                 function removeTail(){
 
-                    document.getElementById("showRI").style.display='none';
                     document.getElementById("remH").style.display='none';
                     document.getElementById("remT").style.display='none';
-                    document.getElementById("remI").style.display='none';
                     document.getElementById("notify").innerHTML= "";
                     
                     if(list.length==0){
@@ -774,10 +758,8 @@
                     document.getElementById("createDef").style.display='none';
                     document.getElementById("insH").style.display='none';
                     document.getElementById("insT").style.display='none';
-                    document.getElementById("insI").style.display='none';
                     document.getElementById("remH").style.display='none';
                     document.getElementById("remT").style.display='none';
-                    document.getElementById("remI").style.display='none';
                     document.getElementById("sAr").style.display='inline-block';
                     
                 }
@@ -993,10 +975,8 @@
                     document.getElementById("action").innerHTML="";
                     document.getElementById("insH").style.display='none';
                     document.getElementById("insT").style.display='none';
-                    document.getElementById("insI").style.display='none';
                     document.getElementById("remH").style.display='none';
                     document.getElementById("remT").style.display='none';
-                    document.getElementById("remI").style.display='none';
                     document.getElementById("sAr").style.display='none';
 
                 }
@@ -1163,19 +1143,16 @@
                 function showHd(){
                     document.getElementById("showH").style.display='inline-block';
                     document.getElementById("showT").style.display='none';
-                    document.getElementById("showI").style.display='none';   
                 }
 
                 function showT(){
                     document.getElementById("showH").style.display='none';
                     document.getElementById("showT").style.display='inline-block';
-                    document.getElementById("showI").style.display='none';   
                 }
 
                 function showI(){
                     document.getElementById("showH").style.display='none';
                     document.getElementById("showT").style.display='none';
-                    document.getElementById("showI").style.display='inline-block';   
                 }
 
                 function popIn(){
