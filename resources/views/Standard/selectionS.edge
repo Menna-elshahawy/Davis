@@ -56,7 +56,7 @@
                        <div class="code" id="code">
                            
                           <div id="sort" class="sort">
-                               <div id="s1" class="s1">  void sort(int a[]) { </div> 
+                               <div id="s1" class="s1"> public void selectionSort(int a[]) { </div> 
                                <div id="s2" class="s2" style="text-indent: 40px;">  for (int i = 0; i < a.length - 1; i++ ){ </div> 
                                <div id="s3" class="s3" style="text-indent: 80px;">  int minIndex = i;  </div> 
                                <div id="s4" class="s4" style="text-indent: 80px;">  int min = a[minIndex];  </div> 
@@ -240,7 +240,7 @@
                                 var minIndex = i;
                                 var min = list[minIndex];
                                 for (var j = i + 1; j < list.length; j++) {                                    
-                                        if (list[j] < min) {
+                                        if (parseInt(list[j]) < parseInt(min)) {
                                             minIndex = j;
                                             min = list[minIndex];
                                         }                                    

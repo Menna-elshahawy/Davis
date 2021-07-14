@@ -162,7 +162,7 @@ ul li {
     display: none;
     position: fixed;
    left: 205px;
-    top:142px;   
+    top:150px;   
 }
 
 .createDef{
@@ -185,6 +185,7 @@ ul li {
     font-weight: bold;
   cursor: pointer;
   width: 65px;
+  height: 28;
   border-radius: 6px;
 
 }

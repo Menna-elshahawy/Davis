@@ -131,7 +131,7 @@ h1 {
     display: none;
     position: fixed;
    left: 205px;
-    top:145px;   
+    top:150px;   
 }
 
 .rndBtn{
@@ -144,6 +144,7 @@ h1 {
     font-weight: bold;
   cursor: pointer;
   width: 65px;
+  height: 28;
   border-radius: 6px;
 
 }
@@ -158,7 +159,7 @@ h1 {
     display: none;
     position: fixed;
    left: 205px;
-    top:170px;   
+    top:183px;   
 }
 
 .empBtn{
@@ -171,6 +172,7 @@ h1 {
     font-weight: bold;
   cursor: pointer;
   width: 65px;
+  height: 28;
   border-radius: 6px;
 
 }

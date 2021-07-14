@@ -56,21 +56,17 @@
                        <div class="code" id="code">
                            
                           <div id="sort" class="sort">
-                               <div id="s1" class="s1">  void sort(int a[]) { </div> 
+                               <div id="s1" class="s1"> public void bubbleSort(int a[]) { </div> 
                                <div id="s2" class="s2" style="text-indent: 40px;">  for (int i = 0; i < a.length - 1; i++ ){ </div> 
-                               <div id="s3" class="s3" style="text-indent: 80px;">  int minIndex = i;  </div> 
-                               <div id="s4" class="s4" style="text-indent: 80px;">  int min = a[minIndex];  </div> 
-                               <div id="s5" class="s5" style="text-indent: 80px;"> for ( int j = i + 1; j < a.length; j++ ){ </div> 
-                               <div id="s6" class="s6" style="text-indent: 120px;">  if ( a[j] < min ){ </div> 
-                               <div id="s7" class="s7" style="text-indent: 160px;">  minIndex = j; </div> 
-                               <div id="s8" class="s8" style="text-indent: 160px;">  min = a[minIndex]; </div> 
-                               <div id="s9" class="s9" style="text-indent: 120px;"> } </div>
-                               <div id="s10" class="s10" style="text-indent: 80px;"> } </div>
-                               <div id="s11" class="s11" style="text-indent: 80px;"> int T = a[minIndex]; </div>
-                               <div id="s12" class="s12" style="text-indent: 80px;"> a[minIndex] = a[i]; </div>
-                               <div id="s13" class="s13" style="text-indent: 80px;"> a[i] = T; </div>
-                               <div id="s14" class="s14" style="text-indent: 40px;"> } </div> 
-                               <div id="s15" class="s15">  } </div> 
+                               <div id="s3" class="s3" style="text-indent: 80px;">  for (j=0; j < a.length-1-i; j++){ </div> 
+                               <div id="s4" class="s4" style="text-indent: 120px;">  if (a[j+1] < a[j]) {   </div> 
+                               <div id="s5" class="s5" style="text-indent: 160px;"> tmp = a[j];  </div> 
+                               <div id="s6" class="s6" style="text-indent: 160px;">  a[j] = a[j+1]; </div> 
+                               <div id="s7" class="s7" style="text-indent: 160px;">  a[j+1] = tmp; </div> 
+                               <div id="s8" class="s8" style="text-indent: 120px;">  } </div> 
+                               <div id="s9" class="s9" style="text-indent: 80px;"> } </div>
+                               <div id="s10" class="s10" style="text-indent: 40px;"> } </div>
+                               <div id="s11" class="s11"> } </div>
                           </div>
 
                         </div>
@@ -238,7 +234,7 @@
                             var n=list.length;
                             for (var i=0; i<n-1; i++) {
                                 for (var j=0; j<n-1-i; j++){
-                                    if (list[j+1] <list[j]) { 
+                                    if (parseInt(list[j+1]) < parseInt(list[j])) { 
                                         tmp = list[j]; 
                                         list[j] = list[j+1];
                                         list[j+1] = tmp;
