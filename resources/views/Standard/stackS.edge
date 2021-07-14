@@ -1,0 +1,575 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('Standard/stackStyleS') }}
+            </head>
+                  
+            <body>
+                
+                <title> Stack </title>
+                
+                <h1> STACK</h1>
+        
+                <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+                 <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+
+                <div class="info" id="info"> <span style="color:#f4976c";> What is a stack </span> <br>
+                    A Stack is an abstract data type that serves as a collection of elements and follows a particular order
+                    in which the operations are performed that is last in first out (LIFO). <br> Considered as a linear data structure,
+                    or more abstractly a sequential collection, the push and pop operations occur only at one end of the structure, 
+                    referred to as the top of the stack <br> <br> 
+                    
+                    <span style="color:#f4976c";> Methods: </span> <br>
+                    Mainly the following three basic operations are performed in the stack: <br>
+                    -Push: Adds an item in the stack. <br>
+                    -Pop: Removes an item from the stack. The items are popped in the reversed order in which they are pushed. <br>
+                    -Peek: Returns top element of stack.<br><br>
+                    
+                    <span style="color:#f4976c";> Applications: </span><br> 
+                    -Redo-undo features at many places like editors, photoshop <br>
+                    -Infix to Postfix /Prefix conversion <br>
+                    -Bracket matching algorithm <br><br>
+               </div>
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know"> Know more about Stacks </div>
+               
+                
+
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="pushBtn" class="button" onclick="push()">Push</button>                                  
+                        <button id="popBtn" class="button" onclick="pop()">Pop</button>
+                        <button id="peekBtn" class="button" onclick="peek()" >Peek</button>
+                    </div>
+                    
+                    <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="6"> 
+                              <div class="popSz" id="popSz"> Enter the length of the stack </div>
+                            <button class="go" onclick="createRnd()">Go</button> </div></div>
+                    
+                    <div class="createDef" id="createDef" > <button class="defBtn" onclick="showAr()">User Defined</button> 
+                        <div class="showDef" id="showDef"> <input class="arr" type="text" id="arr" size="5" onmouseover="popUp()" onmouseout="dis()" placeholder="1,2,3,4,5"> 
+                            <button class="go" onclick="createDef()">Go</button>  <div class="popUp" id="popUp"> Enter the elements separated by commas </div> </div> </div>
+                    
+                    <div class="pushAr" id="pushAr"> <input class="num" type="number" id="val" size="3" min="1"> <button class="go" onclick="go()">Go</button> </div>
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+               
+                 <div class="abt" onclick="show()"> About </div>
+                                 
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+                 <div class="hst" onclick="showH()">Actions History </div>
+                <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
+                  </div>
+                </div>
+                      
+                <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
+                    
+                    <div class="top" id="top">top</div>
+                    <div class="left" id="left"> <span>&#8592;</span> </div>
+                    <div class="downL" id="downL"> <span>&#8601;</span> </div>
+                    <div class="upL" id="upL"> <span>&#8598;</span> </div>
+          
+                <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                          <div id="push" class="push">
+                               <div id="mp1" class="mp1">  public void push(int elem) { </div> 
+                               <div id="mp2" class="mp2" style="text-indent: 40px;">  top++; </div> 
+                               <div id="mp3" class="mp3" style="text-indent: 40px;">  theStack[top] = elem; </div> 
+                               <div id="mp4" class="mp4">  } </div> 
+                          </div>
+
+                           <div class="pop" id="pop">
+                                <div id="pp1" class="pp1"> public int pop() { </div>
+                                <div id="pp2" class="pp2" style="text-indent: 40px;"> int result = theStack[top]; </div>
+                                <div id="pp3" class="pp3" style="text-indent: 40px;"> top--;</div>
+                                <div id="pp4" class="pp4" style="text-indent: 40px;"> return result; </div>
+                                <div id="pp5" class="pp5"> } </div>
+
+                           </div>
+
+                           <div class="peek" id="peek">
+                                <div id="pe1" class="pe1"> public int peek() {  </div>
+                                <div id="pe2" class="pe2" style="text-indent: 40px;"> return theStack[top]; </div>
+                                <div id="pe3" class="pe3"> }  </div>
+
+                           </div>
+                           
+                        </div>
+                       
+                    </div> 
+
+                <script>
+                     
+                    
+                    var stack= [];
+                    var f =true;
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+                    var contH= document.createElement('div');
+                    var histList = document.createElement('ol');
+                    var History=[];
+                    ul.className="sul";
+                    var count=1;
+                    
+                    function push(){
+                        
+                        document.getElementById("pushAr").style.display='inline-block';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("action").innerHTML="";
+                    }
+                    
+                    function go(){
+                        
+                        document.getElementById("pushAr").style.display='none';
+                        
+                        var v =document.getElementById("val").value;
+                        var list=document.getElementById("area");
+                        
+                        if(v ==""){
+                            document.getElementById("notify").innerHTML= "You must enter a value";
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            if(stack.length==6){
+                                document.getElementById("notify").innerHTML= "Maximum size is 6";
+                            }
+                            else{
+                                document.getElementById("peek").style.display='none';
+                                document.getElementById("pop").style.display='none';
+                                document.getElementById("push").style.display='none';
+                                document.getElementById("push").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+
+                                document.getElementById("peekBtn").disabled= true;
+                                document.getElementById("popBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("pushBtn").disabled= true;
+                                document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                                document.getElementById("popBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("pushBtn").style.cursor= 'not-allowed';
+
+                                stack.push(v);            
+                                
+                                History.push("Push: "+ v)
+                                
+                                const node=document.getElementById("node");
+                                node.classList.add('anim');
+                                node.style.display='inline-block';
+                                
+                                document.getElementById("node").innerHTML=v;
+                                
+                                setTimeout(function(){document.getElementById("mp1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("mp1").style.background='none';
+                                                    document.getElementById("mp2").style.background='#fbe8a6';
+                                                    document.getElementById("upL").style.display='inline';
+                                                    document.getElementById("left").style.display='none'; 
+                                                    },1800);
+                                
+                                setTimeout(function(){document.getElementById("mp3").style.background='#fbe8a6';
+                                                    document.getElementById("mp2").style.background='none';
+                                                    
+                                                    },2500);
+                                
+                                setTimeout(function(){document.getElementById("mp4").style.background='#fbe8a6';
+                                                    document.getElementById("mp3").style.background='none';                                
+                                                    },4500);
+
+                                setTimeout(function(){node.classList.remove("anim");
+                                                    this.display();
+                                                    document.getElementById("mp4").style.background='none';
+                                                    document.getElementById("upL").style.display='none';
+                                                    document.getElementById("left").style.display='inline';
+                                                    document.getElementById("action").innerHTML="You pushed "+v;
+
+                                                    document.getElementById("peekBtn").disabled= false;
+                                                    document.getElementById("popBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("pushBtn").disabled= false;
+                                                    document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("popBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("pushBtn").style.cursor= 'pointer';
+                                                    },5000);
+                                        
+                                setTimeout(function(){node.style.display='none';
+                                                    },4900);
+
+                            }
+                            
+                        }
+                        document.getElementById("val").value="";
+                    }
+
+                    function pop(){
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        
+                        var popV=stack.pop();
+                        document.getElementById("notify").innerHTML= "";
+                        
+                        if(popV==undefined){
+                            document.getElementById("action").innerHTML="The stack is empty!";
+                        }
+                        else{        
+                            
+                            History.push("Pop: "+ popV)
+                            document.getElementById("peek").style.display='none';
+                                document.getElementById("pop").style.display='none';
+                                document.getElementById("push").style.display='none';
+                            document.getElementById("pop").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+
+                            document.getElementById("peekBtn").disabled= true;
+                            document.getElementById("popBtn").disabled= true;
+                            document.getElementById("createBtn").disabled= true;
+                            document.getElementById("pushBtn").disabled= true;
+                            document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                            document.getElementById("popBtn").style.cursor= 'not-allowed';
+                            document.getElementById("createBtn").style.cursor= 'not-allowed';
+                            document.getElementById("pushBtn").style.cursor= 'not-allowed';
+
+                            
+                            
+                            setTimeout(function(){document.getElementById("pp1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pp1").style.background='none';
+                                                    document.getElementById("pp2").style.background='#fbe8a6';
+                                                },1800);
+                                
+                            setTimeout(function(){document.getElementById("pp3").style.background='#fbe8a6';
+                                                    document.getElementById("pp2").style.background='none';
+                                                document.getElementById("downL").style.display='inline';
+                                                document.getElementById("left").style.display='none';
+                                                },2500);
+                                
+                            setTimeout(function(){document.getElementById("pp4").style.background='#fbe8a6';
+                                                    document.getElementById("pp3").style.background='none';
+                                                },4000);
+                            
+                            setTimeout(function(){document.getElementById("pp5").style.background='#fbe8a6';
+                                                document.getElementById("pp4").style.background='none';
+                                                                                              
+                                                },4500);
+
+                            setTimeout(function(){this.display();
+                                                document.getElementById("pp5").style.background='none';
+                                                document.getElementById("action").innerHTML="You popped "+popV;
+                                                document.getElementById("downL").style.display='none';
+
+                                                document.getElementById("peekBtn").disabled= false;
+                                                document.getElementById("popBtn").disabled= false;
+                                                document.getElementById("createBtn").disabled= false;
+                                                document.getElementById("pushBtn").disabled= false;
+                                                document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("popBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("pushBtn").style.cursor= 'pointer';
+                                                },4800);
+                                        
+                            
+                        }
+    
+                    }
+        
+                            
+                    function peek(){
+                        var list=document.getElementById("area");
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        
+                        document.getElementById("notify").innerHTML= "";
+                        var popV=stack[stack.length-1];
+                        
+                
+                        
+                        if(popV==undefined){
+                            document.getElementById("action").innerHTML="The stack is empty!";
+                        }
+                        else{
+                            History.push("Peek: "+ popV)
+                            document.getElementById("peek").style.display='none';
+                                document.getElementById("pop").style.display='none';
+                                document.getElementById("push").style.display='none';
+                            document.getElementById("peek").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+
+                            document.getElementById("peekBtn").disabled= true;
+                            document.getElementById("popBtn").disabled= true;
+                            document.getElementById("createBtn").disabled= true;
+                            document.getElementById("pushBtn").disabled= true;
+                            document.getElementById("peekBtn").style.cursor= 'not-allowed';
+                            document.getElementById("popBtn").style.cursor= 'not-allowed';
+                            document.getElementById("createBtn").style.cursor= 'not-allowed';
+                            document.getElementById("pushBtn").style.cursor= 'not-allowed';
+
+                            
+                            setTimeout(function(){document.getElementById("pe1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("pe1").style.background='none';
+                                                    document.getElementById("pe2").style.background='#fbe8a6';
+                                                },2000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='#fbe8a6';
+                                                    document.getElementById("pe2").style.background='none';
+                                                    document.getElementById("action").innerHTML="You peeked "+popV;
+                                                },3000);
+                                
+                            setTimeout(function(){document.getElementById("pe3").style.background='none';
+                                                document.getElementById("peekBtn").disabled= false;
+                                                document.getElementById("popBtn").disabled= false;
+                                                document.getElementById("createBtn").disabled= false;
+                                                document.getElementById("pushBtn").disabled= false;
+                                                document.getElementById("peekBtn").style.cursor= 'pointer';
+                                                    document.getElementById("popBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("pushBtn").style.cursor= 'pointer';
+                                                                },3500);
+                                        
+                        }
+                                            
+                    }
+
+                    function create(){
+                        document.getElementById("createRnd").style.display='inline-block';
+                        document.getElementById("createDef").style.display='inline-block';
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        document.getElementById("action").innerHTML="";
+                    }
+
+                    function showSz(){
+                        document.getElementById("showRnd").style.display='inline-block';
+                        document.getElementById("showDef").style.display='none';
+                    }
+
+                    function showAr(){
+                            document.getElementById("showDef").style.display='inline-block';
+                            document.getElementById("showRnd").style.display='none';
+                    }
+
+                    function createRnd(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        
+                        var l=document.getElementById("size").value;
+
+                        if(l>6){
+                            document.getElementById("notify").innerHTML= "Maximum size is 6";
+                            document.getElementById("size").value="";
+
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("size").value="";
+                            
+                            stack=[];
+                            for(i=0;i<l;i++){
+                            var x = Math.floor((Math.random() * 10) + 1);
+                            stack[i]=x;    
+                            }
+
+                            History.push("Create random stack: "+ stack)
+                            this.display();
+                        } 
+                    }
+
+                    function createDef(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("createDef").style.display='none';
+                        document.getElementById("showDef").style.display='none';
+                        
+                        var ar=document.getElementById("arr").value;
+                        document.getElementById("arr").value="";
+                        
+                        if(ar==""){
+                        document.getElementById("arr").value="";   
+                        }
+                        
+                        else{
+                            stack=[];
+
+                            stack=ar.split(',');    
+
+                            if(stack.length>6){
+                                document.getElementById("notify").innerHTML= "Maximum size is 6";
+                                document.getElementById("arr").value="";
+
+                            }
+                            else{
+                                History.push("Create user-defined stack: "+ stack)
+                                this.display();
+                                } 
+                            }
+                    }
+
+                    function display(){
+                        
+                        var list=document.getElementById("area");
+                            list.appendChild(cont);
+                            cont.innerHTML="";
+                            cont.appendChild(ul);
+                            ul.innerHTML="";
+                            for(i=stack.length-1;i>=0;i--){
+                                let li = document.createElement('li');
+                                li.innerHTML = stack[i];
+                                ul.appendChild(li);   
+                            }
+
+                            if(stack.length==0){
+                                document.getElementById("top").style.display='none';
+                                document.getElementById("left").style.display='none';
+                            }
+                            else{
+                                document.getElementById("top").style.display='inline';
+                                document.getElementById("left").style.display='inline';
+                            }
+                    }
+
+                    function popUp(){
+                        document.getElementById("popUp").style.display='inline-block';
+                    }
+
+                    function dis(){
+                        document.getElementById("popUp").style.display='none';   
+                    }
+
+                    function popUpSz(){
+                        document.getElementById("popSz").style.display='inline-block';
+                    }
+
+                    function disSz(){
+                        document.getElementById("popSz").style.display='none';   
+                    }
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+
+                    function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
+
+                    function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+                    }
+
+                    function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
+                    }
+
+                    function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                    }
+
+                     function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                    }
+                    
+                    function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
+                    }
+
+
+                </script>
+
+            </body>   
+        
+    </html>

@@ -1,0 +1,259 @@
+body{
+    background-color: #f1f3f3;
+    overflow-y: scroll;
+}
+
+h1 {
+    font-family:cursive;
+    font-weight: bold;
+    color:#303c6c;
+    text-align: center;
+    font-size: 45px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    height: 30px;
+/*
+    position: fixed;
+    top:10px;
+    right: 600;
+*/
+
+}
+
+.l1{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 450px;
+}
+
+.l2{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 500px;
+}
+
+.l3{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 550px;
+}
+
+.l4{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 600px;
+}
+
+.l5{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 650px;
+}
+
+.l6{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 700px;
+}
+
+.l7{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 750px;
+}
+
+.l8{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 800px;
+}
+
+.l9{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 850px;
+}
+
+.l10{
+  font-size: 25px;
+  text-align: center;
+border: 3px solid #f4976c;
+color: #303c6c;
+margin-top: -1px; 
+/* padding: 8; */
+width: 40px;
+height: 50px;
+align-items:center;
+justify-content:center;
+/* display: flex; */
+border-radius: 40%;
+word-wrap: break-word;
+font-family: cursive;  
+   display: none;
+  position: fixed;
+    top: 205px;
+    left: 900px;
+}
+.backR{
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  font-size: 18px;
+  font-family: cursive;
+  /* display: none; */
+  color: #f4976c;
+}
+
+.bR{
+content: "\2039";
+  font-size: 50px;
+  position: fixed;
+  top: 5px;
+  left: 30px;
+  font-family: cursive;
+  color: #303c6c;
+  margin-top: -10;
+/*    font-weight: bold;*/
+}
+
+.alert{
+    position: fixed;
+    top: 150px;
+    left: 50px;
+    font-size: 20px;
+    font-family: cursive;
+    color: #7ac7d1;
+    display: none;
+}

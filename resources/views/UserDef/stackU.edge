@@ -1,0 +1,252 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('UserDef/stackStyleU') }}
+            </head>
+                  
+            <body>
+                
+                <title> Stack </title>
+                
+                <h1> STACK</h1>
+        
+                <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>                
+                    <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                <span class="arr">&#8628;</span>
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know">Instructions before you write your code: </div>
+                <div class="info" id="info"> 
+                    -You should write the code in java language<br>
+                    -You will write the whole code starting from creating the public class and the object variables 
+                    and methods to the main method. You can easily copy your working java code and paste it here<br>
+                    -You cannot add comments to the code, to avoid errors<br>
+                    -In the main method, you will create a list of Strings as so: String[] a= new String[length]; 
+                    where length should be greater than or equal the number of method calls you intend to invoke on the 
+                    object<br>
+                    -After creating the object for the first time, and after each method call on the object (insert/ delete) you will insert 
+                    the displayed object to the list a. Consequently the display method of the data structure should return the displayed 
+                    object instead of printing it, this returned string will be inserted to the list of strings a. Example: stack.push(5); a[1]=stack.display();<br>
+
+                    -After you finish all the method calls, you will print the list a with this command line: System.out.println(Arrays.toString(a)); 
+                    And don't forget to add this import line at the very beginning of the code to avoid errors, import java.util.Arrays;<br><br>
+
+                </div>
+
+
+                <div class="stackHome">
+                    
+      
+                    <form action="/executeCode" method="POST"> 
+                        {{ csrfField() }}
+                        <div class="tex"> Enter your code here </div>
+                        <textarea name="code" class="input" rows="50" cols="80" autocomplete="on"> import java.util.Arrays;
+
+
+public class ArrayStack {
+	private int[] theStack;
+	private int maxSize;
+	private int top;
+
+	public ArrayStack(int s) {
+		maxSize = s;
+		theStack = new int[maxSize];
+		top = -1;
+	}
+
+	public void push(int elem) {
+		top++;
+		theStack[top] = elem;
+	}
+	
+	public int pop() {
+		int result = theStack[top];
+		theStack[top]=0;
+		top--;
+		return result;
+	}
+
+	public int top() {
+		return theStack[top];
+	}
+
+	public boolean isFull() {
+		return (top == (maxSize - 1));
+	}
+
+	public boolean isEmpty() {
+		return (top == -1);
+	}
+
+	public int size() {
+		return (top + 1);
+	}
+
+	public String printStack() {
+    	return (Arrays.toString(theStack)); 
+	}
+	
+	static void print(String []a) {
+	    System.out.println(Arrays.toString(a)); 
+	}
+	
+	public static void main(String[] args){
+	    ArrayStack s=new ArrayStack(5);
+	    String[] a=new String[8];
+	    a[0]=s.printStack();
+	    s.push(2);
+	    a[1]=s.printStack();
+	    s.push(6);
+	    a[2]=s.printStack();
+	    s.push(5);
+	    a[3]=s.printStack();
+	    s.push(9);
+	    a[4]=s.printStack();
+	    s.pop();
+            a[5]=s.printStack();
+	    s.push(3);
+            a[6]=s.printStack();
+            s.push(4);
+            a[7]=s.printStack();
+	    print(a);
+	    s.printStack();
+	}
+
+}
+
+ 
+
+ </textarea>
+                        <input type="submit" value="Run" class="run">
+                        <textarea class="data" name="data">stack</textarea>
+                    </form>
+
+
+                    <div class="abt" onclick="show()"> About </div>
+                    
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                 </div>
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+                        
+            
+                <script>
+
+                    var stack=[];
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+                    var count=1;
+
+                    function display(){
+                        //console.log(stack);
+
+                        if(stack==undefined){
+                            return;
+                        }
+                        
+                        if(stack.length!=0){
+                            var list=document.getElementById("area");
+                                list.appendChild(cont);
+                                cont.innerHTML="";
+                                cont.appendChild(ul);
+                                ul.innerHTML="";
+                                for(i=stack.length-1;i>=0;i--){
+                                    let li = document.createElement('li');
+                                    li.innerHTML = stack[i];
+                                    ul.appendChild(li);   
+                                }
+                        }    
+                    }
+
+                    function set(){  
+                        var currentDate = new Date();
+                        var timestamp = currentDate.getTime() / 1000 ;
+                        console.log("out: "+timestamp);
+
+                        setTimeout(function(){
+                            stack={{{res}}}
+                            console.log({{{res}}});   
+                                                 
+                            currentDate = new Date();
+                            timestamp = currentDate.getTime() / 1000 ;
+                            console.log("in: "+timestamp + " Result: " +stack);
+                            var output={{out}}
+                            console.log(output); 
+                            display();
+                        },3000);  
+
+                        setTimeout(function(){
+                            currentDate = new Date();
+                            timestamp = currentDate.getTime() / 1000 ;
+                            console.log("2 seconds passed Time: "+ timestamp);
+                        },2000);
+
+                    }
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                    }
+
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+                    function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                    }
+
+            
+                </script>
+
+            </body>   
+        
+    </html>

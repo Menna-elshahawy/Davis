@@ -1,0 +1,67 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('home/home') }}
+            </head>
+                  
+            <title> DAVIS </title>
+
+            <body>
+                <h1> DAVIS </h1>
+                <h2> A tool for Data Structures and Algorithms Visualization </h2>
+                
+                <div class="ch">Choose your mode </div>         
+            
+                <a HREF="Standard"> <button class="a" id="a" onmouseover="showS()" onmouseout="disS()"> Standard </button> </a>
+                <a HREF="UserDefined"> <button class="b" id="b" onmouseover="showU()" onmouseout="disU()"> User-defined </button> </a>
+
+                <div class="s" id="s"> Visualizing the data structures <br> using the default algorithms </div>
+                <div class="u" id="u"> Enter your own code<br> and visualize the output </div>
+                
+                <div class="abt" onclick="show()"> About </div>
+                
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+            <script>
+            
+            
+            function showS(){
+                document.getElementById("s").style.display='inline-block';
+            }
+
+            function disS(){
+                document.getElementById("s").style.display='none';
+            }
+
+            function showU(){
+                document.getElementById("u").style.display='inline-block';
+            }
+
+            function disU(){
+                document.getElementById("u").style.display='none';
+            }
+
+            function show() {
+                document.getElementById("myModal").style.display = "block";
+            }
+
+            function closeM() {
+            document.getElementById("myModal").style.display = "none";
+            }
+
+            window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                document.getElementById("myModal").style.display = "none";
+            }
+            }
+            
+            </script>
+
+            </body>   
+        
+    </html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/stackRes') }}
+</head>
+
+
+<body>
+
+    <title> Stack </title>
+                
+    <h1> STACK </h1>
+
+    <a HREF="/UserDefined/Stack"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>
+    <div class="action" id="action">  </div>
+    <div class="a" id="a"> Action: </div>
+    <p class= "area" id="area"> </p>
+
+
+    <script>
+                    var stack=[];
+                    var arr=[];
+                    var actions=[];
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+
+                    function display(){
+                        //console.log(stack);
+
+                        if(stack==undefined){
+                            return;
+                        }
+                        
+                        if(stack.length!=0){
+                            var list=document.getElementById("area");
+                                list.appendChild(cont);
+                                cont.innerHTML="";
+                                cont.appendChild(ul);
+                                ul.innerHTML="";
+                                for(i=stack.length-1;i>=0;i--){
+                                    let li = document.createElement('li');
+                                    li.innerHTML = stack[i];
+                                    ul.appendChild(li);   
+                                }
+                        }    
+                    }
+
+                    function animate(){
+                        setTimeout(function(){
+                                    stack=arr[0];
+                                    display()
+                                    document.getElementById("action").innerHTML="Create Stack"
+                                    
+                                },1000);
+                        l=1
+                        while(l<arr.length){
+                            (function(l){
+
+                                setTimeout(function(){
+                                    if(arr[l]!=null){
+                                        stack=arr[l];
+                                        display()
+                                        document.getElementById("action").innerHTML=actions[l-1]
+                                    }
+                                },1000+(1500*l));
+
+                            })(l);
+
+                            l++
+
+                        }
+                        
+                    }
+
+                    function countZ(a){
+                        var z=0;
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]==0)
+                                z++;
+                        }
+                        return z;
+                    }
+
+                    function setActions(){
+                        for(var i=0;i<arr.length-1;i++){
+                            var a=arr[i];
+                            var b=arr[i+1];
+
+                            if(a!=null && b!=null){
+                                if(countZ(a)>countZ(b)){
+                                    var v=b[a.length-countZ(a)]
+                                    
+                                    
+                                    var t="push ".concat(v)
+                                    actions.push(t)
+                                }
+                                else{
+                                    var v=a[i-1]
+                                    actions.push("pop ".concat(v))
+                                }
+                            }
+                        }
+                    }
+
+                    arr={{res}}
+                    console.log(arr)
+                    setActions()
+                    animate()
+
+    
+    </script>
+
+
+</body>
+
+</html>

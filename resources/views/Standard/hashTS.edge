@@ -1,0 +1,1754 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('Standard/hashS') }}
+            </head>
+                  
+            <body>
+                
+                <title> Hash Table </title>
+                
+                <h1> HASH TABLE </h1>
+        
+                <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+                 <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+
+                <div class="info" id="info"> <span style="color:#f4976c";> What is a hash table </span> <br>
+                     Hash Table is a data structure which stores data in an associative manner. In a hash table, 
+                     data is stored in an array format, where each data value has its own unique index value. 
+                     Access of data becomes very fast if we know the index of the desired data.
+                     <br> Thus, it becomes a data structure in which insertion and search operations are very fast 
+                     irrespective of the size of the data. Hash Table uses an array as a storage medium and uses hash 
+                     technique to generate an index where an element is to be inserted or is to be located from. <br> <br> 
+                    
+                    <span style="color:#f4976c";> Methods: </span> <br>
+                    Mainly the following three basic operations are performed in the hash table: <br>
+                    -Insert: Adds an item to the hash tables in its corresponding index array. <br>
+                    -Remove: Removes an item from the hash tables from its corresponding index array. <br>
+                    -Search: Searches for an item in the hash tables in its corresponding index array and returns it.<br><br>
+                    
+                    <span style="color:#f4976c";> Applications: </span><br> 
+                    -Message Digest <br>
+                    -Password Verification<br>
+                    -Compiler Operation <br><br>
+               </div>
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know"> Know more about Hash Tables </div>
+
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="insertBtn" class="button" onclick="push()">Insert</button>          
+                        
+                        <button id="removeBtn" class="button" onclick="remove()">Remove</button>
+                        <button id="searchBtn" class="button" onclick="search()" >Search</button>
+                    </div>
+                    
+                    <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Empty</button> 
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="4" max="7"> 
+                              <div class="popSz" id="popSz"> Enter the length of the hash table </div>
+                            <button class="go" onclick="createRnd()">Go</button> </div></div>
+
+                    <div class="pushAr" id="pushAr"> <input class="num" type="number" id="val" size="3" min="1" max="50"> <button class="go" onclick="go()">Go</button> </div>
+
+                    <div class="rem" id="rem"> <input class="num" type="number" id="Rval" size="3" min="1" max="50"> <button class="go" onclick="remGo()">Go</button> </div>
+                    
+                    <div class="srch" id="srch"> <input class="num" type="number" id="Sval" size="3" min="1" max="50"> <button class="go" onclick="searchGo()">Go</button> </div>
+
+
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+                <div class="i1" id="i1"> i:0 </div> <div class="i2" id="i2"> i:1 </div> <div class="i3" id="i3"> i:2 </div>
+                    <div class="i4" id="i4"> i:3 </div> <div class="i5" id="i5"> i:4 </div> <div class="i6" id="i6"> i:5 </div>
+                    <div class="i7" id="i7"> i:6 </div> 
+
+                <div id="l1" class="l1"> H</div> <div id="l2" class="l2"> H</div>  <div id="l3" class="l3"> H</div>
+                    <div id="l4" class="l4"> H</div> <div id="l5" class="l5"> H</div> <div id="l6" class="l6"> H</div>
+                    <div id="l7" class="l7"> H</div>
+
+                <div id="l11" class="l11"> 3</div> <div id="l12" class="l12"> 98</div> <div id="l13" class="l13"> 3</div>
+                 <div id="l21" class="l21"> 3</div> <div id="l22" class="l22"> 4</div> <div id="l23" class="l23"> 3</div>
+                 <div id="l31" class="l31"> 5</div> <div id="l32" class="l32"> 4</div> <div id="l33" class="l33"> 3</div> 
+                 <div id="l41" class="l41"> 3</div> <div id="l42" class="l42"> 8</div> <div id="l43" class="l43"> 3</div>
+                 <div id="l51" class="l51"> 7</div> <div id="l52" class="l52"> 1</div> <div id="l53" class="l53"> 3</div>
+                 <div id="l61" class="l61"> 9</div> <div id="l62" class="l62"> 22</div> <div id="l63" class="l63"> 3</div>
+                 <div id="l71" class="l71"> 35</div> <div id="l72" class="l72"> 86</div> <div id="l73" class="l73"> 3</div>
+
+                <div class="abt" onclick="show()"> About </div>
+                    
+                <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+                <div class="hst" onclick="showH()">Actions History </div>
+                <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
+                  </div>
+                </div>
+                
+                <div class="d1" id="d1"> <span>&#8595;</span> </div> <div class="d2" id="d2"> <span>&#8595;</span> </div>
+                     <div class="d3" id="d3"> <span>&#8595;</span> </div> <div class="d4" id="d4"> <span>&#8595;</span> </div>
+                      <div class="d5" id="d5"> <span>&#8595;</span> </div> <div class="d6" id="d6"> <span>&#8595;</span> </div>
+                       <div class="d7" id="d7"> <span>&#8595;</span> </div>
+
+                <div class="d11" id="d11"> <span>&#8739;</span> </div> <div class="d111" id="d111"> <span>&#8739;</span> </div>
+                    <div class="d22" id="d22"> <span>&#8739;</span> </div> <div class="d222" id="d222"> <span>&#8739;</span> </div>
+                    <div class="d33" id="d33"> <span>&#8739;</span> </div> <div class="d333" id="d333"> <span>&#8739;</span> </div>
+                    <div class="d44" id="d44"> <span>&#8739;</span> </div> <div class="d444" id="d444"> <span>&#8739;</span> </div>
+                    <div class="d55" id="d55"> <span>&#8739;</span> </div> <div class="d555" id="d555"> <span>&#8739;</span> </div>
+                    <div class="d66" id="d66"> <span>&#8739;</span> </div> <div class="d666" id="d666"> <span>&#8739;</span> </div>
+                    <div class="d77" id="d77"> <span>&#8739;</span> </div> <div class="d777" id="d777"> <span>&#8739;</span> </div>
+                      
+                <div class="space" id="space"><div class= "node" id="node"> 3 </div></div>
+                
+                   <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                        <div id="insertM" class="insertM">
+                               <div id="in1" class="in1">  public String insert(int value) { </div> 
+                               <div id="in2" class="in2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
+                               <div id="in3" class="in3" style="text-indent: 40px;">  int[] list = hashTable[i]; </div> 
+                               <div id="in4" class="in4" style="text-indent: 40px;">  for(int j=0; j < list.length ;j++){  </div> 
+                               <div id="in5" class="in5" style="text-indent: 80px;">  if(list[j]==null){ </div> 
+                               <div id="in6" class="in6" style="text-indent: 120px;">  list[j]=value; </div> 
+                               <div id="in7" class="in7" style="text-indent: 120px;">  return "You inserted" + value; </div>
+                               <div id="in8" class="in8" style="text-indent: 80px;">  } </div> 
+                               <div id="in9" class="in9" style="text-indent: 40px;"> }  </div> 
+                               <div id="in10" class="in10" style="text-indent: 40px;"> return "Maximum height is 3";  </div>   
+                               <div id="in11" class="in11">  }</div> 
+                          </div>
+
+                        <div class="removeM" id="removeM">
+                               <div id="r1" class="r1">  public String remove(int value) { </div> 
+                               <div id="r2" class="r2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
+                               <div id="r3" class="r3" style="text-indent: 40px;">  int[] list = hashTable[i]; </div> 
+                               <div id="r4" class="r4" style="text-indent: 40px;">  for(int j=0; j < list.length ;j++){  </div> 
+                               <div id="r5" class="r5" style="text-indent: 80px;">  if(list[j]==value){ </div> 
+                               <div id="r6" class="r6" style="text-indent: 120px;">  list[j]=null; </div> 
+                               <div id="r7" class="r7" style="text-indent: 120px;">  return "You removed "+ value; </div>
+                               <div id="r8" class="r8" style="text-indent: 80px;">  } </div> 
+                               <div id="r9" class="r9" style="text-indent: 40px;"> }  </div> 
+                               <div id="r10" class="r10" style="text-indent: 40px;"> return value+ " is not in the hash table";  </div>   
+                               <div id="r11" class="r11">  }</div> 
+
+                           </div>
+
+                        <div class="searchM" id="searchM">
+                               <div id="s1" class="s1">  public String search(int value) { </div> 
+                               <div id="s2" class="s2" style="text-indent: 40px;">  int i = value%hashTable.length; </div> 
+                               <div id="s3" class="s3" style="text-indent: 40px;">  int[] list = hashTable[i]; </div> 
+                               <div id="s4" class="s4" style="text-indent: 40px;">  for(int j=0; j < list.length ;j++){  </div> 
+                               <div id="s5" class="s5" style="text-indent: 80px;">  if(list[j]==value){ </div> 
+                               <div id="s6" class="s6" style="text-indent: 120px;">  return value + " is found in the hash table"; </div> 
+                               <div id="s7" class="s7" style="text-indent: 80px;"> } </div>
+                               <div id="s8" class="s8" style="text-indent: 40px;">  } </div> 
+                               <div id="s9" class="s9" style="text-indent: 40px;"> return value + " is not found in the hash table";  </div>  
+                               <div id="s10" class="s10">  }</div> 
+
+                           </div>
+                           
+                        </div>
+                       
+                    </div> 
+
+                <script>
+                     
+                    
+                    var stack= [];
+                    var length=0;
+                    var f =true;
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+                    ul.className="ul";
+                    var count=1;
+                    var contH= document.createElement('div');
+                    var histList = document.createElement('ol');
+                    var History=[];
+                    
+                    function push(){
+                        
+                        document.getElementById("pushAr").style.display='inline-block';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("rem").style.display='none';
+                        document.getElementById("action").innerHTML="";
+                        document.getElementById("srch").style.display='none';
+                    }
+                    
+                    function go(){
+                        
+                        document.getElementById("pushAr").style.display='none';
+                        
+                        var v =document.getElementById("val").value;
+                        
+                        if(v ==""){
+                            document.getElementById("notify").innerHTML= "You must enter a value";
+                        }
+                        else if(length==0){
+                            document.getElementById("notify").innerHTML= "You must create a hash table first";
+                            document.getElementById("val").value="";
+
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("val").value="";
+
+                            var r=v%length;
+
+                            var n1='l'.concat(r+1).concat(1);
+                            var n2='l'.concat(r+1).concat(2);
+                            var n3='l'.concat(r+1).concat(3);
+
+                            var a1='d'.concat(r+1);
+                            var a2=a1.concat(r+1);
+                            var a3=a2.concat(r+1);
+
+                            var pos=0;
+                            var arr=0;
+                            var n='';
+                            var max='0';
+
+                            if(document.getElementById(n1).style.display=='none'){
+                                document.getElementById(n1).innerHTML=v;
+                                arr=a1;
+                                pos=1;
+                                n=n1;
+                            }
+                            else if(document.getElementById(n2).style.display=='none'){
+                                if(document.getElementById(n1).innerHTML==v){
+                                    document.getElementById("notify").innerHTML= "The value "+ v +" is already <br> in the hash table";
+                                    document.getElementById("val").value="";
+                                }
+                                else{
+                                    pos=2;
+                                    //document.getElementById(n2).style.display='flex';
+                                    document.getElementById(n2).innerHTML=v;
+                                    arr=a2;
+                                    n=n2;
+                                    //document.getElementById(a2).style.display='inline';
+                                    //document.getElementById("action").innerHTML="You inserted "+v;
+                                }
+                            }
+                            else if(document.getElementById(n3).style.display=='none'){
+                                if(document.getElementById(n1).innerHTML==v || document.getElementById(n2).innerHTML==v){
+                                    document.getElementById("notify").innerHTML= "The value "+ v +" is already <br> in the hash table";
+                                    document.getElementById("val").value="";
+                                }
+                                else{
+                                    pos=3;
+                                    //document.getElementById(n3).style.display='flex';
+                                    document.getElementById(n3).innerHTML=v;
+                                    arr=a3;
+                                    n=n3;
+                                    //document.getElementById(a3).style.display='inline';
+                                    //document.getElementById("action").innerHTML="You inserted "+v;
+                                }
+                            }
+
+                            else{
+                                max='1';
+                            }
+                        
+                            
+                            if(n!=''){
+
+                                History.push("Insert: "+v+" at array index: "+r)
+
+                                var an='anim'.concat(n);
+
+                                document.getElementById("insertM").style.display='none';
+                                document.getElementById("searchM").style.display='none';
+                                document.getElementById("removeM").style.display='none';
+                                document.getElementById("insertM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                              
+                                const node=document.getElementById("node");
+                                node.style.display='flex';    
+                                document.getElementById("node").innerHTML=v;
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+                                
+                                setTimeout(function(){document.getElementById("in1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("in1").style.background='none';
+                                                    document.getElementById("in2").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='#fbe8a6';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("in3").style.background='#fbe8a6';
+                                                    document.getElementById("in2").style.background='none';   
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("in4").style.background='#fbe8a6';
+                                                    document.getElementById("in3").style.background='none';                                
+                                                    },4000);
+
+                             if(pos==1){
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in6").style.background='#fbe8a6';
+                                                    node.classList.add(an);
+                                                    document.getElementById(arr).style.display='inline';                                                    
+                                                    },6000);
+                                   
+                                    setTimeout(function(){
+                                                    document.getElementById("in6").style.background='none';
+                                                    document.getElementById("in7").style.background='#fbe8a6';
+                                                    document.getElementById(n).style.display='flex';
+                                                    document.getElementById("action").innerHTML="You inserted "+v;
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    node.style.display='none';
+                                                    },7950);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in7").style.background='none';
+                                                    document.getElementById("in11").style.background='#fbe8a6';                                                    
+                                                    },9000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='none';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    node.classList.remove(an);
+
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },9500);
+                                            
+
+                                }
+
+                                else if(pos==2){
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';                                                   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in6").style.background='#fbe8a6';
+                                                    node.classList.add(an);
+                                                    document.getElementById(arr).style.display='inline';                                                    
+                                                    },8000);
+                                   
+                                    setTimeout(function(){
+                                                    document.getElementById("in6").style.background='none';
+                                                    document.getElementById("in7").style.background='#fbe8a6';
+                                                    document.getElementById(n).style.display='flex';
+                                                    document.getElementById("action").innerHTML="You inserted "+v;
+                                                    },10000);
+
+                                    setTimeout(function(){
+                                                    node.style.display='none';
+                                                    },9950);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in7").style.background='none';
+                                                    document.getElementById("in11").style.background='#fbe8a6';
+                                                    },11000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='none';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    node.classList.remove(an);
+                                                    
+                                                    },11500);
+
+
+                                }
+
+                                else{
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    document.getElementById(n2).style.background='#fbe8a6';                                                   
+                                                    },7000);
+
+                                     setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';                                                   
+                                                    },9000);                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in6").style.background='#fbe8a6';
+                                                    node.classList.add(an);
+                                                    document.getElementById(arr).style.display='inline';                                                    
+                                                    },10000);
+                                   
+                                    setTimeout(function(){
+                                                    document.getElementById("in6").style.background='none';
+                                                    document.getElementById("in7").style.background='#fbe8a6';
+                                                    document.getElementById(n).style.display='flex';
+                                                     document.getElementById("action").innerHTML="You inserted "+v;
+                                                    },12000);
+
+                                    setTimeout(function(){
+                                                    node.style.display='none';
+                                                    },11950);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in7").style.background='none';
+                                                    document.getElementById("in11").style.background='#fbe8a6';
+                                                    },13000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='none';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    node.classList.remove(an);
+                                                   
+                                                    },13500);
+
+ 
+                                }
+                                
+                             } 
+
+                            else if(max=='1'){
+                                document.getElementById("insertM").style.display='none';
+                                document.getElementById("searchM").style.display='none';
+                                document.getElementById("removeM").style.display='none';
+                                 document.getElementById("insertM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                              
+
+                                setTimeout(function(){document.getElementById("in1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("in1").style.background='none';
+                                                    document.getElementById("in2").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='#fbe8a6';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("in3").style.background='#fbe8a6';
+                                                    document.getElementById("in2").style.background='none';   
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("in4").style.background='#fbe8a6';
+                                                    document.getElementById("in3").style.background='none';                                
+                                                    },4000);
+
+                                setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    document.getElementById(n2).style.background='#fbe8a6';                                                   
+                                                    },7000);
+
+                                     setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';                                                  
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none'; 
+                                                    document.getElementById(n3).style.background='#fbe8a6';                                                  
+                                                    },9000);                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in5").style.background='none';
+                                                    document.getElementById("in4").style.background='#fbe8a6';  
+                                                     document.getElementById(n3).style.background='none';                                                 
+                                                    },10000);
+
+                                   
+                                    setTimeout(function(){
+                                                    document.getElementById("in4").style.background='none';
+                                                    document.getElementById("in9").style.background='#fbe8a6';
+                                                    },11000);
+
+                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("in9").style.background='none';
+                                                    document.getElementById("in10").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="Maximum height is 3";
+                                                    },12000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='#fbe8a6';
+                                                    document.getElementById("in10").style.background='none';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                   
+                                                    },12500);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("in11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },13000);
+                
+
+                             }
+                        
+                        
+                        } 
+
+                    }
+
+                    function remove(){
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("createRnd").style.display='none';                       
+                        document.getElementById("rem").style.display='inline-block';
+                        document.getElementById("srch").style.display='none';
+                    }      
+
+                    function remGo(){
+
+                        document.getElementById("rem").style.display='none';
+                        var v =document.getElementById("Rval").value;
+                        
+                        if(v ==""){
+                            document.getElementById("notify").innerHTML= "You must enter a value";
+                        }
+                        else if(length==0){
+                            document.getElementById("notify").innerHTML= "The hash table is empty";
+                            document.getElementById("Rval").value="";
+
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("Rval").value="";
+
+                            var r=v%length;
+
+                            var n1='l'.concat(r+1).concat(1);
+                            var n2='l'.concat(r+1).concat(2);
+                            var n3='l'.concat(r+1).concat(3);
+
+                            var a1='d'.concat(r+1);
+                            var a2=a1.concat(r+1);
+                            var a3=a2.concat(r+1);
+
+                            pos='';
+                            p='';
+
+                            if(document.getElementById(n1).style.display!='none'){
+                                if(document.getElementById(n1).innerHTML==v){
+
+                                    if(document.getElementById(n3).style.display!='none'){                               
+                                        
+                                        pos='12';
+                                    }
+                                    else if(document.getElementById(n2).style.display!='none'){
+                                        
+                                        pos='11';
+                                    }
+                                    else{
+
+                                        pos='10';
+                                    }
+                                }
+
+                                else if(document.getElementById(n2).style.display!='none'){
+                                    if(document.getElementById(n2).innerHTML==v){
+
+                                        if(document.getElementById(n3).style.display!='none'){                               
+                                            
+                                            pos='22'
+
+                                        }
+                                        else{
+                                            
+                                            pos='21';
+                                        }
+                                    }
+
+                                    else if(document.getElementById(n3).style.display!='none'){
+                                        if(document.getElementById(n3).innerHTML==v){
+                                            
+                                            pos='32';   
+                                        }
+                                        else{
+                                            p='3';                                           
+                                        }
+
+                                    }
+                                    else{
+                                        p='2';  
+                                        }
+
+                                } 
+                                else{
+                                    p='1';  
+                                 }                               
+                            }
+
+                            else{
+                                p='0';  
+                            }
+
+                            document.getElementById("insertM").style.display='none';
+                            document.getElementById("searchM").style.display='none';
+                            document.getElementById("removeM").style.display='none';                                       
+                            document.getElementById("removeM").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+
+                            document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+                              
+                                
+                            setTimeout(function(){document.getElementById("r1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("r1").style.background='none';
+                                                document.getElementById("r2").style.background='#fbe8a6';
+                                                var t='i'.concat(r+1);
+                                                document.getElementById(t).style.background='#fbe8a6';
+                                                },2000);
+                                
+                            setTimeout(function(){document.getElementById("r3").style.background='#fbe8a6';
+                                                document.getElementById("r2").style.background='none';   
+                                                },3000);
+                                
+                            setTimeout(function(){document.getElementById("r4").style.background='#fbe8a6';
+                                                document.getElementById("r3").style.background='none';                                
+                                                },4000);
+
+
+                            if(pos!=''){
+
+                                History.push("Remove: "+v+" from array index: "+r)
+
+                                var p1=pos[0];
+                                var p2=pos[1];
+                                if(p1=='1'){
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r6").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    document.getElementById(n1).innerHTML='';                                                   
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r6").style.background='none';
+                                                    document.getElementById("r7").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed "+v; 
+                                                    if(p2=='0'){
+                                                        document.getElementById(n1).style.display='none'; 
+                                                        document.getElementById(a1).style.display='none';
+                                                    }
+                                                    else if(p2=='1'){
+                                                        document.getElementById(n1).innerHTML=document.getElementById(n2).innerHTML;
+                                                        document.getElementById(n2).style.display='none';
+                                                        document.getElementById(a2).style.display='none';
+                                                    }
+                                                    else{
+                                                        document.getElementById(n1).innerHTML=document.getElementById(n2).innerHTML;
+                                                        document.getElementById(n2).innerHTML=document.getElementById(n3).innerHTML;
+                                                        document.getElementById(n3).style.display='none';
+                                                        document.getElementById(a3).style.display='none';
+                                                        document.getElementById(n3).style.display='none'; 
+                                                        document.getElementById(a3).style.display='none';
+                                                    }                                                     
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r7").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                          
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                                                                                                         
+                                                    },8500);                
+
+                                }
+                                else if(p1=='2'){
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r6").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';
+                                                     document.getElementById(n2).innerHTML='';  
+                                                    },8000);                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r6").style.background='none';
+                                                    document.getElementById("r7").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed "+v;
+                                                    if(p2=='2'){
+                                                        document.getElementById(n2).innerHTML=document.getElementById(n3).innerHTML;
+                                                        document.getElementById(n3).style.display='none';
+                                                        document.getElementById(a3).style.display='none';
+                                                    }
+                                                    else{
+                                                        document.getElementById(n2).style.display='none';
+                                                        document.getElementById(a2).style.display='none';
+                                                    }                                                     
+                                                    },9000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r7").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                          
+                                                    },10000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                                                                                                         
+                                                    },10500);                
+                                                
+                                }
+
+                                else{
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';   
+                                                    },9000);                 
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r6").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='none';
+                                                     document.getElementById(n3).innerHTML='';  
+                                                    },10000);                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r6").style.background='none';
+                                                    document.getElementById("r7").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed "+v;
+                                                    document.getElementById(n3).style.display='none';
+                                                    document.getElementById(a3).style.display='none';                                                    
+                                                    },11000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r7").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                          
+                                                    },12000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                                                                                                         
+                                                    },12500);                
+            
+                                }
+
+                            }
+
+                            else{
+
+                                if(p=='0'){
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },6500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },7000); 
+                                     
+                                }
+
+                                else if(p=='1'){
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    },6000);
+                                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },8500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },9000); 
+
+                                }
+
+                                else if(p=='2'){
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';
+                                                    },8000); 
+                                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },9000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },10000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },10500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },11000); 
+                                    
+                                }
+
+                                else{
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r5").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';   
+                                                    },9000);                 
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r5").style.background='none';
+                                                    document.getElementById("r4").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='none';
+                                                    },10000);                
+
+                                                    
+                                    setTimeout(function(){
+                                                    document.getElementById("r4").style.background='none';
+                                                    document.getElementById("r9").style.background='#fbe8a6';                                                                                                                                        
+                                                    },11000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r9").style.background='none';
+                                                    document.getElementById("r10").style.background='#fbe8a6';                                                     
+                                                    document.getElementById("action").innerHTML=v+" is not in the hash table";                                                                                                         
+                                                    },12000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r10").style.background='none';
+                                                    document.getElementById("r11").style.background='#fbe8a6';
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';                                                                                                        
+                                                    },12500);                                    
+
+                                    setTimeout(function(){
+                                                    document.getElementById("r11").style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },13000); 
+                                    
+
+                                
+
+                                }
+
+
+                            }
+
+                        }
+   
+                    }
+                            
+                    function search(){
+                        var list=document.getElementById("area");
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("rem").style.display='none';
+                        document.getElementById("srch").style.display='inline-block';
+                        document.getElementById("notify").innerHTML= "";
+                                            
+                    }
+
+                    function searchGo(){
+                        document.getElementById("srch").style.display='none';
+
+                        var v =document.getElementById("Sval").value;
+                        
+                        if(v ==""){
+                            document.getElementById("notify").innerHTML= "You must enter a value";
+                        }
+                        else if(length==0){
+                            document.getElementById("notify").innerHTML= "The hash table is empty";
+                            document.getElementById("Sval").value="";
+
+                        }
+                        else{
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("Sval").value="";
+
+                            var r=v%length;
+
+                            var n1='l'.concat(r+1).concat(1);
+                            var n2='l'.concat(r+1).concat(2);
+                            var n3='l'.concat(r+1).concat(3);
+
+                            var a1='d'.concat(r+1);
+                            var a2=a1.concat(r+1);
+                            var a3=a2.concat(r+1);
+
+                            pos='';
+                            p='1';
+
+                            if(document.getElementById(n1).style.display!='none'){
+                                if(document.getElementById(n1).innerHTML==v){
+                                    pos='1';                                          
+                                }
+
+                                else if(document.getElementById(n2).style.display!='none'){
+                                    if(document.getElementById(n2).innerHTML==v){
+                                        pos='2';
+                                    }
+
+                                    else if(document.getElementById(n3).style.display!='none'){
+                                        if(document.getElementById(n3).innerHTML==v){
+                                            pos='3';
+                                        }
+                                        else{
+                                            p='3';
+                                        }
+                                    }
+                                    else{
+                                        p='2';
+                                    }
+                                } 
+                                else{
+                                    p='1';
+                                }                              
+                            }
+                            else{
+                                p='1';
+                            }
+
+
+                            History.push("Search: "+v)
+                            document.getElementById("insertM").style.display='none';
+                            document.getElementById("searchM").style.display='none';
+                            document.getElementById("removeM").style.display='none';        
+                            document.getElementById("searchM").style.display='inline';
+                            document.getElementById("method").style.display='inline';
+
+                            document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';  
+                                
+                            setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
+                                                },1000);
+                                
+                            setTimeout(function(){document.getElementById("s1").style.background='none';
+                                                document.getElementById("s2").style.background='#fbe8a6';
+                                                var t='i'.concat(r+1);
+                                                  document.getElementById(t).style.background='#fbe8a6';
+                                                },2000);
+                            
+                            setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
+                                                  document.getElementById("s2").style.background='none';   
+                                                   },3000);
+                                
+                            setTimeout(function(){document.getElementById("s4").style.background='#fbe8a6';
+                                                document.getElementById("s3").style.background='none';                                
+                                               },4000);
+                            
+                            if(pos!=''){   
+
+                                if(pos=='1'){
+                                    setTimeout(function(){
+                                                    document.getElementById("s4").style.background='none';
+                                                    document.getElementById("s5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s5").style.background='none';
+                                                    document.getElementById("s6").style.background='#fbe8a6';                                                   
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s6").style.background='none';
+                                                    document.getElementById("s10").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    document.getElementById("action").innerHTML=v+ " is found in the hash table";
+                                                    },7000);              
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s10").style.background='none';
+                                                    },7500);
+
+                                    setTimeout(function(){
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';  
+                                                    },9000);             
+                                }
+
+                                else if(pos=='2'){
+                                    setTimeout(function(){
+                                                    document.getElementById("s4").style.background='none';
+                                                    document.getElementById("s5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s5").style.background='none';
+                                                    document.getElementById("s4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s4").style.background='none';
+                                                    document.getElementById("s5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';
+                                                    },7000);                                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s5").style.background='none';
+                                                    document.getElementById("s6").style.background='#fbe8a6';                                                   
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s6").style.background='none';
+                                                    document.getElementById("s10").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';
+                                                    document.getElementById("action").innerHTML=v+ " is found in the hash table";
+                                                    },9000);              
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s10").style.background='none';
+                                                    },9500);
+
+                                    setTimeout(function(){
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';  
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },11000);             
+                                }
+
+                                else{
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s4").style.background='none';
+                                                    document.getElementById("s5").style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='#fbe8a6';  
+                                                    },5000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s5").style.background='none';
+                                                    document.getElementById("s4").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s4").style.background='none';
+                                                    document.getElementById("s5").style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='#fbe8a6';
+                                                    document.getElementById(n1).style.background='none';   
+                                                    },7000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s5").style.background='none';
+                                                    document.getElementById("s4").style.background='#fbe8a6';
+                                                    },8000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s4").style.background='none';
+                                                    document.getElementById("s5").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='#fbe8a6';
+                                                    document.getElementById(n2).style.background='none';   
+                                                    },9000);                 
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s5").style.background='none';
+                                                    document.getElementById("s6").style.background='#fbe8a6';                                        
+                                                    },10000);                
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s6").style.background='none';
+                                                    document.getElementById("s10").style.background='#fbe8a6';
+                                                    document.getElementById(n3).style.background='none';
+                                                    document.getElementById("action").innerHTML=v+ " is found in the hash table";                                                    
+                                                    },11000);
+
+                                    setTimeout(function(){
+                                                    document.getElementById("s10").style.background='none';                                                                                                         
+                                                    },11500);                
+
+                                    setTimeout(function(){
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
+                                                    },13000);             
+                                }
+                            }
+
+                            else{
+                                if(p=='1'){
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s5").style.background='#fbe8a6';
+                                                        document.getElementById(n1).style.background='#fbe8a6';  
+                                                        },5000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s5").style.background='none';
+                                                        document.getElementById("s4").style.background='#fbe8a6';
+                                                        },6000);
+                                
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s8").style.background='#fbe8a6';
+                                                        document.getElementById(n1).style.background='none';                                         
+                                                        },7000);                
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s8").style.background='none';
+                                                        document.getElementById("s9").style.background='#fbe8a6';
+                                                        document.getElementById("action").innerHTML=v+ " is not found in the hash table";                                                    
+                                                        },8000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s9").style.background='none';
+                                                        document.getElementById("s10").style.background='#fbe8a6';
+                                                        },9000);
+                                    
+                                    setTimeout(function(){
+                                                        document.getElementById("s10").style.background='none';                                                                                                         
+                                                        },9500);                
+
+                                    setTimeout(function(){
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
+                                                    },12000);    
+                                }
+
+                                else if(p=='2'){
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s5").style.background='#fbe8a6';
+                                                        document.getElementById(n1).style.background='#fbe8a6';  
+                                                        },5000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s5").style.background='none';
+                                                        document.getElementById("s4").style.background='#fbe8a6';
+                                                        },6000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s5").style.background='#fbe8a6';
+                                                        document.getElementById(n2).style.background='#fbe8a6';
+                                                        document.getElementById(n1).style.background='none';   
+                                                        },7000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s5").style.background='none';
+                                                        document.getElementById("s4").style.background='#fbe8a6';
+                                                        },8000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s8").style.background='#fbe8a6';
+                                                        document.getElementById(n2).style.background='none';                                         
+                                                        },9000);                
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s8").style.background='none';
+                                                        document.getElementById("s9").style.background='#fbe8a6';
+                                                        document.getElementById("action").innerHTML=v+ " is not found in the hash table";                                                    
+                                                        },10000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s9").style.background='none';
+                                                        document.getElementById("s10").style.background='#fbe8a6';
+                                                        },11000);
+                                    
+                                    setTimeout(function(){
+                                                        document.getElementById("s10").style.background='none';                                                                                                         
+                                                        },11500);                
+
+                                    setTimeout(function(){
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
+                                                    },13000);             
+                                }
+
+                                else{
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s5").style.background='#fbe8a6';
+                                                        document.getElementById(n1).style.background='#fbe8a6';  
+                                                        },5000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s5").style.background='none';
+                                                        document.getElementById("s4").style.background='#fbe8a6';
+                                                        },6000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s5").style.background='#fbe8a6';
+                                                        document.getElementById(n2).style.background='#fbe8a6';
+                                                        document.getElementById(n1).style.background='none';   
+                                                        },7000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s5").style.background='none';
+                                                        document.getElementById("s4").style.background='#fbe8a6';
+                                                        },8000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s5").style.background='#fbe8a6';
+                                                        document.getElementById(n3).style.background='#fbe8a6';
+                                                        document.getElementById(n2).style.background='none';   
+                                                        },9000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s5").style.background='none';
+                                                        document.getElementById("s4").style.background='#fbe8a6';
+                                                        },10000);                                       
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s4").style.background='none';
+                                                        document.getElementById("s8").style.background='#fbe8a6';
+                                                        document.getElementById(n3).style.background='none';                                         
+                                                        },11000);                
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s8").style.background='none';
+                                                        document.getElementById("s9").style.background='#fbe8a6';
+                                                        document.getElementById("action").innerHTML=v+ " is not found in the hash table";                                                    
+                                                        },11000);
+
+                                    setTimeout(function(){
+                                                        document.getElementById("s9").style.background='none';
+                                                        document.getElementById("s10").style.background='#fbe8a6';
+                                                        },12000);
+                                    
+                                    setTimeout(function(){
+                                                        document.getElementById("s10").style.background='none';                                                                                                         
+                                                        },12500);                
+
+                                    setTimeout(function(){
+                                                    var t='i'.concat(r+1);
+                                                    document.getElementById(t).style.background='none';
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer'; 
+                                                    },14000);             
+                                }
+                            }
+                        
+                        }
+                    }
+
+                    function create(){
+                        document.getElementById("createRnd").style.display='inline-block';
+                        document.getElementById("pushAr").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        document.getElementById("action").innerHTML="";
+                        document.getElementById("srch").style.display='none';
+                        document.getElementById("rem").style.display='none';
+                    }
+
+                    function showSz(){
+                        document.getElementById("showRnd").style.display='inline-block';
+                    }
+
+                    function createRnd(){
+                        document.getElementById("createRnd").style.display='none';
+                        document.getElementById("showRnd").style.display='none';
+                        
+                        var l=document.getElementById("size").value;
+
+                        if(l==""){
+                            document.getElementById("notify").innerHTML= "You must enter a value";
+                            document.getElementById("size").value="";
+                        }
+                        else if(l>7){
+                            document.getElementById("notify").innerHTML= "Maximum size is 7";
+                            document.getElementById("size").value="";
+
+                        }
+                        else if(l<4){
+                             document.getElementById("notify").innerHTML= "Minimum size is 4";
+                            document.getElementById("size").value="";
+                        }
+                        else{
+                            length=l;
+                            document.getElementById("notify").innerHTML= "";
+                            document.getElementById("size").value="";
+                            History.push("Create random hash table of size: "+l)
+
+                            for(i=1;i<=l;i++){
+                                var n='l'.concat(i);
+                                var t='i'.concat(i);
+                                document.getElementById(n).style.display='inline';
+                                document.getElementById(t).style.display='inline';
+
+                                var x=n.concat('1');
+                                var y=n.concat('2');
+                                var z=n.concat('3');
+                                var a='d'.concat(i);
+                                var b=a.concat(i);
+                                var c=b.concat(i);
+
+                                document.getElementById(x).style.display='none';
+                                document.getElementById(y).style.display='none';
+                                document.getElementById(z).style.display='none';
+                                document.getElementById(a).style.display='none';
+                                document.getElementById(b).style.display='none';
+                                document.getElementById(c).style.display='none';
+                            }
+
+                            for(j=parseInt(l)+1;j<=7;j++){
+                                var n='l'.concat(j);
+                                var t='i'.concat(j);
+                                document.getElementById(n).style.display='none';
+                                document.getElementById(t).style.display='none';
+
+                                var x=n.concat('1');
+                                var y=n.concat('2');
+                                 var z=n.concat('3');
+                                var a='d'.concat(j);
+                                var b=a.concat(j);
+                                var c=b.concat(j);
+
+                               document.getElementById(x).style.display='none';
+                                document.getElementById(y).style.display='none';
+                                document.getElementById(z).style.display='none';
+                                document.getElementById(a).style.display='none';
+                                document.getElementById(b).style.display='none';
+                                document.getElementById(c).style.display='none';
+                            }
+
+
+                        } 
+                    }
+
+                    function display(){
+                        
+                        
+                    }
+
+                    function popUpSz(){
+                        document.getElementById("popSz").style.display='inline-block';
+                    }
+
+                    function disSz(){
+                        document.getElementById("popSz").style.display='none';   
+                    }
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
+                    }
+
+                    function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                    }
+
+                     function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                    }
+                    
+                    function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
+                    }
+
+                    function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
+
+                    function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+
+                    }
+
+                    function start(){
+                        document.getElementById('node').classList.add('start');
+                    }
+
+                    function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                    }
+                    
+                </script>
+
+            </body>   
+        
+    </html>

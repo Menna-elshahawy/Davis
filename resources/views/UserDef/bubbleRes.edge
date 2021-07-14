@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/selectRes') }}
+</head>
+
+
+<body>
+
+    <title> Bubble Sort </title>
+                
+    <h1> BUBBLE SORT </h1>
+
+    <a HREF="/UserDefined/BubbleSort"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>
+    <div class="alert" id="alert"> Maximum length is 10</div>
+
+     <div> 
+            <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div>
+            <div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div>
+            <div id="l7" class="l7"> 3</div> <div id="l8" class="l8"> 3</div> <div id="l9" class="l9"> 3</div>
+            <div id="l10" class="l10"> 3</div>
+                    
+    </div>    
+
+
+    <script>
+                     var list=[];
+
+                    function display(){
+                    
+                        if(list.length<=10){
+                            document.getElementById("alert").style.display='none';
+                            for(i=1;i<=list.length;i++){                           
+                                var t1='l'.concat(i);
+                                document.getElementById(t1).style.display='flex';
+                                document.getElementById(t1).innerHTML=list[i-1];    
+                                
+                            }
+
+                            
+                            for(j=list.length+1;j<=10;j++){
+                                var t1='l'.concat(j);
+                                document.getElementById(t1).style.display='none';
+                            }
+                        }
+                        else{
+                            document.getElementById("alert").style.display='inline';
+                        }
+                    }
+
+                    list={{res}}
+                    display();
+    
+    </script>
+
+
+</body>
+
+</html>

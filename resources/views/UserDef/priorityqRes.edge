@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/queueRes') }}
+</head>
+
+
+<body>
+
+    <title> Priority Queue </title>
+                
+    <h1> PRIORITY QUEUE </h1>
+
+    <a HREF="/UserDefined/PriorityQueue"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>
+    <div class="action" id="action">  </div>
+    <div class="a" id="a"> Action: </div>
+    <p class= "area" id="area"> </p>
+
+
+    <script>
+                    var queue=[];
+                     var arr=[];
+                    var actions=[];
+                    var cont= document.createElement('div');
+                    var ul = document.createElement('ul');
+
+                    function display(){
+
+                        if(queue==undefined){
+                            return;
+                        }
+
+                            var list=document.getElementById("area");
+                            list.appendChild(cont);
+                            cont.innerHTML="";
+                            cont.appendChild(ul);
+                            ul.innerHTML="";
+                        for(i=0;i<queue.length;i++){
+                                let li = document.createElement('li');
+                                li.innerHTML = queue[i];
+                                ul.appendChild(li);   
+                            }
+
+                         if(queue.length==0){
+                               // document.getElementById("front").style.display='none';
+                               // document.getElementById("rear").style.display='none';
+                            }
+                            else{
+                                //document.getElementById("front").style.display='inline';
+                                if(queue.length==1){
+                                //    document.getElementById("rear").style.left=520;
+                                }
+                                else if(queue.length<=4){
+                                  //  document.getElementById("rear").style.left=440+(60*queue.length);
+                                }
+                                else{
+                                 //   document.getElementById("rear").style.left=440+(55*queue.length);
+                                }
+                               // document.getElementById("rear").style.display='inline';
+                            }   
+                    
+                    }
+
+                    function animate(){
+                        setTimeout(function(){
+                                    queue=arr[0];
+                                    display()
+                                    document.getElementById("action").innerHTML="Create Queue"
+                                    
+                                },1000);
+                        l=1
+                        while(l<arr.length){
+                            (function(l){
+
+                                setTimeout(function(){
+                                    if(arr[l]!=null){
+                                        queue=arr[l];
+                                        display()
+                                        document.getElementById("action").innerHTML=actions[l-1]
+                                    }
+
+                                },1000+(1500*l));
+
+                            })(l);
+
+                            l++
+
+                        }
+                        
+                    }
+
+
+                    function countNF(a){
+                        var z=0;
+                        for(var i=0;i<a.length ;i++){
+                            if(a[i]==null)
+                                z++;
+                            else
+                                break;    
+                        }
+                        return z;
+                    }
+
+                    function countNE(a){
+                        var z=0;
+                        for(var i=a.length-1;i>=0;i--){
+                            if(a[i]==null)
+                                z++;
+                            else
+                                break; 
+                        }
+                        return z;
+                    }
+
+                    function setActions(){
+                        for(var i=0;i<arr.length-1;i++){
+                            var a=arr[i];
+                            var b=arr[i+1];
+
+                            if(a!=null && b!=null){
+                                if(countNE(a)>countNE(b)){
+                                    var v=difference(b,a)[0]
+                                                                        
+                                    var t="enqueue ".concat(v)
+                                    actions.push(t)
+                                }
+                                else{
+                                    var v=a[a.length-countNE(b)]
+                                    actions.push("dequeue ".concat(v))
+                                }
+                            }
+                        }
+                    }
+
+                    function difference(a, b) {
+                        return [...b.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) - 1),
+                                a.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) + 1), new Map() ) 
+                        )].reduce( (acc, [v, count]) => acc.concat(Array(Math.abs(count)).fill(v)), [] );
+                    }
+
+
+
+                    arr={{res}}
+                    console.log(arr)
+                    setActions()
+                    animate()
+    
+    </script>
+
+
+</body>
+
+</html>

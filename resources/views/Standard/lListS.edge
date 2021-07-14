@@ -1,0 +1,1301 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+            {{ style('Standard/lListStyleS') }}
+            </head>
+                  
+            <body>
+                
+                 <title> Linked List </title>
+                
+                <h1>LINKED LIST</h1>
+        
+            <a HREF="/Standard"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+            
+            <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                
+
+            <div class="info" id="info"> <span style="color:#f4976c";> What is a linked list </span> <br>
+                    A linked list is a linear data structure, in which the elements are not stored at contiguous 
+                    memory locations. The elements in a linked list are linked using pointers.
+                     <br> In simple words, a linked list consists of nodes where each node contains a data field and 
+                     a reference(link) to the next node in the list.
+                     <br> <br> 
+                    
+                    <span style="color:#f4976c";> Methods: </span> <br>
+                    Mainly the following three basic operations are performed in the linked list: <br>
+                    -Insert: Adds an item to the linked list. <br>
+                    -Remove: Removes an item from the linked list. <br>
+                    -Search: Searches for an item in the linked list and returns it.<br><br>
+                    
+                    <span style="color:#f4976c";> Applications: </span><br> 
+                    -Dynamic memory allocation <br>
+                    -Maintaining directory of names <br>
+                    -Music Player <br><br>
+            </div>
+
+            <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+            <span class="arrH" id="arrH">&#8249;</span>  </div>
+            <div class="know" id="know"> Know more about Linked Lists </div>    
+
+
+                <div class="stackHome">
+        
+                    <div class="btn-group">
+                        <button id="createBtn" class="button" onclick="create()">Create</button>
+                        <button id="insertBtn" class="button" onclick="insert()">Insert</button>             
+                        <button id="removeBtn" class="button" onclick="remove()">Remove</button>
+                        <button id="searchBtn" class="button" onclick="search()" >Search</button>
+                    </div>
+                    
+                    <!--    Create       -->
+                    
+                    <div class="createRnd" id="createRnd"> <button class="rndBtn" onclick="showSz()">Random</button> 
+                        <div class="showRnd"  id="showRnd"> <input class="num" type="number" id="size" size="3" onmouseover="popUpSz()" onmouseout="disSz()" min="1" max="7"> 
+                            <div class="popSz" id="popSz"> Enter the length of the linked list </div>
+                            <button class="go" onclick="createRnd()">Go</button> </div></div>
+                    
+                    <div class="createDef" id="createDef" > <button class="defBtn" onclick="showAr()">User Defined</button> 
+                        <div class="showDef" id="showDef"> <input class="arr" type="text" id="arr" size="5" onmouseover="popUp()" onmouseout="dis()" placeholder="1,2,3,4,5"> 
+                            <button class="go" onclick="createDef()">Go</button>  <div class="popUp" id="popUp"> Enter the elements separated by commas </div> </div> </div>
+
+                    <!--    Insert       -->
+                    
+                    <div class="insH" id="insH"> <button class="hBtn" onclick="showHd()"> Insert first</button>
+                         <div class="showH"  id="showH"> <input class="num2" type="number" id="inH" min="1" max="9"> 
+                            <button class="go2" onclick="insertHead()">Go</button> </div> </div>
+                    
+                    <div class="insT" id="insT"> <button class="tBtn" onclick="showT()"> Insert last</button>
+                         <div class="showT"  id="showT"> <input class="num2" type="number" id="inT" min="1" max="9"> 
+                            <button class="go2" onclick="insertTail()">Go</button> </div> </div>
+                    
+                    <div class="insI" id="insI"> <button class="iBtn" onclick="showI()"> Insert at index</button>
+                         <div class="showI"  id="showI"> <input class="num2" type="number" id="inI" min="1" max="9"> <input class="num2" type="number" id="indx" onmouseover="popIn()" onmouseout="disIn()" min="0" max="7" > <div class="popIn" id="popIn"> Enter the index of the element </div> <button class="go2" onclick="insertIndex()">Go</button> </div> </div>
+                       
+                    
+                    <!--    Remove       -->
+                    
+                      <div class="remH" id="remH"> <button class="hBtn" onclick="removeHead()"> Remove first</button></div>
+                    
+                    <div class="remT" id="remT"> <button class="tBtn" onclick="removeTail()"> Remove last</button> </div>
+                    
+                    <div class="remI" id="remI"> <button class="iBtn" onclick="showRI()"> Remove at index</button>
+                         <div class="showRI"  id="showRI"> <input class="num2" type="number" id="Rindx" onmouseover="popRIn()" onmouseout="disRIn()" min="0" max="7" > <div class="popRIn" id="popRIn"> Enter the index of the element </div> <button class="go2" onclick="removeIndex()">Go</button> </div> </div>
+                            
+                    <!--    Search     -->
+                    
+                     <div class="sAr" id="sAr"> <input class="num" type="number" id="val" size="3" min="1" max="9"> <button class="go" onclick="searchV()">Go</button> </div>
+                    
+                </div>
+                    
+                    
+                    
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+              
+               
+                <div id="list">
+                    <span id="a1" class="a1">&#8594;</span> <span id="a2" class="a2">&#8594;</span> <span id="a3" class="a3">&#8594;</span> <span id="a4" class="a4">&#8594;</span><span id="a5" class="a5">&#8594;</span><span id="a6" class="a6">&#8594;</span>
+
+                    <div id="l1" class="l1"> 3</div> <div id="l2" class="l2"> 3</div>  <div id="l3" class="l3"> 3</div><div id="l4" class="l4"> 3</div> <div id="l5" class="l5"> 3</div> <div id="l6" class="l6"> 3</div> <div id="l7" class="l7"> 3</div>
+               </div>
+
+             <div class="abt" onclick="show()"> About </div>
+                    
+            <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+            </div>
+
+            <div class="hst" onclick="showH()">Actions History </div>
+            <div id="myModalH" class="modal">
+                    <div class="modal-contentH">
+                    <span class="closeH" id="closeH" onclick="closeH()">&#215;</span>
+                    <div class="htex"> History </div>
+                    <div id="history" class="history"></div>
+                  </div>
+                </div>
+
+
+            <div class= "nodeH" id="nodeH"> 3 </div>
+            <div class= "nodeT" id="nodeT"> 3 </div>
+
+            <div class="upH" id="upH"> <span>&#8593;</span> </div>
+                <div class="upT" id="upT"> <span>&#8593;</span> </div>
+                <div class="upR" id="upR"> <span>&#8599;</span> </div>
+                <div class="upL" id="upL"> <span>&#8598;</span> </div>
+                <div class="rightH" id="rightH"> <span>&#8594;</span> </div>
+                <div class="rightT" id="rightT"> <span>&#8594;</span> </div>        
+
+            <div class="current" id="current"> current </div>
+            <div class="head" id="head">head</div>
+            <div class="tail" id="tail">tail</div>
+
+            <div class="method" id="method"> 
+                       
+                       <button id="view" class="view" onclick="view()"> View Code Tracer </button>
+                       <button id="hide" class="hide" onclick="hide()"> Hide Code Tracer </button>
+                       
+                       <div class="code" id="code">
+                           
+                          <div id="insHM" class="insHM">
+                               <div id="ih1" class="ih1">  public void insertFirst(Object o) { </div> 
+                               <div id="ih2" class="ih2" style="text-indent: 40px;">  Link newLink = new Link(o); </div> 
+                               <div id="ih3" class="ih3" style="text-indent: 40px;">  newLink.next = head; </div> 
+                               <div id="ih4" class="ih4" style="text-indent: 40px;">  head = newLink; </div>
+                               <div id="ih5" class="ih5">  }</div> 
+                          </div>
+
+                          <div id="insTM" class="insTM">
+                               <div id="it1" class="it1">  public void insertLast(Object o) { </div> 
+                               <div id="it2" class="it2" style="text-indent: 40px;">  Link newLink = new Link(o); </div> 
+                               <div id="it3" class="it3" style="text-indent: 40px;">  tail.next=newLink; </div> 
+                               <div id="it4" class="it4" style="text-indent: 40px;">  tail=newLink </div>
+                               <div id="it5" class="it5">  }</div> 
+                          </div>
+
+
+                           <div id="remHM" class="remHM">
+                               <div id="rh1" class="rh1">  public Object removeFirst() { </div> 
+                               <div id="rh2" class="rh2" style="text-indent: 40px;">  Object res = head.data; </div> 
+                               <div id="rh3" class="rh3" style="text-indent: 40px;">  head = head.next; </div> 
+                               <div id="rh4" class="rh4" style="text-indent: 40px;">  return res; </div>
+                               <div id="rh5" class="rh5">  }</div> 
+                          </div>
+
+                           <div id="remTM" class="remTM">
+                               <div id="rt1" class="rt1">  public void removeLast() { </div> 
+                               <div id="rt2" class="rt2" style="text-indent: 40px;">  if (head.next == null) { </div> 
+                               <div id="rt3" class="rt3" style="text-indent: 80px;">  Object res = head.data; </div> 
+                               <div id="rt4" class="rt4" style="text-indent: 80px;">  head = null; </div>
+                               <div id="rt5" class="rt5" style="text-indent: 80px;">  return res; </div>
+                               <div id="rt6" class="rt6" style="text-indent: 40px;">  } </div>
+                               <div id="rt7" class="rt7" style="text-indent: 40px;">  Link current = head; </div>
+                               <div id="rt8" class="rt8" style="text-indent: 40px;">  while (current.next.next != null) </div>
+                               <div id="rt9" class="rt9" style="text-indent: 80px;">  current = current.next; </div>
+                               <div id="rt10" class="rt10" style="text-indent: 40px;">  Object res = current.next.data; </div>
+                               <div id="rt11" class="rt11" style="text-indent: 40px;">  current.next = null; </div>
+                               <div id="rt12" class="rt12" style="text-indent: 40px;">  return res; </div>
+                               <div id="rt13" class="rt13">  }</div> 
+                          </div>
+
+                          <div id="srchM" class="srchM">
+                               <div id="s1" class="s1">  public String Search(Object v){  </div> 
+                               <div id="s2" class="s2" style="text-indent: 40px;">  Link current = head; </div> 
+                               <div id="s3" class="s3" style="text-indent: 40px;">  while (current != null){ </div> 
+                               <div id="s4" class="s4" style="text-indent: 80px;">  if(current.equals(v)) </div> 
+                               <div id="s5" class="s5" style="text-indent: 120px;">  return "found";</div> 
+                               <div id="s6" class="s6" style="text-indent: 80px;">  current = current.next;  </div> 
+                               <div id="s7" class="s7" style="text-indent: 40px;">  } </div> 
+                               <div id="s8" class="s8" style="text-indent: 40px;">  return "not found"; </div> 
+                               <div id="s9" class="s9">  }</div> 
+                          </div>
+                           
+                        </div>
+                       
+                    </div> 
+                
+
+            <script>
+            
+                var list=[];
+                var count=1;
+                var contH= document.createElement('div');
+                var histList = document.createElement('ol');
+                var History=[];
+
+                function insert(){
+                    
+                    document.getElementById("createRnd").style.display='none';
+                    document.getElementById("createDef").style.display='none';
+                    document.getElementById("insH").style.display='inline-block';
+                    document.getElementById("insT").style.display='inline-block';
+                    document.getElementById("insI").style.display='inline-block';
+                    document.getElementById("remH").style.display='none';
+                    document.getElementById("remT").style.display='none';
+                    document.getElementById("remI").style.display='none';  
+                    document.getElementById("sAr").style.display='none';
+                    document.getElementById("showH").style.display='none';
+                    document.getElementById("showT").style.display='none';
+                    document.getElementById("showI").style.display='none';   
+                }
+
+                function insertHead(){
+                    document.getElementById("insH").style.display='none';
+                    document.getElementById("insT").style.display='none';
+                    document.getElementById("insI").style.display='none';
+                    document.getElementById("showH").style.display='none';
+                    
+                    var v = document.getElementById("inH").value;
+                    
+                    if(v==""){
+                        document.getElementById("notify").innerHTML="You must enter a value";
+                    }
+                    
+                    else if(list.length==7){
+                            document.getElementById("notify").innerHTML="Maximum length is 7";                        
+                            document.getElementById("notify").innerHTML="";
+                        
+                        
+                    }
+                    else if(exist(v)){
+                                document.getElementById("notify").innerHTML="No duplicate values allowed";
+                            }
+                    else{
+
+                        History.push("Insert head: "+v)
+
+                                document.getElementById("notify").innerHTML="";
+                                document.getElementById("action").innerHTML="";
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
+                                document.getElementById("insHM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                                document.getElementById("upL").style.left=376;
+
+                                list.unshift(v);            
+                                                             
+                                const nodeH=document.getElementById("nodeH");
+                                
+                                
+                                document.getElementById("nodeH").innerHTML=v;
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+                                
+                                setTimeout(function(){document.getElementById("ih1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("ih1").style.background='none';
+                                                    document.getElementById("ih2").style.background='#fbe8a6';
+                                                    nodeH.style.display='flex';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("ih3").style.background='#fbe8a6';
+                                                    document.getElementById("ih2").style.background='none';
+                                                    if(list.length>1){
+                                                        document.getElementById("rightH").style.display='inline';
+                                                    }
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("ih4").style.background='#fbe8a6';
+                                                    document.getElementById("ih3").style.background='none';
+                                                    document.getElementById("upH").style.display='none';
+                                                    document.getElementById("upL").style.display='inline';
+                                                                                    
+                                                    },4000);
+
+                                setTimeout(function(){document.getElementById("ih4").style.background='none';
+                                                    document.getElementById("ih5").style.background='#fbe8a6';
+                                                    },5000);
+
+                                setTimeout(function(){nodeH.style.display='none';
+                                                    document.getElementById("rightH").style.display='none';
+                                                    document.getElementById("upH").style.display='inline';
+                                                    document.getElementById("upL").style.display='none'; 
+                                                    this.display();
+                                                    document.getElementById("ih5").style.background='none';
+                                                    document.getElementById("action").innerHTML="You inserted "+v+" at the head";
+
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },5500);
+
+                    }  
+                     document.getElementById("inH").value="";
+                    
+                }
+                
+                function insertTail(){
+                    document.getElementById("insH").style.display='none';
+                    document.getElementById("insT").style.display='none';
+                    document.getElementById("insI").style.display='none';   
+                    document.getElementById("showT").style.display='none';
+                    
+                    var v = document.getElementById("inT").value;
+                    
+                    if(v==""){
+                        document.getElementById("notify").innerHTML="You must enter a value";
+                    }
+                    
+                    else{
+                    document.getElementById("notify").innerHTML="";
+                        
+                        if(list.length==0){
+                            list.push(v);
+                            document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
+                            display();
+                        }
+                        
+                        else if(list.length==7){
+                            document.getElementById("notify").innerHTML="Maximum length is 7";
+                        }
+                        else{
+                            if(exist(v)){
+                                document.getElementById("notify").innerHTML="No duplicate values allowed";
+                            }
+                            else{
+
+                                History.push("Insert tail: "+v)
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
+                                document.getElementById("insTM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                                
+                                const nodeT=document.getElementById("nodeT");
+                                                               
+                                document.getElementById("nodeT").innerHTML=v;
+                                document.getElementById("rightT").style.left=448+(list.length-1)*80;
+                                document.getElementById("upR").style.left=450+(list.length-1)*80;
+                                var t='l'.concat(list.length);
+                                nodeT.style.left=410+(list.length)*80;
+                                
+                                list.push(v);   
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+
+                                setTimeout(function(){document.getElementById("it1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("it1").style.background='none';
+                                                    document.getElementById("it2").style.background='#fbe8a6';
+                                                    nodeT.style.display='flex';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("it3").style.background='#fbe8a6';
+                                                    document.getElementById("it2").style.background='none';
+                                                    if(list.length>1){
+                                                        document.getElementById("rightT").style.display='inline';
+                                                    }
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("it4").style.background='#fbe8a6';
+                                                    document.getElementById("it3").style.background='none';
+                                                    document.getElementById("upT").style.display='none';
+                                                    document.getElementById("upR").style.display='inline';
+                                                                                    
+                                                    },4000);
+
+                                setTimeout(function(){document.getElementById("it4").style.background='none';
+                                                    document.getElementById("it5").style.background='#fbe8a6';
+                                                    },5000);
+
+                                setTimeout(function(){nodeT.style.display='none';
+                                                    document.getElementById("rightT").style.display='none';
+                                                    document.getElementById("upT").style.display='inline';
+                                                    document.getElementById("upR").style.display='none'; 
+                                                    this.display();
+                                                    document.getElementById("it5").style.background='none';
+                                                    document.getElementById("action").innerHTML="You inserted "+v+" at the tail";
+
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },5500);
+
+
+                                document.getElementById("notify").innerHTML="";
+
+                            }    
+                        }
+                        document.getElementById("inT").value="";  
+                    }    
+                }
+
+                function insertIndex(){
+                    document.getElementById("insH").style.display='none';
+                    document.getElementById("insT").style.display='none';
+                    document.getElementById("insI").style.display='none';  
+                    
+                    
+                    var v=document.getElementById("inI").value;
+                    var p=document.getElementById("indx").value;
+
+                    
+                    if(v=="" || p==""){
+                        document.getElementById("notify").innerHTML="You must enter a value and its index "
+                    }
+                    
+                    else{
+                        
+                        document.getElementById("notify").innerHTML= "";
+                        
+                        if(list.length==7){
+                            document.getElementById("notify").innerHTML= "Maximum size is 8";
+                        }
+                        
+                        else if(p>=list.length){
+                            var t=list.length-1;
+                            document.getElementById("notify").innerHTML= "Please enter a valid index, between 0 and "+t;
+                        }
+                        
+                        else{
+                            if(exist(v)){
+                                document.getElementById("notify").innerHTML="No duplicate values allowed";
+                            }
+                            else{
+                                document.getElementById("notify").innerHTML="";
+                                for (i = list.length-1; i>=p ; i--) {
+                                    list[i+1] = list[i];
+                                }
+
+                                list[p]=v;
+                                display();
+
+                                document.getElementById("action").innerHTML="You inserted "+v+" at index "+p;
+                            }
+                        }
+                    }
+                    
+                    
+                        document.getElementById("inI").value='';
+                        document.getElementById("indx").value='';
+                                               
+                }
+
+                function remove(){
+                    document.getElementById("createRnd").style.display='none';
+                    document.getElementById("createDef").style.display='none';
+                    document.getElementById("insH").style.display='none';
+                    document.getElementById("insT").style.display='none';
+                    document.getElementById("insI").style.display='none';
+                    document.getElementById("remH").style.display='inline-block';
+                    document.getElementById("remT").style.display='inline-block';
+                    document.getElementById("remI").style.display='inline-block';
+                    document.getElementById("showRI").style.display='none';   
+                    document.getElementById("sAr").style.display='none';
+                    
+                }
+
+                function removeHead(){
+
+                    document.getElementById("showRI").style.display='none'; 
+                    document.getElementById("remH").style.display='none';
+                    document.getElementById("remT").style.display='none';
+                    document.getElementById("remI").style.display='none';
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    if(list.length==0){
+                            document.getElementById("notify").innerHTML= "The list is empty!";
+                        }
+                    else{
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
+                                document.getElementById("remHM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                                document.getElementById("upR").style.left=450;
+                                 var v=list.shift();
+                                History.push("Remove head: "+v)     
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+
+                                setTimeout(function(){document.getElementById("rh1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("rh1").style.background='none';
+                                                    document.getElementById("rh2").style.background='#fbe8a6';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("rh3").style.background='#fbe8a6';
+                                                    document.getElementById("rh2").style.background='none';
+                                                    document.getElementById("upR").style.display='inline';
+                                                    document.getElementById("upH").style.display='none';
+                                                    
+                                                    },3000);
+                                
+                                setTimeout(function(){document.getElementById("rh4").style.background='#fbe8a6';
+                                                    document.getElementById("rh3").style.background='none';
+                                                                                                                                       
+                                                    },4000);
+
+                                setTimeout(function(){document.getElementById("rh4").style.background='none';
+                                                    document.getElementById("rh5").style.background='#fbe8a6';
+                                                    document.getElementById("action").innerHTML="You removed the head "+ v; 
+                                                   },5000);
+
+                                setTimeout(function(){document.getElementById("upR").style.display='none';
+                                                    this.display();
+                                                    document.getElementById("rh5").style.background='none';
+
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                    },5500);
+                             
+
+
+                        document.getElementById("notify").innerHTML= "";
+                       
+                    }
+                }
+
+                function removeTail(){
+
+                    document.getElementById("showRI").style.display='none';
+                    document.getElementById("remH").style.display='none';
+                    document.getElementById("remT").style.display='none';
+                    document.getElementById("remI").style.display='none';
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    if(list.length==0){
+                            document.getElementById("notify").innerHTML= "The list is empty!";
+                        }
+                    else{
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
+                                document.getElementById("remTM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+                                document.getElementById("current").style.left=397;
+
+                                document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+                                                                                                
+                                setTimeout(function(){document.getElementById("rt1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("rt1").style.background='none';
+                                                    document.getElementById("rt2").style.background='#fbe8a6';
+                                                    },2000);
+
+                                var v=list.pop();
+                                History.push("Remove tail: "+v)
+                                if(list.length==0){
+                                     setTimeout(function(){document.getElementById("rt2").style.background='none';
+                                                    document.getElementById("rt3").style.background='#fbe8a6';
+                                                    },3000);
+
+                                    setTimeout(function(){document.getElementById("rt3").style.background='none';
+                                                    document.getElementById("rt4").style.background='#fbe8a6';
+                                                    },4000);
+                                     
+                                    setTimeout(function(){document.getElementById("rt4").style.background='none';
+                                                    document.getElementById("rt5").style.background='#fbe8a6';
+                                                    
+                                                    document.getElementById("action").innerHTML="You removed the tail "+ v;
+                                                    display();
+                                                    },5000);
+
+                                    setTimeout(function(){document.getElementById("rt5").style.background='none';
+                                                    document.getElementById("rt6").style.background='#fbe8a6';
+                                                    },6000);
+
+                                    setTimeout(function(){document.getElementById("rt6").style.background='none';
+                                                    },6500);
+           
+                                }
+
+                                else{
+
+                                    setTimeout(function(){document.getElementById("rt7").style.background='#fbe8a6';
+                                                        document.getElementById("rt2").style.background='none';
+                                                        document.getElementById("l1").style.background='#fbe8a6';
+                                                        document.getElementById("current").style.display='inline';                                                                                 
+                            
+                                                        },3000);
+                                    
+                                    setTimeout(function(){document.getElementById("rt8").style.background='#fbe8a6';
+                                                        document.getElementById("rt7").style.background='none';
+                                                        },4000);
+
+                                    var c=1;
+                                    if(list.length>=3){
+                                        
+                                        while(c<list.length){
+                                            (function(c){
+                                                setTimeout(function(){document.getElementById("rt9").style.background='#fbe8a6';
+                                                            document.getElementById("rt8").style.background='none';
+                                                            var t='l'.concat(c);
+                                                            document.getElementById(t).style.background='none';
+                                                            var t2='l'.concat(c+1);
+                                                            document.getElementById(t2).style.background='#fbe8a6';
+                                                            document.getElementById("current").style.left=397+80*c;
+                                                            document.getElementById("current").style.display='inline';                            
+                                                            },2000*c+3000);
+                                        
+                                            setTimeout(function(){document.getElementById("rt8").style.background='#fbe8a6';
+                                                            document.getElementById("rt9").style.background='none';                           
+                                                            },2000*c+4000);
+                                            })(c);
+                                            
+
+                                            c++;
+                                        }  
+                                    }                
+
+                                    setTimeout(function(){document.getElementById("rt8").style.background='none';
+                                                        document.getElementById("rt10").style.background='#fbe8a6';                                                        
+                                                    },2000*(c-1)+5000);
+
+                                    setTimeout(function(){document.getElementById("rt10").style.background='none';
+                                                        document.getElementById("rt11").style.background='#fbe8a6';
+                                                        },2000*(c-1)+6000);
+
+                                    setTimeout(function(){document.getElementById("rt11").style.background='none';
+                                                        document.getElementById("rt12").style.background='#fbe8a6';
+                                                        this.display();
+                                                         document.getElementById("action").innerHTML="You removed the tail "+ v;
+                                                        },2000*(c-1)+6800);
+
+                                    setTimeout(function(){document.getElementById("rt12").style.background='none';
+                                                        document.getElementById("rt13").style.background='#fbe8a6';
+                                                        },2000*(c-1)+7500);                    
+
+                                    setTimeout(function(){document.getElementById("rt13").style.background='none';
+                                                        document.getElementById("current").style.display='none';
+                                                        var t='l'.concat(c);
+                                                        document.getElementById(t).style.background='none'; 
+
+                                                        document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';
+                                                        },2000*(c-1)+8000); 
+
+                                }                    
+                                
+                               
+                        document.getElementById("notify").innerHTML= "";
+                    }
+                }
+
+                function removeIndex(){
+                    document.getElementById("showRI").style.display='none';
+                    document.getElementById("remH").style.display='none';
+                    document.getElementById("remT").style.display='none';
+                    document.getElementById("remI").style.display='none';
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    var p=document.getElementById("Rindx").value;
+
+                    
+                    if(p==""){
+                        document.getElementById("notify").innerHTML="You must enter an index "
+                    }
+                    
+                    else{
+                        
+                        document.getElementById("notify").innerHTML= "";
+                        
+                        if(list.length==0){
+                            document.getElementById("notify").innerHTML= "The list is empty!";
+                        }
+                        
+                        else if(p>=list.length){
+                            var t=list.length-1;
+                            document.getElementById("notify").innerHTML= "Please enter a valid index, between 0 and "+t;
+                        }
+                        
+                        else{
+                            
+                            var t=list[p];
+                            list2=[];
+                            
+                            for(i=0;i<list.length;i++){
+                                if(i!=p){
+                                    list2.push(list[i]);
+                                }
+                            }
+                            
+                            list=list2;
+                            display();
+
+                            document.getElementById("action").innerHTML="You removed "+t+" at index "+p;
+                        }
+                    }
+                        
+                        document.getElementById("Rindx").value='';
+                }
+
+                function search(){
+                    document.getElementById("createRnd").style.display='none';
+                    document.getElementById("createDef").style.display='none';
+                    document.getElementById("insH").style.display='none';
+                    document.getElementById("insT").style.display='none';
+                    document.getElementById("insI").style.display='none';
+                    document.getElementById("remH").style.display='none';
+                    document.getElementById("remT").style.display='none';
+                    document.getElementById("remI").style.display='none';
+                    document.getElementById("sAr").style.display='inline-block';
+                    
+                }
+
+                function searchV(){
+                    document.getElementById("sAr").style.display='none';
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    var v=document.getElementById("val").value;
+                    
+                    if(v==""){    
+                        document.getElementById("notify").innerHTML="You must enter a value ";
+                    }
+                        
+                    else{
+                        
+                        if(list.length==0){
+                            document.getElementById("notify").innerHTML= "The list is empty!";
+                        }
+                        
+                        else{
+                            document.getElementById("notify").innerHTML="";
+                            var f="f";
+                            var p="";
+
+                            for(i=0;i<list.length;i++){
+                                if(list[i]==v){
+                                    f="t";
+                                    p=i;
+                                    break;
+                                }
+                            }
+                            document.getElementById("searchBtn").disabled= true;
+                                document.getElementById("insertBtn").disabled= true;
+                                document.getElementById("createBtn").disabled= true;
+                                document.getElementById("removeBtn").disabled= true;
+                                document.getElementById("searchBtn").style.cursor= 'not-allowed';
+                                document.getElementById("insertBtn").style.cursor= 'not-allowed';
+                                document.getElementById("createBtn").style.cursor= 'not-allowed';
+                                document.getElementById("removeBtn").style.cursor= 'not-allowed';
+
+                            if(f=="t"){
+                                var c=1;
+                                History.push("Search: "+v)
+                                document.getElementById("insHM").style.display='none';
+                                document.getElementById("insTM").style.display='none';
+                                document.getElementById("remHM").style.display='none';
+                                document.getElementById("remTM").style.display='none';
+                                document.getElementById("srchM").style.display='none';
+                                document.getElementById("srchM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+
+                                setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("s1").style.background='none';
+                                                    document.getElementById("s2").style.background='#fbe8a6';
+                                                    document.getElementById("l1").style.background='#fbe8a6';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
+                                                    document.getElementById("s2").style.background='none';
+                                                    },3000);
+
+                                while(c<=p){
+                                    (function(c){
+                                        setTimeout(function(){document.getElementById("s4").style.background='#fbe8a6';
+                                            document.getElementById("s3").style.background='none';
+                                        },4000*(c-1)+4000);
+
+                                        setTimeout(function(){document.getElementById("s6").style.background='#fbe8a6';
+                                                document.getElementById("s4").style.background='none';
+                                                var tmp='l'.concat(c)
+                                                document.getElementById(tmp).style.background='none';
+                                                tmp='l'.concat(c+1)
+                                                document.getElementById(tmp).style.background='#fbe8a6';                                                                                                                        
+                                            },4000*(c-1)+5000); 
+
+                                        setTimeout(function(){document.getElementById("s7").style.background='#fbe8a6';
+                                                document.getElementById("s6").style.background='none';                                                                                                                      
+                                            },4000*(c-1)+6000);
+
+                                        setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
+                                                document.getElementById("s7").style.background='none';                                                                                                                      
+                                            },4000*(c-1)+7000);     
+                                    })(c);
+                                    c++;
+                                }                    
+
+                                setTimeout(function(){document.getElementById("s4").style.background='#fbe8a6';
+                                        document.getElementById("s3").style.background='none';                                                                                                                  
+                                    },4000*(c)); 
+
+                                setTimeout(function(){document.getElementById("s5").style.background='#fbe8a6';
+                                        document.getElementById("s4").style.background='none';
+                                        tmp='l'.concat(c)
+                                        document.getElementById(tmp).style.background='none';
+                                        document.getElementById("action").innerHTML="Found value "+v+" at index "+p;                                                                                                                      
+                                    },4000*(c)+1000);  
+
+                                setTimeout(function(){document.getElementById("s5").style.background='none';
+                                        document.getElementById("s9").style.background='#fbe8a6';
+                                    },4000*(c)+2000);
+
+                                setTimeout(function(){document.getElementById("s9").style.background='none';  
+                                document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                          
+                                    },4000*(c)+2500);
+                                
+                                
+                            }
+                            else{
+                                
+                                var c=1;
+                                document.getElementById("srchM").style.display='inline';
+                                document.getElementById("method").style.display='inline';
+
+                                setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
+                                                    },1000);
+                                
+                                setTimeout(function(){document.getElementById("s1").style.background='none';
+                                                    document.getElementById("s2").style.background='#fbe8a6';
+                                                    document.getElementById("l1").style.background='#fbe8a6';
+                                                    },2000);
+                                
+                                setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
+                                                    document.getElementById("s2").style.background='none';
+                                                    },3000);
+
+                                while(c<=list.length-1){
+                                    (function(c){
+                                        setTimeout(function(){document.getElementById("s4").style.background='#fbe8a6';
+                                            document.getElementById("s3").style.background='none';
+                                        },4000*(c-1)+4000);
+
+                                        setTimeout(function(){document.getElementById("s6").style.background='#fbe8a6';
+                                                document.getElementById("s4").style.background='none';
+                                                var tmp='l'.concat(c)
+                                                document.getElementById(tmp).style.background='none';
+                                                tmp='l'.concat(c+1)
+                                                document.getElementById(tmp).style.background='#fbe8a6';                                                                                                                        
+                                            },4000*(c-1)+5000); 
+
+                                        setTimeout(function(){document.getElementById("s7").style.background='#fbe8a6';
+                                                document.getElementById("s6").style.background='none';                                                                                                                      
+                                            },4000*(c-1)+6000);
+
+                                        setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
+                                                document.getElementById("s7").style.background='none';                                                                                                                      
+                                            },4000*(c-1)+7000);     
+                                    })(c);
+                                    c++;
+                                }                    
+
+                                setTimeout(function(){document.getElementById("s4").style.background='#fbe8a6';
+                                        document.getElementById("s3").style.background='none';                                                                                                                  
+                                    },4000*(c)); 
+
+                                setTimeout(function(){document.getElementById("s6").style.background='#fbe8a6';
+                                        document.getElementById("s4").style.background='none';
+                                        tmp='l'.concat(c)
+                                        document.getElementById(tmp).style.background='none';
+                                    },4000*(c)+1000);  
+
+                                setTimeout(function(){document.getElementById("s6").style.background='none';
+                                        document.getElementById("s7").style.background='#fbe8a6';
+                                    },4000*(c)+2000);
+
+                                setTimeout(function(){document.getElementById("s7").style.background='none';
+                                        document.getElementById("s3").style.background='#fbe8a6';
+                                    },4000*(c)+3000);
+
+                                setTimeout(function(){document.getElementById("s3").style.background='none';
+                                        document.getElementById("s8").style.background='#fbe8a6';
+                                        document.getElementById("action").innerHTML="Value "+v+" is not found in the list";                                                                                                                      
+                                    },4000*(c)+4000);
+
+                                setTimeout(function(){document.getElementById("s8").style.background='none';
+                                        document.getElementById("s9").style.background='#fbe8a6';
+                                    },4000*(c)+5000);            
+
+                                setTimeout(function(){document.getElementById("s9").style.background='none'; 
+                                                    document.getElementById("searchBtn").disabled= false;
+                                                    document.getElementById("insertBtn").disabled=false;
+                                                    document.getElementById("createBtn").disabled= false;
+                                                    document.getElementById("removeBtn").disabled= false;
+                                                    document.getElementById("searchBtn").style.cursor= 'pointer';
+                                                    document.getElementById("insertBtn").style.cursor= 'pointer';
+                                                    document.getElementById("createBtn").style.cursor= 'pointer';
+                                                    document.getElementById("removeBtn").style.cursor= 'pointer';                           
+                                    },4000*(c)+5500);
+     
+                                  
+                            }
+                        }
+
+                    }
+                    document.getElementById("val").value='';
+                    
+                }
+
+                function create(){
+                    document.getElementById("createRnd").style.display='inline-block';
+                    document.getElementById("createDef").style.display='inline-block';
+                    document.getElementById("showRnd").style.display='none';
+                    document.getElementById("showDef").style.display='none';
+                    document.getElementById("action").innerHTML="";
+                    document.getElementById("insH").style.display='none';
+                    document.getElementById("insT").style.display='none';
+                    document.getElementById("insI").style.display='none';
+                    document.getElementById("remH").style.display='none';
+                    document.getElementById("remT").style.display='none';
+                    document.getElementById("remI").style.display='none';
+                    document.getElementById("sAr").style.display='none';
+
+                }
+
+                function createRnd(){
+                    document.getElementById("createRnd").style.display='none';
+                    document.getElementById("createDef").style.display='none';
+                    document.getElementById("showRnd").style.display='none';
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    var l=document.getElementById("size").value;
+
+                    if(l>7){
+                        document.getElementById("notify").innerHTML= "Maximum size is 7";
+                        document.getElementById("size").value="";
+
+                    }
+                    else{
+                        document.getElementById("notify").innerHTML= "";
+                        document.getElementById("size").value="";
+                        
+                        list=[];
+                        for(i=0;i<l;i++){
+                            
+                            do{
+                                var x = Math.floor((Math.random() * 9) + 1);
+                            }while(exist(x));
+                            
+                            list[i]=x;    
+                        }
+                        History.push("Create random linked list: "+list)
+                        this.display();
+                    }
+                    
+                
+                }
+
+                function createDef(){
+                    document.getElementById("createRnd").style.display='none';
+                    document.getElementById("createDef").style.display='none';
+                    document.getElementById("showDef").style.display='none';
+                    document.getElementById("notify").innerHTML= "";
+                    
+                    var ar=document.getElementById("arr").value;
+                    document.getElementById("arr").value="";
+                    
+                    if(ar==""){
+                    document.getElementById("arr").value="";   
+                    }
+                    
+                    else{
+                        var list2=[];
+
+                        list2=ar.split(',');    
+
+                        if(list2.length>7){
+                            document.getElementById("notify").innerHTML= "Maximum size is 8";
+                            document.getElementById("arr").value="";
+
+                        }
+                        else{
+                            list=[];
+                            var f='f';
+                            
+                            for(i=0;i<list2.length;i++){
+                                if(exist(list2[i])){
+                                    f='t';
+                                    break;
+                                }
+                                else{
+                                    list[i]=list2[i];
+                                }
+                            }
+                            
+                            if(f=='f'){
+                                History.push("Create user-defined linked list: "+list)
+                                this.display();
+                            }
+                            else{
+                                document.getElementById("notify").innerHTML= "No duplicate values allowed";
+                                document.getElementById("arr").value="";
+                            }
+                    } 
+                    }
+                }
+
+                function display(){
+                    
+                
+                    for(i=0;i<list.length;i++){
+                        if(i>0){
+                            var t2='a'.concat(i);
+                            document.getElementById(t2).style.display='inline-block';
+                        }
+                            
+                            var t1='l'.concat(i+1);
+                            document.getElementById(t1).style.display='flex';
+                            document.getElementById(t1).innerHTML=list[i];    
+                        
+                    }
+
+                      for(j=list.length;j<7;j++){
+                        var t1='l'.concat(j+1);
+                        document.getElementById(t1).style.display='none';
+                        
+                        if(j>0){
+                            var t2='a'.concat(j);
+                            document.getElementById(t2).style.display='none';
+                        }
+                    }
+
+                     if(list.length==0){
+                        document.getElementById("head").style.display='none';
+                        document.getElementById("upH").style.display='none';
+                        document.getElementById("tail").style.display='none';
+                        document.getElementById("upT").style.display='none';
+                    }
+                    else if(list.length==1){
+                        document.getElementById("head").style.display='inline';
+                        document.getElementById("upH").style.display='inline';
+                        document.getElementById("tail").style.display='inline';
+                        document.getElementById("tail").style.top='330';
+                        document.getElementById("tail").style.left='410';
+                        document.getElementById("upT").style.display='none';
+                    }
+                    else{
+                        document.getElementById("head").style.display='inline';
+                        document.getElementById("upH").style.display='inline';
+                        document.getElementById("tail").style.display='inline';
+                        document.getElementById("upT").style.display='inline';
+                        document.getElementById("tail").style.top='300';
+                        document.getElementById("tail").style.left=410+(80*(list.length-1));
+                        document.getElementById("upT").style.left=415+(80*(list.length-1));
+                    }
+                                     
+                }
+
+                function showSz(){
+                    document.getElementById("showRnd").style.display='inline-block';
+                    document.getElementById("showDef").style.display='none';
+                }
+
+                function showAr(){
+                        document.getElementById("showDef").style.display='inline-block';
+                        document.getElementById("showRnd").style.display='none';
+                }
+
+                function popUp(){
+                    document.getElementById("popUp").style.display='inline-block';
+                }
+
+                function dis(){
+                    document.getElementById("popUp").style.display='none';   
+                }
+
+                function popUpSz(){
+                    document.getElementById("popSz").style.display='inline-block';
+                }
+
+                function disSz(){
+                    document.getElementById("popSz").style.display='none';   
+                }
+
+                function showHd(){
+                    document.getElementById("showH").style.display='inline-block';
+                    document.getElementById("showT").style.display='none';
+                    document.getElementById("showI").style.display='none';   
+                }
+
+                function showT(){
+                    document.getElementById("showH").style.display='none';
+                    document.getElementById("showT").style.display='inline-block';
+                    document.getElementById("showI").style.display='none';   
+                }
+
+                function showI(){
+                    document.getElementById("showH").style.display='none';
+                    document.getElementById("showT").style.display='none';
+                    document.getElementById("showI").style.display='inline-block';   
+                }
+
+                function popIn(){
+                    document.getElementById("popIn").style.display='inline-block';
+                }
+
+                function disIn(){
+                    document.getElementById("popIn").style.display='none';   
+                }
+
+                function showRI(){
+                    document.getElementById("showRI").style.display='inline-block';   
+                }
+
+                function popRIn(){
+                    document.getElementById("popRIn").style.display='inline-block';
+                }
+
+                function disRIn(){
+                    document.getElementById("popRIn").style.display='none';   
+                }
+
+                function exist(v){
+                    for(i=0;i<list.length;i++){
+                        if(v==list[i]){
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+                    
+                function showBack(){
+                    document.getElementById("back").style.display='inline-block';
+                }
+
+                function disBack(){
+                    document.getElementById("back").style.display='none';
+                }
+
+                function showBackH(){
+                    document.getElementById("backH").style.display='inline-block';
+                }
+
+                function disBackH(){
+                    document.getElementById("backH").style.display='none';
+                }
+
+                function show() {
+                    document.getElementById("myModal").style.display = "block";
+                    }
+
+                function closeM() {
+                    document.getElementById("myModal").style.display = "none";
+                    }
+
+                window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                        if (event.target == document.getElementById("myModalH")) {
+                            document.getElementById("myModalH").style.display = "none";
+                        }
+                    }
+
+                function showH() {
+                        document.getElementById("myModalH").style.display = "block";
+                        updateHistory();
+                        //document.getElementById("read").classList.remove('anim');
+                        console.log(History);
+                }
+
+                function closeH() {
+                        document.getElementById("myModalH").style.display = "none";
+                }
+                    
+                function updateHistory(){
+                        var hist=document.getElementById("history");
+                        hist.appendChild(contH);
+                        contH.innerHTML="";
+                        contH.appendChild(histList);
+                        histList.innerHTML="";
+                        for(i=0;i<History.length;i++){
+                            let li = document.createElement('li');
+                            li.innerHTML = History[i];
+                            histList.appendChild(li);                               }
+                }
+
+                 function view(){
+                        document.getElementById("method").style.display='inline';
+                        document.getElementById("view").style.display='none';
+                        document.getElementById("code").style.display='block';
+                        document.getElementById("hide").style.display='inline';
+                    }
+
+                function hide(){
+                        document.getElementById("code").style.display='none';
+                        document.getElementById("hide").style.display='none';
+                            document.getElementById("view").style.display='inline';
+
+                    }
+
+                function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                }
+                    
+            </script>
+
+            </body>   
+        
+    </html>

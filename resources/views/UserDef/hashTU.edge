@@ -1,0 +1,293 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('UserDef/hashTStyle') }}
+            </head>
+                  
+            <body>
+                
+                <title> Hash Table </title>
+                
+                <h1> HASH TABLE </h1>
+        
+                <a HREF="/UserDefined"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+                
+                    <a HREF="/homePage"> <span class="bH" onmouseover="showBackH()" onmouseout="disBackH()">&#171;</span></a>
+                <div class="backH" id="backH"> Back to home page </div>
+                <span class="arr">&#8628;</span>
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know">Instructions before you write your code: </div>
+                <div class="info" id="info"> 
+                    -You should write the code in java language<br>
+                    -You will write the whole code starting from creating the public class and the object variables 
+                    and methods to the main method. You can easily copy your working java code and paste it here<br>
+                    -You cannot add comments to the code, to avoid errors<br>
+                    -In the main method, you will create a list of Strings as so: String[] a= new String[length]; 
+                    where length should be greater than or equal the number of method calls you intend to invoke on the 
+                    object<br>
+                    -After creating the object for the first time, and after each method call on the object (insert/ delete) you will insert 
+                    the displayed object to the list a. Consequently the display method of the data structure should return the displayed 
+                    object instead of printing it, this returned string will be inserted to the list of strings a. Example: stack.push(5); a[1]=stack.display();<br>
+
+                    -After you finish all the method calls, you will print the list a with this command line: System.out.println(Arrays.toString(a)); 
+                    And don't forget to add this import line at the very beginning of the code to avoid errors, import java.util.Arrays;<br><br>
+
+                </div>
+
+                <div class="stackHome">
+                    
+      
+                    <form action="/executeCode" method="POST"> 
+                        {{ csrfField() }}
+                        <div class="tex"> Enter your code here </div>
+                        <textarea name="code" class="input" rows="50" cols="80">import java.util.Arrays;
+
+public class HashTable {
+    int[][] hash;
+    int length;
+    
+    public HashTable(int size){
+        length=size;
+      hash = new int[size][3];
+   }
+   
+   public String insert(int value){
+       int i = value%length;
+       int[] list = hash[i];
+       
+       for(int j=0; j < list.length ;j++){
+           if(list[j]==0){
+                list[j]=value;
+                return "You inserted" + value;
+           }
+        }
+        return "Maximum height is 3";
+        
+   }
+   
+   public String remove(int value){
+       int i = value%length;
+       int[] list = hash[i];
+       
+       for(int j=0; j < list.length ;j++){
+           if(list[j]==value){
+                list[j]=0;
+                return "You removed" + value;
+           }
+        }
+        return value+ " is not in the hash table";
+        
+   }
+   
+   public String search(int value){
+       int i = value%length;
+       int[] list = hash[i];
+       
+       for(int j=0; j < list.length ;j++){
+           if(list[j]==value){
+                return value + " is found in the hash table";
+           }
+        }
+        return value + " is not found in the hash table";
+        
+   }
+   
+   public String printHash(){
+       String res;
+       if(hash.length==0)
+            return "[]";
+        res="[";  
+        
+        for(int i=0;i<hash.length-1;i++){
+            res+=Arrays.toString(hash[i])+" , ";
+        }
+        res+=Arrays.toString(hash[hash.length-1])+ "]";
+        return res;
+   }
+   
+   public static void print(String []a) {
+	    System.out.println(Arrays.toString(a)); 
+	}
+    
+    
+    public static void main(String args[]) {
+        HashTable h = new HashTable(7);
+        String[] a=new String[16];
+        a[0]=h.printHash();
+        h.insert(3);
+        a[1]=h.printHash();
+        h.insert(5);
+        a[2]=h.printHash();
+        h.insert(10);
+        a[3]=h.printHash();
+        h.insert(4);
+        a[4]=h.printHash();
+        h.insert(2);
+        a[5]=h.printHash();
+        h.insert(15);
+        a[6]=h.printHash();
+        h.remove(10);
+        a[7]=h.printHash();
+        h.insert(5);
+        a[8]=h.printHash();
+        h.insert(8);
+        a[9]=h.printHash();
+        h.insert(1);
+        a[10]=h.printHash();
+        h.remove(5);
+        a[11]=h.printHash();
+        h.remove(15);
+        a[12]=h.printHash();
+        h.remove(10);
+        a[13]=h.printHash();
+        h.remove(5);
+        a[14]=h.printHash();
+        print(a);
+    }
+}
+</textarea>
+                        <input type="submit" value="Run" class="run">
+                        <textarea class="data" name="data">hash</textarea>
+                    </form>
+
+                    <div class="abt" onclick="show()"> About </div>
+                    
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+                    
+                    
+                     <p class= "area" id="area"> </p>
+                    
+                </div>
+                    
+
+                <p class ="notify" id="notify"> </p>
+                <p class ="action" id="action"> </p>   <br> <br>
+
+                        
+            
+                <script>
+
+                //    document.getElementById("read").classList.add('anim'); 
+                    var list=[];
+                    var count=1;
+                   
+                    
+                    function display(){
+                       for(i=0;i<list.length;i++){
+                            if(i>0){
+                                var t2='a'.concat(i);
+                                document.getElementById(t2).style.display='inline-block';
+                            }
+                                
+                                var t1='l'.concat(i+1);
+                                document.getElementById(t1).style.display='inline-block';
+                                document.getElementById(t1).innerHTML=list[i];    
+                            
+                        }
+
+                        for(j=list.length;j<7;j++){
+                            var t1='l'.concat(j+1);
+                            document.getElementById(t1).style.display='none';
+                            
+                            if(j>0){
+                                var t2='a'.concat(j);
+                                document.getElementById(t2).style.display='none';
+                            }
+                        }
+
+                        if(list.length==0){
+                            document.getElementById("head").style.display='none';
+                            document.getElementById("upH").style.display='none';
+                            document.getElementById("tail").style.display='none';
+                            document.getElementById("upT").style.display='none';
+                        }
+                        else if(list.length==1){
+                            document.getElementById("head").style.display='inline';
+                            document.getElementById("upH").style.display='inline';
+                            document.getElementById("tail").style.display='inline';
+                            document.getElementById("tail").style.top='330';
+                            document.getElementById("tail").style.left='410';
+                            document.getElementById("upT").style.display='none';
+                        }
+                        else{
+                            document.getElementById("head").style.display='inline';
+                            document.getElementById("upH").style.display='inline';
+                            document.getElementById("tail").style.display='inline';
+                            document.getElementById("upT").style.display='inline';
+                            document.getElementById("tail").style.top='300';
+                            document.getElementById("tail").style.left=505+(80*(list.length-1));
+                            document.getElementById("upT").style.left=505+(80*(list.length-1));
+                        }
+                                   
+                    }
+
+                    function set(){                       
+                        console.log({{res}});
+                        list={{{res}}}                       
+                        display();
+                        alert("The form was submitted");
+                    }
+
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                        if (event.target == document.getElementById("myModal")) {
+                            document.getElementById("myModal").style.display = "none";
+                        }
+                    }
+
+
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function showBackH(){
+                        document.getElementById("backH").style.display='inline-block';
+                    }
+
+                    function disBackH(){
+                        document.getElementById("backH").style.display='none';
+                    }
+
+                    function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
+                    }
+
+            
+                </script>
+
+            </body>   
+        
+    </html>

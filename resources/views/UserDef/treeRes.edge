@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/treeRes') }}
+</head>
+
+
+<body>
+
+    <title> Tree </title>
+                
+    <h1> TREE </h1>
+
+    <a HREF="/UserDefined/Tree"> <span class="bR">&#8249;</span></a>
+    <div class="backR" id="back"> Back to code </div>
+    <div class="action" id="action">  </div>
+    <div class="a" id="a"> Action: </div>
+    <p class= "area" id="area"> </p>
+    <div id="tree">                        
+
+                    <div id="t1" class="t1"> 3</div> <div id="t2" class="t2"> 3</div>  
+                    <div id="t3" class="t3"> 3</div><div id="t4" class="t4"> 3</div> 
+                    <div id="t5" class="t5"> 3</div> <div id="t6" class="t6"> 3</div> 
+                    <div id="t7" class="t7"> 3</div> <div id="t8" class="t8"> 3</div> 
+                    <div id="t9" class="t9"> 3</div> <div id="t10" class="t10"> 3</div> 
+                    <div id="t11" class="t11"> 3</div> <div id="t12" class="t12"> 3</div> 
+                    <div id="t13" class="t13"> 3</div> <div id="t14" class="t14"> 3</div> 
+                    <div id="t15" class="t15"> 3</div>
+
+                    <span class="ar1" id="ar1">&#8739;</span> <span class="ar2" id="ar2">&#8739;</span> <span class="ar3" id="ar3">&#8739;</span>
+                    <span class="ar4" id="ar4">&#8739;</span> <span class="ar5" id="ar5">&#8739;</span> <span class="ar6" id="ar6">&#8739;</span>
+                    <span class="ar7" id="ar7">&#8739;</span> <span class="al1" id="al1">&#8739;</span> <span class="al2" id="al2">&#8739;</span>
+                    <span class="al3" id="al3">&#8739;</span> <span class="al4" id="al4">&#8739;</span> <span class="al5" id="al5">&#8739;</span>
+                    <span class="al6" id="al6">&#8739;</span> <span class="al7" id="al7">&#8739;</span>
+    </div>
+
+    <script>
+                    var tree=[];
+                    var arr=[];
+                    var actions=[];
+
+                    function display(){
+                        
+                        console.log(tree);
+                        
+                        for(i=1;i<tree.length;i++){
+                            if(tree[i]!=undefined || tree[i]!=null){
+                                var t='t'.concat(i);
+                                document.getElementById(t).style.display='flex'              
+                                document.getElementById(t).innerHTML=tree[i];
+
+                                if(i>=1 && i<=7){
+                                    var l=i*2;
+                                    var r=(i*2)+1;
+
+                                    var al='al'.concat(i);
+                                    var ar='ar'.concat(i);                           
+
+                                    if(tree[l]!=undefined || tree[l]!=null){
+                                        document.getElementById(al).style.display='inline-block';
+                                    }
+                                    else{
+                                        document.getElementById(al).style.display='none';
+                                    }
+
+                                    if(tree[r]!=undefined){
+                                        document.getElementById(ar).style.display='inline-block';
+                                    }
+                                    else{
+                                        document.getElementById(ar).style.display='none';
+                                    }
+
+                                }
+                                
+                            }
+                            else{
+                                var t='t'.concat(i);
+                                document.getElementById(t).style.display='none'
+
+                                if(i>=1 && i<=7){
+                                var al='al'.concat(i);
+                                var ar='ar'.concat(i);
+
+                                document.getElementById(al).style.display='none';
+                                document.getElementById(ar).style.display='none';
+                                }
+                            }
+                            
+                        }
+
+                        if(tree.length==0){
+                            for(i=1;i<=15;i++){
+                                var t='t'.concat(i);
+                                document.getElementById(t).style.display='none'
+
+                                if(i>=1 && i<=7){
+                                    var l=i*2;
+                                    var r=(i*2)+1;
+
+                                    var al='al'.concat(i);
+                                    var ar='ar'.concat(i); 
+
+                                    document.getElementById(al).style.display='none';
+                                    document.getElementById(ar).style.display='none';
+                                }
+                            }
+                        }
+                        
+                    }
+
+                    function animate(){
+                        setTimeout(function(){
+                                    tree=arr[0];
+                                    display()
+                                    document.getElementById("action").innerHTML="Create Tree"
+                                    
+                                },1000);
+                        l=1
+                        while(l<arr.length){
+                            (function(l){
+
+                                setTimeout(function(){
+                                    if(arr[l]!=null){
+                                        tree=arr[l];
+                                        display()
+                                        document.getElementById("action").innerHTML=actions[l-1]
+                                    }
+                                },1000+(1500*l));
+
+                            })(l);
+
+                            l++
+
+                        }
+                        
+                    }
+
+                    function countN(a){
+                        var z=0;
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]==null)
+                                z++;
+                        }
+                        return z;
+                    }
+
+                    function difference(a, b) {
+                        return [...b.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) - 1),
+                                a.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) + 1), new Map() ) 
+                        )].reduce( (acc, [v, count]) => acc.concat(Array(Math.abs(count)).fill(v)), [] );
+                    }
+
+                    function getValue(a){
+                        for(var i=0;i<a.length;i++){
+                            if(a[i]!=null)
+                                return a[i]
+                        }
+                        return "not found"
+                    }
+
+                    function setActions(){
+                        for(var i=0;i<arr.length-1;i++){
+                            var a=arr[i];
+                            var b=arr[i+1];
+
+                            if(a!=null && b!=null){
+                                if(countN(a)>countN(b)){
+                                    var v=getValue(difference(a,b))                                                                        
+                                    var t="insert ".concat(v)
+                                    actions.push(t)
+                                }
+                                else{
+                                    var v=getValue(difference(a,b)) 
+                                    actions.push("delete ".concat(v))
+                                }
+                            }
+                        }
+                    }
+
+                    arr={{res}}
+                    console.log(arr)
+                    setActions()
+                    animate()
+
+    
+    </script>
+
+
+</body>
+
+</html>

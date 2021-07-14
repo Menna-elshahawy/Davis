@@ -1,0 +1,186 @@
+<DOCTYPE! html>
+    <html>
+        <head>
+        {{ style('standardStyle') }}
+            </head>
+
+            <title> User Defined </title>
+
+            <body>
+                <h1> DAVIS </h1>
+                <h2> A tool for Data Structures and Algorithms Visualization </h2>
+                
+                <a HREF="/homePage"> <span class="b" onmouseover="showBack()" onmouseout="disBack()">&#8249;</span></a>
+                <div class="back" id="back"> Back </div>
+
+                <div class="container">
+                    
+                    <a  HREF="/UserDefined/Stack" ><img src="Standard/s2.png" alt="stack" id="stack" class="stack" onmouseover="popSt()" onmouseout="disSt()">
+                    <p id="st" class="st" > Stack </p></a>      
+                    <pre>        </pre>
+                    
+                    <a HREF="/UserDefined/Queue"> <img src="Standard/q2.png" alt="queue" id="queue" class="queue" onmouseover="popQ()" onmouseout="disQ()">
+                    <p id="q" class="q"> Queue </p></a> 
+                    <pre>        </pre>
+                    
+                    <a HREF="/UserDefined/PriorityQueue"> <img src="Standard/pq2.png" alt="" id="pqueue" class="pqueue" onmouseover="popPQ()" onmouseout="disPQ()"> 
+                    <p id="pq" class="pq"> Priority Queue </p></a> 
+                    <pre>        </pre>
+                    
+
+                    <a HREF="/UserDefined/LinkedList"> <img src="Standard/l5.png" alt="linked list" id="lList" class="lList" onmouseover="popL()" onmouseout="disL()"> 
+                    <p class="l" id="l"> Linked List </p></a>
+                    <pre>        </pre>
+
+                    <a HREF="/UserDefined/DoublyLinkedList"><img src="Standard/dl6.png" alt="doubly linked list" id="dList" class="dList" onmouseover="popDL()" onmouseout="disDL()"> 
+                     <p class="dl" id="dl"> Doubly Linked List </p> </a>
+                    <pre>        </pre>
+
+                    <a HREF="/UserDefined/HashTable"> <img src="Standard/h1.png" alt="hash table" id="hash" class="hash" onmouseover="popH()" onmouseout="disH()">
+                     <p class="h" id="h"> Hash Table </p> </a>
+                    <pre>        </pre>
+
+                    <a HREF="/UserDefined/Tree"><img src="Standard/t10.png" alt="tree" id="tree" class="tree" onmouseover="popT()" onmouseout="disT()"> 
+                     <p class="t" id="t"> Binary Search Tree </p> </a>
+                    <pre>        </pre>
+
+                    <a HREF="/UserDefined/SelectionSort"> <img src="Standard/ss1.png" alt="selection sort" id="select" class="select" onmouseover="popSS()" onmouseout="disSS()">
+                     <p class="ss" id="ss"> Selection Sort </p> </a>
+                    <pre>        </pre>
+
+                    <a HREF="/UserDefined/InsertionSort"> <img src="Standard/is1.png" alt="insertion sort" id="insert" class="insert" onmouseover="popIS()" onmouseout="disIS()">
+                     <p class="is" id="is"> Insertion Sort </p> </a>
+                    <pre>        </pre>
+
+                     <a HREF="/UserDefined/BubbleSort"> <img src="Standard/bs1.png" alt="bubble sort" id="bubble" class="bubble" onmouseover="popBS()" onmouseout="disBS()">
+                     <p class="bs" id="bs"> Bubble Sort </p> </a>
+                    <pre>        </pre>
+
+                     
+                    <pre>        </pre>
+                    
+
+        
+
+                </div>            
+            
+
+                <div class="abt" onclick="show()"> About </div>
+                    
+                    <div id="myModal" class="modal">
+                  <div class="modal-content">
+                    <span class="close" id="close" onclick="closeM()">&#215;</span>
+                    <p> <span style="color: #303c6c; position: fixed; left: 620; font-size: 22;">Welcome to DAVIS</span> <br> <br> DAVIS is a tool for Data Structures and Algorithms Visualization which is implemented to help students better understand data structures and algorithms through visualization. It has two modes :<br> 1-Standard: where you can visualize the data structures using the default algorithms <br> 2-User-defined: where you enter your own code and visualize the output  </p>
+                  </div>
+                </div>
+
+            <script>
+                     function popSt(){
+                        document.getElementById("stack").src='Standard/s2.gif';
+                    }
+
+                    function disSt(){
+                        document.getElementById("stack").src='Standard/s2.png';
+                    }
+
+                    function popQ(){
+                        document.getElementById("queue").src='Standard/q2.gif';
+                    }
+
+                    function disQ(){
+                            document.getElementById("queue").src='Standard/q2.png';
+                    }
+
+                    function popPQ(){
+                        document.getElementById("pqueue").src='Standard/pq2.gif';
+                    }
+
+                    function disPQ(){
+                            document.getElementById("pqueue").src='Standard/pq2.png';
+                    }
+
+                    function popL(){
+                        document.getElementById("lList").src='Standard/l2.gif';
+                    }
+
+                    function disL(){
+                            document.getElementById("lList").src='Standard/l5.png';
+                    }
+
+                    function popDL(){
+                        document.getElementById("dList").src='Standard/dl.gif';
+                    }
+
+                    function disDL(){
+                            document.getElementById("dList").src='Standard/dl6.png';
+                    }
+
+                    function popH(){
+                        document.getElementById("hash").src='Standard/h.gif';
+                    }
+
+                    function disH(){
+                            document.getElementById("hash").src='Standard/h1.png';
+                    }
+
+                    function popT(){
+                        document.getElementById("tree").src='Standard/t.gif';
+                    }
+
+                    function disT(){
+                            document.getElementById("tree").src='Standard/t10.png';
+                    }
+
+                    function popSS(){
+                        document.getElementById("select").src='Standard/ss.gif';
+                    }
+
+                    function disSS(){
+                            document.getElementById("select").src='Standard/ss1.png';
+                    }
+
+                    function popIS(){
+                        document.getElementById("insert").src='Standard/is.gif';
+                    }
+
+                    function disIS(){
+                            document.getElementById("insert").src='Standard/is1.png';
+                    }
+
+                    function popBS(){
+                        document.getElementById("bubble").src='Standard/bs.gif';
+                    }
+
+                    function disBS(){
+                            document.getElementById("bubble").src='Standard/bs1.png';
+                    }
+
+                                        
+                    function showBack(){
+                        document.getElementById("back").style.display='inline-block';
+                    }
+
+                    function disBack(){
+                        document.getElementById("back").style.display='none';
+                    }
+
+                    function show() {
+                        document.getElementById("myModal").style.display = "block";
+                    }
+
+                    function closeM() {
+                    document.getElementById("myModal").style.display = "none";
+                    }
+
+                    window.onclick = function(event) {
+                    if (event.target == document.getElementById("myModal")) {
+                        document.getElementById("myModal").style.display = "none";
+                    }
+                    }
+
+            
+            </script>
+
+            </body>   
+        
+    </html>
