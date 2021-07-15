@@ -85,8 +85,9 @@ content: "\2039";
     left: 435px;
     font-family: cursive;
     color: #7ac7d1;
-    font-size: 20;
+    font-size: 20px;
     display: none;
+    /* font-weight: bold; */
   }
   
   .l1{
