@@ -32,12 +32,13 @@
                             return;
                         }
 
+                        editQ()
                             var list=document.getElementById("area");
                             list.appendChild(cont);
                             cont.innerHTML="";
                             cont.appendChild(ul);
                             ul.innerHTML="";
-                        for(i=0;i<queue.length;i++){
+                        for(i=queue.length-1;i>=0;i--){
                                 let li = document.createElement('li');
                                 li.innerHTML = queue[i];
                                 ul.appendChild(li);   
@@ -138,6 +139,22 @@
                         return [...b.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) - 1),
                                 a.reduce( (acc, v) => acc.set(v, (acc.get(v) || 0) + 1), new Map() ) 
                         )].reduce( (acc, [v, count]) => acc.concat(Array(Math.abs(count)).fill(v)), [] );
+                    }
+
+                    function editQ(){
+                        var n=countNE(queue)
+                        var tmp=[]
+                        
+                        for(var i=0;i<n;i++){
+                            tmp[i]=null
+                        }
+                        var k=0;
+                        for(var j=n;j<queue.length;j++){
+                            tmp[j]=queue[k];
+                            k++;
+                        }
+                        queue=tmp
+                    
                     }
 
 
