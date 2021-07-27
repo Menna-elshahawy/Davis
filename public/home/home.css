@@ -136,6 +136,7 @@ h2{
     margin: auto;
     padding: 20px;
     border: 4px solid #303c6c;
+    border-radius: 10px;
     width: 66%;
     font-size: 20;
     font-family: cursive;
