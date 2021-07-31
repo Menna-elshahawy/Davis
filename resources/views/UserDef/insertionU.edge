@@ -17,7 +17,17 @@
                 <span class="arr">&#8628;</span>
 
                 <div class="stackHome">
-                    
+
+                <div id="arrow"  onclick="Info()" > <span class="infoAr" id="infoAr">&#8250;</span> 
+                <span class="arrH" id="arrH">&#8249;</span>  </div>
+                <div class="know" id="know">Instructions before you write your code: </div>        
+                <div class="info" id="info"> 
+                    -You should write the code in java language<br>
+                    -You will write the whole code starting from creating the public class and the object variables 
+                    and methods to the main method. You can easily copy your working java code and paste it here<br>
+                    -You cannot add comments to the code, to avoid errors<br>
+                    -If you ran your code, then directed to the output page but the output was not displayed, then recheck your code for any errors.<br><br>
+                </div>    
       
                     <form action="/executeCode" method="POST"> 
                         {{ csrfField() }}
@@ -83,6 +93,7 @@ public class InsertionSort {
 
                 //    document.getElementById("read").classList.add('anim');
                     var list=[];
+                    var count=1;
 
                     function display(){
                     
@@ -155,6 +166,23 @@ public class InsertionSort {
 
                     function disBackH(){
                         document.getElementById("backH").style.display='none';
+                    }
+
+                    function Info(){
+                        if(count%2==0){
+                            document.getElementById("info").classList.add("infoAnimS");
+                            document.getElementById("info").classList.remove("infoAnimH");
+                            document.getElementById("infoAr").style.display='none';
+                            document.getElementById("arrH").style.display='inline';
+                        }
+                        else{
+                            document.getElementById("info").classList.add("infoAnimH");
+                            document.getElementById("info").classList.remove("infoAnimS");
+                            document.getElementById("arrH").style.display='none';
+                            document.getElementById("infoAr").style.display='inline';
+                            
+                        }
+                        count++;
                     }
 
 

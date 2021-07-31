@@ -437,3 +437,81 @@ font-size: 40px;
 .data{
   display: none;
 }
+
+.info{
+  position: fixed;
+  /* bottom: 5 ; */
+  top: 150;
+  left: 20;
+  border: 1px solid #303c6c;
+  border-radius: 8px;
+  font-size: 16;
+  font-family: cursive;
+  /* color: #7ac7d1; */
+  color: #303c6c;
+  height: 270;
+  width: 370;
+  list-style-type: none;
+  line-height: 150%;
+  text-align: center;
+}
+
+@keyframes slideS {
+  from{left: -450;}
+  to{left: 20;}
+}
+
+@keyframes slideH {
+from{left: 20;}
+to{left: -450;}
+}
+
+.infoAnimS{
+animation: slideS 400ms ;
+animation-fill-mode:forwards;
+animation-timing-function: ease-in-out;
+}
+
+.infoAnimH{
+animation: slideH 400ms ;
+animation-fill-mode:forwards;
+animation-timing-function: ease-in-out;
+
+}
+
+.infoAr{
+  content: "\203A";
+  font-size: 60;
+  font-family: cursive;
+  color: #f4976c;
+  /* border: 1px solid #303c6c; */
+  border-radius: 50%;
+    position: fixed;
+  top: 80;
+  left: 10;
+  cursor: pointer;
+  display: none;
+}
+
+.arrH{
+  content: "\203A";
+  font-size: 60;
+  font-family: cursive;
+  color: #f4976c;
+  /* border: 1px solid #303c6c; */
+  border-radius: 50%;
+    position: fixed;
+    top: 80;
+  left: 10;
+  cursor: pointer;
+  /* display: none; */
+}
+
+.know{
+  position: fixed;
+  top: 115;
+  left: 40;
+  font-size: 18;
+  font-family: cursive;
+  color: #7ac7d1;
+}
