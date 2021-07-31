@@ -908,6 +908,7 @@
                                 document.getElementById("srchM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
                                 History.push("Search: "+v)
+                                document.getElementById("current").style.left=397;
 
                                 
                                 setTimeout(function(){document.getElementById("s1").style.background='#fbe8a6';
@@ -916,6 +917,7 @@
                                 setTimeout(function(){document.getElementById("s1").style.background='none';
                                                     document.getElementById("s2").style.background='#fbe8a6';
                                                     document.getElementById("l1").style.background='#fbe8a6';
+                                                    document.getElementById("current").style.display='inline';
                                                     },2000);
                                 
                                 setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
@@ -933,7 +935,8 @@
                                                 var tmp='l'.concat(c)
                                                 document.getElementById(tmp).style.background='none';
                                                 tmp='l'.concat(c+1)
-                                                document.getElementById(tmp).style.background='#fbe8a6';                                                                                                                        
+                                                document.getElementById(tmp).style.background='#fbe8a6'; 
+                                                document.getElementById("current").style.left=397+80*c;                                                                                                                       
                                             },4000*(c-1)+5000); 
 
                                         setTimeout(function(){document.getElementById("s7").style.background='#fbe8a6';
@@ -955,6 +958,7 @@
                                         document.getElementById("s4").style.background='none';
                                         tmp='l'.concat(c)
                                         document.getElementById(tmp).style.background='none';
+                                        document.getElementById("current").style.display='none';
                                         document.getElementById("action").innerHTML="Found value "+v+" at index "+p;                                                                                                                      
                                     },4000*(c)+1000);  
 
@@ -977,6 +981,7 @@
                             }
                             else{
                                 
+                                document.getElementById("current").style.left=397;
                                 var c=1;
                                 document.getElementById("srchM").style.display='inline';
                                 document.getElementById("method").style.display='inline';
@@ -987,6 +992,7 @@
                                 setTimeout(function(){document.getElementById("s1").style.background='none';
                                                     document.getElementById("s2").style.background='#fbe8a6';
                                                     document.getElementById("l1").style.background='#fbe8a6';
+                                                    document.getElementById("current").style.display='inline';
                                                     },2000);
                                 
                                 setTimeout(function(){document.getElementById("s3").style.background='#fbe8a6';
@@ -1004,7 +1010,8 @@
                                                 var tmp='l'.concat(c)
                                                 document.getElementById(tmp).style.background='none';
                                                 tmp='l'.concat(c+1)
-                                                document.getElementById(tmp).style.background='#fbe8a6';                                                                                                                        
+                                                document.getElementById(tmp).style.background='#fbe8a6';
+                                                document.getElementById("current").style.left=397+80*c;                                                                                                                          
                                             },4000*(c-1)+5000); 
 
                                         setTimeout(function(){document.getElementById("s7").style.background='#fbe8a6';
@@ -1026,6 +1033,7 @@
                                         document.getElementById("s4").style.background='none';
                                         tmp='l'.concat(c)
                                         document.getElementById(tmp).style.background='none';
+                                        document.getElementById("current").style.display='none';  
                                     },4000*(c)+1000);  
 
                                 setTimeout(function(){document.getElementById("s6").style.background='none';
@@ -1048,8 +1056,7 @@
                                 setTimeout(function(){document.getElementById("s9").style.background='none';                            
                                     },4000*(c)+5500);
                                 
-                                setTimeout(function(){document.getElementById("srchM").style.display='none';
-                                        document.getElementById("method").style.display='none';
+                                setTimeout(function(){
                                         document.getElementById("searchBtn").disabled= false;
                                                     document.getElementById("insertBtn").disabled=false;
                                                     document.getElementById("createBtn").disabled= false;

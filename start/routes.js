@@ -58,6 +58,7 @@ Route.group(()=>{
     Route.on('/selectRes').render('UserDef/selectRes')
     Route.on('/insertRes').render('UserDef/insertRes')
     Route.on('/bubbleRes').render('UserDef/bubbleRes')
+    Route.on('/printTree').render('UserDef/printTree')
 }).prefix('/UserDefined')
 
 

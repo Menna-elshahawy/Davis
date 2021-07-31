@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+{{ style('UserDef/print') }}
+</head>
+
+
+<body>
+
+    <title> display method </title>
+                
+    <textarea disabled> 
+    public String display(){
+	    Node current=root;
+	    Node parent=root;
+
+	    if(current!=null){
+	        tree[1]=current.data;
+	    }
+	    
+	    if(current != null){
+    	    if(current.left!=null){
+    	       tree[2]=current.left.data;
+    	    }
+    	    else{
+    	        tree[2]=null;
+    	    }
+    	    if(current.right!=null){
+    	       tree[3]=current.right.data;
+    	    }
+    	    else{
+    	        tree[3]=null;
+    	    }
+    	    
+    	    current=parent.left;
+    	    if(current!=null){
+        	    if(current.left!=null){
+        	       tree[4]=current.left.data;
+        	    }
+        	    else{
+    	            tree[4]=null;
+    	        }
+        	    if(current.right!=null){
+        	       tree[5]=current.right.data;
+        	    }
+        	    else{
+    	            tree[5]=null;
+    	        }
+    	    
+    	    
+        	    Node parentL=current;
+        	    
+        	    current=parentL.left;
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[8]=current.left.data;
+            	    }
+            	    else{
+        	            tree[8]=null;
+        	        }
+            	    if(current.right!=null){
+            	       tree[9]=current.right.data;
+            	    }
+            	    else{
+        	            tree[9]=null;
+        	        }
+        	    }
+        	    
+        	    current=parentL.right;
+        	    
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[10]=current.left.data;
+            	    }
+            	    else{
+            	        tree[10]=null;
+            	    }
+            	    if(current.right!=null){
+            	       tree[11]=current.right.data;
+            	    }
+            	    else{
+            	        tree[11]=null;
+            	    }
+        	    }
+    	    }
+	    
+    	    current=parent.right;
+    	    if(current!=null){
+        	    if(current.left!=null){
+        	       tree[6]=current.left.data;
+        	    }
+        	    else{
+        	        tree[6]=null;
+        	    }
+        	    if(current.right!=null){
+        	       tree[7]=current.right.data;
+        	    }
+        	    else{
+        	        tree[7]=null;
+        	    }
+        	    Node parentR=current;
+        	    
+        	    
+        	    
+        	    current=parentR.left;
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[12]=current.left.data;
+            	    }
+            	    else{
+            	        tree[12]=null;
+            	    }
+            	    if(current.right!=null){
+            	       tree[13]=current.right.data;
+            	    }
+            	    else{
+            	        tree[13]=null;
+            	    }
+        	    }
+        	    
+        	    current=parentR.right;
+        	    if(current!=null){
+            	    if(current.left!=null){
+            	       tree[14]=current.left.data;
+            	    }
+            	    else{
+            	        tree[14]=null;
+            	    }
+            	    if(current.right!=null){
+            	       tree[15]=current.right.data;
+            	    }
+            	    else{
+            	        tree[15]=null;
+            	    }
+        	    }
+    	    }
+	    }
+	    else{
+	        tree[1]=null;
+	    }
+	    
+	    return (Arrays.toString(tree));
+	}
+    </textarea>
+
+
+</body>
+
+</html>

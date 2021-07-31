@@ -25,6 +25,7 @@
                     var actions=[];
                     var cont= document.createElement('div');
                     var ul = document.createElement('ul');
+                    var flag='false';
 
                     function display(){
                         //console.log(stack);
@@ -48,6 +49,7 @@
                     }
 
                     function animate(){
+                        flag='true'
                         setTimeout(function(){
                                     stack=arr[0];
                                     display()
